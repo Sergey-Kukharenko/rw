@@ -1,5 +1,5 @@
 <template>
-  <section class="layout">
+  <section class="layout section">
     <app-section-header v-bind="{ headerProps }" />
     <app-grid :slides="slides" v-slot="slotProps">
       <app-card :slide="{ ...slotProps }" />
@@ -18,3 +18,6 @@ const headerProps = ref(main);
 const slides = ref(list);
 </script>
 
+<style lang="scss">
+.section{}
+</style>
