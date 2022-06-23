@@ -23,7 +23,7 @@ import { FreeMode, Pagination, Navigation, Mousewheel, Keyboard } from 'swiper';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
-import 'swiper/scss/scrollbar';
+import 'swiper/scss/free-mode';
 
 const props = defineProps({
   options: Object,
