@@ -13,6 +13,7 @@ export default defineNuxtConfig({
           additionalData: `@import "@/assets/scss/index.scss";`
         }
       }
-    }
+    },
+    optimizeDeps: { exclude: ["swiper/vue", "swiper/types"], }
   },
 })
