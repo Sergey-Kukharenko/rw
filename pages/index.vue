@@ -4,6 +4,7 @@
     <app-promotions />
     <app-popular-categories />
 
+    <app-special-offers />
   </NuxtLayout>
 </template>
 
@@ -12,4 +13,5 @@
 import AppPromotions from '@/components/AppPromotions.vue';
 import AppPopularCategories from '@/components/AppPopularCategories.vue';
 
+import AppSpecialOffers from '@/components/AppSpecialOffers.vue';
 </script>
