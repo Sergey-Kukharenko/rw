@@ -25,17 +25,15 @@ const props = defineProps({
 });
 
 const modules = [FreeMode, Pagination, Navigation, Mousewheel, Keyboard];
+
 </script>
 
 <style lang="scss">
 @import 'swiper/scss';
-@import 'swiper/scss/free-mode';
-@import 'swiper/scss/pagination';
-@import 'swiper/scss/navigation';
-@import 'swiper/scss/virtual';
 </style>
 
 <style lang="scss" scoped>
+
 .swiper {
   @include xs {
     padding: 0 6px;
