@@ -22,7 +22,8 @@
     "sass-loader": "^13.0.0",
     "@commitlint/cli": "^16.1.0",
     "@commitlint/config-conventional": "^16.0.0",
-    "husky": "^7.0.0"
+    "husky": "^7.0.0",
+    "eslint-plugin-vue": "^6.2.2"
   },
   "dependencies": {
     "h3": "^0.7.8",
