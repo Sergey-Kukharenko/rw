@@ -81,12 +81,11 @@ const props = defineProps({
 
     &:hover {
       .figure__img {
-        opacity: 0.5;
         transform: translate(-50%, -50%) scale(1);
       }
 
       .figure__overlay {
-        height: 50%;
+        height: 20%;
       }
     }
   }

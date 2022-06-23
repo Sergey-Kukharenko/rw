@@ -16,8 +16,16 @@
 </template>
 
 <script setup>
+// Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue';
+
 import { FreeMode, Pagination, Navigation, Mousewheel, Keyboard } from 'swiper';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 const props = defineProps({
   options: Object,
@@ -25,15 +33,9 @@ const props = defineProps({
 });
 
 const modules = [FreeMode, Pagination, Navigation, Mousewheel, Keyboard];
-
 </script>
 
-<style lang="scss">
-@import 'swiper/scss';
-</style>
-
 <style lang="scss" scoped>
-
 .swiper {
   @include xs {
     padding: 0 6px;
