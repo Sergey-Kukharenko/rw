@@ -3,8 +3,7 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
   css: [
     '@/assets/css/normalize.css',
-    '@/assets/css/fonts.css',
-    '@/assets/scss/main.scss'
+    '@/assets/css/fonts.css'
   ],
 
   vite: {
