@@ -19,21 +19,23 @@
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { FreeMode, Pagination, Navigation, Mousewheel, Keyboard } from 'swiper';
 
-// Import Swiper styles
-import 'swiper/scss';
-import 'swiper/scss/navigation';
-import 'swiper/scss/pagination';
-import 'swiper/scss/free-mode';
-
 const props = defineProps({
   options: Object,
   slides: Array,
 });
 
 const modules = [FreeMode, Pagination, Navigation, Mousewheel, Keyboard];
+
 </script>
 
+<style lang="scss">
+@import 'swiper/scss';
+@import "swiper/scss/free-mode";
+@import "swiper/scss/pagination";
+</style>
+
 <style lang="scss" scoped>
+
 .swiper {
   @include xs {
     padding: 0 6px;
