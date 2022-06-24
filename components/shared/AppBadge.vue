@@ -6,7 +6,7 @@
 
 <script setup>
 const props = defineProps({
-  type: String,
+  theme: String,
 });
 
 const clsNm = computed(() => useClassName(props, 'badge'));
@@ -18,6 +18,7 @@ const clsNm = computed(() => useClassName(props, 'badge'));
   letter-spacing: -0.01em;
   color: #ffffff;
   padding: 2px 6px;
+  background: #343434;
   border-radius: 8px;
 
   @include gt-xs {
@@ -31,7 +32,7 @@ const clsNm = computed(() => useClassName(props, 'badge'));
     padding: 2px 4.4555px;
   }
 
-  &--sale {
+  &--red {
     background: #db1838;
   }
 }

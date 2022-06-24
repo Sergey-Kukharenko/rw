@@ -29,7 +29,7 @@
         <div class="price__group group">
           <div class="group__text">£ {{ slide.price }}</div>
           <div class="group__badge">
-            <app-badge :type="slide.sale.status">
+            <app-badge theme="red">
               {{ slide.sale.percent }}
             </app-badge>
           </div>
@@ -81,7 +81,7 @@ const props = defineProps({
 
     &:hover {
       .figure__img {
-        transform: translate(-50%, -50%) scale(1);
+        transform: translate(-50%, -50%) scale(1.1);
       }
 
       .figure__overlay {
@@ -115,14 +115,14 @@ const props = defineProps({
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #dde0e6;
 
     @include gt-xs {
       padding: 17px 0 18px;
+      border-bottom: 1px solid #dde0e6;
     }
 
     @include xs {
-      padding: 7px 0 9px;
+      padding: 7px 0;
     }
   }
 }
@@ -137,7 +137,7 @@ const props = defineProps({
     height: 100%;
     object-fit: cover;
     z-index: 1;
-    transform: translate(-50%, -50%) scale(1.12);
+    transform: translate(-50%, -50%) scale(1);
     transition: opacity 0.35s, transform 0.35s;
   }
 
@@ -167,19 +167,32 @@ const props = defineProps({
     transition: height 0.35s;
 
     &--top {
-      display: none;
-      height: 35.29777%;
       left: 0;
       right: 0;
       top: 0;
       transform: matrix(1, 0, 0, -1, 0, 0);
+
+      @include gt-xs {
+        height: 25.29777%;
+      }
+
+      @include xs {
+        height: 32%;
+      }
     }
 
     &--bottom {
-      height: 35.29777%;
       left: 0;
       right: 0;
       bottom: 0;
+
+      @include gt-xs {
+        height: 35.29777%;
+      }
+
+      @include xs {
+        height: 42.67%;
+      }
     }
   }
 }
@@ -199,7 +212,7 @@ const props = defineProps({
   @include gt-xs {
     padding: 4px 8px;
     background: rgba(0, 0, 0, 0.26);
-    backdrop-filter: blur(20px);
+    //backdrop-filter: blur(20px);
     border-radius: 8px;
   }
 

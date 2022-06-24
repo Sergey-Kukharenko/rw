@@ -5,10 +5,10 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(Vue3Mq, {
     breakpoints: {
       xs: 0,
-      sm: 599,
-      md: 959,
-      lg: 1279,
-      xl: 1919,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
       xxl: 5000
     }
   })

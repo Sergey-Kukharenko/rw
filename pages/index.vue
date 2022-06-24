@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout name="default">
-    <app-notification />
+    <!-- <app-notification /> -->
     <app-promotions />
     <app-popular-categories />
     <app-bestsellers />

@@ -14,6 +14,5 @@ export default defineNuxtConfig({
         }
       }
     },
-    // optimizeDeps: { exclude: ["swiper/vue", "swiper/types"], }
   },
 })

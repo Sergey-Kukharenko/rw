@@ -15,8 +15,23 @@ const props = defineProps({
 <style lang="scss" scoped>
 .grid {
   display: grid;
-  grid-gap: 8px;
-  grid-template-columns: repeat(auto-fill, minmax(24%, 1fr));
-  row-gap: 32px;
+
+  @include gt-sm {
+    grid-template-columns: repeat(auto-fill, minmax(22%, 1fr));
+    grid-gap: 16px;
+    row-gap: 32px;
+  }
+
+  @include sm {
+    grid-template-columns: repeat(auto-fill, minmax(24%, 1fr));
+    grid-gap: 16px;
+    row-gap: 32px;
+  }
+
+  @include xs {
+    grid-template-columns: repeat(auto-fill, minmax(48%, 1fr));
+    grid-gap: 10px;
+    row-gap: 12px;
+  }
 }
 </style>

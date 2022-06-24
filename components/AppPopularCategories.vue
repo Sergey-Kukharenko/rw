@@ -39,12 +39,6 @@ const getImg = computed(() => (mq.current === 'xs' ? 'mobile' : 'desktop'));
 </script>
 
 <style scoped lang="scss">
-.popular-categories {
-  @include xs {
-    margin-top: 30px;
-  }
-}
-
 .popular-title {
   display: none;
 

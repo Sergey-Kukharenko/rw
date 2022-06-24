@@ -9,53 +9,8 @@ export default {
   },
   list: [
     {
-      title: 'Bouquet of 21 roses',
-      'img': 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zmxvd2Vyc3xlbnwwfHwwfHw%3D&w=1000&q=80',
-      rating: 4.91,
-      like: false,
-      price: 52.76,
-      sale: {
-        status: 'sale',
-        percent: '-30%'
-      }
-    },
-    {
-      title: 'Bouquet of 35 roses',
-      'img': 'https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Zmxvd2Vyc3xlbnwwfHwwfHw%3D&w=1000&q=80',
-      rating: 4.93,
-      like: false,
-      price: 52.76,
-      sale: {
-        status: 'sale',
-        percent: '-30%'
-      }
-    },
-    {
-      title: 'Bouquet of 51 roses',
-      'img': 'https://images.unsplash.com/photo-1508610048659-a06b669e3321?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Zmxvd2Vyc3xlbnwwfHwwfHw%3D&w=1000&q=80',
-      rating: 4.92,
-      like: false,
-      price: 52.76,
-      sale: {
-        status: 'sale',
-        percent: '-30%'
-      }
-    },
-    {
-      title: 'Bouquet of 101 roses',
-      'img': 'https://images.unsplash.com/photo-1469259943454-aa100abba749?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Zmxvd2Vyc3xlbnwwfHwwfHw%3D&w=1000&q=80',
-      rating: 4.94,
-      like: false,
-      price: 52.76,
-      sale: {
-        status: 'sale',
-        percent: '-30%'
-      }
-    },
-
-    {
       title: 'Bouquet of 151 roses',
-      'img': 'https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Zmxvd2Vyc3xlbnwwfHwwfHw%3D&w=1000&q=80',
+      img: 'https://images.unsplash.com/photo-1454262041357-5d96f50a2f27?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDF8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
       rating: 4.95,
       like: false,
       price: 52.76,
@@ -66,7 +21,7 @@ export default {
     },
     {
       title: 'Bouquet of 201 roses',
-      'img': 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Zmxvd2Vyc3xlbnwwfHwwfHw%3D&w=1000&q=80',
+      img: 'https://images.unsplash.com/photo-1561848355-890d054dc55a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDN8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
       rating: 4.96,
       like: false,
       price: 52.76,
@@ -77,7 +32,7 @@ export default {
     },
     {
       title: 'Bouquet of 251 roses',
-      'img': 'https://images.unsplash.com/photo-1476994230281-1448088947db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGZsb3dlcnN8ZW58MHx8MHx8&w=1000&q=80',
+      img: 'https://images.unsplash.com/photo-1496861083958-175bb1bd5702?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzN8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
       rating: 4.98,
       like: false,
       price: 52.76,
@@ -88,7 +43,51 @@ export default {
     },
     {
       title: 'Bouquet of 291 roses',
-      'img': 'https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGZsb3dlcnN8ZW58MHx8MHx8&w=1000&q=80',
+      img: 'https://images.unsplash.com/photo-1464982326199-86f32f81b211?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzZ8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
+      rating: 5.00,
+      like: false,
+      price: 52.76,
+      sale: {
+        status: 'sale',
+        percent: '-30%'
+      }
+    },
+    {
+      title: 'Bouquet of 291 roses',
+      img: 'https://images.unsplash.com/photo-1585003387496-7ef0cc60267d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODJ8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
+      rating: 5.00,
+      like: false,
+      price: 52.76,
+      sale: {
+        status: 'sale',
+        percent: '-30%'
+      }
+    },
+    {
+      title: 'Bouquet of 291 roses',
+      img: 'https://images.unsplash.com/photo-1502736842968-bcaab72d0700?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODR8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
+      rating: 5.00,
+      like: false,
+      price: 52.76,
+      sale: {
+        status: 'sale',
+        percent: '-30%'
+      }
+    },
+    {
+      title: 'Bouquet of 291 roses',
+      img: 'https://images.unsplash.com/photo-1539622230226-3d4eb483b3f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTd8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
+      rating: 5.00,
+      like: false,
+      price: 52.76,
+      sale: {
+        status: 'sale',
+        percent: '-30%'
+      }
+    },
+    {
+      title: 'Bouquet of 291 roses',
+      img: 'https://images.unsplash.com/photo-1556807182-1a42c64b8283?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA5fHxmbG93ZXJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
       rating: 5.00,
       like: false,
       price: 52.76,
