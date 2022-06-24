@@ -10,7 +10,7 @@
 <script setup>
 import AppSectionHeader from '@/components/AppSectionHeader.vue';
 import AppGrid from '@/components/shared//AppGrid.vue';
-import AppCard from '@/components/ui/AppCard.vue';
+import AppCard from '@/components/shared/AppCard.vue';
 import dataBestsellers from '@/data/bestsellers';
 const { main, list } = dataBestsellers;
 

@@ -15,7 +15,7 @@
 <script setup>
 import AppSectionHeader from '@/components/AppSectionHeader.vue';
 import AppSwiper from '@/components/ui/AppSwiper.vue';
-import AppCard from '@/components/ui/AppCard.vue';
+import AppCard from '@/components/shared/AppCard.vue';
 import dataBestsellers from '@/data/bestsellers';
 
 const { main, list } = dataBestsellers;
