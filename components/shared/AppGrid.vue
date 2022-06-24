@@ -1,6 +1,6 @@
 <template>
   <div class="grid">
-    <div class="grid__item" v-for="(slide, idx) in slides" :key="idx" >
+    <div class="grid__item" v-for="(slide, idx) in slides" :key="idx">
       <slot v-bind="{ ...slide }"></slot>
     </div>
   </div>
@@ -13,13 +13,10 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-.grid{
-  grid-gap: 8px;
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(24%,1fr));
-
-  &__item {
-
-  }
+  grid-gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(24%, 1fr));
+  row-gap: 32px;
 }
 </style>

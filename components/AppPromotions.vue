@@ -9,7 +9,11 @@
         {{ promotion.text }}
       </div>
       <figure class="promotion__figure">
-        <img :src="promotion.img[getImg]" class="promotion__image" :alt="promotion.text" />
+        <img
+          :src="promotion.img[getImg]"
+          class="promotion__image"
+          :alt="promotion.text"
+        />
       </figure>
     </a>
   </section>
