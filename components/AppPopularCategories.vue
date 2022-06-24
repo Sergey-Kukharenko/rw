@@ -29,13 +29,13 @@
 </template>
 
 <script setup>
-import { useMq } from 'vue3-mq';
-import dataPopularCategories from '@/data/popular-categories';
-import AppTimer from './shared/AppTimer';
+import { useMq } from 'vue3-mq'
+import dataPopularCategories from '@/data/popular-categories'
+import AppTimer from './shared/AppTimer'
 
-const mq = useMq();
-const popular = ref(dataPopularCategories);
-const getImg = computed(() => (mq.current === 'xs' ? 'mobile' : 'desktop'));
+const mq = useMq()
+const popular = ref(dataPopularCategories)
+const getImg = computed(() => (mq.current === 'xs' ? 'mobile' : 'desktop'))
 </script>
 
 <style scoped lang="scss">

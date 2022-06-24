@@ -8,14 +8,14 @@
 </template>
 
 <script setup>
-import AppSectionHeader from '@/components/AppSectionHeader.vue';
-import AppGrid from '@/components/shared//AppGrid.vue';
-import AppCard from '@/components/shared/AppCard.vue';
-import dataSpecialOffers from '@/data/special-offers';
-const { main, list } = dataSpecialOffers;
+import AppSectionHeader from '@/components/AppSectionHeader.vue'
+import AppGrid from '@/components/shared//AppGrid.vue'
+import AppCard from '@/components/shared/AppCard.vue'
+import dataSpecialOffers from '@/data/special-offers'
+const { main, list } = dataSpecialOffers
 
-const headerProps = ref(main);
-const slides = ref(list);
+const headerProps = ref(main)
+const slides = ref(list)
 </script>
 
 <style lang="scss"></style>

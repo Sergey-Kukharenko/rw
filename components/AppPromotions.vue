@@ -20,12 +20,12 @@
 </template>
 
 <script setup>
-import { useMq } from 'vue3-mq';
-import dataPromotions from '@/data/promotions';
+import { useMq } from 'vue3-mq'
+import dataPromotions from '@/data/promotions'
 
-const mq = useMq();
-const promotions = ref(dataPromotions);
-const getImg = computed(() => (mq.current === 'xs' ? 'mobile' : 'desktop'));
+const mq = useMq()
+const promotions = ref(dataPromotions)
+const getImg = computed(() => (mq.current === 'xs' ? 'mobile' : 'desktop'))
 </script>
 
 

@@ -11,7 +11,7 @@
 <script setup>
 const props = defineProps({
   headerProps: Object,
-});
+})
 </script>
 
 <style scoped lang="scss">

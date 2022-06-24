@@ -9,9 +9,9 @@
 </template>
 
 <script setup>
-import AppNotification from '@/components/AppNotification.vue';
-import AppPromotions from '@/components/AppPromotions.vue';
-import AppPopularCategories from '@/components/AppPopularCategories.vue';
-import AppBestsellers from '@/components/AppBestsellers.vue';
-import AppSpecialOffers from '@/components/AppSpecialOffers.vue';
+import AppNotification from '@/components/AppNotification.vue'
+import AppPromotions from '@/components/AppPromotions.vue'
+import AppPopularCategories from '@/components/AppPopularCategories.vue'
+import AppBestsellers from '@/components/AppBestsellers.vue'
+import AppSpecialOffers from '@/components/AppSpecialOffers.vue'
 </script>

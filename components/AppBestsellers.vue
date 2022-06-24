@@ -13,15 +13,15 @@
 </template>
 
 <script setup>
-import AppSectionHeader from '@/components/AppSectionHeader.vue';
-import AppSwiper from '@/components/ui/AppSwiper.vue';
-import AppCard from '@/components/shared/AppCard.vue';
-import dataBestsellers from '@/data/bestsellers';
+import AppSectionHeader from '@/components/AppSectionHeader.vue'
+import AppSwiper from '@/components/ui/AppSwiper.vue'
+import AppCard from '@/components/shared/AppCard.vue'
+import dataBestsellers from '@/data/bestsellers'
 
-const { main, list } = dataBestsellers;
+const { main, list } = dataBestsellers
 
-const headerProps = ref(main);
-const slides = ref(list);
+const headerProps = ref(main)
+const slides = ref(list)
 
 const options = {
   slidesPerView: 2,
@@ -36,5 +36,5 @@ const options = {
       spaceBetween: 16,
     },
   },
-};
+}
 </script>

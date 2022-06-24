@@ -9,7 +9,7 @@
 <script setup>
 const props = defineProps({
   slides: Array,
-});
+})
 </script>
 
 <style lang="scss" scoped>

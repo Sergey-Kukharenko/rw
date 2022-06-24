@@ -8,9 +8,9 @@
 const props = defineProps({
   theme: String,
   size: String,
-});
+})
 
-const clsNm = computed(() => useClassName(props, 'button'));
+const clsNm = computed(() => useClassName(props, 'button'))
 </script>
 
 <style lang="scss" scoped>

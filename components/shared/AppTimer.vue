@@ -11,18 +11,18 @@
 </template>
 
 <script setup>
-import { useTimer } from 'vue-timer-hook';
-import { SvgSprite } from 'vue-svg-sprite';
+import { useTimer } from 'vue-timer-hook'
+import { SvgSprite } from 'vue-svg-sprite'
 
-const time = new Date();
-time.setHours(time.getHours() + 3);
-const timer = useTimer(time);
+const time = new Date()
+time.setHours(time.getHours() + 3)
+const timer = useTimer(time)
 
 watchEffect(async () => {
   if (timer.isExpired.value) {
-    console.warn('IsExpired');
+    console.warn('IsExpired')
   }
-});
+})
 </script>
 
 <style scoped lang="scss">

@@ -7,9 +7,9 @@
 <script setup>
 const props = defineProps({
   theme: String,
-});
+})
 
-const clsNm = computed(() => useClassName(props, 'badge'));
+const clsNm = computed(() => useClassName(props, 'badge'))
 </script>
 
 <style lang="scss" scoped>
