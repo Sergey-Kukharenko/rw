@@ -2,9 +2,9 @@
   <section class="layout bestsellers">
     <app-section-header v-bind="{ headerProps }" />
     <app-swiper
+      v-slot="slotProps"
       :slides="slides"
       :options="options"
-      v-slot="slotProps"
       class="layout__row"
     >
       <app-card :slide="{ ...slotProps }" />
@@ -29,12 +29,12 @@ const options = {
   breakpoints: {
     599: {
       slidesPerView: 3,
-      spaceBetween: 16,
+      spaceBetween: 16
     },
     959: {
       slidesPerView: 4,
-      spaceBetween: 16,
-    },
-  },
+      spaceBetween: 16
+    }
+  }
 }
 </script>

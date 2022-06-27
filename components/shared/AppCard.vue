@@ -3,16 +3,16 @@
     <div class="card__container">
       <a class="card__figure figure absolute-grow">
         <img
-          :src="slide.img"
+          :src="props.slide.img"
           class="absolute-center figure__img"
-          :alt="slide.img"
+          :alt="props.slide.img"
         />
         <div class="figure__overlay figure__overlay--top"></div>
         <div class="figure__overlay figure__overlay--bottom"></div>
       </a>
       <div class="card__header header">
         <div class="header__rating rating">
-          <div class="rating__text">{{ slide.rating }}</div>
+          <div class="rating__text">{{ props.slide.rating }}</div>
           <SvgSprite symbol="star" class="rating__icon" />
         </div>
 
@@ -21,20 +21,20 @@
         </button>
       </div>
       <div class="card__title">
-        {{ slide.title }}
+        {{ props.slide.title }}
       </div>
     </div>
     <div class="card__footer footer">
       <div class="footer__price price">
         <div class="price__group group">
-          <div class="group__text">£ {{ slide.price }}</div>
+          <div class="group__text">£ {{ props.slide.price }}</div>
           <div class="group__badge">
             <app-badge theme="red">
-              {{ slide.sale.percent }}
+              {{ props.slide.sale.percent }}
             </app-badge>
           </div>
         </div>
-        <div class="price__current">£ {{ slide.price }}</div>
+        <div class="price__current">£ {{ props.slide.price }}</div>
       </div>
       <div class="footer__button">
         <app-button theme="green" size="sm">
@@ -47,12 +47,14 @@
 </template>
 
 <script setup>
-import AppBadge from './AppBadge.vue';
-import AppButton from './AppButton.vue';
-
+import AppBadge from './AppBadge.vue'
+import AppButton from './AppButton.vue'
 const props = defineProps({
-  slide: Object,
-});
+  slide: {
+    type: Object,
+    default: () => ({})
+  }
+})
 </script>
 
 <style lang="scss" scoped>

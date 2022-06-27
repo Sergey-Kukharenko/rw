@@ -1,6 +1,6 @@
 <template>
   <div class="grid">
-    <div class="grid__item" v-for="(slide, idx) in slides" :key="idx">
+    <div v-for="(slide, idx) in props.slides" :key="idx" class="grid__item">
       <slot v-bind="{ ...slide }"></slot>
     </div>
   </div>
@@ -8,7 +8,10 @@
 
 <script setup>
 const props = defineProps({
-  slides: Array,
+  slides: {
+    type: Array,
+    default: () => []
+  }
 })
 </script>
 

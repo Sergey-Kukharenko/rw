@@ -1,15 +1,21 @@
 <template>
-  <div :class="['badge', clsNm]">
+  <div :class="classNames">
     <slot></slot>
   </div>
 </template>
 
 <script setup>
 const props = defineProps({
-  theme: String,
+  theme: {
+    type: String,
+    default: ''
+  }
 })
 
-const clsNm = computed(() => useClassName(props, 'badge'))
+const classNames = computed(() => {
+  const themeSelector = useClassName(props, 'badge')
+  return ['badge', themeSelector]
+})
 </script>
 
 <style lang="scss" scoped>

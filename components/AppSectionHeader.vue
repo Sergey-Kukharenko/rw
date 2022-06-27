@@ -1,16 +1,19 @@
 <template>
   <div class="section-header">
     <h1 class="section-header__title title">
-      <span class="title__text">{{ headerProps.title }}</span>
-      <span class="title__number">{{ headerProps.count }}</span>
+      <span class="title__text">{{ props.headerProps.title }}</span>
+      <span class="title__number">{{ props.headerProps.count }}</span>
     </h1>
-    <a class="section-header__link">{{ headerProps.link.text }}</a>
+    <a class="section-header__link">{{ props.headerProps.link.text }}</a>
   </div>
 </template>
 
 <script setup>
 const props = defineProps({
-  headerProps: Object,
+  headerProps: {
+    type: Object,
+    default: () => ({})
+  }
 })
 </script>
 

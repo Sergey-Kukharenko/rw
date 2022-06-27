@@ -1,16 +1,25 @@
 <template>
-  <button :class="['button', clsNm]">
+  <button :class="classNames">
     <slot></slot>
   </button>
 </template>
 
 <script setup>
 const props = defineProps({
-  theme: String,
-  size: String,
+  theme: {
+    type: String,
+    default: ''
+  },
+  size: {
+    type: String,
+    default: ''
+  }
 })
 
-const clsNm = computed(() => useClassName(props, 'button'))
+const classNames = computed(() => {
+  const themeSelector = useClassName(props, 'button')
+  return ['button', themeSelector]
+})
 </script>
 
 <style lang="scss" scoped>

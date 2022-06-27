@@ -1,7 +1,7 @@
 <template>
   <section class="layout section">
     <app-section-header v-bind="{ headerProps }" />
-    <app-grid :slides="slides" v-slot="slotProps">
+    <app-grid v-slot="slotProps" :slides="slides">
       <app-card :slide="{ ...slotProps }" />
     </app-grid>
   </section>

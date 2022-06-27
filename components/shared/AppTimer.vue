@@ -18,10 +18,12 @@ const time = new Date()
 time.setHours(time.getHours() + 3)
 const timer = useTimer(time)
 
-watchEffect(async () => {
-  if (timer.isExpired.value) {
-    console.warn('IsExpired')
+watchEffect(() => {
+  if (!timer.isExpired.value) {
+    return
   }
+
+  console.warn('IsExpired')
 })
 </script>
 

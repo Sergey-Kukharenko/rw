@@ -4,8 +4,8 @@ export default {
     count: 58,
     link: {
       text: 'Watch all',
-      url: '',
-    },
+      url: ''
+    }
   },
   list: [
     {
@@ -95,6 +95,6 @@ export default {
         status: 'sale',
         percent: '-30%'
       }
-    },
+    }
   ]
 }

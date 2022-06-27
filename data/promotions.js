@@ -5,8 +5,8 @@ export default [
     imgName: 'cashback',
     img: {
       desktop: '/svg/promotions/desktop/cashback.svg',
-      mobile: '/svg/promotions/mobile/cashback.svg',
-    },
+      mobile: '/svg/promotions/mobile/cashback.svg'
+    }
   },
   {
     text: 'We’ll send you bouquet photo',
@@ -14,8 +14,8 @@ export default [
     imgName: 'bouquet-photo',
     img: {
       desktop: '/svg/promotions/desktop/bouquet-photo.svg',
-      mobile: '/svg/promotions/mobile/bouquet-photo.svg',
-    },
+      mobile: '/svg/promotions/mobile/bouquet-photo.svg'
+    }
   },
   {
     text: 'Fast & furious delivery in 2 hours',
@@ -23,7 +23,7 @@ export default [
     imgName: 'fast-furious',
     img: {
       desktop: '/svg/promotions/desktop/fast-furious.svg',
-      mobile: '/svg/promotions/mobile/fast-furious.svg',
-    },
-  },
+      mobile: '/svg/promotions/mobile/fast-furious.svg'
+    }
+  }
 ]

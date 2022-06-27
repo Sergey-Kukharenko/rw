@@ -2,17 +2,13 @@
   <section class="layout popular-categories">
     <h1 class="popular-title">Popular categories</h1>
     <div class="popular-list">
-      <a
-        v-for="item in popular"
-        :key="item.hashTag"
-        class="popular-list__item card"
-      >
+      <a v-for="item in popular" :key="item.hashTag" class="popular-list__item card">
         <div class="absolute-grow card__content">
           <img
             :key="item.hashTag"
             :src="item.img[getImg]"
             class="absolute-center card__image"
-            alt="item.hashTag"
+            :alt="item.hashTag"
           />
           <div v-if="item.timer" class="card__timer">
             <app-timer />
@@ -30,8 +26,8 @@
 
 <script setup>
 import { useMq } from 'vue3-mq'
+import AppTimer from '@/components/shared/AppTimer.vue'
 import dataPopularCategories from '@/data/popular-categories'
-import AppTimer from './shared/AppTimer'
 
 const mq = useMq()
 const popular = ref(dataPopularCategories)
