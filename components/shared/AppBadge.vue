@@ -12,10 +12,7 @@ const props = defineProps({
   }
 })
 
-const classNames = computed(() => {
-  const themeSelector = useClassName(props, 'badge')
-  return ['badge', themeSelector]
-})
+const classNames = computed(() => useClassName(props, 'badge'))
 </script>
 
 <style lang="scss" scoped>

@@ -16,10 +16,7 @@ const props = defineProps({
   }
 })
 
-const classNames = computed(() => {
-  const themeSelector = useClassName(props, 'button')
-  return ['button', themeSelector]
-})
+const classNames = computed(() => useClassName(props, 'button'))
 </script>
 
 <style lang="scss" scoped>
