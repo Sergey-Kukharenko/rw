@@ -1,30 +1,28 @@
 <template>
   <div :class="classNames">
-    <div class="layout">
+    <div class="layout layout--horizontal-dt">
       <div class="notification__title">
-        {{ notification.title }}
+        <slot></slot>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-const notification = ref({
-  title: 'Flowers will stand for 5 days or we’ll replace the bouquet!',
-  theme: 'pink'
+const props = defineProps({
+  theme: {
+    type: String,
+    default: '',
+  },
 })
 
-const options = {
-  theme: notification.value.theme || ''
-}
-
-const classNames = computed(() => useClassName(options, 'notification'))
+const classNames = computed(() => useClassName(props, 'notification'))
 </script>
 
 <style lang="scss" scoped>
 .notification {
   &__title {
-    font-family: $golos-bold;
+    font-family: $golos-medium;
     text-align: center;
     font-style: normal;
     color: #ffffff;
@@ -34,19 +32,23 @@ const classNames = computed(() => useClassName(options, 'notification'))
       font-size: 14px;
       line-height: 24px;
       padding: 10px 0;
-      margin: -24px 0;
     }
     @include xs {
+      max-width: 230px;
       font-size: 13px;
       line-height: 16px;
-      max-width: 214px;
+      padding: 8px 6px;
       margin: 0 auto;
-      padding: 8px 0;
+      box-sizing: border-box;
     }
   }
 }
 
 .notification--pink {
-  background: #ff217f;
+  background: $color-red;
+}
+
+.notification--green {
+  background: $color-dark-green;
 }
 </style>

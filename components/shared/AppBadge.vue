@@ -8,8 +8,8 @@
 const props = defineProps({
   theme: {
     type: String,
-    default: ''
-  }
+    default: '',
+  },
 })
 
 const classNames = computed(() => useClassName(props, 'badge'))
