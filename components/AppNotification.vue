@@ -22,11 +22,12 @@ const classNames = computed(() => useClassName(props, 'notification'))
 <style lang="scss" scoped>
 .notification {
   &__title {
-    font-family: $golos-medium;
-    text-align: center;
+    font-family: $lora;
     font-style: normal;
+    font-weight: 700;
     color: #ffffff;
     letter-spacing: -0.01em;
+    text-align: center;
 
     @include gt-xs {
       font-size: 14px;

@@ -1,9 +1,9 @@
 <template>
-  <div class="list">
+  <div class="navigation-list">
     <a
       :href="item.href"
       target="_blank"
-      class="list__item"
+      class="navigation-list__item"
       v-for="item in list"
       :key="item.title"
     >
@@ -30,7 +30,7 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-.list {
+.navigation-list {
   @include gt-xs {
     display: flex;
     align-items: center;
@@ -50,7 +50,7 @@ const props = defineProps({
     line-height: 24px;
 
     @include gt-xs {
-      padding: 0 12px;
+      padding: 10px 12px;
     }
 
     @include xs {

@@ -1,12 +1,12 @@
 <template>
-  <section class="navigation">
+  <nav class="navigation">
     <div class="layout layout--horizontal-dt">
       <div class="navigation__group">
         <app-navigation-list :list="main" />
         <app-navigation-list :list="other" />
       </div>
     </div>
-  </section>
+  </nav>
 </template>
 
 <script setup>
