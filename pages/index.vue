@@ -1,5 +1,6 @@
 <template>
   <main>
+    some
     <app-promotions/>
     <app-popular-categories/>
     <app-bestsellers/>
