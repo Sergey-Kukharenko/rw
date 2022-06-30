@@ -5,8 +5,8 @@
         <SvgSprite symbol="location" class="icon__location" />
       </div>
       <div class="location__description description">
-        <div class="description__text">Flower delivery to</div>
-        <div class="description__title">London</div>
+        <div class="description__text">{{location.text}}</div>
+        <div class="description__title">{{location.city}}</div>
       </div>
       <div class="location-button__icon icon">
         <SvgSprite symbol="arrow" class="icon__arrow" />
@@ -16,6 +16,10 @@
 </template>
 
 <script setup>
+const location = ref({
+  city: 'London',
+  text: 'Flower delivery to',
+})
 </script>
 
 <style lang="scss" scoped>
@@ -24,7 +28,6 @@
   align-items: center;
   justify-content: space-between;
   width: 245px;
-  // height: 48px;
   background: #f7f7f7;
   padding: 7px 17px;
   border-radius: 12px;

@@ -79,7 +79,7 @@ const props = defineProps({
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #7c7c7c;
+    color: $color-white-grey;
 
     &::before {
       content: '';

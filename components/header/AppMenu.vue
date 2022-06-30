@@ -8,6 +8,12 @@
         <div class="menu-list__item">
           <app-location />
         </div>
+        <div class="menu-list__item">
+          <app-informer />
+        </div>
+        <div class="menu-list__item">
+          <app-navigation-user />
+        </div>
       </div>
     </div>
   </div>
@@ -15,6 +21,8 @@
 
 <script setup>
 import AppLocation from '@/components/header/AppLocation.vue'
+import AppInformer from '@/components/header/AppInformer.vue'
+import AppNavigationUser from '@/components/header/AppNavigationUser'
 </script>
 
 <style lang="scss" scoped>
@@ -30,6 +38,10 @@ import AppLocation from '@/components/header/AppLocation.vue'
 
   &__item {
     padding: 0 16px;
+
+    &:last-child {
+      margin-left: auto;
+    }
   }
 }
 

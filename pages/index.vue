@@ -1,8 +1,8 @@
 <template>
   <main>
-    <!-- <app-promotions/>
+    <app-promotions/>
     <app-popular-categories/>
     <app-bestsellers/>
-    <app-special-offers/> -->
+    <app-special-offers/>
   </main>
 </template>

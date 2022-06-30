@@ -164,7 +164,6 @@ const props = defineProps({
       rgba(0, 0, 0, 0.68902) 99.14%,
       rgba(0, 0, 0, 0.7) 100%
     );
-    backdrop-filter: blur(1px);
     border-radius: 12px;
     transition: height 0.35s;
 
@@ -312,7 +311,7 @@ const props = defineProps({
   &__text {
     font-family: $golos-regular;
     letter-spacing: 0.01em;
-    color: #7c7c7c;
+    color: $color-white-grey;
 
     @include gt-xs {
       font-size: 14px;
