@@ -11,7 +11,7 @@
 
 <script setup>
 import dataNavigation from '@/data/navigation'
-import AppNavigationList from '@/components/AppNavigationList.vue'
+import AppNavigationList from '@/components/header/AppNavigationList.vue'
 
 const { main, other } = dataNavigation
 </script>

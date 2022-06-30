@@ -1,18 +1,13 @@
 <template>
   <header>
-    <app-notification theme="pink">
-      {{ title }}
-    </app-notification>
+    <app-notification />
     <app-navigation />
+    <app-menu />
   </header>
 </template>
 
 <script setup>
-import AppNotification from '@/components/AppNotification.vue'
-import AppNavigation from '@/components/AppNavigation.vue'
-
-const title = ref('Flowers will stand for 5 days or we’ll replace the bouquet!')
+import AppNotification from '@/components/header/AppNotification.vue'
+import AppNavigation from '@/components/header/AppNavigation.vue'
+import AppMenu from '@/components/header/AppMenu.vue'
 </script>
-
-<style lang="scss" scoped>
-</style>

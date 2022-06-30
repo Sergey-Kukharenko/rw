@@ -2,23 +2,24 @@
   <div :class="classNames">
     <div class="layout layout--horizontal-dt">
       <div class="notification__title">
-        <slot></slot>
+        {{ notification.title }}
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-const props = defineProps({
-  theme: {
-    type: String,
-    default: '',
-  },
+const notification = ref({
+  title: 'Flowers will stand for 5 days or we’ll replace the bouquet!',
+  theme: 'pink'
 })
 
-const classNames = computed(() => useClassName(props, 'notification'))
-</script>
+const options = {
+  theme: notification.value.theme || ''
+}
 
+const classNames = computed(() => useClassName(options, 'notification'))
+</script>
 <style lang="scss" scoped>
 .notification {
   &__title {
