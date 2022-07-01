@@ -13,6 +13,7 @@
     "sass-loader": "^13.0.0"
   },
   "dependencies": {
+    "click-outside-vue3": "^4.0.1",
     "swiper": "^8.2.4",
     "vue-svg-sprite": "^2.2.1",
     "vue-timer-hook": "^1.0.0",

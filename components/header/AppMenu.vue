@@ -32,15 +32,42 @@ import AppNavigationUser from '@/components/header/AppNavigationUser'
 }
 
 .menu-list {
-  display: flex;
-  align-items: center;
-  margin: 0 -16px;
+  @include gt-xs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  @include gt-md {
+    margin: 0 -16px;
+  }
+
+  @include md {
+    margin: 0 -8px;
+  }
 
   &__item {
-    padding: 0 16px;
+    @include gt-md {
+      padding: 0 16px;
+    }
+
+    @include md {
+      margin: 0 8px;
+    }
+
+    @include sm {
+      flex: 1 1 50%;
+      margin: 8px 0;
+    }
+
+    @include xs {
+      margin: 6px;
+    }
 
     &:last-child {
-      margin-left: auto;
+      @include gt-sm {
+        margin-left: auto;
+      }
     }
   }
 }

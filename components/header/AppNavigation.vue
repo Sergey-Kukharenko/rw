@@ -21,13 +21,13 @@ const { main, other } = dataNavigation
   background: $bg-grey;
 
   &__group {
-    @include gt-xs {
+    @include gt-sm {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    @include xs {
+    @include sm {
       margin: 0;
     }
   }
