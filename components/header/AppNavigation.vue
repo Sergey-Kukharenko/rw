@@ -2,8 +2,8 @@
   <nav class="navigation">
     <div class="layout layout--horizontal-dt">
       <div class="navigation__group">
-        <app-navigation-list :list="main" />
-        <app-navigation-list :list="other" />
+        <app-navigation-list :list="navigation.main" />
+        <app-navigation-list :list="navigation.other" />
       </div>
     </div>
   </nav>
@@ -13,7 +13,7 @@
 import dataNavigation from '@/data/navigation'
 import AppNavigationList from '@/components/header/AppNavigationList.vue'
 
-const { main, other } = dataNavigation
+const navigation = ref(dataNavigation)
 </script>
 
 <style lang="scss" scoped>

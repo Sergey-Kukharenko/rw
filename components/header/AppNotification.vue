@@ -11,11 +11,11 @@
 <script setup>
 const notification = ref({
   title: 'Flowers will stand for 5 days or we’ll replace the bouquet!',
-  theme: 'pink'
+  theme: 'green',
 })
 
 const options = {
-  theme: notification.value.theme || ''
+  theme: notification.value.theme || '',
 }
 
 const classNames = computed(() => useClassName(options, 'notification'))
