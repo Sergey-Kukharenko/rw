@@ -10,7 +10,6 @@
 
 <script setup>
 import dataNavBar from '@/data/nav-bar'
-import AppNavBarList from '@/components/header/AppNavBarList.vue'
 import AppNavigationList from '@/components/header/AppNavigationList.vue'
 
 const navBar = ref(dataNavBar)
