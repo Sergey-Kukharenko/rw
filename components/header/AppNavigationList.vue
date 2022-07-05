@@ -48,6 +48,7 @@ const classNames = computed(() =>
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     margin: 0 -12px;
   }
 
@@ -62,6 +63,10 @@ const classNames = computed(() =>
     font-size: 14px;
     line-height: 24px;
 
+    &:hover {
+      color: lighten($color-dark-grey, 20%);
+    }
+
     @include gt-xs {
       padding: 10px 12px;
     }
@@ -75,8 +80,15 @@ const classNames = computed(() =>
 .navigation-list--full {
   .navigation-list__item {
     &:first-child {
-      color: #009959;
       position: relative;
+
+      &:not(:hover) {
+        color: #009959;
+      }
+
+      &:hover {
+        color: lighten(#009959, 5%);
+      }
 
       &:after {
         content: '';
@@ -93,7 +105,13 @@ const classNames = computed(() =>
     }
 
     &:last-child {
-      color: #f1ae01;
+      &:not(:hover) {
+        color: #f1ae01;
+      }
+
+      &:hover {
+        color: lighten(#f1ae01, 5%);
+      }
     }
   }
 }

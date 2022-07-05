@@ -64,7 +64,7 @@ const isOpen = ref(false);
     font-family: $golos-medium;
     font-size: 14px;
     line-height: 20px;
-    color: #1f2226;
+    color: $color-dark-grey;
     margin: 0 0;
   }
 }
@@ -79,7 +79,7 @@ const isOpen = ref(false);
   &__arrow {
     width: 11px;
     height: 6px;
-    fill: #1f2226;
+    fill: $color-dark-grey;
   }
 }
 </style>

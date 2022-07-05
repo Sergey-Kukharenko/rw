@@ -56,6 +56,9 @@ import AppNavigationUser from '@/components/header/AppNavigationUser'
     }
 
     @include sm {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex: 1 1 50%;
       margin: 8px 0;
     }

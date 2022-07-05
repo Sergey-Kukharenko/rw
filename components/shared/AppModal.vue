@@ -4,7 +4,9 @@
       <div class="modal__overlay" @click="close"></div>
       <div class="modal__content">
         <slot />
-        <button type="button" @click="close">Close</button>
+        <button type="button" class="button" @click="close">
+          <SvgSprite symbol="close" class="button__icon" />
+        </button>
       </div>
     </div>
   </transition>
@@ -49,16 +51,44 @@ onUnmounted(() => document.removeEventListener('keyup', handleKeyup))
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 1;
+    cursor: pointer;
   }
 
   &__content {
-    width: 500px;
+
     position: relative;
     background-color: #fff;
     padding: 1rem;
-    margin: 2rem auto;
     border-radius: 0.3rem;
     z-index: 2;
+
+    @include gt-xs {
+      width: 500px;
+      margin: 2rem auto;
+    }
+
+    @include xs {
+      margin: 6px;
+    }
+  }
+}
+
+.button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #8b8b8b;
+  padding: 16px;
+
+  &:hover {
+    color: darken(#8b8b8b, 20%);
+  }
+
+  &__icon {
+    width: 18px;
+    height: 18px;
+    color: inherit;
+    fill: currentColor;
   }
 }
 </style>

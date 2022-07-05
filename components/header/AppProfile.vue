@@ -15,9 +15,7 @@
         </div>
       </template>
       <template #dropdown>
-        <div>
-          dropdown content
-        </div>
+        <div>dropdown content</div>
       </template>
     </AppDropdown>
   </div>
@@ -41,7 +39,7 @@ import AppDropdown from '@/components/shared/AppDropdown.vue'
   }
 
   &__icon {
-    fill: #979797;
+    fill: $color-light-grey;
   }
 
   &__figcaption {
@@ -51,6 +49,10 @@ import AppDropdown from '@/components/shared/AppDropdown.vue'
     text-align: center;
     color: $color-white-grey;
     margin-top: 7px;
+  }
+
+  &:hover {
+    opacity: 0.75;
   }
 }
 </style>

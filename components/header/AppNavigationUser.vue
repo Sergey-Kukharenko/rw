@@ -16,7 +16,7 @@
     <div class="navigation-user__item">
       <a class="card">
         <div class="card__figure">
-          <SvgSprite symbol="card" class="card__icon" width="24" height="24" />
+          <SvgSprite symbol="cart" class="card__icon" width="24" height="24" />
         </div>
         <figcaption class="card__figcaption">Basket</figcaption>
       </a>
@@ -74,7 +74,7 @@ import AppProfile from '@/components/header/AppProfile.vue'
   }
 
   &__icon {
-    fill: #979797;
+    fill: $color-light-grey;
   }
 
   &__figcaption {
@@ -84,6 +84,10 @@ import AppProfile from '@/components/header/AppProfile.vue'
     text-align: center;
     color: $color-white-grey;
     margin-top: 7px;
+  }
+
+  &:hover {
+    opacity: 0.75;
   }
 }
 </style>
