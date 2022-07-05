@@ -26,10 +26,6 @@ const navigation = ref(dataNavigation)
       align-items: center;
       justify-content: space-between;
     }
-
-    @include sm {
-      margin: 0;
-    }
   }
 }
 </style>

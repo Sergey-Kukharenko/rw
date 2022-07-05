@@ -2,16 +2,16 @@
   <div class="profile">
     <AppDropdown>
       <template #button>
-        <div class="cart">
-          <figure class="cart__figure">
+        <div class="card">
+          <figure class="card__figure">
             <SvgSprite
               symbol="profile"
-              class="cart__icon"
+              class="card__icon"
               width="26.45"
               height="24"
             />
           </figure>
-          <figcaption class="cart__figcaption">Log in / Register</figcaption>
+          <figcaption class="card__figcaption">Log in / Register</figcaption>
         </div>
       </template>
       <template #dropdown>
@@ -28,7 +28,7 @@ import AppDropdown from '@/components/shared/AppDropdown.vue'
 </script>
 
 <style lang="scss" scoped>
-.cart {
+.card {
   cursor: pointer;
 
   &__figure {

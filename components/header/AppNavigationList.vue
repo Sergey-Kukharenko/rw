@@ -1,13 +1,13 @@
 <template>
-  <div class="navigation-list">
+  <div :class="classNames">
     <a
       :href="item.href"
       target="_blank"
       class="navigation-list__item"
-      v-for="item in list"
+      v-for="item in props.list"
       :key="item.title"
     >
-      <div class="content" :style="'color: ' + item.style?.color">
+      <div class="content">
         <SvgSprite
           v-if="item.icon"
           :symbol="item.icon"
@@ -31,7 +31,15 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  options: {
+    type: Object,
+    default: () => ({}),
+  },
 })
+
+const classNames = computed(() =>
+  useClassName(props.options, 'navigation-list')
+)
 </script>
 
 <style lang="scss" scoped>
@@ -60,6 +68,32 @@ const props = defineProps({
 
     @include xs {
       padding: 0 6px;
+    }
+  }
+}
+
+.navigation-list--full {
+  .navigation-list__item {
+    &:first-child {
+      color: #009959;
+      position: relative;
+
+      &:after {
+        content: '';
+        display: block;
+        width: 1px;
+        height: 20px;
+        background: #e5e5e5;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+
+    &:last-child {
+      color: #f1ae01;
     }
   }
 }

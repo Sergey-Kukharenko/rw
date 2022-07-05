@@ -6,7 +6,6 @@ export default [
     style: {
       width: '20px',
       height: '20px',
-      color: '#009959',
     }
   },
   {
@@ -16,7 +15,6 @@ export default [
     style: {
       width: '16px',
       height: '16px',
-      color: '#1f2226',
     }
   },
   {
@@ -26,7 +24,6 @@ export default [
     style: {
       width: '17.33px',
       height: '16.67px',
-      color: '#1f2226',
     }
   },
   {
@@ -36,7 +33,6 @@ export default [
     style: {
       width: '16px',
       height: '16px',
-      color: '#1f2226',
     }
   },
   {
@@ -46,7 +42,6 @@ export default [
     style: {
       width: '16px',
       height: '16px',
-      color: '#1f2226',
     }
   },
   {
@@ -56,7 +51,6 @@ export default [
     style: {
       width: '16px',
       height: '16px',
-      color: '#F1AE01',
     }
   },
-]
+];

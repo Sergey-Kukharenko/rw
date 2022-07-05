@@ -1,24 +1,24 @@
 <template>
   <nav class="navigation-user">
     <div class="navigation-user__item">
-      <a class="cart">
-        <div class="cart__figure">
+      <a class="card">
+        <div class="card__figure">
           <SvgSprite
             symbol="hart"
-            class="cart__icon"
+            class="card__icon"
             width="20"
             height="18.5"
           />
         </div>
-        <figcaption class="cart__figcaption">Favorite</figcaption>
+        <figcaption class="card__figcaption">Favorite</figcaption>
       </a>
     </div>
     <div class="navigation-user__item">
-      <a class="cart">
-        <div class="cart__figure">
-          <SvgSprite symbol="cart" class="cart__icon" width="24" height="24" />
+      <a class="card">
+        <div class="card__figure">
+          <SvgSprite symbol="card" class="card__icon" width="24" height="24" />
         </div>
-        <figcaption class="cart__figcaption">Basket</figcaption>
+        <figcaption class="card__figcaption">Basket</figcaption>
       </a>
     </div>
     <div class="navigation-user__item">
@@ -63,7 +63,7 @@ import AppProfile from '@/components/header/AppProfile.vue'
   }
 }
 
-.cart {
+.card {
   &__figure {
     display: flex;
     align-items: center;
