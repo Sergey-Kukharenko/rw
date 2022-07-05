@@ -7,8 +7,13 @@
       v-for="item in list"
       :key="item.title"
     >
-      <div class="content">
-        <SvgSprite v-if="item.icon" :symbol="item.icon" class="content__icon" />
+      <div class="content" :style="'color: ' + item.style?.color">
+        <SvgSprite
+          v-if="item.icon"
+          :symbol="item.icon"
+          :style="item.style"
+          class="content__icon"
+        />
         <div class="content__text">
           {{ item.title }}
         </div>
@@ -72,6 +77,8 @@ const props = defineProps({
     display: block;
     width: 16px;
     height: 16px;
+    color: inherit;
+    fill: currentColor;
     margin-right: 7px;
   }
 

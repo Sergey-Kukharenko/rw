@@ -2,7 +2,7 @@
   <div class="navbar">
     <div class="layout layout--horizontal-dt">
       <div class="navbar__group">
-        <app-nav-bar-list :list="navBar" />
+        <app-navigation-list :list="navBar" />
       </div>
     </div>
   </div>
@@ -11,6 +11,7 @@
 <script setup>
 import dataNavBar from '@/data/nav-bar'
 import AppNavBarList from '@/components/header/AppNavBarList.vue'
+import AppNavigationList from '@/components/header/AppNavigationList.vue'
 
 const navBar = ref(dataNavBar)
 </script>
