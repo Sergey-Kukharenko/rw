@@ -11,7 +11,7 @@
         <SvgSprite
           v-if="item.icon"
           :symbol="item.icon"
-          :style="item.style"
+          v-bind:="item.style"
           class="content__icon"
         />
         <div class="content__text">
