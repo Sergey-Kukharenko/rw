@@ -1,7 +1,7 @@
 <template>
   <div class="layout layout--horizontal-dt">
     <div class="footer-container container">
-      <div class="logo"></div>
+      <div class="logo">LORA</div>
 
       <div class="group">
         <div
@@ -9,7 +9,7 @@
           v-for="section in footer.sections"
           :key="section"
         >
-          <app-footer-section :section="section" />
+          <app-footer-section :section="section"/>
         </div>
       </div>
     </div>
@@ -17,10 +17,10 @@
 </template>
 
 <script setup>
-import dataFooter from '@/data/footer'
-import AppFooterSection from '@/components/footer/AppFooterSection.vue'
+import dataFooter from '@/data/footer';
+import AppFooterSection from '@/components/footer/AppFooterSection.vue';
 
-const footer = ref(dataFooter)
+const footer = ref(dataFooter);
 </script>
 
 <style scoped lang="scss">
@@ -35,9 +35,8 @@ const footer = ref(dataFooter)
 }
 
 .logo {
-  width: 252px;
-  height: 260px;
-  background: #000;
+  font-family: $lora;
+  font-size: 50px;
 
   @include sm {
     margin: 0 auto;
@@ -55,6 +54,10 @@ const footer = ref(dataFooter)
   @include sm {
     max-width: 482px;
     margin: 0 auto;
+  }
+
+  @include xs {
+    display: block;
   }
 }
 </style>

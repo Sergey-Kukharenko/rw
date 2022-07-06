@@ -1,6 +1,6 @@
 <template>
   <div class="dropdown" v-click-outside="close">
-    <div class="dropdown__header" v-on:click="open">
+    <div class="dropdown__header" @click="open">
       <slot name="button"> </slot>
     </div>
 
