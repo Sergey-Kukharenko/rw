@@ -19,16 +19,16 @@ import AppPayment from '@/components/AppPayment.vue'
 .footer-bottom {
   border-top: 1px solid #e5e5e5;
 
-  @include gt-xs {
+  @include gt-sm {
     padding: 24px 0;
   }
 
-  @include xs {
+  @include lt-md {
     padding: 28px 0;
   }
 
   &__content {
-    @include gt-xs {
+    @include gt-sm {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -43,11 +43,12 @@ import AppPayment from '@/components/AppPayment.vue'
   letter-spacing: 0.01em;
   color: #7c7c7c;
 
-  @include gt-xs {
+  @include gt-sm {
     text-align: right;
+    margin-left: 10px;
   }
 
-  @include xs {
+  @include lt-md {
     margin-top: 32px;
   }
 }

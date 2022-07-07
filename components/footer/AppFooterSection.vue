@@ -17,11 +17,13 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
-});
+})
 
-const visibility = ref(false);
-const toggle = () => (visibility.value = !visibility.value);
-const classNames = computed(() => useToggleClassName(visibility.value, 'section', 'active'));
+const visibility = ref(false)
+const toggle = () => (visibility.value = !visibility.value)
+const classNames = computed(() =>
+  useToggleClassName(visibility.value, 'section', 'active')
+)
 </script>
 
 <style lang="scss" scoped>
@@ -33,9 +35,30 @@ const classNames = computed(() => useToggleClassName(visibility.value, 'section'
 
   &__title {
     font-family: $golos-bold;
-    font-size: 20px;
-    line-height: 24px;
     letter-spacing: 0.03px;
+
+    @include gt-xs {
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    @include xs {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 16px;
+      cursor: pointer;
+
+      &:after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 5px 4px 0 4px;
+        border-color: #1f2226 transparent transparent transparent;
+      }
+    }
   }
 
   &__list {
@@ -49,7 +72,22 @@ const classNames = computed(() => useToggleClassName(visibility.value, 'section'
   &--active {
     & .list {
       @include xs {
-        display: block;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      &__item {
+        @include xs {
+          flex: 1 1 30%;
+
+          &:nth-child(3n + 2) {
+            text-align: center;
+          }
+
+          &:nth-child(3n + 3) {
+            text-align: right;
+          }
+        }
       }
     }
   }
@@ -59,10 +97,18 @@ const classNames = computed(() => useToggleClassName(visibility.value, 'section'
   &__item {
     display: block;
     font-family: $golos-regular;
-    font-size: 15px;
-    line-height: 24px;
-    padding: 8px 0;
+
+    @include gt-xs {
+      font-size: 15px;
+      line-height: 24px;
+      padding: 8px 0;
+    }
+
+    @include xs {
+      font-size: 12px;
+      line-height: 16px;
+      padding: 4px 0;
+    }
   }
 }
-
 </style>
