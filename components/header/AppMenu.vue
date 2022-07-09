@@ -28,7 +28,6 @@ import AppNavigationUser from '@/components/header/AppNavigationUser';
 
 <style lang="scss" scoped>
 .menu {
-  background: palegoldenrod;
   padding: 24px 0 20px;
   border-bottom: 1px solid #e5e5e5;
 }
