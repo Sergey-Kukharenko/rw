@@ -1,8 +1,8 @@
 <template>
   <div class="drawer">
     <div class="drawer__header">
-      <div class="drawer__button" @click="open">
-        <div class="burger">
+      <div class="drawer__button" @click="toggle">
+        <div :class="classNames">
           <span></span>
           <span></span>
           <span></span>
@@ -11,7 +11,7 @@
 
       <div class="drawer__content"/>
     </div>
-    <div class="drawer__overlay" @click="close" />
+    <div class="drawer__overlay" v-show="visibility" @click="close" />
     <div class="drawer__container" v-show="visibility">
       <div class="drawer__inner">
         <slot></slot>
@@ -21,9 +21,13 @@
 </template>
 
 <script setup>
-const visibility = ref(true)
+const visibility = ref(false)
 const open = () => (visibility.value = true)
 const close = () => (visibility.value = false)
+const toggle = () => (visibility.value = !visibility.value)
+const classNames = computed(() =>
+  useToggleClassName(visibility.value, 'burger', 'active')
+)
 </script>
 
 
@@ -39,7 +43,6 @@ const close = () => (visibility.value = false)
 
   &__content {
     flex: 1;
-    background: #9cffe4;
   }
 
   &__button {
@@ -50,7 +53,6 @@ const close = () => (visibility.value = false)
       display: flex;
       align-items: center;
       justify-content: center;
-      background: aqua;
     }
   }
 
@@ -60,6 +62,7 @@ const close = () => (visibility.value = false)
       height: 100vh;
       position: absolute;
       background: rgba(0, 0, 0, 0.7);
+      z-index: 3;
     }
   }
 
@@ -68,6 +71,7 @@ const close = () => (visibility.value = false)
       width: 100%;
       height: 0;
       position: absolute;
+      z-index: 4;
     }
   }
 
@@ -75,7 +79,7 @@ const close = () => (visibility.value = false)
     @include xs {
       width: 223px;
       height: 100vh;
-      background: #9cffe4;
+      background: #fff;
       padding: 12px;
       box-sizing: border-box;
     }
@@ -116,7 +120,7 @@ const close = () => (visibility.value = false)
     }
   }
 
-  &:hover {
+  &--active {
     & span {
       &:first-child {
         transform: rotate(45deg);
