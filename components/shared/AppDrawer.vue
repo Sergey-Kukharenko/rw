@@ -1,8 +1,8 @@
 <template>
-  <div class="drawer">
+  <div :class="classNames">
     <div class="drawer__header">
       <div class="drawer__button" @click="toggle">
-        <div :class="classNames">
+        <div class="burger">
           <span></span>
           <span></span>
           <span></span>
@@ -11,8 +11,8 @@
 
       <div class="drawer__content"/>
     </div>
-    <div class="drawer__overlay" v-show="visibility" @click="close" />
-    <div class="drawer__container" v-show="visibility">
+    <div class="drawer__overlay" @click="close" />
+    <div class="drawer__container">
       <div class="drawer__inner">
         <slot></slot>
       </div>
@@ -26,7 +26,7 @@ const open = () => (visibility.value = true)
 const close = () => (visibility.value = false)
 const toggle = () => (visibility.value = !visibility.value)
 const classNames = computed(() =>
-  useToggleClassName(visibility.value, 'burger', 'active')
+  useToggleClassName(visibility.value, 'drawer', 'active')
 )
 </script>
 
@@ -34,11 +34,13 @@ const classNames = computed(() =>
 <style lang="scss" scoped>
 .drawer {
   &__header {
-    display: flex;
-    align-items: center;
-    height: 50px;
-    padding: 0 18px;
-    box-sizing: border-box;
+    @include xs {
+      display: flex;
+      align-items: center;
+      height: 50px;
+      padding: 0 18px;
+      box-sizing: border-box;
+    }
   }
 
   &__content {
@@ -58,6 +60,7 @@ const classNames = computed(() =>
 
   &__overlay {
     @include xs {
+      display: none;
       width: 100vw;
       height: 100vh;
       position: absolute;
@@ -68,6 +71,7 @@ const classNames = computed(() =>
 
   &__container {
     @include xs {
+      display: none;
       width: 100%;
       height: 0;
       position: absolute;
@@ -120,25 +124,39 @@ const classNames = computed(() =>
     }
   }
 
-  &--active {
-    & span {
-      &:first-child {
-        transform: rotate(45deg);
-      }
 
-      &:last-child {
-        transform: rotate(-45deg);
-      }
+}
 
-      &:nth-child(2) {
-        opacity: 0;
-      }
-
-      &:first-child,
-      &:last-child {
-        top: 6px;
-      }
+.drawer--active {
+  & .burger span {
+    &:first-child {
+      transform: rotate(45deg);
     }
+
+    &:last-child {
+      transform: rotate(-45deg);
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+    }
+
+    &:first-child,
+    &:last-child {
+      top: 6px;
+    }
+  }
+}
+
+.drawer--active .drawer__overlay {
+  @include xs {
+    display: block;
+  }
+}
+
+.drawer--active .drawer__container {
+  @include xs {
+    display: block;
   }
 }
 </style>
