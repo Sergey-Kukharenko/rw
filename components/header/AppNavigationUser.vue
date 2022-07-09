@@ -1,34 +1,21 @@
 <template>
   <nav class="navigation-user">
     <div class="navigation-user__item">
-      <a class="card">
-        <div class="card__figure">
-          <SvgSprite
-            symbol="hart"
-            class="card__icon"
-            width="20"
-            height="18.5"
-          />
-        </div>
-        <figcaption class="card__figcaption">Favorite</figcaption>
-      </a>
+      <app-favorite/>
     </div>
     <div class="navigation-user__item">
-      <a class="card">
-        <div class="card__figure">
-          <SvgSprite symbol="cart" class="card__icon" width="24" height="24" />
-        </div>
-        <figcaption class="card__figcaption">Basket</figcaption>
-      </a>
+      <app-cart/>
     </div>
     <div class="navigation-user__item">
-      <app-profile />
+      <app-profile/>
     </div>
   </nav>
 </template>
 
 <script setup>
-import AppProfile from '@/components/header/AppProfile.vue'
+import AppFavorite from '@/components/header/AppFavorite';
+import AppCart from '@/components/header/AppCart.vue';
+import AppProfile from '@/components/header/AppProfile.vue';
 </script>
 
 <style lang="scss" scoped>
@@ -90,4 +77,6 @@ import AppProfile from '@/components/header/AppProfile.vue'
     opacity: 0.75;
   }
 }
+
+
 </style>

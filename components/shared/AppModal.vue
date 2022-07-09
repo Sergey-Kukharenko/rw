@@ -49,13 +49,12 @@ onUnmounted(() => document.removeEventListener('keyup', handleKeyup))
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.7);
     z-index: 1;
     cursor: pointer;
   }
 
   &__content {
-
     position: relative;
     background-color: #fff;
     padding: 1rem;

@@ -10,6 +10,6 @@ export default defineNuxtPlugin((nuxtApp) => {
       lg: 1280,
       xl: 1920,
       xxl: 5000
-    }
+    },
   })
 })

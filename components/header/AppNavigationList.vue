@@ -4,6 +4,7 @@
       :href="item.href"
       target="_blank"
       class="navigation-list__item"
+      :class="item.icon"
       v-for="item in props.list"
       :key="item.title"
     >
@@ -35,11 +36,11 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
-})
+});
 
 const classNames = computed(() =>
   useClassName(props.options, 'navigation-list')
-)
+);
 </script>
 
 <style lang="scss" scoped>

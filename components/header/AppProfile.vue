@@ -1,6 +1,6 @@
 <template>
   <div class="profile">
-    <AppDropdown>
+    <app-dropdown>
       <template #button>
         <div class="card">
           <figure class="card__figure">
@@ -17,7 +17,7 @@
       <template #dropdown>
         <div>dropdown content</div>
       </template>
-    </AppDropdown>
+    </app-dropdown>
   </div>
 </template>
 

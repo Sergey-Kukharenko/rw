@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import AppModal from '@/components/shared/AppModal.vue'
+import AppModal from '@/components/shared/AppModal.vue';
 
 const location = ref({
   city: 'London',
@@ -32,15 +32,21 @@ const isOpen = ref(false);
 
 <style lang="scss" scoped>
 .location-button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 245px;
-  background: #f7f7f7;
-  padding: 7px 17px;
-  border-radius: 12px;
-  box-sizing: border-box;
-  cursor: pointer;
+  @include gt-xs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 245px;
+    background: #f7f7f7;
+    padding: 7px 17px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+
+  @include xs {
+    display: none;
+  }
 
   &__icon {
     flex-shrink: 0;

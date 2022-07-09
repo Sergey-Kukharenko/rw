@@ -3,16 +3,16 @@
     <div class="layout layout--horizontal-dt">
       <div class="menu-list">
         <div class="menu-list__item">
-          <div class="logo">FLOR</div>
+          <app-logo/>
         </div>
         <div class="menu-list__item">
-          <app-location />
+          <app-location/>
         </div>
         <div class="menu-list__item">
-          <app-informer />
+          <app-informer/>
         </div>
         <div class="menu-list__item">
-          <app-navigation-user />
+          <app-navigation-user/>
         </div>
       </div>
     </div>
@@ -20,13 +20,15 @@
 </template>
 
 <script setup>
-import AppLocation from '@/components/header/AppLocation.vue'
-import AppInformer from '@/components/header/AppInformer.vue'
-import AppNavigationUser from '@/components/header/AppNavigationUser'
+import AppLogo from '@/components/header/AppLogo.vue';
+import AppLocation from '@/components/header/AppLocation.vue';
+import AppInformer from '@/components/header/AppInformer.vue';
+import AppNavigationUser from '@/components/header/AppNavigationUser';
 </script>
 
 <style lang="scss" scoped>
 .menu {
+  background: palegoldenrod;
   padding: 24px 0 20px;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -75,14 +77,5 @@ import AppNavigationUser from '@/components/header/AppNavigationUser'
   }
 }
 
-.logo {
-  font-family: $lora;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 32px;
-  line-height: normal;
-  text-align: center;
-  letter-spacing: 0.32em;
-  cursor: pointer;
-}
+
 </style>

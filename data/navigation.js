@@ -2,26 +2,21 @@ export default {
   main: [
     {
       title: 'Payment & delivery',
-      href: '',
     },
     {
       title: 'About us',
-      href: '',
     },
     {
       title: 'Reviews',
       count: 7068,
-      href: '',
     }
   ],
   other: [
     {
       title: 'Track your order',
-      href: '',
     },
     {
       title: 'Contact us',
-      href: '',
     },
     {
       icon: 'whatsapp',
