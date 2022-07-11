@@ -35,6 +35,11 @@ import AppProfile from '@/components/header/AppProfile.vue';
     margin: 0 -8px;
   }
 
+  @include xs {
+    margin: 10px 0;
+  }
+
+
   &__item {
     @include gt-md {
       padding: 0 32px;

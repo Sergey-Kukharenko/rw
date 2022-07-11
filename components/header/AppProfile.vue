@@ -61,8 +61,8 @@ import AppDropdown from '@/components/shared/AppDropdown.vue';
     }
 
     @include xs {
-      width: 10px;
-      height: 11px;
+      width: 12px;
+      height: 12px;
     }
   }
 

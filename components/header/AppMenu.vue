@@ -73,7 +73,7 @@ import AppNavigationUser from '@/components/header/AppNavigationUser';
     }
 
     @include xs {
-      margin: 6px;
+      margin: 0;
     }
 
     &:last-child {
