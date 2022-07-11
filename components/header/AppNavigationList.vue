@@ -219,7 +219,7 @@ onMounted(() => (loading.value = true));
       @include xs {
         width: 20px;
         height: 20px;
-        fill: #000;
+        fill: #1F2226;
         padding: 8px;
       }
     }
