@@ -1,7 +1,7 @@
 <template>
   <div :class="classNames">
     <div class="drawer__header">
-      <div class="drawer__button" @click="toggle">
+      <div class="drawer__button" @click="open">
         <div class="burger">
           <span></span>
           <span></span>
@@ -9,7 +9,7 @@
         </div>
       </div>
 
-      <div class="drawer__content"/>
+      <div class="drawer__content" />
     </div>
     <div class="drawer__overlay" @click="close" />
     <div class="drawer__container">
@@ -21,10 +21,10 @@
 </template>
 
 <script setup>
-const visibility = ref(false)
+const visibility = ref(true)
 const open = () => (visibility.value = true)
 const close = () => (visibility.value = false)
-const toggle = () => (visibility.value = !visibility.value)
+// const toggle = () => (visibility.value = !visibility.value)
 const classNames = computed(() =>
   useToggleClassName(visibility.value, 'drawer', 'active')
 )
@@ -45,6 +45,10 @@ const classNames = computed(() =>
 
   &__content {
     flex: 1;
+    display: flex;
+    align-items: center;
+    outline: 1px solid;
+    margin: 0 -8px;
   }
 
   &__button {
@@ -123,8 +127,6 @@ const classNames = computed(() =>
       }
     }
   }
-
-
 }
 
 .drawer--active {

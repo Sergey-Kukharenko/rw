@@ -15,6 +15,21 @@
           v-bind:="item.style"
           class="content__icon"
         />
+
+        <template v-if="loading">
+          <teleport
+            v-if="isMobile && item.icon === 'whatsapp'"
+            to=".drawer__content"
+          >
+            <a :href="item.href" class="card">
+              <SvgSprite
+                symbol="call-outline"
+                class="card__icon card__icon--call"
+              />
+            </a>
+          </teleport>
+        </template>
+
         <div class="content__text">
           {{ item.title }}
         </div>
@@ -27,6 +42,8 @@
 </template>
 
 <script setup>
+import {useMq} from 'vue3-mq';
+
 const props = defineProps({
   list: {
     type: Array,
@@ -41,6 +58,12 @@ const props = defineProps({
 const classNames = computed(() =>
   useClassName(props.options, 'navigation-list')
 );
+
+const mq = useMq();
+const isMobile = computed(() => mq.current === 'xs');
+
+const loading = ref(false);
+onMounted(() => (loading.value = true));
 </script>
 
 <style lang="scss" scoped>
@@ -149,6 +172,26 @@ const classNames = computed(() =>
       background: currentColor;
       border-radius: 50%;
       margin: 0 4px;
+    }
+  }
+}
+
+.card {
+  @include xs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 1;
+  }
+
+  &__icon {
+    &--call {
+      @include xs {
+        width: 20px;
+        height: 20px;
+        fill: #000;
+        padding: 8px;
+      }
     }
   }
 }

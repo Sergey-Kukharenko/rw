@@ -1,10 +1,10 @@
 <template>
   <template v-if="loading">
     <template v-if="isDesktop" >
-      <div class="logo">FLOR</div>
+      <a class="logo">FLOR</a>
     </template>
     <teleport v-else to=".drawer__content">
-      <div class="logo">FLOR</div>
+      <a class="logo">FLOR</a>
     </teleport>
   </template>
 </template>
@@ -29,5 +29,11 @@ onMounted(() =>  loading.value = true);
   text-align: center;
   letter-spacing: 0.32em;
   cursor: pointer;
+
+  @include xs {
+    order: 0;
+    padding: 8px;
+    margin-right: auto;
+  }
 }
 </style>

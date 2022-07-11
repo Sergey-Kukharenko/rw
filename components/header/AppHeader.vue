@@ -1,6 +1,6 @@
 <template>
   <header>
-     <app-notification />
+    <!--     <app-notification />-->
 
     <app-drawer>
       <app-navigation />
