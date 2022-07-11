@@ -17,6 +17,12 @@
             :class="item.icon"
           />
         </div>
+        <div class="content__text" >
+          {{ item.title }}
+        </div>
+        <div v-if="item.count" class="content__count">
+          {{ item.count }}
+        </div>
 
         <template v-if="loading">
           <teleport
@@ -31,13 +37,6 @@
             </a>
           </teleport>
         </template>
-
-        <div class="content__text">
-          {{ item.title }}
-        </div>
-        <div v-if="item.count" class="content__count">
-          {{ item.count }}
-        </div>
       </div>
     </a>
   </div>
@@ -136,6 +135,14 @@ onMounted(() => (loading.value = true));
     }
   }
 
+  &--other {
+    &:last-child{
+      @include xs {
+        display: none;
+      }
+    }
+  }
+
   &__item {
     display: block;
     margin: 0;
@@ -164,7 +171,6 @@ onMounted(() => (loading.value = true));
     }
   }
 }
-
 
 .content {
   display: flex;

@@ -3,7 +3,7 @@
     <div class="layout layout--horizontal-dt">
       <div class="navigation__group">
         <app-navigation-list :list="navigation.main"/>
-        <app-navigation-list :list="navigation.other"/>
+        <app-navigation-list :list="navigation.other" class="navigation-list--other"/>
       </div>
     </div>
   </nav>
