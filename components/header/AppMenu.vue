@@ -29,8 +29,11 @@ import AppNavigationUser from '@/components/header/AppNavigationUser';
 <style lang="scss" scoped>
 .menu {
   //background: palegoldenrod;
-  padding: 24px 0 20px;
-  border-bottom: 1px solid #e5e5e5;
+
+  @include gt-xs {
+    padding: 24px 0 20px;
+    border-bottom: 1px solid #e5e5e5;
+  }
 }
 
 .menu-list {
@@ -46,6 +49,10 @@ import AppNavigationUser from '@/components/header/AppNavigationUser';
 
   @include md {
     margin: 0 -8px;
+  }
+
+  @include xs {
+
   }
 
   &__item {

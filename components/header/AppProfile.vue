@@ -29,6 +29,10 @@ import AppDropdown from '@/components/shared/AppDropdown.vue'
 .card {
   cursor: pointer;
 
+  @include xs {
+
+  }
+
   &__figure {
     display: flex;
     align-items: center;

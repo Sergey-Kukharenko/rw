@@ -4,17 +4,19 @@
       :href="item.href"
       target="_blank"
       class="navigation-list__item"
-      :class="item.icon"
       v-for="item in props.list"
       :key="item.title"
     >
       <div class="content">
-        <SvgSprite
-          v-if="item.icon"
-          :symbol="item.icon"
-          v-bind:="item.style"
-          class="content__icon"
-        />
+        <div class="content__figure">
+          <SvgSprite
+            v-if="item.icon"
+            :symbol="item.icon"
+            v-bind:="item.style"
+            class="content__icon"
+            :class="item.icon"
+          />
+        </div>
 
         <template v-if="loading">
           <teleport
@@ -80,12 +82,74 @@ onMounted(() => (loading.value = true));
     margin: 0;
   }
 
+  &--full {
+    .navigation-list__item {
+      &:first-child {
+        position: relative;
+
+        &:not(:hover) {
+          color: #009959;
+        }
+
+        &:hover {
+          color: lighten(#009959, 5%);
+        }
+
+        @include gt-xs {
+          &:after {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 20px;
+            background: #e5e5e5;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+          }
+        }
+      }
+
+      &:last-child {
+        &:not(:hover) {
+          color: #f1ae01;
+        }
+
+        &:hover {
+          color: lighten(#f1ae01, 5%);
+        }
+      }
+    }
+
+    .content {
+      &__figure {
+        @include xs {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 20px;
+          height: 20px;
+          margin-right: 7px;
+        }
+      }
+    }
+  }
+
   &__item {
     display: block;
     margin: 0;
     color: $color-dark-grey;
-    font-size: 14px;
-    line-height: 24px;
+
+    @include gt-xs {
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    @include xs {
+      font-size: 12px;
+      line-height: 16px;
+    }
 
     &:hover {
       color: lighten($color-dark-grey, 20%);
@@ -96,49 +160,11 @@ onMounted(() => (loading.value = true));
     }
 
     @include xs {
-      padding: 0 6px;
+      padding: 8px 6px;
     }
   }
 }
 
-.navigation-list--full {
-  .navigation-list__item {
-    &:first-child {
-      position: relative;
-
-      &:not(:hover) {
-        color: #009959;
-      }
-
-      &:hover {
-        color: lighten(#009959, 5%);
-      }
-
-      &:after {
-        content: '';
-        display: block;
-        width: 1px;
-        height: 20px;
-        background: #e5e5e5;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
-      }
-    }
-
-    &:last-child {
-      &:not(:hover) {
-        color: #f1ae01;
-      }
-
-      &:hover {
-        color: lighten(#f1ae01, 5%);
-      }
-    }
-  }
-}
 
 .content {
   display: flex;
@@ -155,7 +181,11 @@ onMounted(() => (loading.value = true));
     height: 16px;
     color: inherit;
     fill: currentColor;
-    margin-right: 7px;
+
+
+    @include gt-xs {
+      margin-right: 7px;
+    }
   }
 
   &__count {
@@ -193,6 +223,24 @@ onMounted(() => (loading.value = true));
         padding: 8px;
       }
     }
+  }
+}
+
+.whatsapp {
+  @include xs {
+    display: none;
+  }
+}
+
+.tile {
+  @include gt-xs {
+    width: 20px;
+    height: 20px;
+  }
+
+  @include xs {
+    width: 16px;
+    height: 16px;
   }
 }
 </style>

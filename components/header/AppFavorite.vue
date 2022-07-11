@@ -16,6 +16,10 @@
 .card {
   cursor: pointer;
 
+  @include xs {
+    display: none;
+  }
+
   &__figure {
     display: flex;
     align-items: center;

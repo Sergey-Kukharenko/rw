@@ -25,6 +25,10 @@ const navBar = ref(dataNavBar)
 .navbar {
   padding: 8px 0;
 
+  @include xs {
+    border-top: 1px solid #DDE0E6;
+  }
+
   &-list {
     @include gt-sm {
       display: flex;

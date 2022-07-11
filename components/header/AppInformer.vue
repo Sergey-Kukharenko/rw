@@ -13,24 +13,34 @@ const title = ref('We work daily for 24 hours without a break');
 
 <style lang="scss" scoped>
 .informer {
-  display: flex;
-  align-items: center;
+  @include gt-xs {
+    display: flex;
+    align-items: center;
+  }
+
+  @include xs {
+    display: none;
+  }
 
   &__icon {
-    flex-shrink: 0;
-    width: 16.07px;
-    height: 17.14px;
-    fill: $color-green;
+    @include gt-xs {
+      flex-shrink: 0;
+      width: 16.07px;
+      height: 17.14px;
+      fill: $color-green;
+    }
   }
 
   &__text {
-    flex: 1;
-    max-width: 165px;
-    font-family: $golos-medium;
-    font-size: 12px;
-    line-height: 16px;
-    color: $color-dark-grey;
-    margin-left: 14px;
+    @include gt-xs {
+      flex: 1;
+      max-width: 165px;
+      font-family: $golos-medium;
+      font-size: 12px;
+      line-height: 16px;
+      color: $color-dark-grey;
+      margin-left: 14px;
+    }
   }
 }
 </style>

@@ -44,11 +44,12 @@ const classNames = computed(() =>
   }
 
   &__content {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    outline: 1px solid;
-    margin: 0 -8px;
+    @include xs {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      margin: 0 -8px;
+    }
   }
 
   &__button {
@@ -85,6 +86,8 @@ const classNames = computed(() =>
 
   &__inner {
     @include xs {
+      display: flex;
+      flex-direction: column;
       width: 223px;
       height: 100vh;
       background: #fff;
