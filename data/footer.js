@@ -5,33 +5,33 @@ export default {
     flowers: {
       title: 'Flowers',
       list: [
-        {name: 'Recipients'},
-        {name: 'Occasions'},
-        {name: 'Trending'},
-        {name: 'Roses'},
-        {name: 'Sales'},
-        {name: 'Catalog'},
+        { name: 'Recipients' },
+        { name: 'Occasions' },
+        { name: 'Trending' },
+        { name: 'Roses' },
+        { name: 'Sales' },
+        { name: 'Catalog' }
       ]
     },
     about: {
       title: 'About us',
       list: [
-        {name: 'Recipients'},
-        {name: 'Occasions'},
-        {name: 'Trending'},
-        {name: 'Roses'},
-        {name: 'Sales'},
-        {name: 'Catalog'},
+        { name: 'Recipients' },
+        { name: 'Occasions' },
+        { name: 'Trending' },
+        { name: 'Roses' },
+        { name: 'Sales' },
+        { name: 'Catalog' }
       ]
     },
     help: {
       title: 'Need help?',
       list: [
-        {name: 'Contacts'},
-        {name: 'Track your order'},
-        {name: 'Reviews • 7068'},
+        { name: 'Contacts' },
+        { name: 'Track your order' },
+        { name: 'Reviews • 7068' }
       ]
     }
   }
 
-};
+}

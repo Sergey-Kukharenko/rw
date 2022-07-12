@@ -1,10 +1,10 @@
 <template>
-  <div class="dropdown" v-click-outside="close">
+  <div v-click-outside="close" class="dropdown">
     <div class="dropdown__header" @click="open">
       <slot name="button"> </slot>
     </div>
 
-    <div class="dropdown__container" v-show="visibility">
+    <div v-show="visibility" class="dropdown__container">
       <slot name="dropdown"> </slot>
     </div>
   </div>
@@ -16,15 +16,11 @@ const open = () => (visibility.value = true)
 const close = () => (visibility.value = false)
 </script>
 
-
 <style lang="scss" scoped>
 .dropdown {
   position: relative;
   display: block;
   z-index: 2;
-
-  &__header {
-  }
 
   &__container {
     position: absolute;

@@ -8,7 +8,6 @@
           <span></span>
         </div>
       </div>
-
       <div class="drawer__content" />
     </div>
     <div class="drawer__overlay" @click="close" />
@@ -28,7 +27,6 @@ const classNames = computed(() =>
   useToggleClassName(visibility.value, 'drawer', 'active')
 )
 </script>
-
 
 <style lang="scss" scoped>
 .drawer {

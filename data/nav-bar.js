@@ -4,7 +4,7 @@ export default [
     icon: 'tile',
     style: {
       width: 20,
-      height: 20,
+      height: 20
     }
   },
   {
@@ -12,7 +12,7 @@ export default [
     icon: 'fire',
     style: {
       width: 16,
-      height: 16,
+      height: 16
     }
   },
   {
@@ -20,7 +20,7 @@ export default [
     icon: 'user-hart',
     style: {
       width: 17.33,
-      height: 16.67,
+      height: 16.67
     }
   },
   {
@@ -28,7 +28,7 @@ export default [
     icon: 'organizer',
     style: {
       width: 16,
-      height: 16,
+      height: 16
     }
   },
   {
@@ -36,7 +36,7 @@ export default [
     icon: 'rose',
     style: {
       width: 16,
-      height: 16,
+      height: 16
     }
   },
   {
@@ -44,7 +44,7 @@ export default [
     icon: 'percent',
     style: {
       width: 16,
-      height: 16,
+      height: 16
     }
-  },
-];
+  }
+]

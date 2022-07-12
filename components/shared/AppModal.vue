@@ -1,6 +1,6 @@
 <template>
   <transition>
-    <div class="modal" v-show="props.open">
+    <div v-show="props.open" class="modal">
       <div class="modal__overlay" @click="close"></div>
       <div class="modal__content">
         <slot />
@@ -16,8 +16,8 @@
 const props = defineProps({
   open: {
     type: Boolean,
-    required: true,
-  },
+    required: true
+  }
 })
 
 const emit = defineEmits(['close'])
@@ -25,7 +25,7 @@ const emit = defineEmits(['close'])
 const close = () => emit('close')
 
 const handleKeyup = (event) => {
-  if (event.keyCode === 27) close()
+  if (event.keyCode === 27) { close() }
 }
 
 onMounted(() => document.addEventListener('keyup', handleKeyup))

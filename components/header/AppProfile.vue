@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import AppDropdown from '@/components/shared/AppDropdown.vue';
+import AppDropdown from '@/components/shared/AppDropdown.vue'
 </script>
 
 <style lang="scss" scoped>

@@ -1,6 +1,6 @@
 <template>
   <template v-if="loading">
-    <template v-if="isDesktop" >
+    <template v-if="isDesktop">
       <a class="logo">FLOR</a>
     </template>
     <teleport v-else to=".drawer__content">
@@ -10,13 +10,13 @@
 </template>
 
 <script setup>
-import {useMq} from 'vue3-mq';
+import { useMq } from 'vue3-mq'
 
-const mq = useMq();
-const isDesktop = computed(() => mq.current !== 'xs');
+const mq = useMq()
+const isDesktop = computed(() => mq.current !== 'xs')
 
-const loading = ref(false);
-onMounted(() =>  loading.value = true);
+const loading = ref(false)
+onMounted(() => loading.value = true)
 </script>
 
 <style lang="scss" scoped>

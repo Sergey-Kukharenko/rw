@@ -1,15 +1,21 @@
 <template>
-  <template v-if="loading">
+  <div v-if="loading">
     <template v-if="isDesktop">
       <a class="cart">
         <figure class="cart__figure">
-          <SvgSprite symbol="cart" class="cart__icon" width="24" height="24" />
+          <SvgSprite
+            symbol="cart"
+            class="cart__icon"
+            width="24"
+            height="24"
+          />
         </figure>
         <figcaption class="cart__figcaption">
           Basket
         </figcaption>
       </a>
     </template>
+
     <teleport v-else to=".drawer__content">
       <a class="cart">
         <SvgSprite
@@ -18,7 +24,7 @@
         />
       </a>
     </teleport>
-  </template>
+  </div>
 </template>
 
 <script setup>

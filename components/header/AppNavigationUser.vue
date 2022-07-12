@@ -1,21 +1,21 @@
 <template>
   <nav class="navigation-user">
     <div class="navigation-user__item">
-      <app-favorite/>
+      <app-favorite />
     </div>
     <div class="navigation-user__item">
-      <app-cart/>
+      <app-cart />
     </div>
     <div class="navigation-user__item">
-      <app-profile/>
+      <app-profile />
     </div>
   </nav>
 </template>
 
 <script setup>
-import AppFavorite from '@/components/header/AppFavorite';
-import AppCart from '@/components/header/AppCart.vue';
-import AppProfile from '@/components/header/AppProfile.vue';
+import AppFavorite from '@/components/header/AppFavorite'
+import AppCart from '@/components/header/AppCart.vue'
+import AppProfile from '@/components/header/AppProfile.vue'
 </script>
 
 <style lang="scss" scoped>
@@ -38,7 +38,6 @@ import AppProfile from '@/components/header/AppProfile.vue';
   @include xs {
     margin: 10px 0;
   }
-
 
   &__item {
     @include gt-md {
@@ -82,6 +81,5 @@ import AppProfile from '@/components/header/AppProfile.vue';
     opacity: 0.75;
   }
 }
-
 
 </style>

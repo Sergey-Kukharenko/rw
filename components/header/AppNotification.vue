@@ -11,15 +11,16 @@
 <script setup>
 const notification = ref({
   title: 'Flowers will stand for 5 days or we’ll replace the bouquet!',
-  theme: 'green',
+  theme: 'green'
 })
 
 const options = {
-  theme: notification.value.theme || '',
+  theme: notification.value.theme || ''
 }
 
 const classNames = computed(() => useClassName(options, 'notification'))
 </script>
+
 <style lang="scss" scoped>
 .notification {
   &__title {
@@ -35,6 +36,7 @@ const classNames = computed(() => useClassName(options, 'notification'))
       line-height: 24px;
       padding: 10px 0;
     }
+
     @include xs {
       max-width: 230px;
       font-size: 13px;

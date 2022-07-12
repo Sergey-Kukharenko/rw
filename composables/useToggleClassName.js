@@ -1,3 +1,3 @@
-export function useToggleClassName(value, clsNm, tgClsNm) {
-  return [value ? `${clsNm} ${clsNm}--${tgClsNm}` : clsNm];
+export function useToggleClassName (value, clsNm, tgClsNm) {
+  return [value ? `${clsNm} ${clsNm}--${tgClsNm}` : clsNm]
 }

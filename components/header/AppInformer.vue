@@ -1,6 +1,6 @@
 <template>
   <figure class="informer">
-    <SvgSprite symbol="opening-hours" class="informer__icon"/>
+    <SvgSprite symbol="opening-hours" class="informer__icon" />
     <figcaption class="informer__text">
       {{ title }}
     </figcaption>
@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-const title = ref('We work daily for 24 hours without a break');
+const title = ref('We work daily for 24 hours without a break')
 </script>
 
 <style lang="scss" scoped>

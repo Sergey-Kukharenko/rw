@@ -1,11 +1,11 @@
 <template>
   <div :class="classNames">
     <a
+      v-for="item in props.list"
+      :key="item.title"
       :href="item.href"
       target="_blank"
       class="navigation-list__item"
-      v-for="item in props.list"
-      :key="item.title"
     >
       <div class="content">
         <div class="content__figure">
@@ -13,8 +13,7 @@
             v-if="item.icon"
             :symbol="item.icon"
             v-bind:="item.style"
-            class="content__icon"
-            :class="item.icon"
+            :class="classes(item.icon)"
           />
         </div>
         <div class="content__text">
@@ -23,22 +22,22 @@
         <div v-if="item.count" class="content__count">
           {{ item.count }}
         </div>
-
-        <template v-if="loading">
-          <teleport
-            v-if="isMobile && item.icon === 'whatsapp'"
-            to=".drawer__content"
-          >
-            <a :href="item.href" class="card">
-              <SvgSprite
-                symbol="call-outline"
-                class="card__icon card__icon--call"
-              />
-            </a>
-          </teleport>
-        </template>
       </div>
     </a>
+
+    <template v-if="loading">
+      <teleport
+        v-if="isMobile && isWhatsApp"
+        to=".drawer__content"
+      >
+        <a class="card">
+          <SvgSprite
+            symbol="call-outline"
+            class="card__icon card__icon--call"
+          />
+        </a>
+      </teleport>
+    </template>
   </div>
 </template>
 
@@ -48,20 +47,19 @@ import { useMq } from 'vue3-mq'
 const props = defineProps({
   list: {
     type: Array,
-    default: () => [],
+    default: () => []
   },
   options: {
     type: Object,
-    default: () => ({}),
-  },
+    default: () => ({})
+  }
 })
 
-const classNames = computed(() =>
-  useClassName(props.options, 'navigation-list')
-)
-
+const classNames = computed(() => useClassName(props.options, 'navigation-list'))
+const classes = value => ([`content__icon ${value}`])
 const mq = useMq()
 const isMobile = computed(() => mq.current === 'xs')
+const isWhatsApp = computed(() => (props.list.find(item => item.icon === 'whatsapp')))
 
 const loading = ref(false)
 onMounted(() => (loading.value = true))

@@ -1,33 +1,34 @@
 <template>
   <div class="location">
-    <div class="location-button" @click="isOpen = true">
+    <div class="location-button" @click="open">
       <div class="location-button__icon icon">
-        <SvgSprite symbol="location" class="icon__location"/>
+        <SvgSprite symbol="location" class="icon__location" />
       </div>
       <div class="location__description description">
         <div class="description__text">{{ location.text }}</div>
         <div class="description__title">{{ location.city }}</div>
       </div>
       <div class="location-button__icon icon">
-        <SvgSprite symbol="arrow" class="icon__arrow"/>
+        <SvgSprite symbol="arrow" class="icon__arrow" />
       </div>
     </div>
 
-    <app-modal :open="isOpen" @close="isOpen = false">
+    <app-modal :open="visibility" @close="close">
       <h1>Content</h1>
     </app-modal>
   </div>
 </template>
 
 <script setup>
-import AppModal from '@/components/shared/AppModal.vue';
+import AppModal from '@/components/shared/AppModal.vue'
 
 const location = ref({
   city: 'London',
-  text: 'Flower delivery to',
-});
-
-const isOpen = ref(false);
+  text: 'Flower delivery to'
+})
+const visibility = ref(false)
+const open = () => (visibility.value = true)
+const close = () => (visibility.value = false)
 </script>
 
 <style lang="scss" scoped>

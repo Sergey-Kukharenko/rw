@@ -4,7 +4,7 @@
       {{ props.section.title }}
     </div>
     <div class="section__list list">
-      <a class="list__item" v-for="item in props.section.list" :key="item">
+      <a v-for="item in props.section.list" :key="item" class="list__item">
         {{ item.name }}
       </a>
     </div>
@@ -15,8 +15,8 @@
 const props = defineProps({
   section: {
     type: Object,
-    default: () => ({}),
-  },
+    default: () => ({})
+  }
 })
 
 const visibility = ref(false)

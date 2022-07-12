@@ -1,33 +1,35 @@
 <template>
-  <template v-if="loading">
+  <div v-if="loading">
     <template v-if="isDesktop">
-      <button class="button" @click="isOpen = true">
+      <button class="button" @click="open">
         <SvgSprite symbol="search" class="button__icon" />
         <span class="button__text">Search in Florа</span>
       </button>
 
-      <app-modal :open="isOpen" @close="isOpen = false">
+      <app-modal :open="visibility" @close="close">
         <h1>Search</h1>
       </app-modal>
     </template>
 
     <teleport v-else to=".drawer__content">
-      <button class="button" @click="isOpen = true">
+      <button class="button" @click="open">
         <SvgSprite symbol="search" class="button__icon" />
       </button>
 
-      <app-modal :open="isOpen" @close="isOpen = false">
+      <app-modal :open="visibility" @close="close">
         <h1>Mobile Search</h1>
       </app-modal>
     </teleport>
-  </template>
+  </div>
 </template>
 
 <script setup>
 import { useMq } from 'vue3-mq'
 import AppModal from '@/components/shared/AppModal.vue'
 
-const isOpen = ref(false)
+const visibility = ref(false)
+const open = () => (visibility.value = true)
+const close = () => (visibility.value = false)
 
 const mq = useMq()
 const isDesktop = computed(() => mq.current !== 'xs')

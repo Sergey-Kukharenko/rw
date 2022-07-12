@@ -10,9 +10,9 @@
 
       <div class="group-lists">
         <div
-          class="group-lists__item"
           v-for="section in footer.sections"
           :key="section"
+          class="group-lists__item"
         >
           <app-footer-section :section="section" />
         </div>
