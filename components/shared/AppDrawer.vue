@@ -1,7 +1,7 @@
 <template>
   <div :class="classNames">
     <div class="drawer__header">
-      <div class="drawer__button" @click="toggle">
+      <div class="drawer__button" @click="open">
         <div class="burger">
           <span></span>
           <span></span>
@@ -24,7 +24,6 @@
 const visibility = ref(false)
 const open = () => (visibility.value = true)
 const close = () => (visibility.value = false)
-const toggle = () => (visibility.value = !visibility.value)
 const classNames = computed(() =>
   useToggleClassName(visibility.value, 'drawer', 'active')
 )
@@ -48,7 +47,7 @@ const classNames = computed(() =>
       flex: 1;
       display: flex;
       align-items: center;
-      margin: 0 -8px;
+      margin: 0 -8px 0 0;
     }
   }
 

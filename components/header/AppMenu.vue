@@ -3,16 +3,16 @@
     <div class="layout layout--horizontal-dt">
       <div class="menu-list">
         <div class="menu-list__item">
-          <app-logo/>
+          <app-logo />
         </div>
         <div class="menu-list__item">
-          <app-location/>
+          <app-location />
         </div>
         <div class="menu-list__item">
-          <app-informer/>
+          <app-informer />
         </div>
         <div class="menu-list__item">
-          <app-navigation-user/>
+          <app-navigation-user />
         </div>
       </div>
     </div>
@@ -20,10 +20,10 @@
 </template>
 
 <script setup>
-import AppLogo from '@/components/header/AppLogo.vue';
-import AppLocation from '@/components/header/AppLocation.vue';
-import AppInformer from '@/components/header/AppInformer.vue';
-import AppNavigationUser from '@/components/header/AppNavigationUser';
+import AppLogo from '@/components/header/AppLogo.vue'
+import AppLocation from '@/components/header/AppLocation.vue'
+import AppInformer from '@/components/header/AppInformer.vue'
+import AppNavigationUser from '@/components/header/AppNavigationUser'
 </script>
 
 <style lang="scss" scoped>
@@ -49,10 +49,6 @@ import AppNavigationUser from '@/components/header/AppNavigationUser';
 
   @include md {
     margin: 0 -8px;
-  }
-
-  @include xs {
-
   }
 
   &__item {
@@ -83,6 +79,4 @@ import AppNavigationUser from '@/components/header/AppNavigationUser';
     }
   }
 }
-
-
 </style>

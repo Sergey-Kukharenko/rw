@@ -2,18 +2,21 @@
   <nav class="navigation">
     <div class="layout layout--horizontal-dt">
       <div class="navigation__group">
-        <app-navigation-list :list="navigation.main"/>
-        <app-navigation-list :list="navigation.other" class="navigation-list--other"/>
+        <app-navigation-list :list="navigation.main" />
+        <app-navigation-list
+          :list="navigation.other"
+          :options="{ theme: 'mixed' }"
+        />
       </div>
     </div>
   </nav>
 </template>
 
 <script setup>
-import dataNavigation from '@/data/navigation';
-import AppNavigationList from '@/components/header/AppNavigationList.vue';
+import dataNavigation from '@/data/navigation'
+import AppNavigationList from '@/components/header/AppNavigationList.vue'
 
-const navigation = ref(dataNavigation);
+const navigation = ref(dataNavigation)
 </script>
 
 <style lang="scss" scoped>
@@ -24,7 +27,7 @@ const navigation = ref(dataNavigation);
 
   @include xs {
     order: 2;
-    border-top: 1px solid #DDE0E6;
+    border-top: 1px solid #dde0e6;
   }
 
   &__group {

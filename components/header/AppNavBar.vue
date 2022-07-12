@@ -26,7 +26,7 @@ const navBar = ref(dataNavBar)
   padding: 8px 0;
 
   @include xs {
-    border-top: 1px solid #DDE0E6;
+    border-top: 1px solid #dde0e6;
   }
 
   &-list {

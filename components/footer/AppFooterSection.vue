@@ -56,7 +56,7 @@ const classNames = computed(() =>
         height: 0;
         border-style: solid;
         border-width: 5px 4px 0 4px;
-        border-color: #1f2226 transparent transparent transparent;
+        border-color: $color-dark-grey transparent transparent transparent;
       }
     }
   }

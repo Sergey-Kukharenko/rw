@@ -17,7 +17,7 @@
             :class="item.icon"
           />
         </div>
-        <div class="content__text" >
+        <div class="content__text">
           {{ item.title }}
         </div>
         <div v-if="item.count" class="content__count">
@@ -43,7 +43,7 @@
 </template>
 
 <script setup>
-import {useMq} from 'vue3-mq';
+import { useMq } from 'vue3-mq'
 
 const props = defineProps({
   list: {
@@ -54,17 +54,17 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
-});
+})
 
 const classNames = computed(() =>
   useClassName(props.options, 'navigation-list')
-);
+)
 
-const mq = useMq();
-const isMobile = computed(() => mq.current === 'xs');
+const mq = useMq()
+const isMobile = computed(() => mq.current === 'xs')
 
-const loading = ref(false);
-onMounted(() => (loading.value = true));
+const loading = ref(false)
+onMounted(() => (loading.value = true))
 </script>
 
 <style lang="scss" scoped>
@@ -135,8 +135,8 @@ onMounted(() => (loading.value = true));
     }
   }
 
-  &--other {
-    &:last-child{
+  &--mixed {
+    &:last-child {
       @include xs {
         display: none;
       }
@@ -188,7 +188,6 @@ onMounted(() => (loading.value = true));
     color: inherit;
     fill: currentColor;
 
-
     @include gt-xs {
       margin-right: 7px;
     }
@@ -225,7 +224,7 @@ onMounted(() => (loading.value = true));
       @include xs {
         width: 20px;
         height: 20px;
-        fill: #1F2226;
+        fill: $color-dark-grey;
         padding: 8px;
       }
     }
