@@ -65,24 +65,27 @@ const classNames = computed(() =>
 
   &__overlay {
     @include xs {
-      display: none;
       width: 100vw;
       height: 100vh;
       position: absolute;
       top: 0;
       background: rgba(0, 0, 0, 0.7);
       z-index: 3;
+      opacity: 0;
+      transform: translateX(-101%);
+      transition: opacity 0.25s ease 0s, transform 0s ease 0.25s;
     }
   }
 
   &__container {
     @include xs {
-      display: none;
       width: 100%;
       height: 0;
       position: absolute;
       top: 0;
       z-index: 4;
+      transform: translateX(-101%);
+      transition: transform 0.25s ease 0s;
     }
   }
 
@@ -157,13 +160,16 @@ const classNames = computed(() =>
 
 .drawer--active .drawer__overlay {
   @include xs {
-    display: block;
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.25s ease 0s, transform 0s ease 0s;
   }
 }
 
 .drawer--active .drawer__container {
   @include xs {
-    display: block;
+    transform: translateX(0);
+    transition: transform 0.25s ease 0s;
   }
 }
 </style>
