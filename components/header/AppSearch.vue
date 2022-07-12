@@ -12,9 +12,13 @@
     </template>
 
     <teleport v-else to=".drawer__content">
-      <button class="button">
+      <button class="button" @click="isOpen = true">
         <SvgSprite symbol="search" class="button__icon" />
       </button>
+
+      <app-modal :open="isOpen" @close="isOpen = false">
+        <h1>Mobile Search</h1>
+      </app-modal>
     </teleport>
   </template>
 </template>

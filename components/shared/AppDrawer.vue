@@ -69,6 +69,7 @@ const classNames = computed(() =>
       width: 100vw;
       height: 100vh;
       position: absolute;
+      top: 0;
       background: rgba(0, 0, 0, 0.7);
       z-index: 3;
     }
@@ -80,6 +81,7 @@ const classNames = computed(() =>
       width: 100%;
       height: 0;
       position: absolute;
+      top: 0;
       z-index: 4;
     }
   }
