@@ -16,7 +16,7 @@
 .card {
   cursor: pointer;
 
-  @include xs {
+  @include lt-md {
     display: none;
   }
 

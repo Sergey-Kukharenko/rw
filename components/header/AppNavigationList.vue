@@ -13,7 +13,7 @@
             v-if="item.icon"
             :symbol="item.icon"
             v-bind:="item.style"
-            :class="classes(item.icon)"
+            :class="['content__icon', item.icon]"
           />
         </div>
         <div class="content__text">
@@ -25,10 +25,10 @@
       </div>
     </a>
 
-    <template v-if="loading">
+    <template v-if="isLoading">
       <teleport
-        v-if="isMobile && isWhatsApp"
-        to=".drawer__content"
+        v-if="isDevice && isWhatsApp"
+        :to="DRAWER_CONTENT_ID"
       >
         <a class="card">
           <SvgSprite
@@ -43,6 +43,7 @@
 
 <script setup>
 import { useMq } from 'vue3-mq'
+import { DRAWER_CONTENT_ID } from '@/constants'
 
 const props = defineProps({
   list: {
@@ -56,18 +57,17 @@ const props = defineProps({
 })
 
 const classNames = computed(() => useClassName(props.options, 'navigation-list'))
-const classes = value => ([`content__icon ${value}`])
 const mq = useMq()
-const isMobile = computed(() => mq.current === 'xs')
+const isDevice = computed(() => mq.current === 'xs' || mq.current === 'sm')
 const isWhatsApp = computed(() => (props.list.find(item => item.icon === 'whatsapp')))
 
-const loading = ref(false)
-onMounted(() => (loading.value = true))
+const isLoading = ref(false)
+onMounted(() => (isLoading.value = true))
 </script>
 
 <style lang="scss" scoped>
 .navigation-list {
-  @include gt-xs {
+  @include gt-sm {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -75,7 +75,7 @@ onMounted(() => (loading.value = true))
     margin: 0 -12px;
   }
 
-  @include xs {
+  @include lt-md {
     margin: 0;
   }
 
@@ -92,7 +92,7 @@ onMounted(() => (loading.value = true))
           color: lighten(#009959, 5%);
         }
 
-        @include gt-xs {
+        @include gt-sm {
           &:after {
             content: '';
             display: block;
@@ -121,7 +121,7 @@ onMounted(() => (loading.value = true))
 
     .content {
       &__figure {
-        @include xs {
+        @include lt-md {
           display: flex;
           align-items: center;
           justify-content: center;
@@ -135,7 +135,7 @@ onMounted(() => (loading.value = true))
 
   &--mixed {
     &:last-child {
-      @include xs {
+      @include lt-md {
         display: none;
       }
     }
@@ -146,12 +146,12 @@ onMounted(() => (loading.value = true))
     margin: 0;
     color: $color-dark-grey;
 
-    @include gt-xs {
+    @include gt-sm {
       font-size: 14px;
       line-height: 24px;
     }
 
-    @include xs {
+    @include lt-md {
       font-size: 12px;
       line-height: 16px;
     }
@@ -160,11 +160,11 @@ onMounted(() => (loading.value = true))
       color: lighten($color-dark-grey, 20%);
     }
 
-    @include gt-xs {
+    @include gt-sm {
       padding: 10px 12px;
     }
 
-    @include xs {
+    @include lt-md {
       padding: 8px 6px;
     }
   }
@@ -175,7 +175,7 @@ onMounted(() => (loading.value = true))
   align-items: center;
   justify-content: flex-start;
 
-  @include xs {
+  @include lt-md {
     margin: 0;
   }
 
@@ -186,7 +186,7 @@ onMounted(() => (loading.value = true))
     color: inherit;
     fill: currentColor;
 
-    @include gt-xs {
+    @include gt-sm {
       margin-right: 7px;
     }
   }
@@ -210,7 +210,7 @@ onMounted(() => (loading.value = true))
 }
 
 .card {
-  @include xs {
+  @include lt-md {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -219,7 +219,7 @@ onMounted(() => (loading.value = true))
 
   &__icon {
     &--call {
-      @include xs {
+      @include lt-md {
         width: 20px;
         height: 20px;
         fill: $color-dark-grey;
@@ -230,18 +230,18 @@ onMounted(() => (loading.value = true))
 }
 
 .whatsapp {
-  @include xs {
+  @include lt-md {
     display: none;
   }
 }
 
 .tile {
-  @include gt-xs {
+  @include gt-sm {
     width: 20px;
     height: 20px;
   }
 
-  @include xs {
+  @include lt-md {
     width: 16px;
     height: 16px;
   }

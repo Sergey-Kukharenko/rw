@@ -1,6 +1,6 @@
 <template>
   <div :class="classNames">
-    <div class="section__title" @click="toggle">
+    <div class="section__title" @click="isVisibility = !isVisibility">
       {{ props.section.title }}
     </div>
     <div class="section__list list">
@@ -19,10 +19,9 @@ const props = defineProps({
   }
 })
 
-const visibility = ref(false)
-const toggle = () => (visibility.value = !visibility.value)
+const isVisibility = ref(false)
 const classNames = computed(() =>
-  useToggleClassName(visibility.value, 'section', 'active')
+  useToggleClassName(isVisibility.value, 'section', 'active')
 )
 </script>
 

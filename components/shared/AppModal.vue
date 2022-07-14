@@ -21,15 +21,11 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['close'])
-
 const close = () => emit('close')
-
 const handleKeyup = (event) => {
   if (event.keyCode === 27) { close() }
 }
-
-onMounted(() => document.addEventListener('keyup', handleKeyup))
-onUnmounted(() => document.removeEventListener('keyup', handleKeyup))
+useEventListener(window, 'keyup', handleKeyup)
 </script>
 
 <style lang="scss" scoped>

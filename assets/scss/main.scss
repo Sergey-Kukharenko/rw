@@ -10,21 +10,21 @@
     padding: 0 6px;
   }
 
+  &--horizontal {
+    @include gt-xs {
+      padding: 0 $gap-ds;
+    }
+
+    @include xs {
+      padding: 0 6px;
+    }
+  }
+
   &__row {
     @include xs {
       padding: 0;
       margin: 0 -6px;
     }
-  }
-}
-
-.layout--horizontal {
-  @include gt-xs {
-    padding: 0 $gap-ds;
-  }
-
-  @include xs {
-    padding: 0 6px;
   }
 }
 

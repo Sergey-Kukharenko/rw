@@ -13,17 +13,17 @@ const title = ref('We work daily for 24 hours without a break')
 
 <style lang="scss" scoped>
 .informer {
-  @include gt-xs {
+  @include gt-sm {
     display: flex;
     align-items: center;
   }
 
-  @include xs {
+  @include lt-md {
     display: none;
   }
 
   &__icon {
-    @include gt-xs {
+    @include gt-sm {
       flex-shrink: 0;
       width: 16.07px;
       height: 17.14px;
@@ -32,7 +32,7 @@ const title = ref('We work daily for 24 hours without a break')
   }
 
   &__text {
-    @include gt-xs {
+    @include gt-sm {
       flex: 1;
       max-width: 165px;
       font-family: $golos-medium;

@@ -28,25 +28,23 @@ import AppNavigationUser from '@/components/header/AppNavigationUser'
 
 <style lang="scss" scoped>
 .menu {
-  @include gt-xs {
+  @include gt-sm {
     padding: 24px 0 20px;
     border-bottom: 1px solid #e5e5e5;
   }
 }
 
 .menu-list {
-  @include gt-xs {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  @include gt-md {
-    margin: 0 -16px;
-  }
 
   @include md {
     margin: 0 -8px;
+  }
+
+  @include gt-sm {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 -16px;
   }
 
   &__item {
@@ -66,7 +64,7 @@ import AppNavigationUser from '@/components/header/AppNavigationUser'
       margin: 8px 0;
     }
 
-    @include xs {
+    @include lt-md {
       margin: 0;
     }
 

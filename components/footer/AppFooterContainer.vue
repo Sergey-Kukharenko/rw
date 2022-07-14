@@ -73,7 +73,6 @@ const footer = ref(dataFooter)
 
   &__text {
     font-family: $golos-regular;
-    font-weight: 400;
 
     @include gt-xs {
       max-width: 214px;

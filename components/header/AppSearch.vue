@@ -1,41 +1,39 @@
 <template>
-  <div v-if="loading">
-    <template v-if="isDesktop">
-      <button class="button" @click="open">
+  <div v-if="isLoading">
+    <teleport  v-if="isDevice" :to="DRAWER_CONTENT_ID">
+      <button class="button" @click="isVisibility = true">
+        <SvgSprite symbol="search" class="button__icon" />
+      </button>
+
+      <app-modal :open="isVisibility" @close="isVisibility = false">
+        <h1>Mobile Search</h1>
+      </app-modal>
+    </teleport>
+
+    <template v-else>
+      <button class="button" @click="isVisibility = true">
         <SvgSprite symbol="search" class="button__icon" />
         <span class="button__text">Search in Florа</span>
       </button>
 
-      <app-modal :open="visibility" @close="close">
+      <app-modal :open="isVisibility" @close="isVisibility = false">
         <h1>Search</h1>
       </app-modal>
     </template>
-
-    <teleport v-else to=".drawer__content">
-      <button class="button" @click="open">
-        <SvgSprite symbol="search" class="button__icon" />
-      </button>
-
-      <app-modal :open="visibility" @close="close">
-        <h1>Mobile Search</h1>
-      </app-modal>
-    </teleport>
   </div>
 </template>
 
 <script setup>
 import { useMq } from 'vue3-mq'
 import AppModal from '@/components/shared/AppModal.vue'
+import { DRAWER_CONTENT_ID } from '@/constants'
 
-const visibility = ref(false)
-const open = () => (visibility.value = true)
-const close = () => (visibility.value = false)
-
+const isVisibility = ref(false)
 const mq = useMq()
-const isDesktop = computed(() => mq.current !== 'xs')
+const isDevice = computed(() => mq.current === 'xs' || mq.current === 'sm')
 
-const loading = ref(false)
-onMounted(() => (loading.value = true))
+const isLoading = ref(false)
+onMounted(() => (isLoading.value = true))
 </script>
 
 <style lang="scss" scoped>
@@ -43,11 +41,11 @@ onMounted(() => (loading.value = true))
   display: flex;
   color: $color-dark-grey;
 
-  @include gt-xs {
+  @include gt-sm {
     padding: 10px 0;
   }
 
-  @include xs {
+  @include lt-md {
     align-items: center;
     justify-content: center;
     order: 2;
@@ -59,14 +57,14 @@ onMounted(() => (loading.value = true))
   }
 
   &__icon {
-    @include gt-xs {
+    @include gt-sm {
       width: 18px;
       height: 18px;
       color: inherit;
       fill: currentColor;
     }
 
-    @include xs {
+    @include lt-md {
       width: 20px;
       height: 20px;
       fill: $color-dark-grey;

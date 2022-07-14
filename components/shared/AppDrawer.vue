@@ -1,7 +1,7 @@
 <template>
   <div :class="classNames">
     <div class="drawer__header">
-      <div class="drawer__button" @click="open">
+      <div class="drawer__button" @click="isVisibility = true">
         <div class="burger">
           <span></span>
           <span></span>
@@ -10,7 +10,7 @@
       </div>
       <div class="drawer__content" />
     </div>
-    <div class="drawer__overlay" @click="close" />
+    <div class="drawer__overlay" @click="isVisibility = false" />
     <div class="drawer__container">
       <div class="drawer__inner">
         <slot></slot>
@@ -20,18 +20,20 @@
 </template>
 
 <script setup>
-const visibility = ref(false)
-const open = () => (visibility.value = true)
-const close = () => (visibility.value = false)
+const isVisibility = ref(false)
 const classNames = computed(() =>
-  useToggleClassName(visibility.value, 'drawer', 'active')
+  useToggleClassName(isVisibility.value, 'drawer', 'active')
 )
+</script>
+
+<script>
+
 </script>
 
 <style lang="scss" scoped>
 .drawer {
   &__header {
-    @include xs {
+    @include lt-md {
       display: flex;
       align-items: center;
       height: 50px;
@@ -41,7 +43,7 @@ const classNames = computed(() =>
   }
 
   &__content {
-    @include xs {
+    @include lt-md {
       flex: 1;
       display: flex;
       align-items: center;
@@ -50,7 +52,7 @@ const classNames = computed(() =>
   }
 
   &__button {
-    @include xs {
+    @include lt-md {
       width: 20px;
       height: 20px;
       flex-shrink: 0;
@@ -61,7 +63,7 @@ const classNames = computed(() =>
   }
 
   &__overlay {
-    @include xs {
+    @include lt-md {
       width: 100vw;
       height: 100vh;
       position: absolute;
@@ -75,7 +77,7 @@ const classNames = computed(() =>
   }
 
   &__container {
-    @include xs {
+    @include lt-md {
       width: 100%;
       height: 0;
       position: absolute;
@@ -87,7 +89,7 @@ const classNames = computed(() =>
   }
 
   &__inner {
-    @include xs {
+    @include lt-md {
       display: flex;
       flex-direction: column;
       width: 223px;
@@ -100,7 +102,7 @@ const classNames = computed(() =>
 }
 
 .burger {
-  @include xs {
+  @include lt-md {
     position: relative;
     width: 16px;
     height: 12px;
@@ -109,7 +111,7 @@ const classNames = computed(() =>
   }
 
   & span {
-    @include xs {
+    @include lt-md {
       width: 100%;
       height: 2px;
       position: absolute;
@@ -156,7 +158,7 @@ const classNames = computed(() =>
 }
 
 .drawer--active .drawer__overlay {
-  @include xs {
+  @include lt-md {
     opacity: 1;
     transform: translateX(0);
     transition: opacity 0.25s ease 0s, transform 0s ease 0s;
@@ -164,7 +166,7 @@ const classNames = computed(() =>
 }
 
 .drawer--active .drawer__container {
-  @include xs {
+  @include lt-md {
     transform: translateX(0);
     transition: transform 0.25s ease 0s;
   }

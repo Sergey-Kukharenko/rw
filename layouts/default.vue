@@ -1,9 +1,9 @@
 <template>
-  <AppLoader v-if="loading" />
+  <AppLoader v-if="isLoading" />
   <div v-else>
-    <app-header />
+     <app-header />
     <slot />
-    <app-footer />
+     <app-footer />
   </div>
 </template>
 
@@ -12,9 +12,9 @@ import AppLoader from '@/components/shared/AppLoader.vue'
 import AppHeader from '@/components/header/AppHeader.vue'
 import AppFooter from '@/components/footer/AppFooter.vue'
 
-const loading = ref(true)
+const isLoading = ref(true)
 
 onMounted(() => {
-  loading.value = false
+  isLoading.value = false
 })
 </script>

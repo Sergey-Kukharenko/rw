@@ -1,6 +1,15 @@
 <template>
-  <div v-if="loading">
-    <template v-if="isDesktop">
+  <div v-if="isLoading">
+    <teleport v-if="isDevice" :to="DRAWER_CONTENT_ID">
+      <a class="cart">
+        <SvgSprite
+          symbol="cart-outline"
+          class="cart__icon"
+        />
+      </a>
+    </teleport>
+
+    <template v-else>
       <a class="cart">
         <figure class="cart__figure">
           <SvgSprite
@@ -15,33 +24,25 @@
         </figcaption>
       </a>
     </template>
-
-    <teleport v-else to=".drawer__content">
-      <a class="cart">
-        <SvgSprite
-          symbol="cart-outline"
-          class="cart__icon"
-        />
-      </a>
-    </teleport>
   </div>
 </template>
 
 <script setup>
 import { useMq } from 'vue3-mq'
+import { DRAWER_CONTENT_ID } from '@/constants'
 
 const mq = useMq()
-const isDesktop = computed(() => mq.current !== 'xs')
+const isDevice = computed(() => mq.current === 'xs' || mq.current === 'sm')
 
-const loading = ref(false)
-onMounted(() => (loading.value = true))
+const isLoading = ref(false)
+onMounted(() => (isLoading.value = true))
 </script>
 
 <style lang="scss" scoped>
 .cart {
   cursor: pointer;
 
-  @include xs {
+  @include lt-md {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,10 +60,10 @@ onMounted(() => (loading.value = true))
   }
 
   &__icon {
-    @include gt-xs {
+    @include gt-sm {
       fill: $color-light-grey;
     }
-    @include xs {
+    @include lt-md {
       width: 20px;
       height: 20px;
       fill: white;

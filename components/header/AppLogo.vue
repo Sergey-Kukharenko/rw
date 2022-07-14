@@ -1,22 +1,23 @@
 <template>
-  <template v-if="loading">
-    <template v-if="isDesktop">
-      <a class="logo">FLOR</a>
-    </template>
-    <teleport v-else to=".drawer__content">
+  <div v-if="isLoading">
+    <teleport v-if="isDevice" :to="DRAWER_CONTENT_ID">
       <a class="logo">FLOR</a>
     </teleport>
-  </template>
+    <template v-else>
+      <a class="logo">FLOR</a>
+    </template>
+  </div>
 </template>
 
 <script setup>
 import { useMq } from 'vue3-mq'
+import { DRAWER_CONTENT_ID } from '@/constants'
 
 const mq = useMq()
-const isDesktop = computed(() => mq.current !== 'xs')
+const isDevice = computed(() => mq.current === 'xs' || mq.current === 'sm')
 
-const loading = ref(false)
-onMounted(() => loading.value = true)
+const isLoading = ref(false)
+onMounted(() => isLoading.value = true)
 </script>
 
 <style lang="scss" scoped>
@@ -30,7 +31,7 @@ onMounted(() => loading.value = true)
   letter-spacing: 0.32em;
   cursor: pointer;
 
-  @include xs {
+  @include lt-md {
     order: 0;
     padding: 8px;
     margin-right: auto;

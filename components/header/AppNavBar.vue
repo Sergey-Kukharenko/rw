@@ -25,7 +25,7 @@ const navBar = ref(dataNavBar)
 .navbar {
   padding: 8px 0;
 
-  @include xs {
+  @include lt-md {
     border-top: 1px solid #dde0e6;
   }
 
@@ -37,13 +37,6 @@ const navBar = ref(dataNavBar)
       flex-wrap: wrap;
     }
 
-    &__item {
-      @include sm {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    }
   }
 }
 </style>

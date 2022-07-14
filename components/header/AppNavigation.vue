@@ -21,11 +21,11 @@ const navigation = ref(dataNavigation)
 
 <style lang="scss" scoped>
 .navigation {
-  @include gt-xs {
+  @include gt-md {
     background: $bg-grey;
   }
 
-  @include xs {
+  @include lt-md {
     order: 2;
     border-top: 1px solid #dde0e6;
   }

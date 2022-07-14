@@ -27,7 +27,7 @@ import AppDropdown from '@/components/shared/AppDropdown.vue'
 .card {
   cursor: pointer;
 
-  @include xs {
+  @include lt-md {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,13 +38,13 @@ import AppDropdown from '@/components/shared/AppDropdown.vue'
     align-items: center;
     justify-content: center;
 
-    @include gt-xs {
+    @include gt-sm {
       width: 28px;
       height: 28px;
       margin: 0 auto;
     }
 
-    @include xs {
+    @include lt-md {
       width: 32px;
       height: 32px;
       background: #F7F7F7;
@@ -55,12 +55,12 @@ import AppDropdown from '@/components/shared/AppDropdown.vue'
   &__icon {
     fill: $color-light-grey;
 
-    @include gt-xs {
+    @include gt-sm {
       width: 26.45px;
       height: 24px;
     }
 
-    @include xs {
+    @include lt-md {
       width: 12px;
       height: 12px;
     }
@@ -70,7 +70,7 @@ import AppDropdown from '@/components/shared/AppDropdown.vue'
     text-align: center;
     color: $color-white-grey;
 
-    @include gt-xs {
+    @include gt-sm {
       font-family: $golos-medium;
       font-size: 14px;
       line-height: 16px;
@@ -78,7 +78,7 @@ import AppDropdown from '@/components/shared/AppDropdown.vue'
       margin-top: 7px;
     }
 
-    @include xs {
+    @include lt-md {
       font-family: $golos-regular;
       font-size: 12px;
       line-height: 16px;
