@@ -1,27 +1,58 @@
 <template>
   <div class="layout layout--horizontal">
     <div class="breadcrumbs">
-      <a
+      <NuxtLink
         v-for="breadcrumb in breadcrumbs"
         :key="breadcrumb.text"
+        :to="breadcrumb.url"
         class="breadcrumbs__item"
       >
         <SvgSprite
           symbol="arrow-left"
           class="breadcrumbs__icon"
-          width="20"
-          height="20"
+          width="12"
+          height="16"
         />
         {{ breadcrumb.text }}
-      </a>
+      </NuxtLink>
     </div>
   </div>
 </template>
 
 <script setup>
-import dataBreadcrumbs from '@/data/breadcrumbs'
+import dataBreadcrumbs from '@/data/breadcrumbs';
 
-const breadcrumbs = ref(dataBreadcrumbs)
+const breadcrumbs = ref(dataBreadcrumbs);
+const route = useRoute();
+
+const crumbs = () => {
+  const fullPath = route.fullPath;
+  const params = fullPath.startsWith('/')
+    ? fullPath.substring(1).split('/')
+    : fullPath.split('/');
+
+  const arr = [
+    {
+      text: 'Main',
+      url: '/'
+    }
+  ];
+
+  let path = '';
+  params.map((param, idx) => {
+    path = `${path}/${param}`;
+    arr.push({
+      text: param,
+      url: `${path}`
+    });
+  });
+  console.log(arr);
+  return arr;
+};
+crumbs()
+// const b = computed(() => crumbs());
+
+// console.log(b.value)
 </script>
 
 <style lang="scss" scoped>
@@ -32,7 +63,7 @@ const breadcrumbs = ref(dataBreadcrumbs)
   }
 
   @include xs {
-    padding: 10px 6px;
+    padding: 10px 0px;
   }
 
   &__item {
@@ -96,7 +127,7 @@ const breadcrumbs = ref(dataBreadcrumbs)
 
     @include xs {
       display: block;
-      margin-right: 1px;
+      margin: 0 4px 0 9px;
     }
   }
 }

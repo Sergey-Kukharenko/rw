@@ -1,7 +1,7 @@
 export default [
   {
     text: 'Cashback 10% with each order',
-    url: '',
+    url: '/flowers/0',
     imgName: 'cashback',
     img: {
       desktop: '/svg/promotions/desktop/cashback.svg',
@@ -10,7 +10,7 @@ export default [
   },
   {
     text: 'We’ll send you bouquet photo',
-    url: '',
+    url: '/flowers/0',
     imgName: 'bouquet-photo',
     img: {
       desktop: '/svg/promotions/desktop/bouquet-photo.svg',
@@ -19,7 +19,7 @@ export default [
   },
   {
     text: 'Fast & furious delivery in 2 hours',
-    url: '',
+    url: '/flowers/0',
     imgName: 'fast-furious',
     img: {
       desktop: '/svg/promotions/desktop/fast-furious.svg',
