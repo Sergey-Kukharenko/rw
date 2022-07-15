@@ -24,27 +24,10 @@
         </div>
       </div>
     </a>
-
-    <template v-if="isLoading">
-      <teleport
-        v-if="isDevice && isWhatsApp"
-        :to="DRAWER_CONTENT_ID"
-      >
-        <a class="card">
-          <SvgSprite
-            symbol="call-outline"
-            class="card__icon card__icon--call"
-          />
-        </a>
-      </teleport>
-    </template>
   </div>
 </template>
 
 <script setup>
-import { useMq } from 'vue3-mq'
-import { DRAWER_CONTENT_ID } from '@/constants'
-
 const props = defineProps({
   list: {
     type: Array,
@@ -54,15 +37,9 @@ const props = defineProps({
     type: Object,
     default: () => ({})
   }
-})
+});
 
-const classNames = computed(() => useClassName(props.options, 'navigation-list'))
-const mq = useMq()
-const isDevice = computed(() => mq.current === 'xs' || mq.current === 'sm')
-const isWhatsApp = computed(() => (props.list.find(item => item.icon === 'whatsapp')))
-
-const isLoading = ref(false)
-onMounted(() => (isLoading.value = true))
+const classNames = computed(() => useClassName(props.options, 'navigation-list'));
 </script>
 
 <style lang="scss" scoped>
@@ -205,26 +182,6 @@ onMounted(() => (isLoading.value = true))
       background: currentColor;
       border-radius: 50%;
       margin: 0 4px;
-    }
-  }
-}
-
-.card {
-  @include lt-md {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    order: 1;
-  }
-
-  &__icon {
-    &--call {
-      @include lt-md {
-        width: 20px;
-        height: 20px;
-        fill: $color-dark-grey;
-        padding: 8px;
-      }
     }
   }
 }

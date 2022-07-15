@@ -28,15 +28,24 @@ const navBar = ref(dataNavBar)
   @include lt-md {
     border-top: 1px solid #dde0e6;
   }
+}
 
-  &-list {
-    @include gt-sm {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
+.navbar-list {
+  @include gt-sm {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+
+    &:last-child{
+      @include lt-sm {
+        display: none;
+      }
     }
-
   }
 }
+
 </style>

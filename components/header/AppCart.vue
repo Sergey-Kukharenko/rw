@@ -1,42 +1,16 @@
 <template>
-  <div v-if="isLoading">
-    <teleport v-if="isDevice" :to="DRAWER_CONTENT_ID">
-      <a class="cart">
-        <SvgSprite
-          symbol="cart-outline"
-          class="cart__icon"
-        />
-      </a>
-    </teleport>
-
-    <template v-else>
-      <a class="cart">
-        <figure class="cart__figure">
-          <SvgSprite
-            symbol="cart"
-            class="cart__icon"
-            width="24"
-            height="24"
-          />
-        </figure>
-        <figcaption class="cart__figcaption">
-          Basket
-        </figcaption>
-      </a>
-    </template>
-  </div>
+  <a class="cart">
+    <figure class="cart__figure">
+      <SvgSprite
+        symbol="cart-outline"
+        class="cart__icon"
+      />
+    </figure>
+    <figcaption class="cart__figcaption">
+      Basket
+    </figcaption>
+  </a>
 </template>
-
-<script setup>
-import { useMq } from 'vue3-mq'
-import { DRAWER_CONTENT_ID } from '@/constants'
-
-const mq = useMq()
-const isDevice = computed(() => mq.current === 'xs' || mq.current === 'sm')
-
-const isLoading = ref(false)
-onMounted(() => (isLoading.value = true))
-</script>
 
 <style lang="scss" scoped>
 .cart {
@@ -61,7 +35,10 @@ onMounted(() => (isLoading.value = true))
 
   &__icon {
     @include gt-sm {
-      fill: $color-light-grey;
+      width: 24px;
+      height: 24px;
+      fill: $color-dark-grey;
+      opacity: 0.5;
     }
     @include lt-md {
       width: 20px;
@@ -71,16 +48,23 @@ onMounted(() => (isLoading.value = true))
   }
 
   &__figcaption {
-    font-family: $golos-medium;
-    font-size: 14px;
-    line-height: 16px;
-    text-align: center;
-    color: $color-white-grey;
-    margin-top: 7px;
+    @include gt-sm {
+      font-family: $golos-medium;
+      font-size: 14px;
+      line-height: 16px;
+      text-align: center;
+      color: $color-white-grey;
+      margin-top: 7px;
+    }
+    @include lt-md {
+      display: none;
+    }
   }
 
   &:hover {
-    opacity: 0.75;
+    @include gt-sm {
+      opacity: 0.75;
+    }
   }
 }
 </style>

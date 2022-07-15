@@ -1,11 +1,6 @@
 <template>
   <section class="layout promotion">
-    <NuxtLink
-      v-for="promotion in promotions"
-      :key="promotion.text"
-      :to="promotion.url"
-      class="promotion__item"
-    >
+    <a v-for="promotion in promotions" :key="promotion.text" class="promotion__item">
       <div class="promotion__text">
         {{ promotion.text }}
       </div>
@@ -16,17 +11,16 @@
           :alt="promotion.text"
         />
       </figure>
-    </NuxtLink>
+    </a>
   </section>
 </template>
 
 <script setup>
-import { useMq } from 'vue3-mq'
 import dataPromotions from '@/data/promotions'
 
-const mq = useMq()
 const promotions = ref(dataPromotions)
-const getImg = computed(() => (mq.current === 'xs' ? 'mobile' : 'desktop'))
+const isMobile = useIsMobile()
+const getImg = isMobile.value ? 'mobile' : 'desktop'
 </script>
 
 <style scoped lang="scss">

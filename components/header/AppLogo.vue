@@ -1,23 +1,11 @@
 <template>
-  <div v-if="isLoading">
-    <teleport v-if="isDevice" :to="DRAWER_CONTENT_ID">
-      <a class="logo">FLOR</a>
-    </teleport>
-    <template v-else>
-      <a class="logo">FLOR</a>
-    </template>
-  </div>
+  <a class="logo">FLOR</a>
 </template>
 
 <script setup>
-import { useMq } from 'vue3-mq'
 import { DRAWER_CONTENT_ID } from '@/constants'
 
-const mq = useMq()
-const isDevice = computed(() => mq.current === 'xs' || mq.current === 'sm')
-
-const isLoading = ref(false)
-onMounted(() => isLoading.value = true)
+const isMobile = useIsMobile()
 </script>
 
 <style lang="scss" scoped>

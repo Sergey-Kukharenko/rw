@@ -68,6 +68,12 @@ import AppNavigationUser from '@/components/header/AppNavigationUser'
       margin: 0;
     }
 
+    &:first-child {
+      @include lt-sm {
+       display: none;
+      }
+    }
+
     &:last-child {
       @include gt-sm {
         margin-left: auto;

@@ -5,7 +5,6 @@
       v-slot="slotProps"
       :slides="slides"
       :options="options"
-      class="layout__row"
     >
       <app-card :slide="{ ...slotProps }" />
     </app-swiper>

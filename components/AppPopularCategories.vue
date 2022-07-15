@@ -25,13 +25,12 @@
 </template>
 
 <script setup>
-import { useMq } from 'vue3-mq'
 import AppTimer from '@/components/shared/AppTimer.vue'
 import dataPopularCategories from '@/data/popular-categories'
 
-const mq = useMq()
 const popular = ref(dataPopularCategories)
-const getImg = computed(() => (mq.current === 'xs' ? 'mobile' : 'desktop'))
+const isMobile = useIsMobile()
+const getImg = isMobile.value ? 'mobile' : 'desktop'
 </script>
 
 <style scoped lang="scss">

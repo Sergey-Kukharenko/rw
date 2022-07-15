@@ -13,8 +13,8 @@
       </div>
     </div>
 
-    <app-modal :open="isVisibility" @close="isVisibility = false">
-      <h1>Content</h1>
+    <app-modal :visible="isVisibility" @close="isVisibility = false">
+      <h1>Content123</h1>
     </app-modal>
   </div>
 </template>

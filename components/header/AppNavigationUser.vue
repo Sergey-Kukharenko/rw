@@ -1,13 +1,13 @@
 <template>
   <nav class="navigation-user">
     <div class="navigation-user__item">
-      <app-favorite />
+      <app-favorite/>
     </div>
     <div class="navigation-user__item">
-      <app-cart />
+      <app-cart/>
     </div>
     <div class="navigation-user__item">
-      <app-profile />
+      <app-profile/>
     </div>
   </nav>
 </template>
@@ -42,6 +42,12 @@ import AppProfile from '@/components/header/AppProfile.vue'
 
     @include gt-md {
       padding: 0 32px;
+    }
+
+    &:nth-child(2) {
+      @include lt-md {
+        display: none;
+      }
     }
   }
 }

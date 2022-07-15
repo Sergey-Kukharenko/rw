@@ -27,13 +27,14 @@ const route = useRoute();
 
 const crumbs = () => {
   const fullPath = route.fullPath;
+  console.log(fullPath);
   const params = fullPath.startsWith('/')
     ? fullPath.substring(1).split('/')
     : fullPath.split('/');
 
   const arr = [
     {
-      text: 'Main',
+      text: 'main',
       url: '/'
     }
   ];
@@ -46,13 +47,11 @@ const crumbs = () => {
       url: `${path}`
     });
   });
-  console.log(arr);
+  // console.log(arr);
   return arr;
 };
 crumbs()
-// const b = computed(() => crumbs());
 
-// console.log(b.value)
 </script>
 
 <style lang="scss" scoped>
