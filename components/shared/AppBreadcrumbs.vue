@@ -1,10 +1,10 @@
 <template>
-  <div class="layout layout--horizontal">
+  <div class="layout layout--horizontal" v-if="breadCrumbs">
     <div class="breadcrumbs">
       <NuxtLink
-        v-for="breadcrumb in breadcrumbs"
-        :key="breadcrumb.text"
-        :to="breadcrumb.url"
+        v-for="item in breadCrumbs"
+        :key="item.text"
+        :to="item.path"
         class="breadcrumbs__item"
       >
         <SvgSprite
@@ -13,45 +13,15 @@
           width="12"
           height="16"
         />
-        {{ breadcrumb.text }}
+        {{ item.text }}
       </NuxtLink>
     </div>
   </div>
 </template>
 
 <script setup>
-import dataBreadcrumbs from '@/data/breadcrumbs';
-
-const breadcrumbs = ref(dataBreadcrumbs);
-const route = useRoute();
-
-const crumbs = () => {
-  const fullPath = route.fullPath;
-  console.log(fullPath);
-  const params = fullPath.startsWith('/')
-    ? fullPath.substring(1).split('/')
-    : fullPath.split('/');
-
-  const arr = [
-    {
-      text: 'main',
-      url: '/'
-    }
-  ];
-
-  let path = '';
-  params.map((param, idx) => {
-    path = `${path}/${param}`;
-    arr.push({
-      text: param,
-      url: `${path}`
-    });
-  });
-  // console.log(arr);
-  return arr;
-};
-crumbs()
-
+const route = useRoute()
+const breadCrumbs = computed(() => useBreadCrumbs(route))
 </script>
 
 <style lang="scss" scoped>
@@ -111,6 +81,8 @@ crumbs()
     }
 
     &:last-child {
+      cursor: default;
+
       @include gt-xs {
         color: $color-dark-grey;
       }

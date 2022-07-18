@@ -1,6 +1,6 @@
 <template>
   <section class="layout promotion">
-    <a v-for="promotion in promotions" :key="promotion.text" class="promotion__item">
+    <nuxt-link to="/flowers/roses/0" v-for="promotion in promotions" :key="promotion.text" class="promotion__item">
       <div class="promotion__text">
         {{ promotion.text }}
       </div>
@@ -11,7 +11,7 @@
           :alt="promotion.text"
         />
       </figure>
-    </a>
+    </nuxt-link>
   </section>
 </template>
 

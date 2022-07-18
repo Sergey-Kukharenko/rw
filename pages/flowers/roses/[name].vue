@@ -1,6 +1,5 @@
 <template>
   <div>
-    <app-breadcrumbs />
     <!-- <div class="layout layout-dt detail-page">
       <div class="detail-page__col"></div>
       <div class="detail-page__col">
@@ -12,7 +11,6 @@
 
 <script setup>
 import products from '@/data/products'
-import AppBreadcrumbs from '@/components/shared/AppBreadcrumbs.vue'
 
 const route = useRoute()
 const name = +route.params.name
