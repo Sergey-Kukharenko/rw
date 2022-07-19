@@ -54,7 +54,7 @@ const setThumbsSwiper = (swiper) => {
 
 const options = {
   slidesPerView: 1,
-  spaceBetween: 12,
+  spaceBetween: 66,
 };
 
 const optionsThumbs = {
@@ -99,9 +99,14 @@ const optionsThumbs = {
   }
 }
 
-.swiper.swiper-thumbs{
-  max-width: 308px;
-  margin: 12px auto 0 0;
+.swiper {
+  user-select: none;
+
+  &.swiper-thumbs {
+    max-width: 308px;
+    margin: 12px auto 0 0;
+    user-select: none;
+  }
 }
 
 .swiper-slide-thumb-active .thumbs-item {
