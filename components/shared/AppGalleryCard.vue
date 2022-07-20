@@ -20,11 +20,16 @@ const props = defineProps({
 <style lang="scss" scoped>
 .card {
   position: relative;
-  border-radius: 12px;
   overflow: hidden;
 
   @include gt-xs {
+    max-width: 528px;
     height: 528px;
+    border-radius: 12px;
+  }
+
+  @include xs {
+    padding-top: 100%;
   }
 
   &__img {
@@ -32,6 +37,11 @@ const props = defineProps({
     width: 100%;
     height: 100%;
     object-fit: cover;
+
+    @include xs {
+      position: absolute;
+      top: 0;
+    }
   }
 }
 

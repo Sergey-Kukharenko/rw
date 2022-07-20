@@ -22,28 +22,44 @@ const product = products.find((item) => item.id === name);
 
 <style lang="scss" scoped>
 .detail-page {
-  display: flex;
+
+  @include gt-sm {
+    display: flex;
+  }
 
   &__col {
-    width: 50%;
-    //outline: 1px solid;
+    outline: 1px solid;
     box-sizing: border-box;
 
-    &:first-child {
-      padding-right: 12px;
-    }
 
-    &:last-child {
-      padding-left: 12px;
+    @include gt-sm {
+      width: 50%;
+
+      &:first-child {
+        padding-right: 12px;
+      }
+
+      &:last-child {
+        padding-left: 12px;
+      }
     }
   }
 }
 
 .title {
   font-family: $golos-bold;
-  font-size: 36px;
-  line-height: 40px;
+
   letter-spacing: -0.01em;
   color: #0d072e;
+
+  @include gt-sm {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  @include lt-sm {
+    font-size: 24px;
+    line-height: 28px;
+  }
 }
 </style>

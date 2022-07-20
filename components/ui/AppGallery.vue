@@ -3,7 +3,7 @@
     :thumbs="{ swiper: thumbsSwiper }"
     v-bind="options"
     :modules="modules"
-    class="swiper"
+    class="swiper swiper--gallery"
   >
     <swiper-slide v-for="(slide, idx) in props.items.slides" :key="idx">
       <app-gallery-card :slide="slide"/>
@@ -54,7 +54,16 @@ const setThumbsSwiper = (swiper) => {
 
 const options = {
   slidesPerView: 1,
-  spaceBetween: 66,
+  pagination: true,
+
+  breakpoints: {
+    599: {
+      spaceBetween: 0,
+    },
+    959: {
+      spaceBetween: 66,
+    }
+  }
 };
 
 const optionsThumbs = {
@@ -68,11 +77,12 @@ const optionsThumbs = {
 @import 'swiper/scss';
 @import 'swiper/scss/free-mode';
 @import 'swiper/scss/pagination';
+@import 'swiper/scss/navigation';
 @import 'swiper/scss/thumbs';
 
-.swiper {
+.swiper.swiper--gallery {
   @include xs {
-    padding: 0 6px;
+    padding: 0;
     margin: 0 -6px;
   }
 }
@@ -103,9 +113,31 @@ const optionsThumbs = {
   user-select: none;
 
   &.swiper-thumbs {
-    max-width: 308px;
-    margin: 12px auto 0 0;
-    user-select: none;
+    @include gt-xs {
+      max-width: 308px;
+      margin: 12px auto 0 0;
+      user-select: none;
+    }
+
+    @include xs {
+      display: none;
+    }
+  }
+}
+
+.swiper.swiper--gallery {
+  .swiper-pagination-horizontal {
+    @include gt-xs {
+      display: none;
+    }
+
+    .swiper-pagination-bullet {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .swiper-pagination-bullet.swiper-pagination-bullet-active {
+      background: rgba(255, 255, 255, 1);
+    }
   }
 }
 
