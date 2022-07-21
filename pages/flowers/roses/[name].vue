@@ -1,36 +1,39 @@
 <template>
-  <div>
-    <div class="layout layout-dt detail-page">
+  <div class="layout layout-dt detail-page">
+    <div class="detail-page__row">
       <div class="detail-page__col">
-        <app-gallery :items="product.items"/>
+        <app-gallery :items="product.items" />
       </div>
       <div class="detail-page__col">
         <h1 class="title">{{ product.title }}</h1>
       </div>
     </div>
+
+    <app-popular-categories :popular="product.popular"/>
   </div>
 </template>
 
 <script setup>
-import products from '@/data/products';
-import AppGallery from '@/components/ui/AppGallery.vue';
+import products from '@/data/products'
+import AppGallery from '@/components/ui/AppGallery.vue'
+import AppPopularCategories from '@/components/card-product/AppPopularCategories.vue'
 
-const route = useRoute();
-const name = +route.params.name;
-const product = products.find((item) => item.id === name);
+const route = useRoute()
+const name = +route.params.name
+const product = products.find((item) => item.id === name)
 </script>
 
 <style lang="scss" scoped>
 .detail-page {
-
-  @include gt-sm {
-    display: flex;
+  &__row {
+    @include gt-sm {
+      display: flex;
+    }
   }
 
   &__col {
-    outline: 1px solid;
+    //outline: 1px solid;
     box-sizing: border-box;
-
 
     @include gt-sm {
       width: 50%;

@@ -49,6 +49,24 @@ export default [
           img: 'https://images.unsplash.com/photo-1535850836387-0f9dfce30846?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjR8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60'
         }
       ]
+    },
+    popular: {
+      title: 'Popular categories',
+      categories: [
+        {name: 'Alstromerias'},
+        {name: 'Mattiollas'},
+        {name: 'Dried flowers'},
+        {name: 'Deluxe & Limited flowers'},
+        {name: 'Delfiniums'},
+        {name: 'Sales'},
+        {name: 'Peonies'},
+        {name: 'Gerberas'},
+        {name: 'Irisis'},
+        {name: 'Carnations'},
+        {name: 'Calla lilies'},
+        {name: 'Roses'}
+      ]
     }
+
   }
 ]
