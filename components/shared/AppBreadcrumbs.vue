@@ -37,7 +37,7 @@ const breadCrumbs = computed(() => useBreadCrumbs(route))
 
   &__item {
     font-family: $golos-regular;
-    color: #7c7c7c;
+    color: $color-white-grey;
 
     @include gt-xs {
       display: flex;

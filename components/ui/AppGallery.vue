@@ -19,6 +19,7 @@
     <swiper-slide v-for="(slide, idx) in props.items.thumbs" :key="idx">
       <div class="thumbs-item">
         <img :src="slide.img" :alt="slide.img" class="thumbs-item__img"/>
+        <div class="thumbs-item__border absolute-grow"/>
       </div>
     </swiper-slide>
   </swiper>
@@ -93,8 +94,7 @@ const optionsThumbs = {
   justify-content: center;
   width: 68px;
   height: 68px;
-  border: 3px solid transparent;
-  border-radius: 12px;
+  position: relative;
   box-sizing: border-box;
   cursor: pointer;
   transition: border-color 0.35s ease 0s;
@@ -104,8 +104,19 @@ const optionsThumbs = {
     width: 60px;
     height: 60px;
     object-fit: cover;
+    position: relative;
+    z-index: 1;
     border-radius: 12px;
     overflow: hidden;
+    transition: transform 0.3s ease-out 0s;
+  }
+
+  &__border {
+    border: 3px solid $color-green;
+    border-radius: 12px;
+    opacity: 0;
+    transform: scale(1.04);
+    transition: 0.3s ease-out 0s;
   }
 }
 
@@ -141,7 +152,13 @@ const optionsThumbs = {
   }
 }
 
-.swiper-slide-thumb-active .thumbs-item {
-  border: 3px solid $color-green;
+.swiper-slide-thumb-active .thumbs-item__border {
+  opacity: 1;
+  transform: scale(1);
 }
+
+.swiper-slide-thumb-active .thumbs-item__img {
+  transform: scale(0.98);
+}
+
 </style>

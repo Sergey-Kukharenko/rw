@@ -2,10 +2,23 @@
   <div class="layout layout-dt detail-page">
     <div class="detail-page__row">
       <div class="detail-page__col">
-        <app-gallery :items="product.items" />
+        <app-gallery :items="product.items"/>
       </div>
       <div class="detail-page__col">
         <h1 class="title">{{ product.title }}</h1>
+
+        <div class="steps">
+          <div class="steps__item item">
+            <div class="item__header">
+              <span class="item__header-number">1.</span>
+              <span class="item__header-text">Choose roses color:</span>
+              <span class="item__header-choice">Pink & White</span>
+            </div>
+            <div class="item__body">
+              <app-list :list="product.choose_color"/>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -14,13 +27,14 @@
 </template>
 
 <script setup>
-import products from '@/data/products'
-import AppGallery from '@/components/ui/AppGallery.vue'
-import AppPopularCategories from '@/components/card-product/AppPopularCategories.vue'
+import products from '@/data/products';
+import AppGallery from '@/components/ui/AppGallery.vue';
+import AppList from '@/components/card-product/AppList.vue';
+import AppPopularCategories from '@/components/card-product/AppPopularCategories.vue';
 
-const route = useRoute()
-const name = +route.params.name
-const product = products.find((item) => item.id === name)
+const route = useRoute();
+const name = +route.params.name;
+const product = products.find((item) => item.id === name);
 </script>
 
 <style lang="scss" scoped>
@@ -51,7 +65,6 @@ const product = products.find((item) => item.id === name)
 
 .title {
   font-family: $golos-bold;
-
   letter-spacing: -0.01em;
   color: #0d072e;
 
@@ -64,5 +77,37 @@ const product = products.find((item) => item.id === name)
     font-size: 24px;
     line-height: 28px;
   }
+}
+
+.steps {
+  margin: 0;
+
+  &__item {
+    margin: 30px 0;
+  }
+}
+
+.item {
+  &__header {
+    display: flex;
+    align-items: center;
+    font-family: $golos-regular;
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  &__header-number {
+    margin: 0;
+  }
+
+  &__header-text {
+    margin: 0 9px 0 7px;
+  }
+
+  &__header-choice {
+    color: $color-white-grey;
+    margin: 0;
+  }
+
 }
 </style>

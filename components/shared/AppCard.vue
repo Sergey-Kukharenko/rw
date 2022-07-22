@@ -11,10 +11,7 @@
         <div class="figure__overlay figure__overlay--bottom"></div>
       </a>
       <div class="card__header header">
-        <div class="header__rating rating">
-          <div class="rating__text">{{ props.slide.rating }}</div>
-          <SvgSprite symbol="star" class="rating__icon" />
-        </div>
+        <app-badge-rate-reviews :rating="props.slide.rating" :stars="1" />
 
         <button class="header__like like">
           <SvgSprite symbol="heart" class="like__icon" />
@@ -48,12 +45,13 @@
 
 <script setup>
 import AppBadge from './AppBadge.vue'
+import AppBadgeRateReviews from './AppBadgeRateReviews.vue'
 import AppButton from './AppButton.vue'
 const props = defineProps({
   slide: {
     type: Object,
-    default: () => ({})
-  }
+    default: () => ({}),
+  },
 })
 </script>
 

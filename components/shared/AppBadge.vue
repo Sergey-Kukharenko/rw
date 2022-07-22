@@ -8,8 +8,12 @@
 const props = defineProps({
   theme: {
     type: String,
-    default: ''
-  }
+    default: '',
+  },
+  size: {
+    type: String,
+    default: '',
+  },
 })
 
 const classNames = computed(() => useClassName(props, 'badge'))
@@ -37,6 +41,19 @@ const classNames = computed(() => useClassName(props, 'badge'))
 
   &--red {
     background: #db1838;
+  }
+
+  &--md {
+    font-size: 12px;
+    line-height: 16px;
+
+    @include gt-xs {
+      padding: 4px 9px;
+    }
+
+    @include xs {
+      padding: 4px 8px;
+    }
   }
 }
 </style>
