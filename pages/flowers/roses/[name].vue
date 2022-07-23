@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <app-popular-categories :popular="product.popular"/>
+    <app-popular-categories :popular="product.popular" />
   </div>
 </template>
 

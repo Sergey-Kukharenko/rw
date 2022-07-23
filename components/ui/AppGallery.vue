@@ -54,15 +54,16 @@ const setThumbsSwiper = (swiper) => {
 };
 
 const options = {
-  slidesPerView: 1,
+  // slidesPerView: 1,
   pagination: true,
+  watchSlidesProgress: true,
 
   breakpoints: {
     599: {
       spaceBetween: 0,
     },
     959: {
-      spaceBetween: 66,
+      spaceBetween: 12,
     }
   }
 };
@@ -71,6 +72,7 @@ const optionsThumbs = {
   spaceBetween: 12,
   slidesPerView: 4,
   watchSlidesProgress: true,
+  slideToClickedSlide: true,
 };
 </script>
 
@@ -127,7 +129,6 @@ const optionsThumbs = {
     @include gt-xs {
       max-width: 308px;
       margin: 12px auto 0 0;
-      user-select: none;
     }
 
     @include xs {
