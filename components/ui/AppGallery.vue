@@ -63,7 +63,7 @@ const options = {
       spaceBetween: 0,
     },
     959: {
-      spaceBetween: 12,
+      spaceBetween: 66,
     }
   }
 };

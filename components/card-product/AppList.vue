@@ -1,13 +1,19 @@
 <template>
   <div class="list">
-    <div class="list__item" v-for="item in list" :key="item.id">
-      <div class="card">
-        <div class="card__figure figure" v-if="item.name">
-          <img :src="item.img" class="figure__img" :alt="item.name">
-          <div class="figure__border"/>
+    <div
+      class="list__item"
+      v-for="(item, idx) in list"
+      :key="item.id"
+      @click="onChange(item, idx)"
+    >
+      <div class="card" :class="{ active: idx === selectedItem }">
+        <div v-if="item.sale" class="badge" />
+        <div class="card__figure figure">
+          <img :src="item.img" class="figure__img" />
+          <div class="figure__border" />
         </div>
         <div class="card__figcaption figcaption" v-if="item.description">
-          <div class="figcaption__title">{{ item.title }}</div>
+          <div class="figcaption__title">{{ item.name }}</div>
           <div class="figcaption__price">£{{ item.price }}</div>
         </div>
       </div>
@@ -21,21 +27,51 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
-});
+})
+
+const emit = defineEmits(['setItem'])
+const selectedItem = ref(0)
+
+const onChange = (item, idx) => {
+  selectedItem.value = idx
+  emit('setItem', item)
+}
 </script>
 
 <style scoped lang="scss">
 .list {
   display: flex;
-  margin: 4px -8px;
+  user-select: none;
+
+  @include gt-sm {
+    margin: 4px -8px;
+  }
+
+  @include lt-sm {
+    margin: 8px 2px;
+    overflow-x: auto;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 
   &__item {
-    margin: 8px;
+    @include gt-sm {
+      margin: 8px;
+    }
+
+    @include lt-sm {
+      margin: 5px;
+    }
   }
 }
 
 .card {
   cursor: pointer;
+  position: relative;
 
   &__figure {
     width: 60px;
@@ -49,16 +85,17 @@ const props = defineProps({
     margin-top: 11px;
   }
 
-  &:hover {
+  &:hover,
+  &.active {
     .card__figcaption {
       color: $color-dark-grey;
     }
 
-    .figure__img{
+    .figure__img {
       transform: scale(0.98);
     }
 
-    .figure__border{
+    .figure__border {
       opacity: 1;
       transform: scale(1);
     }
@@ -107,5 +144,16 @@ const props = defineProps({
   &__price {
     margin-top: 1px;
   }
+}
+
+.badge {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  z-index: 3;
+  background: #ffeec6;
+  border-radius: 50%;
 }
 </style>
