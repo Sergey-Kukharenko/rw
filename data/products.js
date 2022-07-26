@@ -109,6 +109,22 @@ export default [
         { name: 'Roses' }
       ]
     },
+    count: 51,
+    currency: '£',
+    price: {
+      current: 43,
+      old: 55
+    },
+
+    sale: {
+      status: 'Sale',
+      percent: '-30%'
+    },
+
+    cashback: {
+      status: 'Cashback',
+      count: 0.4
+    },
 
     choose_color: [
       {

@@ -100,6 +100,12 @@ const onChange = (item, idx) => {
       transform: scale(1);
     }
   }
+
+  &:active {
+    .figure__img {
+      transform: scale(0.86);
+    }
+  }
 }
 
 .figure {
