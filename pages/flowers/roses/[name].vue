@@ -6,13 +6,12 @@
       </div>
       <div class="detail-page__col">
         <h1 class="title">{{ product.title }}</h1>
-
         <div class="steps">
           <div class="steps__item item">
             <div class="item__header">
-              <span class="item__header-number">1.</span>
-              <span class="item__header-text">Choose roses color:</span>
-              <span class="item__header-choice">{{ itemColor.name }}</span>
+              <div class="item__header-number">1.</div>
+              <div class="item__header-text">Choose roses color:</div>
+              <div class="item__header-content">{{ itemColor.name }}</div>
             </div>
             <div class="item__body">
               <app-list :list="product.choose_color" @setItem="onSetColor" />
@@ -21,15 +20,25 @@
 
           <div class="steps__item item">
             <div class="item__header">
-              <span class="item__header-number">2.</span>
-              <span class="item__header-text">Number of roses:</span>
-              <span class="item__header-choice">{{ itemPackage.name }}</span>
+              <div class="item__header-number">3.</div>
+              <div class="item__header-text">Choose package:</div>
+              <div class="item__header-content">{{ itemPackage.name }}</div>
             </div>
             <div class="item__body">
               <app-list
                 :list="product.choose_package"
                 @setItem="onSetPackage"
               />
+            </div>
+          </div>
+
+          <div class="steps__item item">
+            <div class="item__header">
+              <div class="item__header-number">2.</div>
+              <div class="item__header-text">Number of roses:</div>
+              <div class="item__header-content">
+                <app-counter/>
+              </div>
             </div>
           </div>
         </div>
@@ -44,6 +53,7 @@
 import products from '@/data/products'
 import AppGallery from '@/components/ui/AppGallery.vue'
 import AppList from '@/components/card-product/AppList.vue'
+import AppCounter from '@/components/card-product/AppCounter.vue'
 import AppPopularCategories from '@/components/card-product/AppPopularCategories.vue'
 
 const route = useRoute()
@@ -137,7 +147,7 @@ const onSetPackage = (payload) => {
     margin: 0 9px 0 7px;
   }
 
-  &__header-choice {
+  &__header-content {
     color: $color-white-grey;
     margin: 0;
   }
