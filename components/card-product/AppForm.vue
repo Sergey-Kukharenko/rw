@@ -47,15 +47,13 @@
       </div>
 
       <div class="badges">
-        <div class="badges__item">
-          <app-badge theme="red" size="md">
-            {{ product.sale.percent }}
-          </app-badge>
-        </div>
-        <div class="badges__item">
-          <app-badge theme="yellow" size="md" icon="cashback">
-            {{ product.currency }}{{ product.cashback.count }}
-            {{ product.cashback.status }}
+        <div
+          class="badges__item"
+          v-for="badge in product.badges"
+          :key="badge.status"
+        >
+          <app-badge :theme="badge.color" size="md" :icon="badge.icon">
+            {{ badge.info }}
           </app-badge>
         </div>
       </div>

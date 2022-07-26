@@ -116,14 +116,19 @@ export default [
       old: 55
     },
 
-    sale: {
-      status: 'Sale',
-      percent: '-30%'
-    },
+    badges: {
+      sale: {
+        status: 'Sale',
+        info: '-30%',
+        color: 'red'
+      },
 
-    cashback: {
-      status: 'Cashback',
-      count: 0.4
+      cashback: {
+        status: 'Cashback',
+        info: '£0.4 Cashback',
+        icon: 'cashback',
+        color: 'yellow'
+      },
     },
 
     choose_color: [
