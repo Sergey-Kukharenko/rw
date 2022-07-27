@@ -44,17 +44,30 @@
             {{ product.currency }}{{ product.price.old }}
           </div>
         </div>
+
+        <div class="badges">
+          <div
+            class="badges__item"
+            v-for="badge in product.badges"
+            :key="badge.status"
+          >
+            <app-badge :theme="badge.color" size="md" :icon="badge.icon">
+              {{ badge.info }}
+            </app-badge>
+          </div>
+        </div>
       </div>
 
-      <div class="badges">
-        <div
-          class="badges__item"
-          v-for="badge in product.badges"
-          :key="badge.status"
-        >
-          <app-badge :theme="badge.color" size="md" :icon="badge.icon">
-            {{ badge.info }}
-          </app-badge>
+      <div class="group-buttons">
+        <div class="group-buttons__item">
+          <app-button theme="green" size="fx" @click="addToCart">
+            Send now
+          </app-button>
+        </div>
+        <div class="group-buttons__item">
+          <app-button theme="grey" @click="toggleLike">
+            <SvgSprite symbol="heart" :class="classNames" />
+          </app-button>
         </div>
       </div>
     </div>
@@ -65,6 +78,7 @@
 import AppList from '@/components/card-product/AppList.vue'
 import AppCounter from '@/components/card-product/AppCounter.vue'
 import AppBadge from '@/components/shared/AppBadge.vue'
+import AppButton from '@/components/shared/AppButton.vue'
 
 const props = defineProps({
   product: {
@@ -76,6 +90,7 @@ const props = defineProps({
 const itemColor = ref(props.product.choose_color[0])
 const itemPackage = ref(props.product.choose_package[0])
 const count = ref(null)
+const like = ref(props.product.like)
 
 const onSetColor = (payload) => {
   itemColor.value = payload
@@ -84,13 +99,26 @@ const onSetColor = (payload) => {
 const onSetPackage = (payload) => {
   itemPackage.value = payload
 }
+
+const addToCart = () => {
+  console.log('dsd')
+}
+
+const toggleLike = () => {
+  like.value = !like.value
+}
+
+const classNames = computed(() =>
+  useToggleClassName(like.value, 'like', 'active')
+)
 </script>
 
 <style lang="scss" scoped>
-form {
+.form {
   &__footer {
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
 }
 
@@ -197,6 +225,38 @@ form {
     &:not(:first-child) {
       margin-left: 8px;
     }
+  }
+}
+
+.group-buttons {
+  display: flex;
+
+  &__item {
+    &:not(:first-child) {
+      margin-left: 8px;
+    }
+  }
+}
+
+.like {
+  display: block;
+  fill: #99a2ad00;
+  stroke: #99a2ad;
+  transition: fill 0.2s ease-out 0s, stroke 0.2s ease-out 0s;
+
+  &--active {
+    fill: #99a2ad;
+    stroke: #99a2ad;
+  }
+
+  @include gt-xs {
+    width: 20px;
+    height: 18.5px;
+  }
+
+  @include xs {
+    width: 13.33px;
+    height: 12.33px;
   }
 }
 </style>

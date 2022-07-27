@@ -131,6 +131,8 @@ export default [
       },
     },
 
+    like: false,
+
     choose_color: [
       {
         sale: false,

@@ -8,12 +8,12 @@
 const props = defineProps({
   theme: {
     type: String,
-    default: ''
+    default: '',
   },
   size: {
     type: String,
-    default: ''
-  }
+    default: '',
+  },
 })
 
 const classNames = computed(() => useClassName(props, 'button'))
@@ -23,11 +23,13 @@ const classNames = computed(() => useClassName(props, 'button'))
 .button {
   display: flex;
   align-items: center;
+  justify-content: center;
+  min-height: 44px;
   font-family: $golos-regular;
   color: #ffffff;
   background: $color-green;
   border-radius: 12px;
-  padding: 10px 16px;
+  padding: 0 12px;
   transition: background-color 0.2s ease 0s;
 
   &:hover:not(:disabled) {
@@ -50,8 +52,17 @@ const classNames = computed(() => useClassName(props, 'button'))
     line-height: 22px;
   }
 
-  & ::v-slotted(svg) {
-    margin-right: 4px;
+  & ::v-slotted(:not(:first-child)) {
+    margin-left: 4px;
+  }
+
+  &--grey {
+    background: #eaeaea;
+
+    &:hover:not(:disabled) {
+      background: darken(#eaeaea, 10%);
+      cursor: pointer;
+    }
   }
 
   &--sm {
@@ -90,6 +101,10 @@ const classNames = computed(() => useClassName(props, 'button'))
         display: none;
       }
     }
+  }
+
+  &--fx {
+    width: 244px;
   }
 }
 </style>
