@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <app-popular-categories :popular="product.popular"/>
+    <app-popular-categories :popular="product.popular"  />
   </div>
 </template>
 
@@ -65,7 +65,7 @@ const product = products.find((item) => item.id === name)
   @include lt-sm {
     font-size: 24px;
     line-height: 24px;
-    margin: 22px 0;
+    margin: 22px 0 16px 0;
   }
 }
 </style>

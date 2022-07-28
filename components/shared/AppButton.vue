@@ -26,15 +26,19 @@ const classNames = computed(() => useClassName(props, 'button'))
   justify-content: center;
   min-height: 44px;
   font-family: $golos-regular;
+  font-size: 15px;
+  line-height: 24px;
   color: #ffffff;
   background: $color-green;
   border-radius: 12px;
   padding: 0 12px;
   transition: background-color 0.2s ease 0s;
 
-  &:hover:not(:disabled) {
-    background: darken($color-green, 10%);
-    cursor: pointer;
+  @include gt-sm {
+    &:hover:not(:disabled) {
+      background: darken($color-green, 10%);
+      cursor: pointer;
+    }
   }
 
   &:disabled {
@@ -42,62 +46,50 @@ const classNames = computed(() => useClassName(props, 'button'))
     cursor: none;
   }
 
-  @include gt-xs {
-    font-size: 15px;
-    line-height: 24px;
-  }
-
-  @include xs {
-    font-size: 14px;
-    line-height: 22px;
-  }
-
-  & ::v-slotted(:not(:first-child)) {
-    margin-left: 4px;
-  }
-
   &--grey {
     background: #eaeaea;
 
-    &:hover:not(:disabled) {
-      background: darken(#eaeaea, 10%);
-      cursor: pointer;
+    @include gt-sm {
+      &:hover:not(:disabled) {
+        background: darken(#eaeaea, 10%);
+        cursor: pointer;
+      }
     }
   }
 
   &--sm {
-    @include gt-xs {
+    @include gt-sm {
       font-size: 14px;
       line-height: 22px;
       padding: 8px 20px;
     }
 
-    @include xs {
+    @include lt-md {
       display: flex;
-      width: 32px;
-      height: 32px;
+      min-width: 32px;
+      min-height: 32px;
       padding: 2px;
       border-radius: 8px;
       box-sizing: border-box;
     }
 
     & ::v-slotted(svg) {
-      @include gt-xs {
+      @include gt-sm {
         display: none;
       }
 
-      @include xs {
+      @include lt-md {
         display: block;
         margin: auto;
       }
     }
 
     & ::v-slotted(svg + span) {
-      @include gt-xs {
+      @include gt-sm {
         display: block;
       }
 
-      @include xs {
+      @include lt-md {
         display: none;
       }
     }

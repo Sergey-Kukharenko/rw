@@ -1,7 +1,7 @@
 <template>
   <div class="form">
-    <div class="steps">
-      <div class="steps__item item">
+    <div class="form__section section">
+      <div class="section__item item">
         <div class="item__header">
           <div class="item__header-number">1.</div>
           <div class="item__header-text">Choose roses color:</div>
@@ -12,17 +12,17 @@
         </div>
       </div>
 
-      <div class="steps__item item">
+      <div class="section__item item">
         <div class="item__header">
           <div class="item__header-number">2.</div>
           <div class="item__header-text">Number of roses:</div>
-          <div class="item__header-content">
+          <div class="item__header-content item__header-content--wrapping">
             <app-counter :count="product.count" />
           </div>
         </div>
       </div>
 
-      <div class="steps__item item">
+      <div class="section__item item">
         <div class="item__header">
           <div class="item__header-number">3.</div>
           <div class="item__header-text">Choose package:</div>
@@ -51,7 +51,7 @@
             v-for="badge in product.badges"
             :key="badge.status"
           >
-            <app-badge :theme="badge.color" size="md" :icon="badge.icon">
+            <app-badge :theme="badge.color" size="md-dt" :icon="badge.icon">
               {{ badge.info }}
             </app-badge>
           </div>
@@ -116,13 +116,30 @@ const classNames = computed(() =>
 <style lang="scss" scoped>
 .form {
   &__footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include gt-sm {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 28px 0;
+    }
+
+    @include lt-md {
+      padding: 20px 0;
+    }
+  }
+
+  &__footer-price {
+    margin-top: -4px;
+
+    @include lt-md {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 }
 
-.steps {
+.section {
   border-bottom: 1px solid #eaeaea;
 
   @include gt-sm {
@@ -135,8 +152,12 @@ const classNames = computed(() =>
       margin: 16px 0;
     }
 
-    @include lt-sm {
-      margin: 16px 0;
+    @include lt-md {
+      margin: 12px 0;
+
+      &:last-child {
+        margin-bottom: 8px;
+      }
     }
   }
 }
@@ -145,9 +166,18 @@ const classNames = computed(() =>
   &__header {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     font-family: $golos-regular;
-    font-size: 15px;
-    line-height: 24px;
+
+    @include gt-sm {
+      font-size: 15px;
+      line-height: 24px;
+    }
+
+    @include lt-md {
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
 
   &__header-number {
@@ -160,12 +190,23 @@ const classNames = computed(() =>
 
   &__header-content {
     color: $color-white-grey;
-    margin: 0;
+
+    @include gt-sm {
+      margin: 0;
+    }
+
+    &--wrapping {
+      @include lt-md {
+        display: flex;
+        width: 100%;
+        margin: 11px 0 6px 0;
+      }
+    }
   }
 
   &__body {
     @include lt-sm {
-      margin: 0 -6px;
+      margin: 3px -6px;
       overflow: hidden;
     }
   }
@@ -174,13 +215,29 @@ const classNames = computed(() =>
 .price {
   flex-shrink: 0;
   display: flex;
-  align-items: baseline;
+
+  @include gt-sm {
+    align-items: baseline;
+  }
+
+  @include lt-sm {
+    align-items: center;
+  }
 
   &__current {
-    font-family: $golos-medium;
-    font-size: 40px;
-    line-height: 48px;
     color: #000000;
+
+    @include gt-sm {
+      font-family: $golos-medium;
+      font-size: 40px;
+      line-height: 48px;
+    }
+
+    @include lt-md {
+      font-family: $golos-bold;
+      font-size: 32px;
+      line-height: 40px;
+    }
   }
 
   &__old {
@@ -190,7 +247,14 @@ const classNames = computed(() =>
     line-height: 16px;
     letter-spacing: -0.01em;
     color: $color-white-grey;
-    margin-left: 10px;
+
+    @include gt-sm {
+      margin-left: 10px;
+    }
+
+    @include lt-sm {
+      margin: 0 0 -8px 6px;
+    }
 
     &:before,
     &:after {
@@ -219,17 +283,33 @@ const classNames = computed(() =>
 
 .badges {
   display: flex;
-  margin-top: 8px;
+  flex-wrap: wrap;
+
+  @include lt-md {
+    margin: 0 -2px;
+  }
 
   &__item {
-    &:not(:first-child) {
-      margin-left: 8px;
+    @include gt-sm {
+      margin-top: 8px;
+
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
+    }
+
+    @include lt-md {
+      margin: 2px;
     }
   }
 }
 
 .group-buttons {
   display: flex;
+
+  @include lt-md {
+    margin: 8px 0;
+  }
 
   &__item {
     &:not(:first-child) {
@@ -240,6 +320,8 @@ const classNames = computed(() =>
 
 .like {
   display: block;
+  width: 20px;
+  height: 18.5px;
   fill: #99a2ad00;
   stroke: #99a2ad;
   transition: fill 0.2s ease-out 0s, stroke 0.2s ease-out 0s;
@@ -247,16 +329,6 @@ const classNames = computed(() =>
   &--active {
     fill: #99a2ad;
     stroke: #99a2ad;
-  }
-
-  @include gt-xs {
-    width: 20px;
-    height: 18.5px;
-  }
-
-  @include xs {
-    width: 13.33px;
-    height: 12.33px;
   }
 }
 </style>

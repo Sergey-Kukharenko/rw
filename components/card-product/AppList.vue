@@ -48,13 +48,17 @@ const onChange = (item, idx) => {
   }
 
   @include lt-sm {
-    margin: 8px 2px;
+    margin: 0 2px;
     overflow-x: auto;
     overflow: -moz-scrollbars-none;
     -ms-overflow-style: none;
 
     &::-webkit-scrollbar {
-      display: none;
+      margin: 8px 2px;
+    }
+
+    @include lt-md {
+      padding: 3px 0;
     }
   }
 
@@ -63,7 +67,7 @@ const onChange = (item, idx) => {
       margin: 8px;
     }
 
-    @include lt-sm {
+    @include lt-md {
       margin: 5px;
     }
   }
@@ -74,11 +78,19 @@ const onChange = (item, idx) => {
   position: relative;
 
   &__figure {
-    width: 60px;
-    height: 60px;
     position: relative;
     z-index: 1;
     border-radius: 12px;
+
+    @include gt-sm {
+      width: 60px;
+      height: 60px;
+    }
+
+    @include lt-md {
+      width: 56px;
+      height: 56px;
+    }
   }
 
   &__figcaption {
@@ -123,16 +135,27 @@ const onChange = (item, idx) => {
 
   &__border {
     position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
+
     z-index: 2;
     border: 3px solid $color-green;
     border-radius: 12px;
     opacity: 0;
     transform: scale(1.1);
     transition: 0.3s ease-out 0s;
+
+    @include gt-sm {
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+    }
+
+    @include lt-md {
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+    }
   }
 }
 

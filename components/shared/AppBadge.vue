@@ -54,7 +54,7 @@ const classNames = computed(() => useClassName(props, 'badge'))
     color: $color-dark-grey;
     background: #ffeec6;
 
-    .icon{
+    .icon {
       width: 14px;
       height: 12px;
     }
@@ -72,9 +72,29 @@ const classNames = computed(() => useClassName(props, 'badge'))
       padding: 4px 8px;
     }
   }
+
+  &--md-dt {
+    line-height: 16px;
+
+    @include gt-xs {
+      font-size: 12px;
+      padding: 4px 9px;
+    }
+
+    @include xs {
+      font-size: 10px;
+      padding: 2px 7px;
+
+      .icon {
+        width: 8.9px;
+        height: 8px;
+        margin-right: 2px;
+      }
+    }
+  }
 }
 
-.icon{
+.icon {
   display: block;
   width: 14px;
   height: 14px;
