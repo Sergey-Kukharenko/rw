@@ -1,9 +1,9 @@
 <template>
   <div>
-    <app-header />
+<!--    <app-header />-->
     <app-breadcrumbs />
     <slot />
-    <app-footer />
+<!--    <app-footer />-->
   </div>
 </template>
 

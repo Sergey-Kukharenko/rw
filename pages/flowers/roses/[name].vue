@@ -7,6 +7,7 @@
       <div class="detail-page__col">
         <h1 class="title">{{ product.title }}</h1>
         <app-form :product="product" />
+        <app-service :service="product.service" />
       </div>
     </div>
 
@@ -19,6 +20,7 @@ import products from '@/data/products'
 import AppGallery from '@/components/ui/AppGallery.vue'
 import AppForm from '@/components/card-product/AppForm.vue'
 import AppPopularCategories from '@/components/card-product/AppPopularCategories.vue'
+import AppService from '@/components/card-product/AppService.vue'
 
 const route = useRoute()
 const name = +route.params.name

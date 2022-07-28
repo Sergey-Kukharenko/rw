@@ -101,7 +101,7 @@ const onSetPackage = (payload) => {
 }
 
 const addToCart = () => {
-  console.log('dsd')
+  console.log('addToCart')
 }
 
 const toggleLike = () => {

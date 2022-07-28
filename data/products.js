@@ -205,6 +205,24 @@ export default [
         name: 'Matte',
         price: '9',
       },
-    ]
+    ],
+
+    service: {
+      list: [
+        {
+          img: '/images/service/1.png',
+          title: 'Free London delivery  to your apartment'
+        },
+        {
+          img: '/images/service/2.png',
+          title: 'We’ll send you bouquet photo. Showing the quality'
+        },
+        {
+          img: '/images/service/3.png',
+          title: 'Delivery in 2 hours from the order moment'
+        }
+      ],
+      description: ''
+    }
   }
 ];
