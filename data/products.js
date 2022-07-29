@@ -115,7 +115,6 @@ export default [
       current: 43,
       old: 55
     },
-
     badges: {
       sale: {
         status: 'Sale',
@@ -130,9 +129,7 @@ export default [
         color: 'yellow'
       },
     },
-
     like: false,
-
     choose_color: [
       {
         sale: false,
@@ -171,7 +168,6 @@ export default [
         name: 'Pink & White 5',
       }
     ],
-
     choose_package: [
       {
         sale: false,
@@ -206,7 +202,6 @@ export default [
         price: '9',
       },
     ],
-
     service: {
       list: [
         {
@@ -235,6 +230,41 @@ export default [
         }
       ],
       description: ''
+    },
+    reviews: {
+      title: 'Customer reviews',
+      list: [
+        {
+          name: 'Rick Astley',
+          logo: 'R',
+          rating: 5,
+          message: 'Thank you so much for the timely delivery and for the opportunity to make an order and delivery day to day! The recipient really liked the flowers! Thank you for giving me a good mood!',
+          date: 1659101595.438,
+          formatted_date: 'March 8',
+          likes: 14,
+          liked_by_user: true
+        },
+        {
+          name: 'Johanna',
+          logo: 'J',
+          rating: 4,
+          message: 'I liked everything) Thanks to all the staff. The bouquet is delicious and delivered even ahead of time.',
+          date: 1659015293.49,
+          formatted_date: 'March 3',
+          likes: 8,
+          liked_by_user: false
+        },
+        {
+          name: 'Sergio Ramos',
+          logo: 'S',
+          rating: 3,
+          message: 'Thank you very much to the Flor2 team for the next delivery of flowers to my daughter. You are working for 10 points! Beautiful bouquets and top-level delivery.',
+          date: 1658928913.584,
+          formatted_date: 'February 14',
+          likes: 16,
+          liked_by_user: false
+        }
+      ]
     }
   }
 ];

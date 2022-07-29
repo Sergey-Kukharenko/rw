@@ -2,29 +2,36 @@
   <div class="layout layout-dt detail-page">
     <div class="detail-page__row">
       <div class="detail-page__col">
-        <app-gallery :items="product.items" />
+        <app-gallery :items="product.items"/>
       </div>
       <div class="detail-page__col">
-        <h1 class="title">{{ product.title }}</h1>
-        <app-form :product="product" />
-        <app-service :service="product.service" />
+        <app-form :product="product"/>
+        <app-service :service="product.service"/>
       </div>
     </div>
 
-    <app-popular-categories :popular="product.popular"  />
+    <div class="detail-page__row about"  style="display: none">
+      <div class="detail-page__flex">
+        <app-reviews :reviews="product.reviews"/>
+      </div>
+      <div class="detail-page__fix"></div>
+    </div>
+
+    <app-popular-categories :popular="product.popular" />
   </div>
 </template>
 
 <script setup>
-import products from '@/data/products'
-import AppGallery from '@/components/ui/AppGallery.vue'
-import AppForm from '@/components/card-product/AppForm.vue'
-import AppPopularCategories from '@/components/card-product/AppPopularCategories.vue'
-import AppService from '@/components/card-product/AppService.vue'
+import products from '@/data/products';
+import AppGallery from '@/components/ui/AppGallery.vue';
+import AppForm from '@/components/card-product/AppForm.vue';
+import AppPopularCategories from '@/components/card-product/AppPopularCategories.vue';
+import AppService from '@/components/card-product/AppService.vue';
+import AppReviews from '@/components/card-product/AppReviews.vue';
 
-const route = useRoute()
-const name = +route.params.name
-const product = products.find((item) => item.id === name)
+const route = useRoute();
+const name = +route.params.name;
+const product = products.find((item) => item.id === name);
 </script>
 
 <style lang="scss" scoped>
@@ -35,8 +42,7 @@ const product = products.find((item) => item.id === name)
     }
   }
 
-  &__col {
-    //outline: 1px solid;
+  &__col{
     box-sizing: border-box;
 
     @include gt-sm {
@@ -51,23 +57,21 @@ const product = products.find((item) => item.id === name)
       }
     }
   }
+
+  &__flex{
+    outline: 1px solid;
+    flex: 1;
+    height: 500px;
+  }
+
+  &__fix{
+    outline: 1px solid;
+    flex: 0 0 344px;
+    height: 500px;
+  }
 }
 
-.title {
-  font-family: $Literata;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: #0d072e;
+.about{
 
-  @include gt-sm {
-    font-size: 38px;
-    line-height: 40px;
-  }
-
-  @include lt-sm {
-    font-size: 24px;
-    line-height: 24px;
-    margin: 22px 0 16px 0;
-  }
 }
 </style>

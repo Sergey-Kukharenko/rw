@@ -67,6 +67,10 @@ const toggle = () => {
 }
 
 .container {
+  @include lt-md {
+    display: none;
+  }
+
   &__text,
   &__link {
     font-family: $golos-regular;

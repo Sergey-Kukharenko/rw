@@ -1,5 +1,6 @@
 <template>
   <div class="form">
+    <h1 class="form__title">{{ product.title }}</h1>
     <div class="form__section section">
       <div class="section__item item">
         <div class="item__header">
@@ -120,6 +121,24 @@ const classNames = computed(() =>
 
 <style lang="scss" scoped>
 .form {
+  &__title {
+    font-family: $Literata;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #0d072e;
+
+    @include gt-sm {
+      font-size: 38px;
+      line-height: 40px;
+    }
+
+    @include lt-sm {
+      font-size: 24px;
+      line-height: 24px;
+      margin: 22px 0 16px 0;
+    }
+  }
+
   &__footer {
     @include gt-sm {
       display: flex;
