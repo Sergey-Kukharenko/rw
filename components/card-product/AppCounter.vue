@@ -3,12 +3,7 @@
     <button class="counter__btn btn" @click="decrement()">
       <span class="absolute-grow btn__icon btn__icon--minus"></span>
     </button>
-    <input
-      v-model="count"
-      @input="$emit('update:modelValue', $event.target.value)"
-      type="number"
-      class="counter__input"
-    />
+    <input v-model="count" type="number" class="counter__input" />
     <button class="counter__btn btn" @click="increment()">
       <span class="absolute-grow btn__icon btn__icon--minus"></span>
       <span class="absolute-grow btn__icon btn__icon--plus"></span>
@@ -23,9 +18,15 @@ const props = defineProps({
   },
 })
 
+const emit = defineEmits(['update:count'])
+
 const count = ref(props.count)
 const increment = () => count.value++
 const decrement = () => count.value--
+
+watchEffect(() => {
+  emit('update:count', count.value)
+})
 </script>
 
 <style lang="scss" scoped>

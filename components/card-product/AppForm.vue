@@ -17,7 +17,7 @@
           <div class="item__header-number">2.</div>
           <div class="item__header-text">Number of roses:</div>
           <div class="item__header-content item__header-content--wrapping">
-            <app-counter :count="product.count" />
+            <app-counter v-model:count="count" />
           </div>
         </div>
       </div>
@@ -89,7 +89,7 @@ const props = defineProps({
 
 const itemColor = ref(props.product.choose_color[0])
 const itemPackage = ref(props.product.choose_package[0])
-const count = ref(null)
+const count = ref(props.product.count)
 const like = ref(props.product.like)
 
 const onSetColor = (payload) => {
@@ -101,7 +101,12 @@ const onSetPackage = (payload) => {
 }
 
 const addToCart = () => {
-  console.log('addToCart')
+  console.log({
+    color: itemColor.value.name,
+    package: itemPackage.value.name,
+    count: count.value,
+    like: like.value,
+  })
 }
 
 const toggleLike = () => {
