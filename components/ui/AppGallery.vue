@@ -69,7 +69,7 @@ const options = {
 };
 
 const optionsThumbs = {
-  spaceBetween: 12,
+  spaceBetween: 4,
   slidesPerView: 4,
   watchSlidesProgress: true,
   slideToClickedSlide: true,
@@ -94,8 +94,8 @@ const optionsThumbs = {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 68px;
-  height: 68px;
+  width: 66px;
+  height: 66px;
   position: relative;
   box-sizing: border-box;
   cursor: pointer;
@@ -114,7 +114,7 @@ const optionsThumbs = {
   }
 
   &__border {
-    border: 3px solid $color-green;
+    border: 2px solid $color-green;
     border-radius: 12px;
     opacity: 0;
     transform: scale(1.04);
@@ -127,8 +127,8 @@ const optionsThumbs = {
 
   &.swiper-thumbs {
     @include gt-xs {
-      max-width: 308px;
-      margin: 12px auto 0 0;
+      max-width: 276px;
+      margin: 12px auto 0 -4px;
     }
 
     @include xs {

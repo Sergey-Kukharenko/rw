@@ -137,7 +137,7 @@ const onChange = (item, idx) => {
     position: absolute;
 
     z-index: 2;
-    border: 3px solid $color-green;
+    border: 2px solid $color-green;
     border-radius: 12px;
     opacity: 0;
     transform: scale(1.1);

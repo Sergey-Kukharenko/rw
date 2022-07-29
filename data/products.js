@@ -210,15 +210,27 @@ export default [
     service: {
       list: [
         {
-          img: '/images/service/1.png',
+          img: {
+            desktop: '/images/service/desktop/1.png',
+            mobile: '/images/service/mobile/1.png'
+          },
+          alt: '1',
           title: 'Free London delivery  to your apartment'
         },
         {
-          img: '/images/service/2.png',
+          img: {
+            desktop: '/images/service/desktop/2.png',
+            mobile: '/images/service/mobile/2.png'
+          },
+          alt: '2',
           title: 'We’ll send you bouquet photo. Showing the quality'
         },
         {
-          img: '/images/service/3.png',
+          img: {
+            desktop: '/images/service/desktop/3.png',
+            mobile: '/images/service/mobile/3.png'
+          },
+          alt: '3',
           title: 'Delivery in 2 hours from the order moment'
         }
       ],
