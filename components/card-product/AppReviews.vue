@@ -4,12 +4,10 @@
       {{ props.reviews.title }}
     </h2>
 
+    <button @click="sort()">{{ order }}</button>
+
     <div class="reviews__list list">
-      <div
-        class="list__item"
-        v-for="item in props.reviews.list"
-        :key="item.name"
-      >
+      <div class="list__item" v-for="item in list" :key="item.name">
         <div class="card">
           <div class="card__header">
             <div class="figure" :style="item.style">
@@ -51,6 +49,19 @@ const props = defineProps({
     default: () => {},
   },
 })
+
+const order = ref(false)
+const list = ref(props.reviews.list)
+
+console.log(list.value)
+
+const sort = () => {
+  order.value = !order.value
+  console.log(order.value);
+  list.value.sort(function (a, b) {
+    return order.value ? b.date - a.date : a.date - b.date
+  })
+}
 </script>
 
 <style lang="scss" scoped>

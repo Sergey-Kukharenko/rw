@@ -43,7 +43,7 @@ const product = products.find((item) => item.id === name);
   }
 
   &__col{
-    outline: 1px solid;
+    //outline: 1px solid;
     box-sizing: border-box;
 
     @include gt-sm {
@@ -60,7 +60,7 @@ const product = products.find((item) => item.id === name);
   }
 
   &__flex{
-    outline: 1px solid;
+    //outline: 1px solid;
     flex: 1;
   }
 

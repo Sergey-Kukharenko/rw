@@ -243,7 +243,7 @@ export default [
           },
           rating: 5,
           message: 'Thank you so much for the timely delivery and for the opportunity to make an order and delivery day to day! The recipient really liked the flowers! Thank you for giving me a good mood!',
-          date: 1659101595.438,
+          date: 0,
           formatted_date: 'March 8',
           like: {
             count: 14,
@@ -259,7 +259,7 @@ export default [
           },
           rating: 4,
           message: 'I liked everything) Thanks to all the staff. The bouquet is delicious and delivered even ahead of time.',
-          date: 1659015293.49,
+          date: 1,
           formatted_date: 'March 3',
           like: {
             count: 8,
@@ -275,7 +275,7 @@ export default [
           },
           rating: 3,
           message: 'Thank you very much to the Flor2 team for the next delivery of flowers to my daughter. You are working for 10 points! Beautiful bouquets and top-level delivery.',
-          date: 1658928913.584,
+          date: 2,
           formatted_date: 'February 14',
           like: {
             count: 16,
