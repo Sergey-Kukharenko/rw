@@ -237,32 +237,50 @@ export default [
         {
           name: 'Rick Astley',
           logo: 'R',
+          style: {
+            background: '#97C8F7',
+            color: '#ffffff',
+          },
           rating: 5,
           message: 'Thank you so much for the timely delivery and for the opportunity to make an order and delivery day to day! The recipient really liked the flowers! Thank you for giving me a good mood!',
           date: 1659101595.438,
           formatted_date: 'March 8',
-          likes: 14,
-          liked_by_user: true
+          like: {
+            count: 14,
+            by_user: false
+          }
         },
         {
           name: 'Johanna',
           logo: 'J',
+          style: {
+            background: '#F797A8',
+            color: '#ffffff',
+          },
           rating: 4,
           message: 'I liked everything) Thanks to all the staff. The bouquet is delicious and delivered even ahead of time.',
           date: 1659015293.49,
           formatted_date: 'March 3',
-          likes: 8,
-          liked_by_user: false
+          like: {
+            count: 8,
+            by_user: true
+          }
         },
         {
           name: 'Sergio Ramos',
           logo: 'S',
+          style: {
+            background: '#26AD4F',
+            color: '#ffffff',
+          },
           rating: 3,
           message: 'Thank you very much to the Flor2 team for the next delivery of flowers to my daughter. You are working for 10 points! Beautiful bouquets and top-level delivery.',
           date: 1658928913.584,
           formatted_date: 'February 14',
-          likes: 16,
-          liked_by_user: false
+          like: {
+            count: 16,
+            by_user: false
+          }
         }
       ]
     }

@@ -1,6 +1,6 @@
 <template>
   <div class="layout layout-dt detail-page">
-    <div class="detail-page__row">
+    <div class="detail-page__row" style="display: none">
       <div class="detail-page__col">
         <app-gallery :items="product.items"/>
       </div>
@@ -10,14 +10,14 @@
       </div>
     </div>
 
-    <div class="detail-page__row about"  style="display: none">
+    <div class="detail-page__row about">
       <div class="detail-page__flex">
         <app-reviews :reviews="product.reviews"/>
       </div>
       <div class="detail-page__fix"></div>
     </div>
 
-    <app-popular-categories :popular="product.popular" />
+    <app-popular-categories :popular="product.popular"/>
   </div>
 </template>
 
@@ -43,6 +43,7 @@ const product = products.find((item) => item.id === name);
   }
 
   &__col{
+    outline: 1px solid;
     box-sizing: border-box;
 
     @include gt-sm {
@@ -61,13 +62,11 @@ const product = products.find((item) => item.id === name);
   &__flex{
     outline: 1px solid;
     flex: 1;
-    height: 500px;
   }
 
   &__fix{
     outline: 1px solid;
     flex: 0 0 344px;
-    height: 500px;
   }
 }
 
