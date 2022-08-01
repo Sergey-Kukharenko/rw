@@ -1,6 +1,6 @@
 <template>
   <div class="layout layout-dt detail-page">
-    <div class="detail-page__row" style="display: none">
+    <div class="detail-page__row" >
       <div class="detail-page__col">
         <app-gallery :items="product.items"/>
       </div>
@@ -17,7 +17,7 @@
       <div class="detail-page__fix"></div>
     </div>
 
-    <app-popular-categories :popular="product.popular"/>
+    <app-popular-categories :popular="product.popular" />
   </div>
 </template>
 
