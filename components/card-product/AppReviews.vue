@@ -4,7 +4,14 @@
       {{ props.reviews.title }}
     </h2>
 
-    <button @click="sort()">{{ order }}</button>
+    <div :class="classNames" @click="sort()">
+      <div class="button__figcaption">Popular {{ text }}</div>
+      <div class="button__figure">
+        <div class="button__icon"></div>
+        <div class="button__icon"></div>
+        <div class="button__icon"></div>
+      </div>
+    </div>
 
     <div class="reviews__list list">
       <div class="list__item" v-for="item in list" :key="item.name">
@@ -50,17 +57,28 @@ const props = defineProps({
   },
 })
 
-const order = ref(false)
 const list = ref(props.reviews.list)
+const order = ref(false)
+const text = ref('first')
 
-console.log(list.value)
+const classNames = computed(() =>
+  useToggleClassName(order.value, 'button', 'active')
+)
+
+const toggleText = () =>
+  order.value ? (text.value = 'first') : (text.value = 'last')
+
+const toggleOrder = () => (order.value = !order.value)
+
+const sortArrayBy = (prop) =>
+  list.value.sort((a, b) =>
+    order.value ? a[prop] - b[prop] : b[prop] - a[prop]
+  )
 
 const sort = () => {
-  order.value = !order.value
-  console.log(order.value);
-  list.value.sort(function (a, b) {
-    return order.value ? b.date - a.date : a.date - b.date
-  })
+  toggleText()
+  sortArrayBy('date')
+  toggleOrder()
 }
 </script>
 
@@ -157,5 +175,66 @@ const sort = () => {
 
 .date {
   color: #7e8895;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+
+  &__figcaption {
+    font-family: $golos-bold;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000;
+    margin-right: 10px;
+  }
+
+  &__figure {
+    width: 12px;
+    height: 10px;
+    position: relative;
+  }
+
+  &__icon {
+    position: absolute;
+    height: 2px;
+    background: $color-green;
+    transition: width 0.1s ease 0s;
+
+    &:nth-child(1) {
+      width: 4px;
+      left: 0;
+      top: 0;
+    }
+
+    &:nth-child(2) {
+      width: 8px;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto 0;
+    }
+
+    &:nth-child(3) {
+      width: 12px;
+      left: 0;
+      bottom: 0;
+    }
+  }
+
+  &--active {
+    .button__icon {
+      &:nth-child(1) {
+        width: 12px;
+      }
+
+      &:nth-child(3) {
+        width: 4px;
+      }
+    }
+  }
 }
 </style>

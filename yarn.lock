@@ -5763,6 +5763,11 @@
   "resolved" "https://registry.npmjs.org/vue3-mq/-/vue3-mq-3.1.0.tgz"
   "version" "3.1.0"
 
+"vue3-star-ratings@^1.1.0":
+  "integrity" "sha512-dDGZAn64N9DvaJxCm0Zoy+2pauWioK4ayj7iAH89sVTxMbmrPkhlC9B527PL+t1wcPWH0wIZaFZZp5OMO5hRrA=="
+  "resolved" "https://registry.npmjs.org/vue3-star-ratings/-/vue3-star-ratings-1.1.0.tgz"
+  "version" "1.1.0"
+
 "watchpack@^2.3.1":
   "integrity" "sha512-Lcvm7MGST/4fup+ifyKi2hjyIAwcdI4HRgtvTpIUxBRhB+RFtUh8XtDOxUfctVCnhVi+QQj49i91OyvzkJl6cg=="
   "resolved" "https://registry.npmjs.org/watchpack/-/watchpack-2.4.0.tgz"

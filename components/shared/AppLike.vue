@@ -1,5 +1,5 @@
 <template>
-  <div class="like" @click="toggleLike(like)">
+  <div class="like" @click="toggle(like)">
     <SvgSprite
       symbol="like"
       :class="['like__icon', { active: like.by_user }]"
@@ -18,9 +18,12 @@ const props = defineProps({
 
 const like = ref(props.like)
 
-const toggleLike = (like) => {
-  like.by_user ? like.count-- : like.count++
-  like.by_user = !like.by_user
+const toggleLike = (like) => (like.by_user = !like.by_user)
+const toggleCount = (like) => (like.by_user ? like.count-- : like.count++)
+
+const toggle = (like) => {
+  toggleCount(like)
+  toggleLike(like)
 }
 </script>
 

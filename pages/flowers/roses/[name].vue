@@ -14,7 +14,9 @@
       <div class="detail-page__flex">
         <app-reviews :reviews="product.reviews"/>
       </div>
-      <div class="detail-page__fix"></div>
+      <div class="detail-page__fix">
+        <app-stars-rating />
+      </div>
     </div>
 
     <app-popular-categories :popular="product.popular" />
@@ -28,13 +30,19 @@ import AppForm from '@/components/card-product/AppForm.vue';
 import AppPopularCategories from '@/components/card-product/AppPopularCategories.vue';
 import AppService from '@/components/card-product/AppService.vue';
 import AppReviews from '@/components/card-product/AppReviews.vue';
+import AppStarsRating from '@/components/ui/AppStarsRating.vue';
 
 const route = useRoute();
 const name = +route.params.name;
 const product = products.find((item) => item.id === name);
+
+const rating = ref(4.6)
 </script>
 
 <style lang="scss" scoped>
+
+
+
 .detail-page {
   &__row {
     @include gt-sm {
@@ -65,7 +73,7 @@ const product = products.find((item) => item.id === name);
   }
 
   &__fix{
-    outline: 1px solid;
+    //outline: 1px solid;
     flex: 0 0 344px;
   }
 }
