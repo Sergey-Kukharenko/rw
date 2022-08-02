@@ -2,47 +2,47 @@
   <div class="layout layout-dt detail-page">
     <div class="detail-page__row" >
       <div class="detail-page__col">
-        <app-gallery :items="product.items"/>
+        <app-gallery :items="product.items" />
       </div>
       <div class="detail-page__col">
-        <app-form :product="product"/>
-        <app-service :service="product.service"/>
+        <app-form :product="product" />
+        <app-service :service="product.service" />
       </div>
     </div>
 
-    <div class="detail-page__row about">
-      <div class="detail-page__flex">
-        <app-reviews :reviews="product.reviews"/>
-      </div>
-      <div class="detail-page__fix">
-        <app-stars-rating />
+    <div class="about">
+      <h2 class="about__title">
+        {{ product.reviews.title }}
+      </h2>
+      <div class="detail-page__row">
+        <div class="detail-page__flex">
+          <app-reviews :reviews="product.reviews.list" />
+        </div>
+        <div class="detail-page__fix">
+          <app-rating :rating="product.rating" />
+        </div>
       </div>
     </div>
 
-    <app-popular-categories :popular="product.popular" />
+    <app-popular-categories :popular="product.popular"  />
   </div>
 </template>
 
 <script setup>
-import products from '@/data/products';
-import AppGallery from '@/components/ui/AppGallery.vue';
-import AppForm from '@/components/card-product/AppForm.vue';
-import AppPopularCategories from '@/components/card-product/AppPopularCategories.vue';
-import AppService from '@/components/card-product/AppService.vue';
-import AppReviews from '@/components/card-product/AppReviews.vue';
-import AppStarsRating from '@/components/ui/AppStarsRating.vue';
+import products from '@/data/products'
+import AppGallery from '@/components/ui/AppGallery.vue'
+import AppForm from '@/components/card-product/AppForm.vue'
+import AppPopularCategories from '@/components/card-product/AppPopularCategories.vue'
+import AppService from '@/components/card-product/AppService.vue'
+import AppReviews from '@/components/card-product/AppReviews.vue'
+import AppRating from '@/components/card-product/AppRating.vue'
 
-const route = useRoute();
-const name = +route.params.name;
-const product = products.find((item) => item.id === name);
-
-const rating = ref(4.6)
+const route = useRoute()
+const name = +route.params.name
+const product = products.find((item) => item.id === name)
 </script>
 
 <style lang="scss" scoped>
-
-
-
 .detail-page {
   &__row {
     @include gt-sm {
@@ -50,7 +50,7 @@ const rating = ref(4.6)
     }
   }
 
-  &__col{
+  &__col {
     //outline: 1px solid;
     box-sizing: border-box;
 
@@ -67,18 +67,24 @@ const rating = ref(4.6)
     }
   }
 
-  &__flex{
+  &__flex {
     //outline: 1px solid;
     flex: 1;
   }
 
-  &__fix{
+  &__fix {
     //outline: 1px solid;
     flex: 0 0 344px;
   }
 }
 
-.about{
-
+.about {
+  &__text {
+    font-family: $golos-bold;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000;
+    margin-right: 10px;
+  }
 }
 </style>

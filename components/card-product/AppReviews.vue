@@ -1,9 +1,5 @@
 <template>
   <div class="reviews">
-    <h2 class="reviews__title">
-      {{ props.reviews.title }}
-    </h2>
-
     <div :class="classNames" @click="sort()">
       <div class="button__figcaption">Popular {{ text }}</div>
       <div class="button__figure">
@@ -14,7 +10,7 @@
     </div>
 
     <div class="reviews__list list">
-      <div class="list__item" v-for="item in list" :key="item.name">
+      <div class="list__item" v-for="item in reviews" :key="item.name">
         <div class="card">
           <div class="card__header">
             <div class="figure" :style="item.style">
@@ -57,7 +53,7 @@ const props = defineProps({
   },
 })
 
-const list = ref(props.reviews.list)
+const reviews = ref(props.reviews)
 const order = ref(false)
 const text = ref('first')
 
@@ -71,7 +67,7 @@ const toggleText = () =>
 const toggleOrder = () => (order.value = !order.value)
 
 const sortArrayBy = (prop) =>
-  list.value.sort((a, b) =>
+  reviews.value.sort((a, b) =>
     order.value ? a[prop] - b[prop] : b[prop] - a[prop]
   )
 
@@ -95,7 +91,7 @@ const sort = () => {
   }
 
   &__list {
-    margin: 0;
+    margin: 6px 0;
   }
 }
 

@@ -39,13 +39,11 @@ const navBar = ref(dataNavBar)
   }
 
   &__item {
-
-    &:last-child{
+    &:last-child {
       @include lt-sm {
         display: none;
       }
     }
   }
 }
-
 </style>

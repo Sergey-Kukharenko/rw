@@ -283,6 +283,33 @@ export default [
           }
         }
       ]
+    },
+    rating: {
+      count: 4.6,
+      reviews: 178,
+      text: '178 reviews from the real customers',
+      list: [
+        {
+          stars: 5,
+          count: 124
+        },
+        {
+          stars: 4,
+          count: 51
+        },
+        {
+          stars: 3,
+          count: 124
+        },
+        {
+          stars: 2,
+          count: 1
+        },
+        {
+          stars: 1,
+          count: 0
+        }
+      ]
     }
   }
 ];

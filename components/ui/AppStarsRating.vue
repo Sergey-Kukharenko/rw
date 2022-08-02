@@ -1,18 +1,20 @@
 <template>
-  <vue3-star-ratings
-    v-model="rating"
-    :inactiveColor="inactiveColor"
-    :starColor="starColor"
-    :showControl="showControl"
-    :disableClick="disableClick"
-  />
+  <div class="star-ratings">
+    <vue3-star-ratings
+      v-model="rating"
+      :inactiveColor="inactiveColor"
+      :starColor="starColor"
+      :showControl="showControl"
+      :disableClick="disableClick"
+    />
+  </div>
 </template>
 
 <script setup>
 const props = defineProps({
   rating: {
     type: Number,
-    default: 4.2,
+    default: 5,
   },
   inactiveColor: {
     type: String,
@@ -34,16 +36,28 @@ const props = defineProps({
 </script>
 
 <style lang="scss">
+.star-ratings {
+  overflow: hidden;
+  width: 210.16px;
+  height: 42.03px;
+}
+
 .vue3-star-ratings__wrapper {
   display: block;
   margin: 0 !important;
   padding: 0 !important;
-}
 
-.stars-outer svg,
-.stars-inner svg {
-  width: 38.04px !important;
-  height: 36.04px !important;
-  margin: 0 2px;
+  .stars {
+    outline: 1px solid;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    svg {
+      width: 38.04px !important;
+      height: 38.04px !important;
+      margin: 0 2px;
+      fill: #f7f7f7;
+    }
+  }
 }
 </style>
