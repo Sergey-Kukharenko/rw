@@ -299,7 +299,7 @@ export default [
         },
         {
           stars: 3,
-          count: 124
+          count: 2
         },
         {
           stars: 2,

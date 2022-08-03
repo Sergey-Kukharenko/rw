@@ -14,11 +14,11 @@
       <h2 class="about__title">
         {{ product.reviews.title }}
       </h2>
-      <div class="detail-page__row">
-        <div class="detail-page__flex">
+      <div class="about__row">
+        <div class="about__reviews">
           <app-reviews :reviews="product.reviews.list" />
         </div>
-        <div class="detail-page__fix">
+        <div class="about__rating">
           <app-rating :rating="product.rating" />
         </div>
       </div>
@@ -66,19 +66,58 @@ const product = products.find((item) => item.id === name)
       }
     }
   }
-
-  &__flex {
-    //outline: 1px solid;
-    flex: 1;
-  }
-
-  &__fix {
-    //outline: 1px solid;
-    flex: 0 0 344px;
-  }
 }
 
 .about {
+  &__title {
+    font-family: $Literata;
+    font-style: normal;
+    font-weight: 700;
+
+    color: #000000;
+
+    @include gt-sm {
+      font-size: 28px;
+      line-height: 32px;
+    }
+
+    @include lt-md {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__reviews,
+  &__rating {
+    // outline: 1px solid;
+  }
+
+  &__reviews {
+    @include gt-sm {
+      flex: 0 0 620px;
+    }
+
+    @include lt-md {
+      order: 1;
+    }
+  }
+
+  &__rating {
+    @include gt-sm {
+      flex: 0 0 344px;
+    }
+
+    @include lt-md {
+      width: 100%;
+    }
+  }
+
   &__text {
     font-family: $golos-bold;
     font-size: 16px;

@@ -14,6 +14,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  stretch: {
+    type: String,
+    default: '',
+  },
 })
 
 const classNames = computed(() => useClassName(props, 'button'))
@@ -36,8 +40,12 @@ const classNames = computed(() => useClassName(props, 'button'))
 
   @include gt-sm {
     &:hover:not(:disabled) {
-      background: darken($color-green, 10%);
+      box-shadow: 2px 4px 7px darken($color-green, 10%);
       cursor: pointer;
+    }
+
+    &:active:not(:disabled) {
+      box-shadow: 0 0 0 $color-green;
     }
   }
 
@@ -47,12 +55,38 @@ const classNames = computed(() => useClassName(props, 'button'))
   }
 
   &--grey {
+    color: #000;
     background: #eaeaea;
 
     @include gt-sm {
       &:hover:not(:disabled) {
-        background: darken(#eaeaea, 10%);
+        background: #eaeaea;
+        box-shadow: 2px 4px 7px darken(#eaeaea, 10%);
         cursor: pointer;
+      }
+
+      &:active:not(:disabled) {
+        box-shadow: 0 0 0 #eaeaea;
+      }
+    }
+  }
+
+  &--grey-whitely {
+    font-family: $golos-medium;
+    font-size: 16px;
+    color: #000;
+    min-height: 48px;
+    background: $bg-grey;
+
+    @include gt-sm {
+      &:hover:not(:disabled) {
+        background: $bg-grey;
+        box-shadow: 2px 4px 7px darken($bg-grey, 10%);
+        cursor: pointer;
+      }
+
+      &:active:not(:disabled) {
+        box-shadow: 0 0 0 $bg-grey;
       }
     }
   }
@@ -95,8 +129,12 @@ const classNames = computed(() => useClassName(props, 'button'))
     }
   }
 
-  &--fx {
+  &--fix {
     width: 244px;
+  }
+
+  &--full {
+    width: 100%;
   }
 }
 </style>

@@ -9,42 +9,17 @@
       </div>
     </div>
 
-    <div class="reviews__list list">
-      <div class="list__item" v-for="item in reviews" :key="item.name">
-        <div class="card">
-          <div class="card__header">
-            <div class="figure" :style="item.style">
-              <div class="figure__letter">
-                {{ item.logo }}
-              </div>
-            </div>
-            <div class="figcaption">
-              <div class="figcaption__name">
-                {{ item.name }}
-              </div>
-              <div class="figcaption__rating">
-                <app-stars :stars="item.rating" />
-              </div>
-            </div>
-          </div>
-          <div class="card__body">
-            {{ item.message }}
-          </div>
-          <div class="card__footer">
-            <div class="date">
-              {{ item.formatted_date }}
-            </div>
-            <app-like :like="item.like" />
-          </div>
-        </div>
-      </div>
+    <div class="reviews__list">
+      <app-reviews-list :reviews="reviews" />
     </div>
+
+    <app-button theme="grey-whitely" stretch="full"> Show more </app-button>
   </div>
 </template>
 
 <script setup>
-import AppStars from '@/components/shared/AppStars.vue'
-import AppLike from '@/components/shared/AppLike.vue'
+import AppButton from '@/components/shared/AppButton.vue'
+import AppReviewsList from '@/components/card-product/AppReviewsList.vue'
 
 const props = defineProps({
   reviews: {
@@ -80,7 +55,7 @@ const sort = () => {
 
 <style lang="scss" scoped>
 .reviews {
-  margin: 0;
+  margin: 6px 0 0;
 
   &__title {
     font-family: $Literata;
@@ -89,88 +64,6 @@ const sort = () => {
     font-size: 28px;
     line-height: 32px;
   }
-
-  &__list {
-    margin: 6px 0;
-  }
-}
-
-.list {
-  &__item {
-    padding: 32px 0;
-    border-bottom: 1px solid #eaeaea;
-  }
-}
-
-.card {
-  &__header {
-    display: flex;
-  }
-
-  &__body {
-    font-family: $golos-regular;
-    font-size: 16px;
-    line-height: 24px;
-    color: #000000;
-    margin: 10px 0 0;
-  }
-
-  &__footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 16px;
-  }
-}
-
-.figure {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-
-  &__letter {
-    font-family: $sans;
-    font-style: normal;
-    font-weight: 900;
-    font-size: 24px;
-    line-height: 32px;
-    color: #fff;
-  }
-}
-
-.figcaption {
-  flex: 1;
-  margin-left: 12px;
-
-  &__name {
-    font-family: $Literata;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 22px;
-    letter-spacing: -0.01em;
-    margin: 0;
-  }
-
-  &__rating {
-    margin-top: 4px;
-  }
-}
-
-.date,
-.likes {
-  font-family: $golos-regular;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: -0.01em;
-}
-
-.date {
-  color: #7e8895;
 }
 
 .button {
@@ -184,7 +77,14 @@ const sort = () => {
     font-size: 16px;
     line-height: 20px;
     color: #000;
-    margin-right: 10px;
+
+    @include gt-sm {
+      margin-right: 10px;
+    }
+
+    @include lt-md {
+      margin-right: 6px;
+    }
   }
 
   &__figure {
