@@ -6,7 +6,7 @@
       </div>
       <div class="detail-page__col">
         <app-form :product="product" />
-        <app-service :service="product.service" />
+        <app-service :service="product.service"/>
       </div>
     </div>
 
@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <app-popular-categories :popular="product.popular"  />
+    <app-popular-categories :popular="product.popular"/>
   </div>
 </template>
 

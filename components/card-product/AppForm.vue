@@ -1,6 +1,7 @@
 <template>
   <div class="form">
     <h1 class="form__title">{{ product.title }}</h1>
+
     <div class="form__section section">
       <div class="section__item item">
         <div class="item__header">
@@ -31,6 +32,15 @@
         </div>
         <div class="item__body">
           <app-list :list="product.choose_package" @setItem="onSetPackage" />
+        </div>
+      </div>
+    </div>
+
+    <div class="form__section section">
+      <div class="section__item item">
+        <div class="item__header">Choose size</div>
+        <div class="item__body">
+          <app-sizes :sizes="product.choose_size" @setSize="onSetSize" />
         </div>
       </div>
     </div>
@@ -77,6 +87,7 @@
 
 <script setup>
 import AppList from '@/components/card-product/AppList.vue'
+import AppSizes from '@/components/card-product/AppSizes.vue'
 import AppCounter from '@/components/card-product/AppCounter.vue'
 import AppBadge from '@/components/shared/AppBadge.vue'
 import AppButton from '@/components/shared/AppButton.vue'
@@ -90,6 +101,7 @@ const props = defineProps({
 
 const itemColor = ref(props.product.choose_color[0])
 const itemPackage = ref(props.product.choose_package[0])
+const itemSize = ref(props.product.choose_size[0])
 const count = ref(props.product.count)
 const like = ref(props.product.like)
 
@@ -101,8 +113,13 @@ const onSetPackage = (payload) => {
   itemPackage.value = payload
 }
 
+const onSetSize = (payload) => {
+  itemSize.value = payload
+}
+
 const addToCart = () => {
   console.log({
+    size: itemSize.value.title,
     color: itemColor.value.name,
     package: itemPackage.value.name,
     count: count.value,

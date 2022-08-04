@@ -130,6 +130,38 @@ export default [
       },
     },
     like: false,
+
+    choose_size: [
+      {
+        id: 0,
+        title: 'Standart',
+        formatted_price: '£43',
+        price: 43,
+      },
+      {
+        id: 1,
+        title: 'Enchanced',
+        formatted_price: '£46',
+        price: 46,
+      },
+      {
+        id: 2,
+        title: 'Premium',
+        formatted_price: '£49',
+        price: 49,
+      },
+      {
+        id: 3,
+        title: 'Deluxe',
+        formatted_price: '£51',
+        price: 51,
+        recommendation: {
+          icon: 'fire',
+          text: 'recommendation',
+        },
+      },
+    ],
+
     choose_color: [
       {
         sale: false,
