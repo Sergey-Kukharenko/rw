@@ -77,7 +77,13 @@ const product = products.find((item) => item.id === name)
   }
 
   &__section {
-    margin: 76px 0;
+    @include gt-sm {
+      margin: 76px 0;
+    }
+
+    @include lt-md {
+      margin: 40px 0;
+    }
   }
 }
 

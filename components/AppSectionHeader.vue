@@ -26,17 +26,33 @@ const props = defineProps({
   font-weight: 700;
 
   &__link {
-    font-size: 18px;
-    line-height: 20px;
-    color: $color-green;
+    @include gt-sm {
+      font-size: 18px;
+      line-height: 20px;
+      color: $color-green;
+    }
+
+    @include lt-md {
+      display: none;
+    }
   }
 }
 
 .title {
   display: flex;
   align-items: center;
-  font-size: 28px;
-  line-height: 32px;
+
+  @include gt-sm {
+    font-size: 28px;
+    line-height: 32px;
+    margin: 0 0 32px 0;
+  }
+
+  @include lt-md {
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0 0 16px 0;
+  }
 
   &__text {
     color: #000;
