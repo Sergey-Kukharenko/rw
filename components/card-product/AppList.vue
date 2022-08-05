@@ -7,7 +7,14 @@
       @click="onChange(item, idx)"
     >
       <div class="card" :class="{ active: idx === selectedItem }">
-        <div v-if="item.sale" class="badge" />
+        <div v-if="item.sale" class="badge">
+          <img
+            v-if="item.sale.icon_path"
+            :src="item.sale.icon_path"
+            :alt="item.sale.icon_path"
+            class="badge__icon"
+          />
+        </div>
         <div class="card__figure figure">
           <img :src="item.img" class="figure__img" />
           <div class="figure__border" />
@@ -45,20 +52,18 @@ const onChange = (item, idx) => {
 
   @include gt-sm {
     margin: 4px -8px;
+    margin: 0 2px;
   }
 
   @include lt-sm {
-    margin: 0 2px;
+    padding: 3px 0 0 0;
+    overflow: hidden;
     overflow-x: auto;
     overflow: -moz-scrollbars-none;
     -ms-overflow-style: none;
 
     &::-webkit-scrollbar {
-      margin: 8px 2px;
-    }
-
-    @include lt-md {
-      padding: 3px 0;
+      display: none;
     }
   }
 
@@ -69,6 +74,14 @@ const onChange = (item, idx) => {
 
     @include lt-md {
       margin: 5px;
+
+      &:first-child {
+        margin-left: 14px;
+      }
+
+      &:last-child {
+        margin-right: 14px;
+      }
     }
   }
 }
@@ -184,5 +197,13 @@ const onChange = (item, idx) => {
   z-index: 3;
   background: #ffeec6;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__icon {
+    display: block;
+    width: 14px;
+  }
 }
 </style>

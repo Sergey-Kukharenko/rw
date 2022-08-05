@@ -86,7 +86,7 @@ const optionsThumbs = {
 .swiper.swiper--gallery {
   @include xs {
     padding: 0;
-    margin: 0 -6px;
+    margin: 0 -14px;
   }
 }
 

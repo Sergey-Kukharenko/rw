@@ -1,12 +1,12 @@
 <template>
   <div class="layout layout-dt detail-page">
-    <div class="detail-page__row" >
+    <div class="detail-page__row">
       <div class="detail-page__col">
         <app-gallery :items="product.items" />
       </div>
       <div class="detail-page__col">
         <app-form :product="product" />
-        <app-service :service="product.service"/>
+        <app-service :service="product.service" />
       </div>
     </div>
 
@@ -24,7 +24,15 @@
       </div>
     </div>
 
-    <app-popular-categories :popular="product.popular"/>
+    <div class="detail-page__section">
+      <app-similar />
+    </div>
+    <div class="detail-page__section">
+      <app-recently />
+    </div>
+    <div class="detail-page__section">
+      <app-popular-categories :popular="product.popular" />
+    </div>
   </div>
 </template>
 
@@ -36,6 +44,8 @@ import AppPopularCategories from '@/components/card-product/AppPopularCategories
 import AppService from '@/components/card-product/AppService.vue'
 import AppReviews from '@/components/card-product/AppReviews.vue'
 import AppRating from '@/components/card-product/AppRating.vue'
+import AppSimilar from '@/components/AppSimilar.vue'
+import AppRecently from '@/components/AppRecently.vue'
 
 const route = useRoute()
 const name = +route.params.name
@@ -51,7 +61,6 @@ const product = products.find((item) => item.id === name)
   }
 
   &__col {
-    //outline: 1px solid;
     box-sizing: border-box;
 
     @include gt-sm {
@@ -65,6 +74,10 @@ const product = products.find((item) => item.id === name)
         padding-left: 12px;
       }
     }
+  }
+
+  &__section {
+    margin: 76px 0;
   }
 }
 
@@ -126,4 +139,5 @@ const product = products.find((item) => item.id === name)
     margin-right: 10px;
   }
 }
+
 </style>

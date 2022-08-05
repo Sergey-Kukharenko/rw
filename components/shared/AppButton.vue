@@ -96,6 +96,7 @@ const classNames = computed(() => useClassName(props, 'button'))
       font-size: 14px;
       line-height: 22px;
       padding: 8px 20px;
+      min-height: 38px;
     }
 
     @include lt-md {

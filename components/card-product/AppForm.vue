@@ -2,11 +2,22 @@
   <div class="form">
     <h1 class="form__title">{{ product.title }}</h1>
 
-    <div class="form__section section">
+    <div class="form__section section" v-if="isSizePage">
+      <div class="section__item item">
+        <div class="item__header">Choose size</div>
+        <div class="item__body item__body--sm-include-border">
+          <app-sizes :sizes="product.choose_size" @setSize="onSetSize" />
+        </div>
+      </div>
+    </div>
+
+    <div class="form__section section" v-else>
       <div class="section__item item">
         <div class="item__header">
           <div class="item__header-number">1.</div>
-          <div class="item__header-text">Choose roses color:</div>
+          <div class="item__header-text">
+            Choose {{ product.type_of_flowers }} color:
+          </div>
           <div class="item__header-content">{{ itemColor.name }}</div>
         </div>
         <div class="item__body">
@@ -17,7 +28,9 @@
       <div class="section__item item">
         <div class="item__header">
           <div class="item__header-number">2.</div>
-          <div class="item__header-text">Number of roses:</div>
+          <div class="item__header-text">
+            Number of {{ product.type_of_flowers }}:
+          </div>
           <div class="item__header-content item__header-content--wrapping">
             <app-counter v-model:count="count" />
           </div>
@@ -32,15 +45,6 @@
         </div>
         <div class="item__body">
           <app-list :list="product.choose_package" @setItem="onSetPackage" />
-        </div>
-      </div>
-    </div>
-
-    <div class="form__section section">
-      <div class="section__item item">
-        <div class="item__header">Choose size</div>
-        <div class="item__body">
-          <app-sizes :sizes="product.choose_size" @setSize="onSetSize" />
         </div>
       </div>
     </div>
@@ -105,6 +109,12 @@ const itemSize = ref(props.product.choose_size[0])
 const count = ref(props.product.count)
 const like = ref(props.product.like)
 
+const classNames = computed(() =>
+  useToggleClassName(like.value, 'like', 'active')
+)
+
+const isSizePage = computed(() => props.product.type_of_page === 'size_page')
+
 const onSetColor = (payload) => {
   itemColor.value = payload
 }
@@ -117,6 +127,10 @@ const onSetSize = (payload) => {
   itemSize.value = payload
 }
 
+const toggleLike = () => {
+  like.value = !like.value
+}
+
 const addToCart = () => {
   console.log({
     size: itemSize.value.title,
@@ -126,14 +140,6 @@ const addToCart = () => {
     like: like.value,
   })
 }
-
-const toggleLike = () => {
-  like.value = !like.value
-}
-
-const classNames = computed(() =>
-  useToggleClassName(like.value, 'like', 'active')
-)
 </script>
 
 <style lang="scss" scoped>
@@ -218,6 +224,7 @@ const classNames = computed(() =>
     @include lt-md {
       font-size: 14px;
       line-height: 20px;
+      letter-spacing: -0.01em;
     }
   }
 
@@ -247,8 +254,14 @@ const classNames = computed(() =>
 
   &__body {
     @include lt-sm {
-      margin: 3px -6px;
+      margin: 3px -14px;
       overflow: hidden;
+    }
+
+    &--sm-include-border {
+      @include lt-sm {
+        margin: 3px 0;
+      }
     }
   }
 }
