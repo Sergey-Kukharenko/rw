@@ -93,7 +93,6 @@
 </template>
 
 <script setup>
-import AppFormSection from '@/components/card-product/AppFormSection.vue'
 import AppList from '@/components/card-product/AppList.vue'
 import AppSizes from '@/components/card-product/AppSizes.vue'
 import AppCounter from '@/components/card-product/AppCounter.vue'
