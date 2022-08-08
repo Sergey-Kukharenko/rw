@@ -8,16 +8,16 @@
 const props = defineProps({
   theme: {
     type: String,
-    default: '',
+    default: ''
   },
   size: {
     type: String,
-    default: '',
+    default: ''
   },
   stretch: {
     type: String,
-    default: '',
-  },
+    default: ''
+  }
 })
 
 const classNames = computed(() => useClassName(props, 'button'))
@@ -131,7 +131,13 @@ const classNames = computed(() => useClassName(props, 'button'))
   }
 
   &--fix {
-    width: 244px;
+    @include gt-sm {
+      width: 244px;
+    }
+
+    @include lt-md {
+      width: 236px;
+    }
   }
 
   &--full {

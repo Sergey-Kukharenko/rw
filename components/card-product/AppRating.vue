@@ -26,8 +26,8 @@ import AppButton from '@/components/shared/AppButton.vue'
 const props = defineProps({
   rating: {
     type: Object,
-    default: () => {},
-  },
+    default: () => {}
+  }
 })
 </script>
 

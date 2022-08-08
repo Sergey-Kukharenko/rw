@@ -24,8 +24,8 @@ import AppReviewsList from '@/components/card-product/AppReviewsList.vue'
 const props = defineProps({
   reviews: {
     type: Object,
-    default: () => {},
-  },
+    default: () => {}
+  }
 })
 
 const reviews = ref(props.reviews)

@@ -17,8 +17,8 @@
 const props = defineProps({
   popular: {
     type: Object,
-    default: () => {},
-  },
+    default: () => {}
+  }
 })
 </script>
 

@@ -14,24 +14,24 @@
 const props = defineProps({
   rating: {
     type: Number,
-    default: 5,
+    default: 5
   },
   inactiveColor: {
     type: String,
-    default: '#F7F7F7',
+    default: '#F7F7F7'
   },
   starColor: {
     type: String,
-    default: '#FFCD1E',
+    default: '#FFCD1E'
   },
   showControl: {
     type: Boolean,
-    default: false,
+    default: false
   },
   disableClick: {
     type: Boolean,
-    default: true,
-  },
+    default: true
+  }
 })
 </script>
 

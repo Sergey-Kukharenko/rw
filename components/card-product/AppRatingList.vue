@@ -6,7 +6,10 @@
           <app-stars :stars="item.stars" class="stars--content-right" />
         </div>
         <div class="card__progress progress">
-          <div class="progress__bar" :style="progress(item.count)"></div>
+          <div
+            class="progress__bar"
+            :style="getProgressWidth(item.count)"
+          ></div>
         </div>
         <div class="card__number">
           {{ item.count }}
@@ -22,16 +25,14 @@ import AppStars from '@/components/shared/AppStars.vue'
 const props = defineProps({
   rating: {
     type: Object,
-    default: () => {},
-  },
+    default: () => {}
+  }
 })
 
-const progress = (count) => {
+const getProgressWidth = (count) => {
   const total = props.rating.reviews
   return 'width:' + ((count / total) * 100).toFixed(4) + '%'
 }
-
-progress(124)
 </script>
 
 <style lang="scss" scoped>

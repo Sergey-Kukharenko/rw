@@ -93,6 +93,7 @@
 </template>
 
 <script setup>
+import AppFormSection from '@/components/card-product/AppFormSection.vue'
 import AppList from '@/components/card-product/AppList.vue'
 import AppSizes from '@/components/card-product/AppSizes.vue'
 import AppCounter from '@/components/card-product/AppCounter.vue'
@@ -102,8 +103,8 @@ import AppButton from '@/components/shared/AppButton.vue'
 const props = defineProps({
   product: {
     type: Object,
-    default: () => {},
-  },
+    default: () => {}
+  }
 })
 
 const itemColor = ref(props?.product?.choose_color?.[0])
@@ -138,13 +139,13 @@ const createPageTypeObject = () => {
   if (isSizePage.value) {
     return {
       size: itemSize.value.title,
-      like: like.value,
+      like: like.value
     }
   } else {
     return {
       color: itemColor.value.name,
       count: count.value,
-      package: itemPackage.value.name,
+      package: itemPackage.value.name
     }
   }
 }
