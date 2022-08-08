@@ -105,7 +105,7 @@ const props = defineProps({
   border-radius: 50%;
 
   &__letter {
-    font-family: $sans;
+    //font-family: $sans;
     font-style: normal;
     font-weight: 900;
     font-size: 24px;
