@@ -1,12 +1,12 @@
 <template>
   <div class="form">
-    <h1 class="form__title">{{ product.title }}</h1>
+    <h1 class="form__title">{{ props.product.title }}</h1>
 
     <div class="form__section section" v-if="isSizePage">
       <div class="section__item item">
         <div class="item__header">Choose size</div>
         <div class="item__body item__body--sm-include-border">
-          <app-sizes :sizes="product.choose_size" @setSize="onSetSize" />
+          <app-sizes :sizes="props.product.choose_size" @setSize="onSetSize" />
         </div>
       </div>
     </div>
@@ -16,12 +16,12 @@
         <div class="item__header">
           <div class="item__header-number">1.</div>
           <div class="item__header-text">
-            Choose {{ product.type_of_flowers }} color:
+            Choose {{ props.product.type_of_flowers }} color:
           </div>
           <div class="item__header-content">{{ itemColor.name }}</div>
         </div>
         <div class="item__body">
-          <app-list :list="product.choose_color" @setItem="onSetColor" />
+          <app-list :list="props.product.choose_color" @setItem="onSetColor" />
         </div>
       </div>
 
@@ -29,7 +29,7 @@
         <div class="item__header">
           <div class="item__header-number">2.</div>
           <div class="item__header-text">
-            Number of {{ product.type_of_flowers }}:
+            Number of {{ props.product.type_of_flowers }}:
           </div>
           <div class="item__header-content item__header-content--wrapping">
             <app-counter v-model:count="count" />
@@ -44,7 +44,10 @@
           <div class="item__header-content">{{ itemPackage.name }}</div>
         </div>
         <div class="item__body">
-          <app-list :list="product.choose_package" @setItem="onSetPackage" />
+          <app-list
+            :list="props.product.choose_package"
+            @setItem="onSetPackage"
+          />
         </div>
       </div>
     </div>
@@ -53,17 +56,17 @@
       <div class="form__footer-price">
         <div class="price">
           <div class="price__current">
-            {{ product.currency }}{{ product.price.current }}
+            {{ props.product.currency }}{{ props.product.price.current }}
           </div>
           <div class="price__old">
-            {{ product.currency }}{{ product.price.old }}
+            {{ props.product.currency }}{{ props.product.price.old }}
           </div>
         </div>
 
         <div class="badges">
           <div
             class="badges__item"
-            v-for="badge in product.badges"
+            v-for="badge in props.product.badges"
             :key="badge.status"
           >
             <app-badge :theme="badge.color" size="md-dt" :icon="badge.icon">
@@ -103,10 +106,10 @@ const props = defineProps({
   },
 })
 
-const itemColor = ref(props.product.choose_color[0])
-const itemPackage = ref(props.product.choose_package[0])
-const itemSize = ref(props.product.choose_size[0])
-const count = ref(props.product.count)
+const itemColor = ref(props?.product?.choose_color?.[0])
+const itemPackage = ref(props?.product?.choose_package?.[0])
+const itemSize = ref(props?.product?.choose_size?.[0])
+const count = ref(props?.product?.count)
 const like = ref(props.product.like)
 
 const classNames = computed(() =>
@@ -131,14 +134,23 @@ const toggleLike = () => {
   like.value = !like.value
 }
 
+const createPageTypeObject = () => {
+  if (isSizePage.value) {
+    return {
+      size: itemSize.value.title,
+      like: like.value,
+    }
+  } else {
+    return {
+      color: itemColor.value.name,
+      count: count.value,
+      package: itemPackage.value.name,
+    }
+  }
+}
+
 const addToCart = () => {
-  console.log({
-    size: itemSize.value.title,
-    color: itemColor.value.name,
-    package: itemPackage.value.name,
-    count: count.value,
-    like: like.value,
-  })
+  console.log(createPageTypeObject())
 }
 </script>
 

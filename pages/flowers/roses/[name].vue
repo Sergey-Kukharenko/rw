@@ -145,5 +145,4 @@ const product = products.find((item) => item.id === name)
     margin-right: 10px;
   }
 }
-
 </style>
