@@ -9,10 +9,7 @@
       </div>
     </div>
 
-    <div class="reviews__list">
-      <app-reviews-list :reviews="reviews" />
-    </div>
-
+    <app-reviews-list :reviews="reviews" />
     <app-button theme="grey-whitely" stretch="full"> Show more </app-button>
   </div>
 </template>

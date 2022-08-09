@@ -3,6 +3,7 @@
     <div class="detail-page__row">
       <div class="detail-page__col">
         <app-gallery :items="product.items" />
+        <app-notification :notification="product.notification" />
       </div>
       <div class="detail-page__col">
         <app-form :product="product" />
@@ -10,7 +11,7 @@
       </div>
     </div>
 
-    <div class="about">
+    <div class="detail-page__about about">
       <h2 class="about__title">
         {{ product.reviews.title }}
       </h2>
@@ -39,6 +40,7 @@
 <script setup>
 import products from '@/data/products'
 import AppGallery from '@/components/ui/AppGallery.vue'
+import AppNotification from '@/components/card-product/AppNotification.vue'
 import AppForm from '@/components/card-product/AppForm.vue'
 import AppPopularCategories from '@/components/card-product/AppPopularCategories.vue'
 import AppService from '@/components/card-product/AppService.vue'
@@ -110,11 +112,6 @@ const product = products.find((item) => item.id === name)
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-  }
-
-  &__reviews,
-  &__rating {
-    // outline: 1px solid;
   }
 
   &__reviews {

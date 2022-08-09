@@ -92,6 +92,15 @@ export default [
         }
       ]
     },
+
+    notification: {
+      icon: 'lightning',
+      text: '943 people bought this bouquet for the last week',
+      style: {
+        background: 'rgba(255, 238, 198, 0.47)',
+      }
+    },
+
     popular: {
       title: 'Popular categories',
       categories: [
