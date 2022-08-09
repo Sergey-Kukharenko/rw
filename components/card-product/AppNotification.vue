@@ -20,22 +20,23 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .notification {
-  display: flex;
-  align-items: flex-start;
-  padding: 8px 19.33px;
-  margin: 0 -14px;
-
   @include gt-xs {
+    display: none;
   }
 
   @include xs {
+    display: flex;
+    align-items: flex-start;
+    padding: 7px 19.33px;
+    margin: 0 -14px;
+    box-sizing: border-box;
   }
 
   &__icon {
     display: block;
-    width: 9.33px;
-    height: 13.33px;
-    margin-right: 11.33px;
+    width: 10px;
+    height: 14px;
+    margin-right: 11px;
   }
 
   &__text {

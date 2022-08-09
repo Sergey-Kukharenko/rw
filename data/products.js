@@ -289,6 +289,15 @@ export default [
   {
     id: 1,
     title: 'Bouquet of 51 roses',
+
+    notification: {
+      icon: 'lightning',
+      text: '943 people bought this bouquet for the last week',
+      style: {
+        background: 'rgba(255, 238, 198, 0.47)',
+      }
+    },
+
     items: {
       slides: [
         {
