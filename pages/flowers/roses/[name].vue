@@ -6,7 +6,8 @@
         <app-notification :notification="product.notification" />
       </div>
       <div class="detail-page__col">
-        <app-form :product="product" />
+        <app-form-sizes v-if="isSizePage" :product="product" />
+        <app-form-lists v-if="isListsPage" :product="product" />
         <app-service :service="product.service" />
       </div>
     </div>
@@ -41,17 +42,21 @@
 import products from '@/data/products'
 import AppGallery from '@/components/ui/AppGallery.vue'
 import AppNotification from '@/components/card-product/AppNotification.vue'
-import AppForm from '@/components/card-product/AppForm.vue'
 import AppPopularCategories from '@/components/card-product/AppPopularCategories.vue'
 import AppService from '@/components/card-product/AppService.vue'
 import AppReviews from '@/components/card-product/AppReviews.vue'
 import AppRating from '@/components/card-product/AppRating.vue'
 import AppSimilar from '@/components/AppSimilar.vue'
 import AppRecently from '@/components/AppRecently.vue'
+import AppFormSizes from '@/components/card-product/AppFormSizes.vue'
+import AppFormLists from '@/components/card-product/AppFormLists.vue'
 
 const route = useRoute()
 const name = +route.params.name
 const product = products.find((item) => item.id === name)
+
+const isSizePage = computed(() => product.type_of_page === 'size_page')
+const isListsPage = computed(() => product.type_of_page === 'lists_page')
 </script>
 
 <style lang="scss" scoped>

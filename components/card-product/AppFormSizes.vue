@@ -2,52 +2,11 @@
   <div class="form">
     <h1 class="form__title">{{ props.product.title }}</h1>
 
-    <div class="form__section section" v-if="isSizePage">
+    <div class="section">
       <div class="section__item item">
         <div class="item__header">Choose size</div>
         <div class="item__body item__body--sm-include-border">
           <app-sizes :sizes="props.product.choose_size" @setSize="onSetSize" />
-        </div>
-      </div>
-    </div>
-
-    <div class="form__section section" v-else>
-      <div class="section__item item">
-        <div class="item__header">
-          <div class="item__header-number">1.</div>
-          <div class="item__header-text">
-            Choose {{ props.product.type_of_flowers }} color:
-          </div>
-          <div class="item__header-content">{{ itemColor.name }}</div>
-        </div>
-        <div class="item__body">
-          <app-list :list="props.product.choose_color" @setItem="onSetColor" />
-        </div>
-      </div>
-
-      <div class="section__item item">
-        <div class="item__header">
-          <div class="item__header-number">2.</div>
-          <div class="item__header-text">
-            Number of {{ props.product.type_of_flowers }}:
-          </div>
-          <div class="item__header-content item__header-content--wrapping">
-            <app-counter v-model:count="count" />
-          </div>
-        </div>
-      </div>
-
-      <div class="section__item item">
-        <div class="item__header">
-          <div class="item__header-number">3.</div>
-          <div class="item__header-text">Choose package:</div>
-          <div class="item__header-content">{{ itemPackage.name }}</div>
-        </div>
-        <div class="item__body">
-          <app-list
-            :list="props.product.choose_package"
-            @setItem="onSetPackage"
-          />
         </div>
       </div>
     </div>
@@ -62,18 +21,7 @@
             {{ props.product.currency }}{{ props.product.price.old }}
           </div>
         </div>
-
-        <div class="badges">
-          <div
-            class="badges__item"
-            v-for="badge in props.product.badges"
-            :key="badge.status"
-          >
-            <app-badge :theme="badge.color" size="md-dt" :icon="badge.icon">
-              {{ badge.info }}
-            </app-badge>
-          </div>
-        </div>
+        <app-badges :badges="props.product.badges" />
       </div>
 
       <div class="group-buttons">
@@ -93,10 +41,8 @@
 </template>
 
 <script setup>
-import AppList from '@/components/card-product/AppList.vue'
 import AppSizes from '@/components/card-product/AppSizes.vue'
-import AppCounter from '@/components/card-product/AppCounter.vue'
-import AppBadge from '@/components/shared/AppBadge.vue'
+import AppBadges from '@/components/shared/AppBadges.vue'
 import AppButton from '@/components/shared/AppButton.vue'
 
 const props = defineProps({
@@ -106,8 +52,6 @@ const props = defineProps({
   }
 })
 
-const itemColor = ref(props?.product?.choose_color?.[0])
-const itemPackage = ref(props?.product?.choose_package?.[0])
 const itemSize = ref(props?.product?.choose_size?.[0])
 const count = ref(props?.product?.count)
 const like = ref(props.product.like)
@@ -115,16 +59,6 @@ const like = ref(props.product.like)
 const classNames = computed(() =>
   useToggleClassName(like.value, 'like', 'active')
 )
-
-const isSizePage = computed(() => props.product.type_of_page === 'size_page')
-
-const onSetColor = (payload) => {
-  itemColor.value = payload
-}
-
-const onSetPackage = (payload) => {
-  itemPackage.value = payload
-}
 
 const onSetSize = (payload) => {
   itemSize.value = payload
@@ -134,23 +68,12 @@ const toggleLike = () => {
   like.value = !like.value
 }
 
-const createPageTypeObject = () => {
-  if (isSizePage.value) {
-    return {
-      size: itemSize.value.title,
-      like: like.value
-    }
-  } else {
-    return {
-      color: itemColor.value.name,
-      count: count.value,
-      package: itemPackage.value.name
-    }
-  }
-}
 
 const addToCart = () => {
-  console.log(createPageTypeObject())
+  console.log({
+    size: itemSize.value.title,
+    like: like.value
+  })
 }
 </script>
 
@@ -343,29 +266,6 @@ const addToCart = () => {
 
     &:after {
       background: #db1838;
-    }
-  }
-}
-
-.badges {
-  display: flex;
-  flex-wrap: wrap;
-
-  @include lt-md {
-    margin: 0 -2px;
-  }
-
-  &__item {
-    @include gt-sm {
-      margin-top: 8px;
-
-      &:not(:last-child) {
-        margin-right: 8px;
-      }
-    }
-
-    @include lt-md {
-      margin: 2px;
     }
   }
 }

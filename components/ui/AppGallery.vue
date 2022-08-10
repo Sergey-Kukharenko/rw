@@ -6,7 +6,7 @@
     class="swiper swiper--gallery"
   >
     <swiper-slide v-for="(slide, idx) in props.items.slides" :key="idx">
-      <app-gallery-card :slide="slide"/>
+      <app-gallery-card :slide="slide" />
     </swiper-slide>
   </swiper>
 
@@ -18,40 +18,39 @@
   >
     <swiper-slide v-for="(slide, idx) in props.items.thumbs" :key="idx">
       <div class="thumbs-item">
-        <img :src="slide.img" :alt="slide.img" class="thumbs-item__img"/>
-        <div class="thumbs-item__border absolute-grow"/>
+        <img :src="slide.img" :alt="slide.img" class="thumbs-item__img" />
+        <div class="thumbs-item__border absolute-grow" />
       </div>
     </swiper-slide>
   </swiper>
 </template>
 
 <script setup>
-import {Swiper, SwiperSlide} from 'swiper/vue';
+import { Swiper, SwiperSlide } from 'swiper/vue'
 import {
   FreeMode,
   Pagination,
   Navigation,
   Mousewheel,
   Keyboard,
-  Thumbs,
+  Thumbs
+} from 'swiper'
 
-} from 'swiper';
-
-import AppGalleryCard from '@/components/shared/AppGalleryCard.vue';
+import AppGalleryCard from '@/components/shared/AppGalleryCard.vue'
 
 const props = defineProps({
   items: {
     type: Object,
-    default: () => ({}),
-  },
-});
+    default: () => ({})
+  }
+})
 
-const modules = [FreeMode, Pagination, Navigation, Mousewheel, Keyboard, Thumbs];
+const modules = [FreeMode, Pagination, Navigation, Mousewheel, Keyboard, Thumbs]
 
-const thumbsSwiper = ref(null);
+const thumbsSwiper = ref(null)
 const setThumbsSwiper = (swiper) => {
-  thumbsSwiper.value = swiper;
-};
+  thumbsSwiper.value = swiper
+}
 
 const options = {
   // slidesPerView: 1,
@@ -60,20 +59,20 @@ const options = {
 
   breakpoints: {
     599: {
-      spaceBetween: 0,
+      spaceBetween: 0
     },
     959: {
-      spaceBetween: 66,
+      spaceBetween: 66
     }
   }
-};
+}
 
 const optionsThumbs = {
   spaceBetween: 4,
   slidesPerView: 4,
   watchSlidesProgress: true,
-  slideToClickedSlide: true,
-};
+  slideToClickedSlide: true
+}
 </script>
 
 <style lang="scss">
@@ -161,5 +160,4 @@ const optionsThumbs = {
 .swiper-slide-thumb-active .thumbs-item__img {
   transform: scale(0.98);
 }
-
 </style>

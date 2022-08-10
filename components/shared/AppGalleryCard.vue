@@ -30,8 +30,8 @@ import AppBadgeRateReviews from './AppBadgeRateReviews.vue'
 const props = defineProps({
   slide: {
     type: Object,
-    default: () => ({}),
-  },
+    default: () => ({})
+  }
 })
 </script>
 

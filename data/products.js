@@ -142,6 +142,7 @@ export default [
     type_of_page: 'size_page',
     type_of_flowers: 'roses',
 
+    name: 'Choose size',
     choose_size: [
       {
         id: 0,
@@ -174,7 +175,6 @@ export default [
         },
       },
     ],
-
 
     service: {
       list: [
@@ -426,40 +426,10 @@ export default [
       },
     },
     like: false,
-    // type_of_page: 'size_page',
+    type_of_page: 'lists_page',
     type_of_flowers: 'roses',
 
-    choose_size: [
-      {
-        id: 0,
-        title: 'Standart',
-        formatted_price: '£43',
-        price: 43,
-      },
-      {
-        id: 1,
-        title: 'Enchanced',
-        formatted_price: '£46',
-        price: 46,
-      },
-      {
-        id: 2,
-        title: 'Premium',
-        formatted_price: '£49',
-        price: 49,
-      },
-      {
-        id: 3,
-        title: 'Deluxe',
-        formatted_price: '£51',
-        price: 51,
-        sale: {
-          status: true,
-          text: 'Recommended',
-          icon_path: '/icons/fire.png',
-        },
-      },
-    ],
+
     choose_color: [
       {
         id: 0,
@@ -634,6 +604,6 @@ export default [
           count: 0
         }
       ]
-    }
+    },
   }
 ];

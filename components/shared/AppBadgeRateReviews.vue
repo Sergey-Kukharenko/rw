@@ -24,20 +24,20 @@
 const props = defineProps({
   rating: {
     type: Number,
-    default: 5,
+    default: 5
   },
   stars: {
     type: Number,
-    default: 1,
+    default: 1
   },
   reviews: {
     type: Number,
-    required: true,
+    required: true
   },
   options: {
     type: Object,
-    default: () => ({}),
-  },
+    default: () => ({})
+  }
 })
 
 const classNames = computed(() => useClassName(props.options, 'badge'))

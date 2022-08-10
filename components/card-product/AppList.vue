@@ -32,8 +32,8 @@
 const props = defineProps({
   list: {
     type: Array,
-    default: () => [],
-  },
+    default: () => []
+  }
 })
 
 const emit = defineEmits(['setItem'])
@@ -52,7 +52,6 @@ const onChange = (item, idx) => {
 
   @include gt-sm {
     margin: 4px -8px;
-    margin: 0 2px;
   }
 
   @include lt-sm {
