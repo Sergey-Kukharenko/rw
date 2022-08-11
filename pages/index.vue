@@ -1,7 +1,7 @@
 <template>
   <main>
-    <app-promotions />
     <app-popular-categories />
+    <app-promotions />
     <app-bestsellers />
     <app-special-offers />
   </main>

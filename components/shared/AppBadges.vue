@@ -1,6 +1,6 @@
 <template>
   <div class="badges">
-    <div class="badges__item" v-for="badge in props.badges" :key="badge.status">
+    <div v-for="badge in props.badges" :key="badge.status" class="badges__item">
       <app-badge :theme="badge.color" size="md-dt" :icon="badge.icon">
         {{ badge.info }}
       </app-badge>
@@ -13,8 +13,8 @@ import AppBadge from '@/components/shared/AppBadge.vue'
 
 const props = defineProps({
   badges: {
-    type: Array,
-    default: () => []
+    type: Object,
+    default: () => {}
   }
 })
 </script>

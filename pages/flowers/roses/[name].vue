@@ -41,20 +41,19 @@
 <script setup>
 import products from '@/data/products'
 import AppGallery from '@/components/ui/AppGallery.vue'
-import AppNotification from '@/components/card-product/AppNotification.vue'
-import AppPopularCategories from '@/components/card-product/AppPopularCategories.vue'
+import AppFormSizes from '@/components/card-product/AppFormSizes.vue'
+import AppFormLists from '@/components/card-product/AppFormLists.vue'
 import AppService from '@/components/card-product/AppService.vue'
 import AppReviews from '@/components/card-product/AppReviews.vue'
 import AppRating from '@/components/card-product/AppRating.vue'
 import AppSimilar from '@/components/AppSimilar.vue'
 import AppRecently from '@/components/AppRecently.vue'
-import AppFormSizes from '@/components/card-product/AppFormSizes.vue'
-import AppFormLists from '@/components/card-product/AppFormLists.vue'
+import AppPopularCategories from '@/components/card-product/AppPopularCategories.vue'
+import AppNotification from '@/components/card-product/AppNotification.vue'
 
 const route = useRoute()
 const name = +route.params.name
 const product = products.find((item) => item.id === name)
-
 const isSizePage = computed(() => product.type_of_page === 'size_page')
 const isListsPage = computed(() => product.type_of_page === 'lists_page')
 </script>

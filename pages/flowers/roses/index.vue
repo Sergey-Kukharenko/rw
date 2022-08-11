@@ -5,8 +5,8 @@
 </template>
 
 <script setup>
-const route = useRoute();
-const path = route.path;
-const n = path.lastIndexOf('/');
-const routeName = path.substring(n + 1);
+const route = useRoute()
+const path = route.path
+const n = path.lastIndexOf('/')
+const routeName = path.substring(n + 1)
 </script>

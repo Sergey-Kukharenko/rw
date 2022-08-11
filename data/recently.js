@@ -1,7 +1,7 @@
 export default {
   main: {
     title: 'Recently watched',
-    count: 58,
+    count: 58
 
   },
   list: [
@@ -28,6 +28,6 @@ export default {
         status: 'sale',
         percent: '-30%'
       }
-    },
+    }
   ]
 }

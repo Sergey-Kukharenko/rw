@@ -8,10 +8,10 @@
 </template>
 
 <script setup>
+import dataRecently from '@/data/recently'
 import AppSectionHeader from '@/components/AppSectionHeader.vue'
 import AppGrid from '@/components/shared/AppGrid.vue'
 import AppCard from '@/components/shared/AppCard.vue'
-import dataRecently from '@/data/recently'
 
 const { main, list } = dataRecently
 

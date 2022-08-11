@@ -1,9 +1,9 @@
 <template>
   <div class="list">
     <div
-      class="list__item"
-      v-for="(item, idx) in list"
+      v-for="(item, idx) in props.list"
       :key="item.id"
+      class="list__item"
       @click="onChange(item, idx)"
     >
       <div class="card" :class="{ active: idx === selectedItem }">
@@ -19,7 +19,7 @@
           <img :src="item.img" class="figure__img" />
           <div class="figure__border" />
         </div>
-        <div class="card__figcaption figcaption" v-if="item.description">
+        <div v-if="item.description" class="card__figcaption figcaption">
           <div class="figcaption__title">{{ item.name }}</div>
           <div class="figcaption__price">£{{ item.price }}</div>
         </div>

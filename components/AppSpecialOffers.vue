@@ -9,7 +9,7 @@
 
 <script setup>
 import AppSectionHeader from '@/components/AppSectionHeader.vue'
-import AppGrid from '@/components/shared/AppGrid.vue'
+import AppGrid from '@/components/shared//AppGrid.vue'
 import AppCard from '@/components/shared/AppCard.vue'
 import dataSpecialOffers from '@/data/special-offers'
 const { main, list } = dataSpecialOffers

@@ -8,10 +8,10 @@
 </template>
 
 <script setup>
+import dataSimilar from '@/data/similar'
 import AppSectionHeader from '@/components/AppSectionHeader.vue'
 import AppGrid from '@/components/shared/AppGrid.vue'
 import AppCard from '@/components/shared/AppCard.vue'
-import dataSimilar from '@/data/similar'
 
 const { main, list } = dataSimilar
 

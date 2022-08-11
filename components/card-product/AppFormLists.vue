@@ -109,7 +109,8 @@ const addToCart = () => {
   console.log({
     color: itemColor.value.name,
     count: count.value,
-    package: itemPackage.value.name
+    package: itemPackage.value.name,
+    like: like.value
   })
 }
 </script>

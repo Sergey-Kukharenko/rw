@@ -1,6 +1,6 @@
 <template>
   <div class="list">
-    <div class="list__item" v-for="item in reviews" :key="item.name">
+    <div v-for="item in props.reviews" :key="item.name" class="list__item">
       <div class="card">
         <div class="card__header">
           <div class="figure" :style="item.style">
@@ -38,8 +38,8 @@ import AppLike from '@/components/shared/AppLike.vue'
 const props = defineProps({
   reviews: {
     type: Array,
-    default: () => [],
-  },
+    default: () => []
+  }
 })
 </script>
 

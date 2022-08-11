@@ -3,7 +3,6 @@
 </template>
 
 <script setup>
-import { DRAWER_CONTENT_ID } from '@/constants'
 
 const isMobile = useIsMobile()
 </script>

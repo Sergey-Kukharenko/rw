@@ -1,5 +1,5 @@
 <template>
-  <div class="layout layout--horizontal" v-if="breadCrumbs">
+  <div v-if="breadCrumbs" class="layout layout--horizontal">
     <div class="breadcrumbs">
       <NuxtLink
         v-for="item in breadCrumbs"
@@ -32,13 +32,12 @@ const breadCrumbs = computed(() => useBreadCrumbs(route))
   }
 
   @include xs {
-    padding: 10px 0px;
+    padding: 10px 0;
   }
 
   &__item {
     font-family: $golos-regular;
     color: $color-white-grey;
-    text-transform: capitalize;
 
     @include gt-xs {
       display: flex;

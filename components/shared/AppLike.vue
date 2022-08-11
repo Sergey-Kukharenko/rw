@@ -12,14 +12,14 @@
 const props = defineProps({
   like: {
     type: Object,
-    default: () => {},
-  },
+    default: () => {}
+  }
 })
 
 const like = ref(props.like)
 
-const toggleLike = (like) => (like.by_user = !like.by_user)
-const toggleCount = (like) => (like.by_user ? like.count-- : like.count++)
+const toggleLike = like => (like.by_user = !like.by_user)
+const toggleCount = like => (like.by_user ? like.count-- : like.count++)
 
 const toggle = (like) => {
   toggleCount(like)

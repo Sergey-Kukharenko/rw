@@ -37,9 +37,9 @@ const props = defineProps({
     type: Object,
     default: () => ({})
   }
-});
+})
 
-const classNames = computed(() => useClassName(props.options, 'navigation-list'));
+const classNames = computed(() => useClassName(props.options, 'navigation-list'))
 </script>
 
 <style lang="scss" scoped>

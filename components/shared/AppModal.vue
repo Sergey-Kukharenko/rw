@@ -1,13 +1,13 @@
 <template>
   <transition>
-    <AppModalAbstraction v-if="props.visible" @close="close">
-      <slot />
-    </AppModalAbstraction>
+      <AppModalAbstraction v-if="props.visible" @close="close">
+        <slot />
+      </AppModalAbstraction>
   </transition>
 </template>
 
 <script setup>
-import AppModalAbstraction from '@/components/shared/AppModalAbstraction'
+import AppModalAbstraction from '@/components/shared/AppModalAbstraction.vue'
 
 const props = defineProps({
   visible: {

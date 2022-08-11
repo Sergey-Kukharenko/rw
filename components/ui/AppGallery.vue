@@ -11,10 +11,10 @@
   </swiper>
 
   <swiper
-    @swiper="setThumbsSwiper"
     v-bind="optionsThumbs"
     :modules="modules"
     class="swiper-thumbs"
+    @swiper="setThumbsSwiper"
   >
     <swiper-slide v-for="(slide, idx) in props.items.thumbs" :key="idx">
       <div class="thumbs-item">
@@ -53,7 +53,6 @@ const setThumbsSwiper = (swiper) => {
 }
 
 const options = {
-  // slidesPerView: 1,
   pagination: true,
   watchSlidesProgress: true,
 

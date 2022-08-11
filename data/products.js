@@ -97,7 +97,7 @@ export default [
       icon: 'lightning',
       text: '943 people bought this bouquet for the last week',
       style: {
-        background: 'rgba(255, 238, 198, 0.47)',
+        background: 'rgba(255, 238, 198, 0.47)'
       }
     },
 
@@ -136,7 +136,7 @@ export default [
         info: '£0.4 Cashback',
         icon: 'cashback',
         color: 'yellow'
-      },
+      }
     },
     like: false,
     type_of_page: 'size_page',
@@ -148,19 +148,19 @@ export default [
         id: 0,
         title: 'Standart',
         formatted_price: '£43',
-        price: 43,
+        price: 43
       },
       {
         id: 1,
         title: 'Enchanced',
         formatted_price: '£46',
-        price: 46,
+        price: 46
       },
       {
         id: 2,
         title: 'Premium',
         formatted_price: '£49',
-        price: 49,
+        price: 49
       },
       {
         id: 3,
@@ -172,8 +172,8 @@ export default [
           icon_path: '/icons/fire.png',
           text: 'Recommended',
           color: 'yellow'
-        },
-      },
+        }
+      }
     ],
 
     service: {
@@ -213,7 +213,7 @@ export default [
           logo: 'R',
           style: {
             background: '#97C8F7',
-            color: '#ffffff',
+            color: '#ffffff'
           },
           rating: 5,
           message: 'Thank you so much for the timely delivery and for the opportunity to make an order and delivery day to day! The recipient really liked the flowers! Thank you for giving me a good mood!',
@@ -229,7 +229,7 @@ export default [
           logo: 'J',
           style: {
             background: '#F797A8',
-            color: '#ffffff',
+            color: '#ffffff'
           },
           rating: 4,
           message: 'I liked everything) Thanks to all the staff. The bouquet is delicious and delivered even ahead of time.',
@@ -245,7 +245,7 @@ export default [
           logo: 'S',
           style: {
             background: '#26AD4F',
-            color: '#ffffff',
+            color: '#ffffff'
           },
           rating: 3,
           message: 'Thank you very much to the Flor2 team for the next delivery of flowers to my daughter. You are working for 10 points! Beautiful bouquets and top-level delivery.',
@@ -294,7 +294,7 @@ export default [
       icon: 'lightning',
       text: '943 people bought this bouquet for the last week',
       style: {
-        background: 'rgba(255, 238, 198, 0.47)',
+        background: 'rgba(255, 238, 198, 0.47)'
       }
     },
 
@@ -423,43 +423,42 @@ export default [
         info: '£0.4 Cashback',
         icon: 'cashback',
         color: 'yellow'
-      },
+      }
     },
     like: false,
     type_of_page: 'lists_page',
     type_of_flowers: 'roses',
 
-
     choose_color: [
       {
         id: 0,
         img: 'https://images.unsplash.com/photo-1596438503462-50dedbfd6f1f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Ym91cXVldCUyMG9mJTIwZmxvd2Vyc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=100&q=60',
-        name: 'Pink & White 0',
+        name: 'Pink & White 0'
       },
       {
         id: 1,
         img: 'https://images.unsplash.com/photo-1596438459194-f275f413d6ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Ym91cXVldCUyMG9mJTIwZmxvd2Vyc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=100&q=60',
-        name: 'Pink & White 1',
+        name: 'Pink & White 1'
       },
       {
         id: 2,
         img: 'https://images.unsplash.com/photo-1561729098-cbab0f7a9f7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Ym91cXVldCUyMG9mJTIwZmxvd2Vyc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=100&q=60',
-        name: 'Pink & White 2',
+        name: 'Pink & White 2'
       },
       {
         id: 3,
         img: 'https://images.unsplash.com/photo-1591886960571-74d43a9d4166?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGJvdXF1ZXQlMjBvZiUyMGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60',
-        name: 'Pink & White 3',
+        name: 'Pink & White 3'
       },
       {
         id: 4,
         img: 'https://images.unsplash.com/photo-1599733594230-6b823276abcc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fGJvdXF1ZXQlMjBvZiUyMGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60',
-        name: 'Pink & White 4',
+        name: 'Pink & White 4'
       },
       {
         id: 5,
         img: 'https://images.unsplash.com/photo-1494336956603-39a3641efa1c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fGJvdXF1ZXQlMjBvZiUyMGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60',
-        name: 'Pink & White 5',
+        name: 'Pink & White 5'
       }
     ],
     choose_package: [
@@ -468,33 +467,33 @@ export default [
         img: 'https://images.unsplash.com/photo-1571086803179-00ab0eaa6e02?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fGJvdXF1ZXQlMjBvZiUyMGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60',
         description: true,
         name: 'Tape',
-        price: '0',
+        price: '0'
       },
       {
         id: 1,
         img: 'https://images.unsplash.com/photo-1561128290-005859246e58?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjN8fGJvdXF1ZXQlMjBvZiUyMGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60',
         description: true,
         name: 'Felt',
-        price: '4',
+        price: '4'
       },
       {
         id: 2,
         img: 'https://images.unsplash.com/photo-1613508636209-cd13d894e15b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fGJvdXF1ZXQlMjBvZiUyMGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60',
         description: true,
         name: 'Craft',
-        price: '8',
+        price: '8'
       },
       {
         sale: {
           status: true,
-          icon_path: '/icons/fire.png',
+          icon_path: '/icons/fire.png'
         },
         id: 3,
         img: 'https://images.unsplash.com/photo-1487530811176-3780de880c2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzd8fGJvdXF1ZXQlMjBvZiUyMGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60',
         description: true,
         name: 'Matte',
-        price: '9',
-      },
+        price: '9'
+      }
     ],
     service: {
       list: [
@@ -533,7 +532,7 @@ export default [
           logo: 'R',
           style: {
             background: '#97C8F7',
-            color: '#ffffff',
+            color: '#ffffff'
           },
           rating: 5,
           message: 'Thank you so much for the timely delivery and for the opportunity to make an order and delivery day to day! The recipient really liked the flowers! Thank you for giving me a good mood!',
@@ -549,7 +548,7 @@ export default [
           logo: 'J',
           style: {
             background: '#F797A8',
-            color: '#ffffff',
+            color: '#ffffff'
           },
           rating: 4,
           message: 'I liked everything) Thanks to all the staff. The bouquet is delicious and delivered even ahead of time.',
@@ -565,7 +564,7 @@ export default [
           logo: 'S',
           style: {
             background: '#26AD4F',
-            color: '#ffffff',
+            color: '#ffffff'
           },
           rating: 3,
           message: 'Thank you very much to the Flor2 team for the next delivery of flowers to my daughter. You are working for 10 points! Beautiful bouquets and top-level delivery.',
@@ -604,6 +603,6 @@ export default [
           count: 0
         }
       ]
-    },
+    }
   }
-];
+]

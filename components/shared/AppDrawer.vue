@@ -1,23 +1,10 @@
 <template>
   <div :class="classNames">
-    <div class="drawer__header">
-      <div class="drawer__button" @click="isVisibility = true">
-        <div class="burger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-      <div class="drawer__content">
-        <app-logo />
-        <app-search />
-        <app-cart />
-        <a class="phone">
-          <SvgSprite
-            symbol="call-outline"
-            class="phone__icon phone__icon--call"
-          />
-        </a>
+    <div class="drawer__button" @click="isVisibility = true">
+      <div class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </div>
     <div class="drawer__overlay" @click="isVisibility = false" />
@@ -30,10 +17,6 @@
 </template>
 
 <script setup>
-import AppLogo from '@/components/header/AppLogo.vue'
-import AppSearch from '@/components/header/AppSearch.vue'
-import AppCart from '@/components/header/AppCart.vue'
-
 const isVisibility = ref(false)
 const classNames = computed(() =>
   useToggleClassName(isVisibility.value, 'drawer', 'active')
@@ -41,33 +24,10 @@ const classNames = computed(() =>
 </script>
 
 <script>
-
 </script>
 
 <style lang="scss" scoped>
 .drawer {
-  &__header {
-    @include lt-md {
-      display: flex;
-      align-items: center;
-      height: 50px;
-      padding: 0 18px;
-      box-sizing: border-box;
-    }
-  }
-
-  &__content {
-    @include gt-sm{
-      display: none;
-    }
-    @include lt-md {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      margin: 0 -8px 0 0;
-    }
-  }
-
   &__button {
     @include lt-md {
       width: 20px;
@@ -85,6 +45,7 @@ const classNames = computed(() =>
       height: 100vh;
       position: absolute;
       top: 0;
+      left: 0;
       background: rgba(0, 0, 0, 0.7);
       z-index: 3;
       opacity: 0;
@@ -99,6 +60,7 @@ const classNames = computed(() =>
       height: 0;
       position: absolute;
       top: 0;
+      left: 0;
       z-index: 4;
       transform: translateX(-101%);
       transition: transform 0.25s ease 0s;
@@ -186,25 +148,6 @@ const classNames = computed(() =>
   @include lt-md {
     transform: translateX(0);
     transition: transform 0.25s ease 0s;
-  }
-}
-
-.phone {
-  @include lt-md {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  &__icon {
-    &--call {
-      @include lt-md {
-        width: 20px;
-        height: 20px;
-        fill: $color-dark-grey;
-        padding: 8px;
-      }
-    }
   }
 }
 </style>

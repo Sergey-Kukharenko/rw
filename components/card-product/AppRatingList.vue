@@ -1,6 +1,6 @@
 <template>
   <div class="list">
-    <div class="list__item" v-for="item in rating.list" :key="item.stars">
+    <div v-for="item in rating.list" :key="item.stars" class="list__item">
       <div class="card">
         <div class="card__stars">
           <app-stars :stars="item.stars" class="stars--content-right" />

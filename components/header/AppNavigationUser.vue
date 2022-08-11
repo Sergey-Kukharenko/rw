@@ -1,13 +1,13 @@
 <template>
   <nav class="navigation-user">
     <div class="navigation-user__item">
-      <app-favorite/>
+      <app-favorite />
     </div>
     <div class="navigation-user__item">
-      <app-cart/>
+      <app-cart />
     </div>
     <div class="navigation-user__item">
-      <app-profile/>
+      <app-profile />
     </div>
   </nav>
 </template>

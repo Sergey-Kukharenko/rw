@@ -1,27 +1,29 @@
 <template>
-  <div class="modal">
-    <div class="modal__overlay" @click="close"></div>
-    <div class="modal__content">
-      <slot />
-      <button type="button" class="button" @click="close">
-        <SvgSprite symbol="close" class="button__icon" />
-      </button>
+  <Teleport to="body">
+    <div class="modal">
+      <div class="modal__overlay" @click="close"></div>
+      <div class="modal__content">
+        <slot/>
+        <button type="button" class="button" @click="close">
+          <SvgSprite symbol="close" class="button__icon"/>
+        </button>
+      </div>
     </div>
-  </div>
+  </Teleport>
 </template>
 
 <script setup>
-const emit = defineEmits(['close'])
-const close = () => emit('close')
+const emit = defineEmits(['close']);
+const close = () => emit('close');
 const handleKeyup = (event) => {
   if (event.keyCode !== 27) {
-    return
+    return;
   }
 
-  close()
-}
+  close();
+};
 
-useEventListener(window, 'keyup', handleKeyup)
+useEventListener(window, 'keyup', handleKeyup);
 </script>
 
 <style lang="scss" scoped>
@@ -33,7 +35,7 @@ useEventListener(window, 'keyup', handleKeyup)
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  z-index: 4;
+  z-index: 6;
 
   &__overlay {
     position: absolute;

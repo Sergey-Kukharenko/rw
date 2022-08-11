@@ -1,11 +1,11 @@
 <template>
   <div class="star-ratings">
     <vue3-star-ratings
-      v-model="rating"
-      :inactiveColor="inactiveColor"
-      :starColor="starColor"
-      :showControl="showControl"
-      :disableClick="disableClick"
+      v-model="props.rating"
+      :inactive-color="props.inactiveColor"
+      :star-color="props.starColor"
+      :show-control="props.showControl"
+      :disable-click="props.disableClick"
     />
   </div>
 </template>

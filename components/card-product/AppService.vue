@@ -1,7 +1,7 @@
 <template>
   <div class="service">
     <div class="service__list list">
-      <div class="list__item card" v-for="item in service.list" :key="item">
+      <div v-for="item in props.service.list" :key="item" class="list__item card">
         <div class="card__container">
           <img :src="item.img[getImg]" class="card__img" :alt="item.alt" />
         </div>
@@ -18,7 +18,7 @@
         filled with pretty pastel stems...
       </div>
 
-      <div class="container__text" v-show="isShowMore">
+      <div v-show="isShowMore" class="container__text">
         i'am hidden text ... <br />
         It is a long established fact that a reader will be distracted by the
         readable content of a page when looking at its layout. The point of

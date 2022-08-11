@@ -23,7 +23,14 @@ const navBar = ref(dataNavBar)
 
 <style lang="scss" scoped>
 .navbar {
+  background: #fff;
   padding: 8px 0;
+
+  @include gt-sm {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+  }
 
   @include lt-md {
     border-top: 1px solid #dde0e6;

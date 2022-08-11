@@ -1,7 +1,7 @@
 <template>
   <div class="stars">
     <SvgSprite
-      v-for="star in stars"
+      v-for="star in props.stars"
       :key="star"
       symbol="star"
       class="stars__icon"
@@ -13,8 +13,8 @@
 const props = defineProps({
   stars: {
     type: Number,
-    default: 1,
-  },
+    default: 1
+  }
 })
 </script>
 

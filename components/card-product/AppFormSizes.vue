@@ -53,7 +53,6 @@ const props = defineProps({
 })
 
 const itemSize = ref(props?.product?.choose_size?.[0])
-const count = ref(props?.product?.count)
 const like = ref(props.product.like)
 
 const classNames = computed(() =>
@@ -67,7 +66,6 @@ const onSetSize = (payload) => {
 const toggleLike = () => {
   like.value = !like.value
 }
-
 
 const addToCart = () => {
   console.log({

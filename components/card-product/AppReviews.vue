@@ -38,7 +38,7 @@ const toggleText = () =>
 
 const toggleOrder = () => (order.value = !order.value)
 
-const sortArrayBy = (prop) =>
+const sortArrayBy = prop =>
   reviews.value.sort((a, b) =>
     order.value ? a[prop] - b[prop] : b[prop] - a[prop]
   )

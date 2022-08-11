@@ -1,5 +1,5 @@
-export function useBreadCrumbs(route) {
-  if (route.path === '/') return
+export function useBreadCrumbs (route) {
+  if (route.path === '/') { return }
 
   return route.path
     .split('/')
@@ -7,11 +7,11 @@ export function useBreadCrumbs(route) {
       idx === 0
         ? array.push({
           path: '/',
-          text: 'main',
+          text: 'main'
         })
         : array.push({
           path: array[idx - 1].path + (idx > 1 ? '/' : '') + path,
-          text: path,
+          text: path
         })
 
       return array

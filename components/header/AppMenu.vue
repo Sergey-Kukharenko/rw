@@ -29,13 +29,14 @@ import AppNavigationUser from '@/components/header/AppNavigationUser'
 <style lang="scss" scoped>
 .menu {
   @include gt-sm {
+    position: relative;
+    z-index: 4;
     padding: 24px 0 20px;
     border-bottom: 1px solid #e5e5e5;
   }
 }
 
 .menu-list {
-
   @include md {
     margin: 0 -8px;
   }
@@ -70,7 +71,7 @@ import AppNavigationUser from '@/components/header/AppNavigationUser'
 
     &:first-child {
       @include lt-sm {
-       display: none;
+        display: none;
       }
     }
 
