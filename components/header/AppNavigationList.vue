@@ -8,22 +8,15 @@
       class="navigation-list__item"
     >
       <div class="content">
-        <div class="content__figure">
-          <SvgSprite
-            v-if="item.icon"
-            :symbol="item.icon"
-            v-bind:="item.style"
-            :class="['content__icon', item.icon]"
-          />
-        </div>
-        <div class="content__text">
-          {{ item.title }}
-        </div>
+        {{ item.title }}
         <div v-if="item.count" class="content__count">
           {{ item.count }}
         </div>
       </div>
     </a>
+    <div class="navigation-list__item">
+      <slot/>
+    </div>
   </div>
 </template>
 
@@ -37,9 +30,9 @@ const props = defineProps({
     type: Object,
     default: () => ({})
   }
-})
+});
 
-const classNames = computed(() => useClassName(props.options, 'navigation-list'))
+const classNames = computed(() => useClassName(props.options, 'navigation-list'));
 </script>
 
 <style lang="scss" scoped>
@@ -156,18 +149,6 @@ const classNames = computed(() => useClassName(props.options, 'navigation-list')
     margin: 0;
   }
 
-  &__icon {
-    display: block;
-    width: 16px;
-    height: 16px;
-    color: inherit;
-    fill: currentColor;
-
-    @include gt-sm {
-      margin-right: 7px;
-    }
-  }
-
   &__count {
     display: flex;
     align-items: center;
@@ -183,12 +164,6 @@ const classNames = computed(() => useClassName(props.options, 'navigation-list')
       border-radius: 50%;
       margin: 0 4px;
     }
-  }
-}
-
-.whatsapp {
-  @include lt-md {
-    display: none;
   }
 }
 

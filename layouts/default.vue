@@ -14,7 +14,7 @@ import AppHeaderMobile from '@/components/header/AppHeaderMobile.vue'
 import AppBreadcrumbs from '@/components/shared/AppBreadcrumbs.vue'
 import AppFooter from '@/components/footer/AppFooter.vue'
 
-import {useIsDevice} from '../composables/states';
+import {useIsDevice} from '@/composables/states';
 
 const isDevice = useIsDevice()
 </script>

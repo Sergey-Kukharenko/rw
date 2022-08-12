@@ -17,11 +17,14 @@ export default {
     },
     {
       title: 'Contact us'
-    },
-    {
-      icon: 'whatsapp',
-      title: '+44 (0)78 0767 8690',
-      href: 'https://api.whatsapp.com/send?phone=4407807678690'
     }
-  ]
+  ],
+  call:{
+    icon: {
+      desktop: 'whatsapp',
+      mobile: 'call-outline',
+    },
+    title: '+44 (0)78 0767 8690',
+    href: 'https://api.whatsapp.com/send?phone=4407807678690'
+  }
 }

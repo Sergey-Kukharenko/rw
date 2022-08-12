@@ -1,16 +1,11 @@
-export function useScrollHandler(id) {
+export function useScrollHandler() {
   const scrolled = ref(false)
   const limit = ref(184)
 
-  const handleScroll = () => scrolled.value = (limit.value < window.scrollY) ? true : false
-
-  const setLimit = (id) => {
-    const element = document.getElementById(id)
-    limit.value = element.getBoundingClientRect().top
-  }
+  const handleScroll = () => (limit.value < window.scrollY) ? scrolled.value = true : scrolled.value = false
 
   onMounted(() => {
-    setLimit(id)
+    handleScroll()
     window.addEventListener('scroll', handleScroll)
   })
 

@@ -1,20 +1,53 @@
 <template>
-  <a class="cart">
+  <a :class="classNames">
     <figure class="cart__figure">
-      <SvgSprite
-        symbol="cart-outline"
-        class="cart__icon"
-      />
+      <SvgSprite symbol="cart-outline" class="cart__icon" />
     </figure>
-    <figcaption class="cart__figcaption">
-      Basket
-    </figcaption>
+    <figcaption class="cart__figcaption">Basket</figcaption>
   </a>
 </template>
+
+<script setup>
+const props = defineProps({
+  theme: {
+    type: String,
+    default: ''
+  }
+})
+
+const classNames = computed(() => useClassName(props, 'cart'))
+</script>
 
 <style lang="scss" scoped>
 .cart {
   cursor: pointer;
+
+  &--inline {
+    @include gt-sm {
+      display: flex;
+      align-items: center;
+    }
+
+    .cart__figure {
+      @include gt-sm {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    .cart__figcaption {
+      @include gt-sm {
+        margin: 0 0 0 9px;
+      }
+    }
+
+    .cart__icon {
+      @include gt-sm {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
 
   @include lt-md {
     display: flex;

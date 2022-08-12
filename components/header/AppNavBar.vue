@@ -1,12 +1,22 @@
 <template>
-  <div id="navbar" :class="classNames" v-on="handleScroll">
+  <div :class="classNames" v-on="handleScroll">
     <div class="layout layout--horizontal-dt">
       <div class="navbar-list">
         <div class="navbar-list__item">
           <app-navigation-list :list="navBar" :options="{ theme: 'full' }" />
         </div>
-        <div class="navbar-list__item">
-          <app-search />
+        <div class="navbar-list__item content">
+          <div class="content__static">
+            <app-search />
+          </div>
+          <div class="content__scrolled list">
+           <div class="list__item">
+             <app-call />
+           </div>
+            <div class="list__item">
+              <app-cart theme="inline" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -17,10 +27,12 @@
 import dataNavBar from '@/data/nav-bar'
 import AppNavigationList from '@/components/header/AppNavigationList.vue'
 import AppSearch from '@/components/header/AppSearch.vue'
+import AppCart from '@/components/header/AppCart.vue'
+import AppCall from '@/components/header/AppCall.vue'
 
 const navBar = ref(dataNavBar)
 
-const { scrolled, handleScroll } = useScrollHandler('navbar')
+const { scrolled, handleScroll } = useScrollHandler()
 const classNames = computed(() =>
   useToggleClassName(scrolled.value, 'navbar', 'modified')
 )
@@ -41,9 +53,35 @@ const classNames = computed(() =>
     border-top: 1px solid #dde0e6;
   }
 
+  .content {
+    @include lt-md {
+      display: none;
+    }
+  }
+
   &--modified {
     @include gt-sm {
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .content {
+
+      &__static {
+        display: none;
+      }
+
+      &__scrolled {
+        display: flex;
+      }
+    }
+
+    .list{
+      margin: 0 -16px;
+
+      &__item {
+        display: flex;
+        padding: 10px 16px;
+      }
     }
   }
 }
@@ -62,6 +100,16 @@ const classNames = computed(() =>
         display: none;
       }
     }
+  }
+}
+
+.content {
+  &__static {
+    display: block;
+  }
+
+  &__scrolled {
+    display: none;
   }
 }
 </style>

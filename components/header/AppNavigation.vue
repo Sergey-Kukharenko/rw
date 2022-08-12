@@ -2,21 +2,26 @@
   <nav class="navigation">
     <div class="layout layout--horizontal-dt">
       <div class="navigation__group">
-        <app-navigation-list :list="navigation.main" />
-        <app-navigation-list
-          :list="navigation.other"
-          :options="{ theme: 'mixed' }"
-        />
+        <app-navigation-list :list="navigation.main"/>
+        <div class="navigation__section">
+          <app-navigation-list
+            :list="navigation.other"
+            :options="{ theme: 'mixed' }"
+          >
+            <app-call/>
+          </app-navigation-list>
+        </div>
       </div>
     </div>
   </nav>
 </template>
 
 <script setup>
-import dataNavigation from '@/data/navigation'
-import AppNavigationList from '@/components/header/AppNavigationList.vue'
+import dataNavigation from '@/data/navigation';
+import AppNavigationList from '@/components/header/AppNavigationList.vue';
+import AppCall from '@/components/header/AppCall.vue';
 
-const navigation = ref(dataNavigation)
+const navigation = ref(dataNavigation);
 </script>
 
 <style lang="scss" scoped>
@@ -35,6 +40,13 @@ const navigation = ref(dataNavigation)
       display: flex;
       align-items: center;
       justify-content: space-between;
+    }
+  }
+
+  &__section {
+    @include gt-sm {
+      display: flex;
+      align-items: center;
     }
   }
 }
