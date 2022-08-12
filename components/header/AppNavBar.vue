@@ -46,7 +46,7 @@ const classNames = computed(() =>
   @include gt-sm {
     position: sticky;
     top: 0;
-    z-index: 3;
+    z-index: 4;
   }
 
   @include lt-md {
