@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar">
+  <div id="navbar" :class="classNames" v-on="handleScroll">
     <div class="layout layout--horizontal-dt">
       <div class="navbar-list">
         <div class="navbar-list__item">
@@ -19,6 +19,11 @@ import AppNavigationList from '@/components/header/AppNavigationList.vue'
 import AppSearch from '@/components/header/AppSearch.vue'
 
 const navBar = ref(dataNavBar)
+
+const { scrolled, handleScroll } = useScrollHandler('navbar')
+const classNames = computed(() =>
+  useToggleClassName(scrolled.value, 'navbar', 'modified')
+)
 </script>
 
 <style lang="scss" scoped>
@@ -34,6 +39,12 @@ const navBar = ref(dataNavBar)
 
   @include lt-md {
     border-top: 1px solid #dde0e6;
+  }
+
+  &--modified {
+    @include gt-sm {
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04);
+    }
   }
 }
 
