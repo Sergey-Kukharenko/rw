@@ -24,7 +24,7 @@
 const props = defineProps({
   rating: {
     type: Number,
-    default: 5
+    default: 1
   },
   stars: {
     type: Number,
@@ -123,12 +123,6 @@ const classNames = computed(() => useClassName(props.options, 'badge'))
     @include xs {
       width: 10px;
       height: 10px;
-
-      @include xs {
-        &:not(:first-child) {
-          display: none;
-        }
-      }
     }
   }
 }

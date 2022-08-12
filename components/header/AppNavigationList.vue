@@ -8,13 +8,23 @@
       class="navigation-list__item"
     >
       <div class="content">
-        {{ item.title }}
+        <div class="content__figure">
+          <SvgSprite
+            v-if="item.icon"
+            :symbol="item.icon"
+            v-bind:="item.style"
+            :class="['content__icon', item.icon]"
+          />
+        </div>
+        <div class="content__text">
+          {{ item.title }}
+        </div>
         <div v-if="item.count" class="content__count">
           {{ item.count }}
         </div>
       </div>
     </a>
-    <div class="navigation-list__item">
+    <div class="navigation-list__item sm-hide">
       <slot/>
     </div>
   </div>
@@ -78,7 +88,7 @@ const classNames = computed(() => useClassName(props.options, 'navigation-list')
         }
       }
 
-      &:last-child {
+      &:last-of-type {
         &:not(:hover) {
           color: #f1ae01;
         }
@@ -86,6 +96,10 @@ const classNames = computed(() => useClassName(props.options, 'navigation-list')
         &:hover {
           color: lighten(#f1ae01, 5%);
         }
+      }
+
+      &.sm-hide{
+        display: none;
       }
     }
 
@@ -149,6 +163,18 @@ const classNames = computed(() => useClassName(props.options, 'navigation-list')
     margin: 0;
   }
 
+  &__icon {
+    display: block;
+    width: 16px;
+    height: 16px;
+    color: inherit;
+    fill: currentColor;
+
+    @include gt-sm {
+      margin-right: 7px;
+    }
+  }
+
   &__count {
     display: flex;
     align-items: center;
@@ -164,6 +190,12 @@ const classNames = computed(() => useClassName(props.options, 'navigation-list')
       border-radius: 50%;
       margin: 0 4px;
     }
+  }
+}
+
+.whatsapp {
+  @include lt-md {
+    display: none;
   }
 }
 

@@ -13,7 +13,7 @@
         <div class="header__item">
           <app-badge-rate-reviews
             :rating="props.slide.rating"
-            :stars="5"
+            :stars="1"
             :reviews="props.slide.reviews"
             :options="{ theme: 'full' }"
           />
