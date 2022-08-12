@@ -10,9 +10,9 @@
             <app-search />
           </div>
           <div class="content__scrolled list">
-           <div class="list__item">
-             <app-call />
-           </div>
+            <div class="list__item">
+              <app-call />
+            </div>
             <div class="list__item">
               <app-cart theme="inline" />
             </div>
@@ -65,7 +65,6 @@ const classNames = computed(() =>
     }
 
     .content {
-
       &__static {
         display: none;
       }
@@ -75,7 +74,7 @@ const classNames = computed(() =>
       }
     }
 
-    .list{
+    .list {
       margin: 0 -16px;
 
       &__item {

@@ -5,7 +5,7 @@ export default [
     items: {
       slides: [
         {
-          img: 'https://images.unsplash.com/photo-1567696153798-9111f9cd3d0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzF8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+          img: '/images/card-product/slides/1.jpg',
           rating: 4.98,
           reviews: 109,
           sale: {
@@ -14,7 +14,7 @@ export default [
           }
         },
         {
-          img: 'https://images.unsplash.com/photo-1444021465936-c6ca81d39b84?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+          img: '/images/card-product/slides/2.jpg',
           rating: 4.91,
           reviews: 211,
           sale: {
@@ -23,7 +23,7 @@ export default [
           }
         },
         {
-          img: 'https://images.unsplash.com/photo-1615280825886-fa817c0a06cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzd8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+          img: '/images/card-product/slides/3.jpg',
           rating: 4.99,
           reviews: 111,
           sale: {
@@ -32,7 +32,7 @@ export default [
           }
         },
         {
-          img: 'https://images.unsplash.com/photo-1464820453369-31d2c0b651af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+          img: '/images/card-product/slides/4.jpg',
           rating: 4.97,
           reviews: 89,
           sale: {
@@ -40,55 +40,20 @@ export default [
             percent: '-30%'
           }
         },
-        {
-          img: 'https://images.unsplash.com/photo-1454262041357-5d96f50a2f27?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDF8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-          rating: 5.00,
-          reviews: 65,
-          sale: {
-            status: 'Sale',
-            percent: '-30%'
-          }
-        },
-        {
-          img: 'https://images.unsplash.com/photo-1567566221756-5282476c4684?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjJ8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-          rating: 4.93,
-          reviews: 1109,
-          sale: {
-            status: 'Sale',
-            percent: '-30%'
-          }
-        },
-        {
-          img: 'https://images.unsplash.com/photo-1535850836387-0f9dfce30846?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjR8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-          rating: 4.96,
-          reviews: 90,
-          sale: {
-            status: 'Sale',
-            percent: '-30%'
-          }
-        }
+
       ],
       thumbs: [
         {
-          img: 'https://images.unsplash.com/photo-1567696153798-9111f9cd3d0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzF8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60'
+          img: '/images/card-product/thumbs/1.jpg'
         },
         {
-          img: 'https://images.unsplash.com/photo-1444021465936-c6ca81d39b84?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60'
+          img: '/images/card-product/thumbs/2.jpg'
         },
         {
-          img: 'https://images.unsplash.com/photo-1615280825886-fa817c0a06cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzd8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60'
+          img: '/images/card-product/thumbs/3.jpg'
         },
         {
-          img: 'https://images.unsplash.com/photo-1464820453369-31d2c0b651af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60'
-        },
-        {
-          img: 'https://images.unsplash.com/photo-1454262041357-5d96f50a2f27?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDF8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60'
-        },
-        {
-          img: 'https://images.unsplash.com/photo-1567566221756-5282476c4684?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjJ8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60'
-        },
-        {
-          img: 'https://images.unsplash.com/photo-1535850836387-0f9dfce30846?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjR8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60'
+          img: '/images/card-product/thumbs/4.jpg'
         }
       ]
     },
@@ -301,7 +266,7 @@ export default [
     items: {
       slides: [
         {
-          img: 'https://images.unsplash.com/photo-1567696153798-9111f9cd3d0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzF8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+          img: '/images/card-product/slides/1.jpg',
           rating: 4.98,
           reviews: 109,
           sale: {
@@ -310,7 +275,7 @@ export default [
           }
         },
         {
-          img: 'https://images.unsplash.com/photo-1444021465936-c6ca81d39b84?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+          img: '/images/card-product/slides/2.jpg',
           rating: 4.91,
           reviews: 211,
           sale: {
@@ -319,7 +284,7 @@ export default [
           }
         },
         {
-          img: 'https://images.unsplash.com/photo-1615280825886-fa817c0a06cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzd8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+          img: '/images/card-product/slides/3.jpg',
           rating: 4.99,
           reviews: 111,
           sale: {
@@ -328,7 +293,7 @@ export default [
           }
         },
         {
-          img: 'https://images.unsplash.com/photo-1464820453369-31d2c0b651af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+          img: '/images/card-product/slides/4.jpg',
           rating: 4.97,
           reviews: 89,
           sale: {
@@ -336,55 +301,20 @@ export default [
             percent: '-30%'
           }
         },
-        {
-          img: 'https://images.unsplash.com/photo-1454262041357-5d96f50a2f27?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDF8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-          rating: 5.00,
-          reviews: 65,
-          sale: {
-            status: 'Sale',
-            percent: '-30%'
-          }
-        },
-        {
-          img: 'https://images.unsplash.com/photo-1567566221756-5282476c4684?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjJ8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-          rating: 4.93,
-          reviews: 1109,
-          sale: {
-            status: 'Sale',
-            percent: '-30%'
-          }
-        },
-        {
-          img: 'https://images.unsplash.com/photo-1535850836387-0f9dfce30846?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjR8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-          rating: 4.96,
-          reviews: 90,
-          sale: {
-            status: 'Sale',
-            percent: '-30%'
-          }
-        }
+
       ],
       thumbs: [
         {
-          img: 'https://images.unsplash.com/photo-1567696153798-9111f9cd3d0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzF8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60'
+          img: '/images/card-product/thumbs/1.jpg'
         },
         {
-          img: 'https://images.unsplash.com/photo-1444021465936-c6ca81d39b84?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60'
+          img: '/images/card-product/thumbs/2.jpg'
         },
         {
-          img: 'https://images.unsplash.com/photo-1615280825886-fa817c0a06cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzd8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60'
+          img: '/images/card-product/thumbs/3.jpg'
         },
         {
-          img: 'https://images.unsplash.com/photo-1464820453369-31d2c0b651af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60'
-        },
-        {
-          img: 'https://images.unsplash.com/photo-1454262041357-5d96f50a2f27?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDF8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60'
-        },
-        {
-          img: 'https://images.unsplash.com/photo-1567566221756-5282476c4684?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjJ8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60'
-        },
-        {
-          img: 'https://images.unsplash.com/photo-1535850836387-0f9dfce30846?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjR8fGZsb3dlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=100&q=60'
+          img: '/images/card-product/thumbs/4.jpg'
         }
       ]
     },
