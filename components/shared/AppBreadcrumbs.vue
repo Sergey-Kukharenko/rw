@@ -38,6 +38,7 @@ const breadCrumbs = computed(() => useBreadCrumbs(route))
   &__item {
     font-family: $golos-regular;
     color: $color-white-grey;
+    text-transform: capitalize;
 
     @include gt-xs {
       display: flex;
