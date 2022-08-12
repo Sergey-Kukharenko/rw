@@ -55,15 +55,20 @@ const classNames = computed(() => useClassName(props, 'cart'))
     justify-content: center;
     order: 4;
     padding: 8px;
+    margin-right: -8px;
   }
 
   &__figure {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
+
     margin: 0 auto;
+
+    @include gt-sm {
+      width: 28px;
+      height: 28px;
+    }
   }
 
   &__icon {

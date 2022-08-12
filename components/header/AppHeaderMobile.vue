@@ -38,9 +38,9 @@ header {
     align-items: center;
     position: sticky;
     top: 0;
-    z-index: 3;
+    z-index: 4;
     height: 50px;
-    padding: 0 18px;
+    padding: 0 16px;
     background: #fff;
     box-sizing: border-box;
   }
