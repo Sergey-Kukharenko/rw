@@ -29,6 +29,10 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
   grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
   grid-gap: $gap-ds;
 
+  @include lt-md {
+    margin: 14px 0;
+  }
+
   @include sm {
     grid-template-columns: repeat(auto-fill, minmax(49%, 1fr));
     grid-gap: $gap-mb;
