@@ -1,6 +1,6 @@
 <template>
   <section class="layout popular-categories">
-    <h1 class="popular-title">Popular categories</h1>
+    <h1 class="popular-title">New way to show love</h1>
     <div class="popular-list">
       <nuxt-link
         v-for="item in popular"
@@ -77,7 +77,7 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
       @include gt-sm {
         grid-column: 1 / span 2;
         grid-row: 1 / span 2;
-        padding: 20px;
+        padding: 28px;
       }
 
       @include sm {
@@ -97,7 +97,7 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
           max-width: 252px;
           font-size: 38px;
           line-height: 40px;
-          padding-top: 11px;
+          font-weight: 600;
         }
 
         @include xs {
@@ -112,16 +112,12 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
         @include sm {
           transform: translate(48px, -50%);
         }
-
-        @include xs {
-
-        }
       }
     }
 
     &:not(:first-child) {
       @include gt-xs {
-        padding: $gap-mb;
+        padding: 20px;
       }
 
       @include xs {
@@ -131,19 +127,14 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
       .card__figcaption {
         @include gt-xs {
           display: inline-block;
-          font-size: 12px;
-          line-height: 16px;
-          background: #fff;
-          padding: 6px;
-          border-radius: 10px;
+          font-size: 20px;
+          line-height: 24px;
         }
 
         @include xs {
           font-size: 12px;
           text-align: center;
-          background: none;
           padding: 9px 0 4px 0;
-          border-radius: 0;
         }
       }
 
@@ -158,7 +149,8 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
       }
 
       .card__figcaption-hash {
-        color: #26ad4f;
+        color: #2F2B20;
+
         @include gt-xs {
           display: block;
         }
@@ -266,7 +258,8 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
     color: $color-dark-grey;
 
     @include gt-xs {
-      font-family: $golos-bold;
+      font-family: $Literata;
+      font-weight: 600;
     }
 
     @include xs {

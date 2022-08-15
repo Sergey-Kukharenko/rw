@@ -49,17 +49,20 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
   }
 
   &__item {
-    display: flex;
-    align-items: center;
+    position: relative;
     background: #fff2d5;
     border-radius: $border-radius-ds;
-    min-height: 96px;
-    padding: 20px;
     box-sizing: border-box;
     overflow: hidden;
 
+    @include gt-xs {
+      display: flex;
+      align-items: center;
+      min-height: 96px;
+      padding: 20px;
+    }
+
     @include xs {
-      position: relative;
       min-height: 48px;
       padding: 12px 16px;
       border-radius: $border-radius-mb;
@@ -75,6 +78,12 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
           right: -98px;
         }
       }
+
+      .promotion__text {
+        @include gt-xs {
+          max-width: 162px;
+        }
+      }
     }
 
     &:nth-child(2) {
@@ -85,6 +94,12 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
         @include xs {
           top: -38px;
           right: -17px;
+        }
+      }
+
+      .promotion__text {
+        @include gt-xs {
+          max-width: 114px;
         }
       }
     }
@@ -99,6 +114,16 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
           right: -8px;
         }
       }
+
+      .promotion__text {
+        @include gt-xs {
+          max-width: 182px;
+        }
+
+        @include xs {
+          max-width: 150px;
+        }
+      }
     }
   }
 
@@ -106,13 +131,13 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
     color: #2f2b20;
 
     @include gt-xs {
-      width: 50%;
+      max-width: 60%;
       font-family: $golos-bold;
       letter-spacing: -0.01em;
     }
 
     @include xs {
-      max-width: 155px;
+      max-width: 140px;
       font-family: $golos-medium;
       font-size: 13px;
       line-height: 16px;
@@ -120,20 +145,13 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
   }
 
   &__figure {
-    @include gt-xs {
-      width: 50%;
-      position: relative;
-    }
-
-    @include xs {
-      width: 50%;
-      height: 0;
-      position: absolute;
-      top: 0;
-      right: 16px;
-      bottom: 0;
-      margin: auto;
-    }
+    width: 50%;
+    height: 0;
+    position: absolute;
+    top: 0;
+    right: 16px;
+    bottom: 0;
+    margin: auto;
   }
 
   &__image {

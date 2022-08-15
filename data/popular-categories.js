@@ -13,7 +13,7 @@ export default [
   },
   {
     text: 'Birthday',
-    hashTag: '#BIRTHDAY',
+    hashTag: 'Birthday',
     url: '',
     img: {
       desktop: '/images/popular-categories/desktop/2.jpg',
@@ -21,8 +21,8 @@ export default [
     }
   },
   {
-    text: 'Romantic',
-    hashTag: '#DATING',
+    text: 'Get well soon',
+    hashTag: 'Get well soon',
     url: '',
     img: {
       desktop: '/images/popular-categories/desktop/3.jpg',
@@ -30,8 +30,8 @@ export default [
     }
   },
   {
-    text: 'Congrate',
-    hashTag: '#CONGRATULATIONS',
+    text: 'Congratu-lations',
+    hashTag: 'Congratulations',
     url: '',
     img: {
       desktop: '/images/popular-categories/desktop/4.jpg',
@@ -39,8 +39,8 @@ export default [
     }
   },
   {
-    text: 'Wedding',
-    hashTag: '#WEDDING',
+    text: 'Anniversary',
+    hashTag: 'Anniversary',
     url: '',
     img: {
       desktop: '/images/popular-categories/desktop/5.jpg',
