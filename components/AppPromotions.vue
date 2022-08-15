@@ -73,6 +73,11 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
         top: -78px;
         right: -162px;
 
+        @include sm {
+          top: -53px;
+          right: -98px;
+        }
+
         @include xs {
           top: -53px;
           right: -98px;
@@ -91,6 +96,11 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
         top: -74px;
         right: -30px;
 
+        @include sm {
+          top: -38px;
+          right: -17px;
+        }
+
         @include xs {
           top: -38px;
           right: -17px;
@@ -108,6 +118,11 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
       .promotion__image {
         top: -52px;
         right: -12px;
+
+        @include sm {
+          top: -33px;
+          right: -8px;
+        }
 
         @include xs {
           top: -33px;
