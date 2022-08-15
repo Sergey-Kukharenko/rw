@@ -1,6 +1,11 @@
 <template>
   <section class="layout promotion">
-    <nuxt-link to="/flowers/roses/0" v-for="promotion in promotions" :key="promotion.text" class="promotion__item">
+    <nuxt-link
+      to="/flowers/roses/0"
+      v-for="promotion in promotions"
+      :key="promotion.text"
+      class="promotion__item"
+    >
       <div class="promotion__text">
         {{ promotion.text }}
       </div>
@@ -46,7 +51,7 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
   &__item {
     display: flex;
     align-items: center;
-    background: #e4f8ea;
+    background: #fff2d5;
     border-radius: $border-radius-ds;
     min-height: 96px;
     padding: 20px;
@@ -54,69 +59,81 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
     overflow: hidden;
 
     @include xs {
+      position: relative;
       min-height: 48px;
-      padding: 10px 16px;
+      padding: 12px 16px;
       border-radius: $border-radius-mb;
     }
 
     &:nth-child(1) {
       .promotion__image {
-        right: -37px;
-        top: -36px;
+        top: -78px;
+        right: -162px;
 
         @include xs {
-          right: -9px;
-          top: -37px;
+          top: -53px;
+          right: -98px;
         }
       }
     }
 
     &:nth-child(2) {
       .promotion__image {
-        right: -47px;
-        top: -169px;
+        top: -74px;
+        right: -30px;
 
         @include xs {
-          right: -18px;
-          top: -106px;
+          top: -38px;
+          right: -17px;
         }
       }
     }
 
     &:nth-child(3) {
       .promotion__image {
-        right: -58px;
-        top: -42px;
+        top: -52px;
+        right: -12px;
 
         @include xs {
-          right: 3px;
           top: -33px;
+          right: -8px;
         }
       }
     }
   }
 
-  &__text,
-  &__figure {
-    width: 50%;
-  }
-
   &__text {
-    font-family: $golos-bold;
-    letter-spacing: -0.01em;
-    color: $color-green;
+    color: #2f2b20;
+
+    @include gt-xs {
+      width: 50%;
+      font-family: $golos-bold;
+      letter-spacing: -0.01em;
+    }
 
     @include xs {
-      color: $color-dark-green;
-      font-size: 12px;
-      line-height: 14px;
-      padding-right: 40px;
+      max-width: 155px;
+      font-family: $golos-medium;
+      font-size: 13px;
+      line-height: 16px;
     }
   }
 
   &__figure {
-    position: relative;
-    margin: 0;
+    @include gt-xs {
+      width: 50%;
+      position: relative;
+    }
+
+    @include xs {
+      width: 50%;
+      height: 0;
+      position: absolute;
+      top: 0;
+      right: 16px;
+      bottom: 0;
+      margin: auto;
+    }
   }
 
   &__image {

@@ -2,7 +2,12 @@
   <section class="layout popular-categories">
     <h1 class="popular-title">Popular categories</h1>
     <div class="popular-list">
-      <nuxt-link v-for="item in popular" :key="item.hashTag" to="/flowers/roses/1" class="popular-list__item card">
+      <nuxt-link
+        v-for="item in popular"
+        :key="item.hashTag"
+        to="/flowers/roses/1"
+        class="popular-list__item card"
+      >
         <div class="absolute-grow card__content">
           <img
             :key="item.hashTag"
@@ -59,19 +64,25 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
   }
 
   @include xs {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(6, 1fr);
     grid-gap: 5px;
   }
 
   &__item {
-    &:nth-child(1) {
-      grid-column: 1 / span 2;
-      grid-row: 1 / span 2;
-      padding: 20px;
+    @include xs {
+      grid-column: span 3;
+    }
 
-      @include lt-md {
+    &:nth-child(1) {
+      @include gt-sm {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
+        padding: 20px;
+      }
+
+      @include sm {
         grid-row: 1 / span 1;
+        grid-column: 1 / span 2;
       }
 
       @include xs {
@@ -90,10 +101,10 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
         }
 
         @include xs {
-          font-size: 13px;
+          font-size: 12px;
           line-height: 16px;
           text-align: center;
-          padding: 11px 0;
+          padding: 9px 0 4px 0;
         }
       }
 
@@ -103,7 +114,7 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
         }
 
         @include xs {
-          transform: translate(0, -50%);
+
         }
       }
     }
@@ -128,10 +139,10 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
         }
 
         @include xs {
-          font-size: 13px;
+          font-size: 12px;
           text-align: center;
           background: none;
-          padding: 11px 0;
+          padding: 9px 0 4px 0;
           border-radius: 0;
         }
       }
@@ -155,6 +166,42 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
         @include xs {
           display: none;
         }
+      }
+    }
+
+    &:nth-child(1) {
+      @include xs {
+        order: 0;
+      }
+    }
+
+    &:nth-child(4) {
+      @include xs {
+        order: 1;
+      }
+    }
+
+    &:nth-child(2) {
+      @include xs {
+        order: 3;
+      }
+    }
+
+    &:nth-child(3) {
+      @include xs {
+        order: 2;
+      }
+    }
+
+    &:nth-child(5) {
+      @include xs {
+        order: 4;
+      }
+    }
+
+    &:nth-child(2), &:nth-child(3), &:nth-child(5) {
+      @include xs {
+        grid-column: span 2;
       }
     }
   }
@@ -202,20 +249,29 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
     }
 
     @include xs {
-      mix-blend-mode: multiply;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       margin: 0;
       top: 50%;
       left: 50%;
-      transform: translate(-45%, -30%);
     }
   }
 
   &__figcaption {
     position: relative;
     z-index: 2;
-    font-family: $golos-bold;
+
     letter-spacing: -0.01em;
     color: $color-dark-grey;
+
+    @include gt-xs {
+      font-family: $golos-bold;
+    }
+
+    @include xs {
+      font-family: $golos-regular;
+    }
   }
 
   &__timer {
