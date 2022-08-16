@@ -14,9 +14,9 @@
         preload="none"
         ref="video"
         loop
-        muted
-        class="video"
+        muted class="video"
         autoplay
+        playsinline
       >
         <source :src="videoPath.video" :type="videoPath.type" v-for="videoPath in slide.videoPaths" :key="videoPath">
       </video>
