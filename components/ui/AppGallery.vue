@@ -11,13 +11,14 @@
 
       <video
         v-if="slide.video"
-        :src="slide.video"
         preload="none"
         ref="video"
         loop
         muted
         class="video"
-      ></video>
+      >
+        <source :src="videoPath.video" :type="videoPath.type" v-for="videoPath in slide.videoPaths" :key="videoPath">
+      </video>
 
       <app-gallery-card v-else :slide="slide"/>
     </swiper-slide>

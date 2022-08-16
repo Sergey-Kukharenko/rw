@@ -16,6 +16,16 @@ export default [
         {
           img: '/images/card-product/slides/2.jpg',
           video: '/images/card-product/video.mp4',
+          videoPaths: [
+            {
+              video: '/images/card-product/video.mp4',
+              type: 'video/mp4'
+            },
+            {
+              video: '/images/card-product/video.ogg',
+              type: 'video/ogg'
+            }
+          ],
           rating: 4.91,
           reviews: 211,
           sale: {
