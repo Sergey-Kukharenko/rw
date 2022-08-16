@@ -4,9 +4,22 @@
     v-bind="options"
     :modules="modules"
     class="swiper swiper--gallery"
+    @swiper="onSwiper"
+    @slideChange="onSlideChange"
   >
     <swiper-slide v-for="(slide, idx) in props.items.slides" :key="idx">
-      <app-gallery-card :slide="slide" />
+
+      <video
+        v-if="slide.video"
+        :src="slide.video"
+        preload="none"
+        ref="video"
+        loop
+        muted
+        class="video"
+      ></video>
+
+      <app-gallery-card v-else :slide="slide"/>
     </swiper-slide>
   </swiper>
 
@@ -18,15 +31,15 @@
   >
     <swiper-slide v-for="(slide, idx) in props.items.thumbs" :key="idx">
       <div class="thumbs-item">
-        <img :src="slide.img" :alt="slide.img" class="thumbs-item__img" />
-        <div class="thumbs-item__border absolute-grow" />
+        <img :src="slide.img" :alt="slide.img" class="thumbs-item__img"/>
+        <div class="thumbs-item__border absolute-grow"/>
       </div>
     </swiper-slide>
   </swiper>
 </template>
 
 <script setup>
-import { Swiper, SwiperSlide } from 'swiper/vue'
+import {Swiper, SwiperSlide} from 'swiper/vue';
 import {
   FreeMode,
   Pagination,
@@ -34,23 +47,23 @@ import {
   Mousewheel,
   Keyboard,
   Thumbs
-} from 'swiper'
+} from 'swiper';
 
-import AppGalleryCard from '@/components/shared/AppGalleryCard.vue'
+import AppGalleryCard from '@/components/shared/AppGalleryCard.vue';
 
 const props = defineProps({
   items: {
     type: Object,
     default: () => ({})
   }
-})
+});
 
-const modules = [FreeMode, Pagination, Navigation, Mousewheel, Keyboard, Thumbs]
+const modules = [FreeMode, Pagination, Navigation, Mousewheel, Keyboard, Thumbs];
 
-const thumbsSwiper = ref(null)
+const thumbsSwiper = ref(null);
 const setThumbsSwiper = (swiper) => {
-  thumbsSwiper.value = swiper
-}
+  thumbsSwiper.value = swiper;
+};
 
 const options = {
   pagination: true,
@@ -64,14 +77,36 @@ const options = {
       spaceBetween: 66
     }
   }
-}
+};
 
 const optionsThumbs = {
   spaceBetween: 4,
   slidesPerView: 4,
   watchSlidesProgress: true,
   slideToClickedSlide: true
-}
+};
+
+const video = ref(null);
+
+const getArrayOfIdxs = () => {
+  let idxs = [];
+
+  props.items.slides.map((obj, idx) => {
+    if (obj.video) idxs.push(idx);
+  });
+  return idxs;
+};
+const arrIdxs = getArrayOfIdxs();
+const isMatchesIdxs = value => arrIdxs.find(item => item === value);
+
+const onSlideChange = (swiper) => {
+  const vp = video.value[0];
+  if (isMatchesIdxs(swiper.activeIndex)) {
+    vp.play();
+  } else {
+    vp.pause();
+  }
+};
 </script>
 
 <style lang="scss">
@@ -158,5 +193,9 @@ const optionsThumbs = {
 
 .swiper-slide-thumb-active .thumbs-item__img {
   transform: scale(0.98);
+}
+
+.video{
+  width: 100%;
 }
 </style>

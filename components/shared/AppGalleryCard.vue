@@ -1,6 +1,7 @@
 <template>
   <div class="card">
     <img :src="props.slide.img" :alt="props.slide.img" class="card__img" />
+    <div v-if="props.slide.video">{{props.slide.video}}</div>
     <div class="card__overlay absolute-grow"></div>
     <div class="card__container absolute-grow">
       <div class="card__header header">

@@ -14,7 +14,8 @@ export default [
           }
         },
         {
-          img: '/images/card-product/slides/2.gif',
+          img: '/images/card-product/slides/2.jpg',
+          video: '/images/card-product/video.mp4',
           rating: 4.91,
           reviews: 211,
           sale: {
@@ -24,6 +25,7 @@ export default [
         },
         {
           img: '/images/card-product/slides/3.jpg',
+          // video: 'https://flor2u.ru/images/uploads/original/88b/88b9ff7a1a93540d8b55403800f1334c.mp4',
           rating: 4.99,
           reviews: 111,
           sale: {
@@ -47,7 +49,7 @@ export default [
           img: '/images/card-product/thumbs/1.jpg'
         },
         {
-          img: '/images/card-product/thumbs/2.gif'
+          img: '/images/card-product/thumbs/2.jpg'
         },
         {
           img: '/images/card-product/thumbs/3.jpg'
@@ -275,7 +277,8 @@ export default [
           }
         },
         {
-          img: '/images/card-product/slides/2.gif',
+          img: '/images/card-product/slides/2.jpg',
+          video: '/images/card-product/video.mp4',
           rating: 4.91,
           reviews: 211,
           sale: {
@@ -308,7 +311,7 @@ export default [
           img: '/images/card-product/thumbs/1.jpg'
         },
         {
-          img: '/images/card-product/thumbs/2.gif'
+          img: '/images/card-product/thumbs/2.jpg'
         },
         {
           img: '/images/card-product/thumbs/3.jpg'
