@@ -81,18 +81,18 @@ export default [
     popular: {
       title: 'Popular categories',
       categories: [
-        { name: 'Alstromerias' },
-        { name: 'Mattiollas' },
-        { name: 'Dried flowers' },
-        { name: 'Deluxe & Limited flowers' },
-        { name: 'Delfiniums' },
-        { name: 'Sales' },
-        { name: 'Peonies' },
-        { name: 'Gerberas' },
-        { name: 'Irisis' },
-        { name: 'Carnations' },
-        { name: 'Calla lilies' },
-        { name: 'Roses' }
+        {name: 'Alstromerias'},
+        {name: 'Mattiollas'},
+        {name: 'Dried flowers'},
+        {name: 'Deluxe & Limited flowers'},
+        {name: 'Delfiniums'},
+        {name: 'Sales'},
+        {name: 'Peonies'},
+        {name: 'Gerberas'},
+        {name: 'Irisis'},
+        {name: 'Carnations'},
+        {name: 'Calla lilies'},
+        {name: 'Roses'}
       ]
     },
 
@@ -288,7 +288,18 @@ export default [
         },
         {
           img: '/images/card-product/slides/2.jpg',
-          video: 'https://flor2u.ru/images/uploads/original/88b/88b9ff7a1a93540d8b55403800f1334c.mp4',
+          video: '/images/card-product/video2.mp4',
+          videoPaths: [
+            {
+              video: '/images/card-product/video2.mp4',
+              type: 'video/mp4'
+            },
+            {
+              video: '/images/card-product/video2.webm',
+              type: 'video/webm'
+            }
+          ],
+
           rating: 4.91,
           reviews: 211,
           sale: {
@@ -334,18 +345,18 @@ export default [
     popular: {
       title: 'Popular categories',
       categories: [
-        { name: 'Alstromerias' },
-        { name: 'Mattiollas' },
-        { name: 'Dried flowers' },
-        { name: 'Deluxe & Limited flowers' },
-        { name: 'Delfiniums' },
-        { name: 'Sales' },
-        { name: 'Peonies' },
-        { name: 'Gerberas' },
-        { name: 'Irisis' },
-        { name: 'Carnations' },
-        { name: 'Calla lilies' },
-        { name: 'Roses' }
+        {name: 'Alstromerias'},
+        {name: 'Mattiollas'},
+        {name: 'Dried flowers'},
+        {name: 'Deluxe & Limited flowers'},
+        {name: 'Delfiniums'},
+        {name: 'Sales'},
+        {name: 'Peonies'},
+        {name: 'Gerberas'},
+        {name: 'Irisis'},
+        {name: 'Carnations'},
+        {name: 'Calla lilies'},
+        {name: 'Roses'}
       ]
     },
     count: 51,
@@ -548,4 +559,4 @@ export default [
       ]
     }
   }
-]
+];
