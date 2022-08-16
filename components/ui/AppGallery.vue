@@ -8,20 +8,7 @@
     @slideChange="onSlideChange"
   >
     <swiper-slide v-for="(slide, idx) in props.items.slides" :key="idx">
-
-      <video
-        v-if="slide.video"
-        preload="none"
-        ref="video"
-        loop
-        muted class="video"
-        autoplay
-        playsinline
-      >
-        <source :src="videoPath.video" :type="videoPath.type" v-for="videoPath in slide.videoPaths" :key="videoPath">
-      </video>
-
-      <app-gallery-card v-else :slide="slide"/>
+      <app-gallery-card :slide="slide"/>
     </swiper-slide>
   </swiper>
 
@@ -86,28 +73,6 @@ const optionsThumbs = {
   slidesPerView: 4,
   watchSlidesProgress: true,
   slideToClickedSlide: true
-};
-
-const video = ref(null);
-
-const getArrayOfIdxs = () => {
-  let idxs = [];
-
-  props.items.slides.map((obj, idx) => {
-    if (obj.video) idxs.push(idx);
-  });
-  return idxs;
-};
-const arrIdxs = getArrayOfIdxs();
-const isMatchesIdxs = value => arrIdxs.find(item => item === value);
-
-const onSlideChange = (swiper) => {
-  const vp = video.value[0];
-  if (isMatchesIdxs(swiper.activeIndex)) {
-    vp.play();
-  } else {
-    vp.pause();
-  }
 };
 </script>
 
