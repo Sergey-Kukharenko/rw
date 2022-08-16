@@ -14,7 +14,7 @@ export default [
           }
         },
         {
-          img: '/images/card-product/slides/2.jpg',
+          img: '/images/card-product/slides/2.gif',
           rating: 4.91,
           reviews: 211,
           sale: {
@@ -47,7 +47,7 @@ export default [
           img: '/images/card-product/thumbs/1.jpg'
         },
         {
-          img: '/images/card-product/thumbs/2.jpg'
+          img: '/images/card-product/thumbs/2.gif'
         },
         {
           img: '/images/card-product/thumbs/3.jpg'
@@ -275,7 +275,7 @@ export default [
           }
         },
         {
-          img: '/images/card-product/slides/2.jpg',
+          img: '/images/card-product/slides/2.gif',
           rating: 4.91,
           reviews: 211,
           sale: {
@@ -308,7 +308,7 @@ export default [
           img: '/images/card-product/thumbs/1.jpg'
         },
         {
-          img: '/images/card-product/thumbs/2.jpg'
+          img: '/images/card-product/thumbs/2.gif'
         },
         {
           img: '/images/card-product/thumbs/3.jpg'
