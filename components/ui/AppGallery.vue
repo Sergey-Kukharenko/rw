@@ -197,5 +197,6 @@ const onSlideChange = (swiper) => {
 
 .video{
   width: 100%;
+  border-radius: 12px;
 }
 </style>
