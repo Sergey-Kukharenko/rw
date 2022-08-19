@@ -13,5 +13,5 @@ export function useScrollHandler() {
     window.removeEventListener('scroll', handleScroll)
   })
 
-  return { scrolled, handleScroll }
+  return { scrolled }
 }

@@ -36,6 +36,10 @@ import dataPopularCategories from '@/data/popular-categories'
 const popular = ref(dataPopularCategories)
 const isMobile = useIsMobile()
 const getImg = isMobile.value ? 'mobile' : 'desktop'
+
+// const swap = (arr, a, b) => (arr[a] = arr.splice(b, 1, arr[a])[0])
+//
+// isMobile && swap(popular.value, 1, 3)
 </script>
 
 <style scoped lang="scss">
@@ -73,6 +77,15 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
       grid-column: span 3;
     }
 
+    .card__figcaption {
+      @include xs {
+        font-size: 12px;
+        line-height: 16px;
+        text-align: center;
+        padding: 9px 0 4px 0;
+      }
+    }
+
     &:nth-child(1) {
       @include gt-sm {
         grid-column: 1 / span 2;
@@ -99,13 +112,6 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
           line-height: 40px;
           font-weight: 600;
         }
-
-        @include xs {
-          font-size: 12px;
-          line-height: 16px;
-          text-align: center;
-          padding: 9px 0 4px 0;
-        }
       }
 
       .card__image {
@@ -115,13 +121,14 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
       }
     }
 
-    &:not(:first-child) {
+    &:not(:nth-child(1), :nth-child(2)) {
       @include gt-xs {
         padding: 20px;
       }
 
       @include xs {
         padding: 0;
+        grid-column: span 2;
       }
 
       .card__figcaption {
@@ -129,12 +136,6 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
           display: inline-block;
           font-size: 20px;
           line-height: 24px;
-        }
-
-        @include xs {
-          font-size: 12px;
-          text-align: center;
-          padding: 9px 0 4px 0;
         }
       }
 
@@ -149,7 +150,7 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
       }
 
       .card__figcaption-hash {
-        color: #2F2B20;
+        color: #2f2b20;
 
         @include gt-xs {
           display: block;
@@ -158,42 +159,6 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
         @include xs {
           display: none;
         }
-      }
-    }
-
-    &:nth-child(1) {
-      @include xs {
-        order: 0;
-      }
-    }
-
-    &:nth-child(4) {
-      @include xs {
-        order: 1;
-      }
-    }
-
-    &:nth-child(2) {
-      @include xs {
-        order: 3;
-      }
-    }
-
-    &:nth-child(3) {
-      @include xs {
-        order: 2;
-      }
-    }
-
-    &:nth-child(5) {
-      @include xs {
-        order: 4;
-      }
-    }
-
-    &:nth-child(2), &:nth-child(3), &:nth-child(5) {
-      @include xs {
-        grid-column: span 2;
       }
     }
   }

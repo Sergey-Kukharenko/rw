@@ -1,5 +1,5 @@
 <template>
-  <div :class="classNames" v-on="handleScroll">
+  <div :class="classNames">
     <div class="layout layout--horizontal-dt">
       <div class="navbar-list">
         <div class="navbar-list__item">
@@ -32,7 +32,7 @@ import AppCall from '@/components/header/AppCall.vue'
 
 const navBar = ref(dataNavBar)
 
-const { scrolled, handleScroll } = useScrollHandler()
+const { scrolled } = useScrollHandler()
 const classNames = computed(() =>
   useToggleClassName(scrolled.value, 'navbar', 'modified')
 )
