@@ -31,7 +31,7 @@ export default [
   },
   {
     text: 'Congratulations',
-    hashTag: 'Congratu-lations',
+    hashTag: 'Congratulations',
     url: '',
     img: {
       desktop: '/images/popular-categories/desktop/4.jpg',
