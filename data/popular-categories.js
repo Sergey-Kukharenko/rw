@@ -30,8 +30,8 @@ export default [
     }
   },
   {
-    text: 'Congratu-lations',
-    hashTag: 'Congratulations',
+    text: 'Congratulations',
+    hashTag: 'Congratu-lations',
     url: '',
     img: {
       desktop: '/images/popular-categories/desktop/4.jpg',
