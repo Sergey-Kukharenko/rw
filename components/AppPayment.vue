@@ -11,13 +11,13 @@
 </template>
 
 <script setup>
-import { useMq } from 'vue3-mq'
+import {useIsDevice} from '@/composables/states';
 import dataPayment from '@/data/payment'
 
 const payment = ref(dataPayment)
 
-const mq = useMq()
-const getMq = computed(() => (mq.current === 'xs' ? 'mobile' : 'desktop'))
+const isDevice = useIsDevice()
+const getMq = computed(() => (isDevice ? 'mobile' : 'desktop'))
 </script>
 
 <style lang="scss" scoped>
