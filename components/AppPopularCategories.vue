@@ -33,13 +33,17 @@
 import AppTimer from '@/components/shared/AppTimer.vue'
 import dataPopularCategories from '@/data/popular-categories'
 
-const popular = ref(dataPopularCategories)
 const isMobile = useIsMobile()
 const getImg = isMobile.value ? 'mobile' : 'desktop'
 
-// const swap = (arr, a, b) => (arr[a] = arr.splice(b, 1, arr[a])[0])
-//
-// isMobile && swap(popular.value, 1, 3)
+const swap = (arr, index1, index2) => arr.map((val, idx) => {
+  if (idx === index1) return arr[index2];
+  if (idx === index2) return arr[index1];
+  return val;
+});
+const popularArr = isMobile.value ? swap(dataPopularCategories, 1, 3) : dataPopularCategories
+
+const popular = ref(popularArr)
 </script>
 
 <style scoped lang="scss">
@@ -130,7 +134,9 @@ const getImg = isMobile.value ? 'mobile' : 'desktop'
         padding: 0;
         grid-column: span 2;
       }
+    }
 
+    &:not(:nth-child(1)) {
       .card__figcaption {
         @include gt-xs {
           display: inline-block;

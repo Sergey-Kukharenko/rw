@@ -4,8 +4,6 @@
     v-bind="options"
     :modules="modules"
     class="swiper swiper--gallery"
-    @swiper="onSwiper"
-    @slideChange="onSlideChange"
   >
     <swiper-slide v-for="(slide, idx) in props.items.slides" :key="idx">
       <app-gallery-card :slide="slide" />
