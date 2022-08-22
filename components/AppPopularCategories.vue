@@ -36,14 +36,7 @@ import dataPopularCategories from '@/data/popular-categories'
 const isMobile = useIsMobile()
 const getImg = isMobile.value ? 'mobile' : 'desktop'
 
-const swap = (arr, index1, index2) => arr.map((val, idx) => {
-  if (idx === index1) return arr[index2];
-  if (idx === index2) return arr[index1];
-  return val;
-});
-const popularArr = isMobile.value ? swap(dataPopularCategories, 1, 3) : dataPopularCategories
-
-const popular = ref(popularArr)
+const popular = computed(() => useSwap(isMobile.value, dataPopularCategories, 1, 3))
 </script>
 
 <style scoped lang="scss">
