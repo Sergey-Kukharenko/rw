@@ -2,7 +2,7 @@ export function useScrollHandler() {
   const scrolled = ref(false)
   const limit = ref(184)
 
-  const handleScroll = () => (limit.value < window.scrollY) ? scrolled.value = true : scrolled.value = false
+  const handleScroll = () => scrolled.value = limit.value < window.scrollY
 
   onMounted(() => {
     handleScroll()

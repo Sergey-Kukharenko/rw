@@ -23,9 +23,6 @@ const classNames = computed(() =>
 )
 </script>
 
-<script>
-</script>
-
 <style lang="scss" scoped>
 .drawer {
   &__button {

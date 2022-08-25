@@ -159,9 +159,4 @@ const optionsThumbs = {
 .swiper-slide-thumb-active .thumbs-item__img {
   transform: scale(0.98);
 }
-
-.video {
-  width: 100%;
-  border-radius: 12px;
-}
 </style>
