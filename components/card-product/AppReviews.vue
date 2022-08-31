@@ -20,8 +20,8 @@ import AppReviewsList from '@/components/card-product/AppReviewsList.vue'
 
 const props = defineProps({
   reviews: {
-    type: Object,
-    default: () => {}
+    type: Array,
+    default: () => []
   }
 })
 
