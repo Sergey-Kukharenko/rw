@@ -1,13 +1,13 @@
 <template>
   <div :class="classNames">
-    <div class="drawer__button" @click="isVisibile = true">
+    <div class="drawer__button" @click="isVisible = true">
       <div class="burger">
         <span></span>
         <span></span>
         <span></span>
       </div>
     </div>
-    <div class="drawer__overlay" @click="isVisibile = false" />
+    <div class="drawer__overlay" @click="isVisible = false" />
     <div class="drawer__container">
       <div class="drawer__inner">
         <slot></slot>
@@ -17,9 +17,9 @@
 </template>
 
 <script setup>
-const isVisibile = ref(false)
+const isVisible = ref(false)
 const classNames = computed(() =>
-  useToggleClassName(isVisibile.value, 'drawer', 'active')
+  useToggleClassName(isVisible.value, 'drawer', 'active')
 )
 </script>
 

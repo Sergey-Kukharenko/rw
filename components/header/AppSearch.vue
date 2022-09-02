@@ -1,17 +1,17 @@
 <template>
-  <button class="button search" @click="isVisibile = true">
+  <button class="button search" @click="isVisible = true">
     <SvgSprite symbol="search" class="button__icon" />
     <span class="button__text">Search in Florа</span>
   </button>
 
-  <app-modal :visible="isVisibile" @close="isVisibile = false">
+  <app-modal :visible="isVisible" @close="isVisible = false">
     <h1>Search</h1>
   </app-modal>
 </template>
 
 <script setup>
 import AppModal from '@/components/shared/AppModal.vue'
-const isVisibile = ref(false)
+const isVisible = ref(false)
 </script>
 
 <style lang="scss" scoped>

@@ -1,15 +1,11 @@
 <template>
   <div class="layout layout-dt checkout-page">
     <div class="checkout-page__main">
-
       <div class="section">
         <div class="section__title">Recipient</div>
         <div class="section__container">
-          <app-radio-group
-            v-model:selected="selected"
-            :options="recipients"
-          />
-          <div class="form" v-show="isVisibile">
+          <app-radio-group v-model:selected="selected" :options="recipients" />
+          <div class="form" v-show="isVisible">
             <div class="form__item">
               <input
                 type="text"
@@ -32,10 +28,11 @@
 
       <div class="section">
         <div class="section__title">Delivery details</div>
-        <div class="section__subtitle">Specify in more detail how to get the courier to you</div>
+        <div class="section__subtitle">
+          Specify in more detail how to get the courier to you
+        </div>
 
         <div class="delivery">
-
           <div class="delivery__item">
             <input
               type="text"
@@ -52,11 +49,8 @@
               class="input"
             />
           </div>
-
         </div>
-
       </div>
-
     </div>
   </div>
 </template>
@@ -68,7 +62,7 @@ const recipients = ref(['I’ll get order by mySelf', 'Another recipient'])
 const selected = ref(recipients.value[0])
 const another = recipients.value[1]
 
-const isVisibile = computed(() => another === selected.value)
+const isVisible = computed(() => another === selected.value)
 </script>
 
 <style lang="scss" scoped>
@@ -143,7 +137,7 @@ const isVisibile = computed(() => another === selected.value)
   }
 }
 
-.delivery{
+.delivery {
   margin: 16px 0;
 
   &__item {
