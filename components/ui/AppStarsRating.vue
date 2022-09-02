@@ -56,7 +56,7 @@ const props = defineProps({
       width: 38.04px !important;
       height: 38.04px !important;
       margin: 0 2px;
-      fill: #f7f7f7;
+      fill: $bg-grey;
     }
   }
 }

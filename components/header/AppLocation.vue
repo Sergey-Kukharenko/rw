@@ -1,6 +1,6 @@
 <template>
   <div class="location">
-    <div class="location-button" @click="isVisibility = true">
+    <div class="location-button" @click="isVisibile = true">
       <div class="location-button__icon icon">
         <SvgSprite symbol="location" class="icon__location" />
       </div>
@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <app-modal :visible="isVisibility" @close="isVisibility = false">
+    <app-modal :visible="isVisibile" @close="isVisibile = false">
       <h1>Content123</h1>
     </app-modal>
   </div>
@@ -26,7 +26,7 @@ const location = ref({
   city: 'London',
   text: 'Flower delivery to'
 })
-const isVisibility = ref(false)
+const isVisibile = ref(false)
 </script>
 
 <style lang="scss" scoped>
@@ -36,7 +36,7 @@ const isVisibility = ref(false)
     align-items: center;
     justify-content: space-between;
     width: 245px;
-    background: #f7f7f7;
+    background: $bg-grey;
     padding: 7px 17px;
     border-radius: 12px;
     box-sizing: border-box;

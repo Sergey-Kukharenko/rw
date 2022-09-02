@@ -1,18 +1,18 @@
 <template>
   <div v-click-outside="close" class="dropdown">
-    <div class="dropdown__header" @click="isVisibility = true">
+    <div class="dropdown__header" @click="isVisibile = true">
       <slot name="button"> </slot>
     </div>
 
-    <div v-show="isVisibility" class="dropdown__container">
+    <div v-show="isVisibile" class="dropdown__container">
       <slot name="dropdown"> </slot>
     </div>
   </div>
 </template>
 
 <script setup>
-const isVisibility = ref(false)
-const close = () => (isVisibility.value = false)
+const isVisibile = ref(false)
+const close = () => (isVisibile.value = false)
 </script>
 
 <style lang="scss" scoped>

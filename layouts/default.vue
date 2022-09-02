@@ -1,10 +1,10 @@
 <template>
   <div>
-<!--    <app-header-mobile v-if="isDevice" />-->
-<!--    <app-header v-else />-->
-<!--    <app-breadcrumbs />-->
+    <app-header-mobile v-if="isDevice" />
+    <app-header v-else />
+    <app-breadcrumbs />
     <slot />
-<!--    <app-footer />-->
+    <app-footer />
   </div>
 </template>
 

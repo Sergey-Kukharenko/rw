@@ -1,29 +1,74 @@
 <template>
   <div class="layout layout-dt checkout-page">
     <div class="checkout-page__main">
-      <div class="checkout-page__section section">
-        <div class="section__title">Recipient</div>
-        <div class="section__subtitle">
-          Specify in more detail how to get the courier to you
-        </div>
-        <div class="section__container">
-          <app-radio-button v-model:selected="selected" :options="recipients" />
 
-          <h2>{{ visibility }}</h2>
+      <div class="section">
+        <div class="section__title">Recipient</div>
+        <div class="section__container">
+          <app-radio-group
+            v-model:selected="selected"
+            :options="recipients"
+          />
+          <div class="form" v-show="isVisibile">
+            <div class="form__item">
+              <input
+                type="text"
+                name="name"
+                placeholder="Recipient name"
+                class="input"
+              />
+            </div>
+            <div class="form__item">
+              <input
+                type="tel"
+                name="tel"
+                placeholder="And phone number"
+                class="input"
+              />
+            </div>
+          </div>
         </div>
       </div>
+
+      <div class="section">
+        <div class="section__title">Delivery details</div>
+        <div class="section__subtitle">Specify in more detail how to get the courier to you</div>
+
+        <div class="delivery">
+
+          <div class="delivery__item">
+            <input
+              type="text"
+              name="address"
+              placeholder="Choose delivery address"
+              class="input"
+            />
+          </div>
+          <div class="delivery__item">
+            <input
+              type="text"
+              name="comment"
+              placeholder="Comment for courier"
+              class="input"
+            />
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
   </div>
 </template>
 
 <script setup>
-import AppRadioButton from '@/components/shared/AppRadioButton.vue'
+import AppRadioGroup from '@/components/shared/AppRadioGroup.vue'
 
 const recipients = ref(['I’ll get order by mySelf', 'Another recipient'])
 const selected = ref(recipients.value[0])
 const another = recipients.value[1]
 
-const visibility = computed(() => another === selected.value)
+const isVisibile = computed(() => another === selected.value)
 </script>
 
 <style lang="scss" scoped>
@@ -33,15 +78,13 @@ const visibility = computed(() => another === selected.value)
   &__main {
     width: 712px;
     height: 4000px;
-    outline: 1px solid;
-  }
-
-  &__section {
-    margin: 10px 0;
   }
 }
 
 .section {
+  padding: 40px 0;
+  border-bottom: 1px solid #dde0e6;
+
   &__title {
     font-family: $Literata;
     font-weight: 700;
@@ -59,13 +102,52 @@ const visibility = computed(() => another === selected.value)
 
   &__subtitle {
     font-family: $golos-regular;
-    letter-spacing: -0.01em;
     font-size: 14px;
     line-height: 20px;
+    letter-spacing: -0.01em;
+    margin-top: 7px;
   }
 
   &__container {
-    margin: 0;
+    margin-top: 26px;
+  }
+}
+
+.form {
+  display: flex;
+  margin: 5px -12px -12px;
+
+  &__item {
+    width: 50%;
+    margin: 12px;
+  }
+}
+
+.input {
+  width: 100%;
+  font-family: $golos-regular;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.01em;
+  background: $bg-grey;
+  padding: 14px 16px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  box-sizing: border-box;
+
+  &:focus {
+    &::placeholder {
+      opacity: 0;
+    }
+  }
+}
+
+.delivery{
+  margin: 16px 0;
+
+  &__item {
+    margin: 8px 0;
   }
 }
 </style>

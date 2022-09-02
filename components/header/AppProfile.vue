@@ -47,7 +47,7 @@ import AppDropdown from '@/components/shared/AppDropdown.vue'
     @include lt-md {
       width: 32px;
       height: 32px;
-      background: #F7F7F7;
+      background: $bg-grey;
       border-radius: 50%;
     }
   }
