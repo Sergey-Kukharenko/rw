@@ -25,7 +25,7 @@ import AppStars from '@/components/shared/AppStars.vue'
 const props = defineProps({
   rating: {
     type: Object,
-    default: () => {}
+    default: () => ({})
   }
 })
 

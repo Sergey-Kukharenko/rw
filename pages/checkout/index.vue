@@ -7,12 +7,9 @@
           Specify in more detail how to get the courier to you
         </div>
         <div class="section__container">
+          <app-radio-button v-model:selected="selected" :options="recipients" />
 
-
-          <app-radio-button v-model:selected="selected" :options="decisions"/>
-
-          <h2>{{selected}}</h2>
-
+          <h2>{{ visibility }}</h2>
         </div>
       </div>
     </div>
@@ -22,21 +19,11 @@
 <script setup>
 import AppRadioButton from '@/components/shared/AppRadioButton.vue'
 
-const radio = ref([
-  {
-    id: 0,
-    label: 'I’ll get order by myself'
-  },
-  {
-    id: 1,
-    label: 'Another recipient'
-  }
-])
+const recipients = ref(['I’ll get order by mySelf', 'Another recipient'])
+const selected = ref(recipients.value[0])
+const another = recipients.value[1]
 
-const decisions = ref(["Yes", "No", "Undecided"])
-
-const selected = ref('Yes')
-
+const visibility = computed(() => another === selected.value)
 </script>
 
 <style lang="scss" scoped>

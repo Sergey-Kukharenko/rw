@@ -48,7 +48,7 @@ import AppButton from '@/components/shared/AppButton.vue'
 const props = defineProps({
   product: {
     type: Object,
-    default: () => {}
+    default: () => ({})
   }
 })
 

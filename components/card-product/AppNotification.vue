@@ -13,7 +13,7 @@
 const props = defineProps({
   notification: {
     type: Object,
-    default: () => {}
+    default: () => ({})
   }
 })
 </script>

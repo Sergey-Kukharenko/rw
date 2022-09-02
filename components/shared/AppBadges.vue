@@ -14,7 +14,7 @@ import AppBadge from '@/components/shared/AppBadge.vue'
 const props = defineProps({
   badges: {
     type: Object,
-    default: () => {}
+    default: () => ({})
   }
 })
 </script>

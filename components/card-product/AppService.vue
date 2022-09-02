@@ -40,7 +40,7 @@
 const props = defineProps({
   service: {
     type: Object,
-    default: () => {}
+    default: () => ({})
   }
 })
 
