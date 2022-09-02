@@ -42,12 +42,12 @@
             />
           </div>
           <div class="delivery__item">
-            <input
-              type="text"
-              name="comment"
-              placeholder="Comment for courier"
-              class="input"
-            />
+            <resize-textarea
+              placeholder="Comment for the courier"
+              v-model="value"
+              :rows="1"
+              :minHeight="48"
+              class="textarea"/>
           </div>
         </div>
       </div>
@@ -63,6 +63,7 @@ const selected = ref(recipients.value[0])
 const another = recipients.value[1]
 
 const isVisible = computed(() => another === selected.value)
+const value = ref('')
 </script>
 
 <style lang="scss" scoped>
@@ -117,7 +118,7 @@ const isVisible = computed(() => another === selected.value)
   }
 }
 
-.input {
+.input, .textarea {
   width: 100%;
   font-family: $golos-regular;
   font-size: 14px;
@@ -143,5 +144,9 @@ const isVisible = computed(() => another === selected.value)
   &__item {
     margin: 8px 0;
   }
+}
+
+.textarea {
+  padding: 14px 16px !important;
 }
 </style>
