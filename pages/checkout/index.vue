@@ -40,14 +40,18 @@
               placeholder="Choose delivery address"
               class="input"
             />
+            <app-saved-addresses
+              v-model:selected="selectedAddress"
+              :list="savedAddresses"
+            />
+            {{ selectedAddress }}
           </div>
-          <div class="delivery__item">
-            <resize-textarea
+
+          <div class="delivery__item" style="display: none">
+            <app-textarea
+              v-model:value="textareaValue"
               placeholder="Comment for the courier"
-              v-model="value"
-              :rows="1"
-              :minHeight="48"
-              class="textarea"/>
+            />
           </div>
         </div>
       </div>
@@ -57,13 +61,22 @@
 
 <script setup>
 import AppRadioGroup from '@/components/shared/AppRadioGroup.vue'
+import AppSavedAddresses from '@/components/shared/AppSavedAddresses.vue'
+import AppTextarea from '@/components/ui/AppTextarea.vue'
 
 const recipients = ref(['I’ll get order by mySelf', 'Another recipient'])
 const selected = ref(recipients.value[0])
 const another = recipients.value[1]
 
 const isVisible = computed(() => another === selected.value)
-const value = ref('')
+const textareaValue = ref('')
+
+const savedAddresses = ref([
+  'Home • 15 Westferry Road, London, E14 8FQ, Apartment 813',
+  'Selfridges & Co 400 Oxford Street London W1A 1AB, Apartment 96'
+])
+
+const selectedAddress = ref(savedAddresses.value[0])
 </script>
 
 <style lang="scss" scoped>
@@ -118,7 +131,7 @@ const value = ref('')
   }
 }
 
-.input, .textarea {
+.input {
   width: 100%;
   font-family: $golos-regular;
   font-size: 14px;
@@ -144,9 +157,5 @@ const value = ref('')
   &__item {
     margin: 8px 0;
   }
-}
-
-.textarea {
-  padding: 14px 16px !important;
 }
 </style>

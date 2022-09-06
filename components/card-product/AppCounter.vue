@@ -14,8 +14,8 @@
 <script setup>
 const props = defineProps({
   count: {
-    type: Number,
-  },
+    type: Number
+  }
 })
 
 const emit = defineEmits(['update:count'])

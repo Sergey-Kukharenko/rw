@@ -1,6 +1,11 @@
 <template>
   <div class="radio-group">
-    <label v-for="option in options" :key="option" :for="option" class="radio-group__label">
+    <label
+      v-for="option in props.options"
+      :key="option"
+      :for="option"
+      class="radio-group__label"
+    >
       <input
         type="radio"
         :value="option"
@@ -8,7 +13,10 @@
         @change="onChange(option)"
         :checked="option === selected"
       />
-      <span class="radio-group__button" :class="{ active: option === selected }" />
+      <span
+        class="radio-group__button"
+        :class="{ active: option === selected }"
+      />
       <span class="radio-group__text">{{ option }}</span>
     </label>
   </div>
@@ -36,7 +44,7 @@ const onChange = (item) => {
 
 
 <style  lang="scss" scoped>
-.radio-group{
+.radio-group {
   margin: -5px 0;
 
   input {
@@ -97,5 +105,4 @@ const onChange = (item) => {
     color: #010810;
   }
 }
-
 </style>
