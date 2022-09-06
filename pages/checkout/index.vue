@@ -38,7 +38,7 @@
           </div>
 
           <div class="delivery__item" style="display: none">
-            <app-textarea
+            <app-text-area
               v-model:value="textareaValue"
               placeholder="Comment for the courier"
             />
@@ -52,7 +52,7 @@
 <script setup>
 import AppRadioGroup from '@/components/shared/AppRadioGroup.vue'
 import AppAddress from '@/components/checkout/AppAddress.vue'
-import AppTextarea from '@/components/ui/AppTextarea.vue'
+import AppTextArea from '@/components/ui/AppTextArea.vue'
 
 const recipients = ref(['I’ll get order by mySelf', 'Another recipient'])
 const selected = ref(recipients.value[0])
