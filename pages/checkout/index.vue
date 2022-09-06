@@ -34,17 +34,7 @@
 
         <div class="delivery">
           <div class="delivery__item">
-            <input
-              type="text"
-              name="address"
-              placeholder="Choose delivery address"
-              class="input"
-            />
-            <app-saved-addresses
-              v-model:selected="selectedAddress"
-              :list="savedAddresses"
-            />
-            {{ selectedAddress }}
+            <app-address :addresses="addresses" />
           </div>
 
           <div class="delivery__item" style="display: none">
@@ -61,7 +51,7 @@
 
 <script setup>
 import AppRadioGroup from '@/components/shared/AppRadioGroup.vue'
-import AppSavedAddresses from '@/components/shared/AppSavedAddresses.vue'
+import AppAddress from '@/components/checkout/AppAddress.vue'
 import AppTextarea from '@/components/ui/AppTextarea.vue'
 
 const recipients = ref(['I’ll get order by mySelf', 'Another recipient'])
@@ -71,12 +61,10 @@ const another = recipients.value[1]
 const isVisible = computed(() => another === selected.value)
 const textareaValue = ref('')
 
-const savedAddresses = ref([
+const addresses = ref([
   'Home • 15 Westferry Road, London, E14 8FQ, Apartment 813',
   'Selfridges & Co 400 Oxford Street London W1A 1AB, Apartment 96'
 ])
-
-const selectedAddress = ref('')
 </script>
 
 <style lang="scss" scoped>
