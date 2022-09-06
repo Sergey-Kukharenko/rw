@@ -10,10 +10,9 @@
             @change="onChange(item)"
             :checked="item === selected"
           />
-          <div
-            class="label__button"
-            :class="{ active: item === selected }"
-          ></div>
+          <div class="label__button" :class="{ active: item === selected }">
+            <SvgSprite symbol="check" class="icon" width="8" height="6" />
+          </div>
 
           <div class="label__text">
             {{ item }}
@@ -52,7 +51,7 @@ const onChange = (item) => {
 .list {
   background: #ffffff;
   padding: 0 16px;
-  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16);
   border-radius: 10px;
 
   &__item {
@@ -71,27 +70,36 @@ input {
 .item {
   display: flex;
   align-items: center;
-
-  &__label {
-    flex: 1;
-  }
+  justify-content: space-between;
 }
 
 .label {
   display: flex;
   align-items: center;
+  cursor: pointer;
 
   &__button {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 20px;
     height: 20px;
-    flex-shrink: 0;
     border: 1px solid #dde0e6;
     border-radius: 6px;
     box-sizing: border-box;
 
+    & .icon {
+      opacity: 0;
+    }
+
     &.active {
       background: $color-dark-green;
       border-color: $color-dark-green;
+
+      & .icon {
+        opacity: 1;
+      }
     }
   }
 

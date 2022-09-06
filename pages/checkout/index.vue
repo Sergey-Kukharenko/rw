@@ -76,7 +76,7 @@ const savedAddresses = ref([
   'Selfridges & Co 400 Oxford Street London W1A 1AB, Apartment 96'
 ])
 
-const selectedAddress = ref(savedAddresses.value[0])
+const selectedAddress = ref('')
 </script>
 
 <style lang="scss" scoped>
