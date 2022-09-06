@@ -1,9 +1,7 @@
 <template>
-  <transition>
-      <AppModalAbstraction v-if="props.visible" @close="close">
-        <slot />
-      </AppModalAbstraction>
-  </transition>
+  <AppModalAbstraction v-if="props.visible" @close="close">
+    <slot />
+  </AppModalAbstraction>
 </template>
 
 <script setup>
