@@ -32,8 +32,13 @@ const classNames = computed(() => useClassName(props, 'counter'))
   border-radius: 50%;
   box-sizing: border-box;
 
+  &--pink {
+    background: #F63866;
+  }
+
   &__number {
     font-family: $golos-medium;
+    font-style: normal;
     font-size: 9px;
     line-height: 12px;
     letter-spacing: -0.01em;

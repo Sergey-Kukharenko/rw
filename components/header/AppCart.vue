@@ -3,7 +3,7 @@
     <figure class="cart__figure">
       <SvgSprite symbol="cart-outline" class="cart__icon" />
     </figure>
-    <app-counter theme="green">1</app-counter>
+    <app-counter theme="green" v-if="isCount">{{ count }}</app-counter>
     <figcaption class="cart__figcaption">Basket</figcaption>
   </a>
 </template>
@@ -19,6 +19,9 @@ const props = defineProps({
 })
 
 const classNames = computed(() => useClassName(props, 'cart'))
+
+const count = ref(1)
+const isCount = computed(() => count.value > 0)
 </script>
 
 <style lang="scss" scoped>

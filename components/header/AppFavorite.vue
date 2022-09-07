@@ -1,19 +1,23 @@
 <template>
   <a class="card favorite">
-    <div class="card__figure">
-      <SvgSprite
-        symbol="hart"
-        class="card__icon"
-        width="20"
-        height="18.5"
-      />
-    </div>
+    <figure class="card__figure">
+      <SvgSprite symbol="heart" class="card__icon" />
+    </figure>
+    <app-counter theme="pink" v-if="isCount">{{ count }}</app-counter>
     <figcaption class="card__figcaption">Favorite</figcaption>
   </a>
 </template>
 
+<script setup>
+import AppCounter from '@/components/shared/AppCounter.vue'
+
+const count = ref(12)
+const isCount = computed(() => count.value > 0)
+</script>
+
 <style lang="scss" scoped>
 .card {
+  position: relative;
   cursor: pointer;
 
   @include lt-md {
@@ -30,6 +34,8 @@
   }
 
   &__icon {
+    width: 20px;
+    height: 18.5px;
     fill: $color-light-grey;
   }
 
