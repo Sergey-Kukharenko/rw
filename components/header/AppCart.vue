@@ -3,11 +3,14 @@
     <figure class="cart__figure">
       <SvgSprite symbol="cart-outline" class="cart__icon" />
     </figure>
+    <app-counter theme="green">1</app-counter>
     <figcaption class="cart__figcaption">Basket</figcaption>
   </a>
 </template>
 
 <script setup>
+import AppCounter from '@/components/shared/AppCounter.vue'
+
 const props = defineProps({
   theme: {
     type: String,
@@ -20,6 +23,7 @@ const classNames = computed(() => useClassName(props, 'cart'))
 
 <style lang="scss" scoped>
 .cart {
+  position: relative;
   cursor: pointer;
 
   &--inline {
