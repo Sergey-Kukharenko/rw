@@ -1,10 +1,11 @@
 <template>
   <a :class="classNames">
-    <figure class="cart__figure">
+    <div class="cart__figure">
       <SvgSprite symbol="cart-outline" class="cart__icon" />
-    </figure>
-    <app-counter theme="green" v-if="isCount">{{ count }}</app-counter>
-    <figcaption class="cart__figcaption">Basket</figcaption>
+    </div>
+    <div class="cart__figcaption">Basket</div>
+
+    <app-counter v-if="isCount" :count="count" class="cart__counter" />
   </a>
 </template>
 
@@ -18,16 +19,24 @@ const props = defineProps({
   }
 })
 
-const classNames = computed(() => useClassName(props, 'cart'))
-
-const count = ref(1)
+const count = ref(2)
 const isCount = computed(() => count.value > 0)
+
+const classNames = computed(() => [
+  useClassName(props, 'cart'),
+  useSetClassName(isCount.value, 'cart--active'),
+])
 </script>
 
 <style lang="scss" scoped>
 .cart {
   position: relative;
+  color: $color-light-grey;
   cursor: pointer;
+
+  &:hover {
+    opacity: 0.75;
+  }
 
   &--inline {
     @include gt-sm {
@@ -82,9 +91,9 @@ const isCount = computed(() => count.value > 0)
     @include gt-sm {
       width: 24px;
       height: 24px;
-      fill: $color-dark-grey;
-      opacity: 0.5;
+      fill: currentColor;
     }
+
     @include lt-md {
       width: 20px;
       height: 20px;
@@ -98,7 +107,7 @@ const isCount = computed(() => count.value > 0)
       font-size: 14px;
       line-height: 16px;
       text-align: center;
-      color: $color-white-grey;
+      color: currentColor;
       margin-top: 7px;
     }
     @include lt-md {
@@ -106,10 +115,12 @@ const isCount = computed(() => count.value > 0)
     }
   }
 
-  &:hover {
-    @include gt-sm {
-      opacity: 0.75;
-    }
+  &__counter {
+    background: currentColor;
+  }
+
+  &--active {
+    color: $color-green;
   }
 }
 </style>

@@ -8,9 +8,8 @@
       class="navigation-list__item"
     >
       <div class="content">
-        <div class="content__figure">
+        <div class="content__figure" v-if="item.icon">
           <SvgSprite
-            v-if="item.icon"
             :symbol="item.icon"
             v-bind:="item.style"
             :class="['content__icon', item.icon]"
@@ -61,6 +60,11 @@ const classNames = computed(() => useClassName(props.options, 'navigation-list')
 
   &--full {
     .navigation-list__item {
+
+      &:hover {
+        color: $color-dark-green;
+      }
+
       &:first-child {
         position: relative;
 
@@ -91,10 +95,6 @@ const classNames = computed(() => useClassName(props.options, 'navigation-list')
       &:last-of-type {
         &:not(:hover) {
           color: #f1ae01;
-        }
-
-        &:hover {
-          color: lighten(#f1ae01, 5%);
         }
       }
 
@@ -141,7 +141,7 @@ const classNames = computed(() => useClassName(props.options, 'navigation-list')
     }
 
     &:hover {
-      color: lighten($color-dark-grey, 20%);
+      color: $color-white-grey;
     }
 
     @include gt-sm {

@@ -1,24 +1,34 @@
 <template>
-  <a class="card favorite">
-    <figure class="card__figure">
-      <SvgSprite symbol="heart" class="card__icon" />
-    </figure>
-    <app-counter theme="pink" v-if="isCount">{{ count }}</app-counter>
-    <figcaption class="card__figcaption">Favorite</figcaption>
+  <a :class="classNames">
+    <div class="favorite__figure">
+      <SvgSprite symbol="heart" class="favorite__icon"/>
+    </div>
+    <div class="favorite__figcaption">Favorite</div>
+
+    <app-counter v-if="isCount" :count="count" class="favorite__counter"/>
   </a>
 </template>
 
 <script setup>
-import AppCounter from '@/components/shared/AppCounter.vue'
+import AppCounter from '@/components/shared/AppCounter.vue';
 
-const count = ref(12)
-const isCount = computed(() => count.value > 0)
+const count = ref(12);
+const isCount = computed(() => count.value > 0);
+
+const classNames = computed(() =>
+  useToggleClassName(isCount.value, 'favorite', 'active')
+)
 </script>
 
 <style lang="scss" scoped>
-.card {
+.favorite {
   position: relative;
+  color: $color-light-grey;
   cursor: pointer;
+
+  &:hover {
+    opacity: 0.75;
+  }
 
   @include lt-md {
     display: none;
@@ -36,7 +46,7 @@ const isCount = computed(() => count.value > 0)
   &__icon {
     width: 20px;
     height: 18.5px;
-    fill: $color-light-grey;
+    fill: currentColor;
   }
 
   &__figcaption {
@@ -44,12 +54,16 @@ const isCount = computed(() => count.value > 0)
     font-size: 14px;
     line-height: 16px;
     text-align: center;
-    color: $color-white-grey;
+    color: currentColor;
     margin-top: 7px;
   }
 
-  &:hover {
-    opacity: 0.75;
+  &__counter {
+    background: currentColor;
+  }
+
+  &--active {
+    color: #F73866;
   }
 }
 </style>
