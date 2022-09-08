@@ -2,10 +2,9 @@
   <a :class="classNames">
     <div class="favorite__figure">
       <SvgSprite symbol="heart" class="favorite__icon"/>
+      <app-counter v-if="isCount" :count="count" class="favorite__counter"/>
     </div>
     <div class="favorite__figcaption">Favorite</div>
-
-    <app-counter v-if="isCount" :count="count" class="favorite__counter"/>
   </a>
 </template>
 
@@ -22,7 +21,6 @@ const classNames = computed(() =>
 
 <style lang="scss" scoped>
 .favorite {
-  position: relative;
   color: $color-light-grey;
   cursor: pointer;
 
@@ -38,6 +36,7 @@ const classNames = computed(() =>
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     width: 28px;
     height: 28px;
     margin: 0 auto;
@@ -54,7 +53,7 @@ const classNames = computed(() =>
     font-size: 14px;
     line-height: 16px;
     text-align: center;
-    color: currentColor;
+    color: $color-dark-grey;
     margin-top: 7px;
   }
 
@@ -64,6 +63,12 @@ const classNames = computed(() =>
 
   &--active {
     color: #F73866;
+
+    &:hover {
+      .favorite__figcaption{
+        color: #f73866;
+      }
+    }
   }
 }
 </style>

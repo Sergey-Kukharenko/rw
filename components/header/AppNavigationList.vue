@@ -94,7 +94,7 @@ const classNames = computed(() => useClassName(props.options, 'navigation-list')
 
       &:last-of-type {
         &:not(:hover) {
-          color: #f1ae01;
+          color: #F63866;
         }
       }
 
@@ -165,8 +165,6 @@ const classNames = computed(() => useClassName(props.options, 'navigation-list')
 
   &__icon {
     display: block;
-    width: 16px;
-    height: 16px;
     color: inherit;
     fill: currentColor;
 
@@ -196,18 +194,6 @@ const classNames = computed(() => useClassName(props.options, 'navigation-list')
 .whatsapp {
   @include lt-md {
     display: none;
-  }
-}
-
-.tile {
-  @include gt-sm {
-    width: 20px;
-    height: 20px;
-  }
-
-  @include lt-md {
-    width: 16px;
-    height: 16px;
   }
 }
 </style>

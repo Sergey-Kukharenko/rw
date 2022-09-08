@@ -21,18 +21,18 @@ const classNames = computed(() => useClassName(props, 'counter'))
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: -3px;
-  right: -1px;
+  top: -4px;
+  right: -11px;
   width: 20px;
   height: 20px;
+  font-family: $golos-medium;
+  font-size: 9px;
+  line-height: 12px;
   border: 2px solid #fff;
   border-radius: 50%;
   box-sizing: border-box;
 
   &__number {
-    font-family: $golos-medium;
-    font-size: 9px;
-    line-height: 12px;
     color: #ffffff;
   }
 }
