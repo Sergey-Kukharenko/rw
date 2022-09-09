@@ -14,7 +14,7 @@
     </div>
 
     <app-modal :visible="isVisible" @close="isVisible = false">
-      <h1>Content123</h1>
+      SOME
     </app-modal>
   </div>
 </template>

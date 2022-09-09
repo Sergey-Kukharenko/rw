@@ -3,9 +3,9 @@
     <div class="modal">
       <div class="modal__overlay" @click="close"></div>
       <div class="modal__content">
-        <slot/>
+        <slot />
         <button type="button" class="button" @click="close">
-          <SvgSprite symbol="close" class="button__icon"/>
+          <SvgSprite symbol="close" class="button__icon" />
         </button>
       </div>
     </div>
@@ -13,17 +13,17 @@
 </template>
 
 <script setup>
-const emit = defineEmits(['close']);
-const close = () => emit('close');
+const emit = defineEmits(['close'])
+const close = () => emit('close')
 const handleKeyup = (event) => {
   if (event.keyCode !== 27) {
-    return;
+    return
   }
 
-  close();
-};
+  close()
+}
 
-useEventListener(window, 'keyup', handleKeyup);
+useEventListener(window, 'keyup', handleKeyup)
 </script>
 
 <style lang="scss" scoped>

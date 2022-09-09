@@ -20,12 +20,13 @@ const props = defineProps({
 
 const cart = {
   price: '£ 52,76',
-  count: 2
+  count: 1
 }
 
 const { count, price } = cart
 const isCount = computed(() => count > 0)
 const isPrice = computed(() => (price ? price : 'Basket'))
+
 const isMobile = useIsMobile()
 const getImg = isMobile.value ? 'cart-bag' : 'cart-outline'
 
@@ -122,14 +123,16 @@ const classNames = computed(() => [
     }
 
     &.cart--active {
-      .cart__icon, .cart__figcaption {
+      .cart__icon,
+      .cart__figcaption {
         @include gt-sm {
           color: $color-white-grey;
         }
       }
 
       &:hover {
-        .cart__icon, .cart__figcaption {
+        .cart__icon,
+        .cart__figcaption {
           @include gt-sm {
             color: $color-green;
           }

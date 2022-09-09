@@ -41,7 +41,7 @@ import AppPayment from '@/components/AppPayment.vue'
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 0.01em;
-  color: #7c7c7c;
+  color: $color-white-grey;
 
   @include gt-sm {
     text-align: right;

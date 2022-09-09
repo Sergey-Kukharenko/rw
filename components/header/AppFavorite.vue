@@ -62,11 +62,11 @@ const classNames = computed(() =>
   }
 
   &--active {
-    color: #F73866;
+    color: $color-favorite;
 
     &:hover {
       .favorite__figcaption{
-        color: #f73866;
+        color: inherit;
       }
     }
   }
