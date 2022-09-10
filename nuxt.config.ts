@@ -24,6 +24,11 @@ export default defineNuxtConfig({
 
   css: ['@/assets/css/normalize.css', '@/assets/css/fonts.css'],
 
+  // build modules
+  buildModules: [
+    '@pinia/nuxt',
+  ],
+
   vite: {
     css: {
       preprocessorOptions: {

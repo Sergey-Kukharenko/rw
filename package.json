@@ -7,8 +7,10 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
+    "@pinia/nuxt": "^0.1.8",
     "node-sass": "^7.0.1",
     "nuxt": "3.0.0-rc.3",
+    "pinia": "^2.0.9",
     "sass": "^1.52.2",
     "sass-loader": "^13.0.0"
   },
