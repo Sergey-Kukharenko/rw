@@ -6,7 +6,7 @@
     <slot/>
     <app-footer/>
 
-    <!--    <app-address />-->
+<!--    <app-address/>-->
   </div>
 </template>
 

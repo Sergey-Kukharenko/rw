@@ -8,7 +8,6 @@
 
     <div class="container__body">
       <div class="container__layout">
-
         <input
           type="text"
           name="name"
@@ -18,9 +17,9 @@
         />
 
         <div class="list">
-          <div class="list__item" v-for="(item, idx) in address" :key="idx">
-            <div class="text">{{item}}</div>
-            <div class="text text--grey">{{item}}</div>
+          <div class="list__item" v-for="(item, idx) in suggestions" :key="idx">
+            <div class="text">{{ item.word }}</div>
+            <div class="text text--grey">{{ item.word }}</div>
           </div>
         </div>
 
@@ -30,14 +29,23 @@
 </template>
 
 <script setup>
-const query = ref('')
-const address = ref([])
-//
-watchEffect(() => {
-  console.log(query.value);
-})
+const query = ref('');
+const loading = ref(false);
+const suggestions = ref([]);
 
+const useFetchSuggestions = async (query) => (
+  query
+    ? await fetch(`https://api.datamuse.com/sug?s=${query}&max=10`)
+      .then((response) => response.json())
+      .then((data) => data)
+    : []
+);
 
+watchEffect(async () => {
+  loading.value = true;
+  suggestions.value = await useFetchSuggestions(query.value);
+  loading.value = false;
+});
 </script>
 
 <style lang="scss" scoped>
@@ -78,8 +86,34 @@ watchEffect(() => {
 }
 
 .list {
+  height: 256px;
+  overflow-y: auto;
+  margin: 20px 0;
+
+  &::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+  }
+
   &__item {
     padding: 10px 0;
+  }
+
+  &__item {
+    &:first-child {
+      padding-top: 0;
+    }
   }
 }
 
