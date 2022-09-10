@@ -10,8 +10,11 @@ export const useAddressStore = defineStore('data', () => {
       loading.value = true
       error.value = null;
       try {
-        const result = await fetch(`https://api.datamuse.com/sug?s=${query}&max=10`);
-        data.value = await result.json();
+
+        await fetch(`https://api.datamuse.com/sug?s=${query}&max=10`)
+          .then(async res => data.value = await res.json())
+
+
       } catch (err) {
         error.value = err;
       }
