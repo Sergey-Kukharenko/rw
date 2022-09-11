@@ -17,7 +17,7 @@
         />
 
         <div class="list">
-          <div class="list__item" v-for="(item, idx) in store.data" :key="idx">
+          <div class="list__item" v-for="(item, idx) in list" :key="idx">
             <div class="text">{{ item.word }}</div>
             <div class="text text--grey">{{ item.word }}</div>
           </div>
@@ -29,11 +29,16 @@
 </template>
 
 <script setup>
-import {useAddressStore} from '@/stores/useAddressStore'
-
 const query = ref('')
-const store = useAddressStore()
-watchEffect(async () => store.getData(query.value))
+const list = ref([])
+
+watchEffect(async () => {
+  if(query.value) {
+    const {data} = await useFetch(`https://api.datamuse.com/sug?s=${query.value}&max=10`)
+    list.value = data.value
+  }
+})
+
 </script>
 
 <style lang="scss" scoped>
