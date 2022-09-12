@@ -17,28 +17,31 @@
         />
 
         <div class="list">
-          <div class="list__item" v-for="(item, idx) in list" :key="idx">
-            <div class="text">{{ item.word }}</div>
-            <div class="text text--grey">{{ item.word }}</div>
+          <div class="list__item" v-for="(item, idx) in list" :key="idx" @click="handleClick(item)">
+            <div class="text">{{ item.display_name }}</div>
+            <div class="text text--grey">{{ item.display_name }}</div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+
 const query = ref('')
 const list = ref([])
 
+const handleClick = (item) => {
+  console.log(item.display_name);
+}
+
 watchEffect(async () => {
-  if(query.value) {
-    const {data} = await useFetch(`https://api.datamuse.com/sug?s=${query.value}&max=10`)
+  if (query.value) {
+    const {data} = await useFetch('https://nominatim.openstreetmap.org/search/' + query.value + '?format=json')
     list.value = data.value
   }
 })
-
 </script>
 
 <style lang="scss" scoped>
@@ -46,7 +49,6 @@ watchEffect(async () => {
   width: 508px;
   height: 400px;
   box-sizing: border-box;
-  outline: 1px solid;
 
   &__layout {
     padding: 0 24px;
@@ -82,21 +84,11 @@ watchEffect(async () => {
   height: 256px;
   overflow-y: auto;
   margin: 20px 0;
-
-  &::-webkit-scrollbar-track {
-    background-color: #F5F5F5;
-    border-radius: 10px;
-  }
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
 
   &::-webkit-scrollbar {
-    width: 4px;
-    background-color: #F5F5F5;
-    border-radius: 10px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-    border-radius: 10px;
+    display: none;
   }
 
   &__item {
