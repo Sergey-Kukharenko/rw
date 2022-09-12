@@ -35,46 +35,46 @@
 </template>
 
 <script setup>
-const query = ref('')
-const list = ref([])
+const query = ref('');
+const list = ref([]);
 
-const emit = defineEmits(['setLocation'])
+const emit = defineEmits(['setLocation']);
 const onChange = (item) => {
-  emit('setLocation', { city: item.admin_0, description: item.description })
-}
+  emit('setLocation', {city: item.admin_0, description: item.description});
+};
 
 function buildQueryString(params) {
-  const queryStringParts = []
+  const queryStringParts = [];
 
   for (let key in params) {
     if (params.hasOwnProperty(key)) {
       queryStringParts.push(
         `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
-      )
+      );
     }
   }
 
-  return queryStringParts.join('&')
+  return queryStringParts.join('&');
 }
-const url = 'https://api.woosmap.com/localities/autocomplete/'
+const url = 'https://api.woosmap.com/localities/autocomplete/';
 const args = {
   key: 'woos-81a699ca-5082-3ffd-9f54-a684a4b82853',
   types: 'postal_code',
   components: 'country:gb|country:je|country:im|country:gg'
-}
-const params = buildQueryString(args)
-const fullUrl = `${url}?${params}`
+};
+const params = buildQueryString(args);
+const fullUrl = `${url}?${params}`;
 
 watchEffect(async () => {
   if (query.value) {
     useDebounce(async () => {
-      const { data } = await useFetch(`${fullUrl}&input=${query.value}`)
-      list.value = data.value.localities
-    }, 300)()
+      const {data} = await useFetch(`${fullUrl}&input=${query.value}`);
+      list.value = data.value.localities;
+    }, 300)();
   } else {
-    list.value = []
+    list.value = [];
   }
-})
+});
 </script>
 
 <style lang="scss" scoped>
@@ -106,9 +106,9 @@ watchEffect(async () => {
       left: 0;
       right: 0;
       background: linear-gradient(
-        180deg,
-        transparent,
-        rgb(255 255 255 / 95%) 50%
+          180deg,
+          transparent,
+          rgb(255 255 255 / 95%) 50%
       );
       z-index: 1;
     }
@@ -149,9 +149,16 @@ watchEffect(async () => {
   &__item {
     margin: 10px 0;
     cursor: pointer;
+    background: #fff;
+    border-radius: 10px;
+    transition: background 0.2s ease 0s;
 
     &:hover {
       background: $bg-grey;
+
+      & .title, & .subtitle {
+        transform: translateX(16px);
+      }
     }
   }
 
@@ -163,7 +170,7 @@ watchEffect(async () => {
 
   &__item {
     &:last-child {
-      margin-bottom: 10px;
+      margin-bottom: 24px;
     }
   }
 }
@@ -173,6 +180,8 @@ watchEffect(async () => {
   font-family: $golos-regular;
   font-size: 16px;
   line-height: 22px;
+  transform: translateX(0);
+  transition: transform 0.2s ease 0.05s;
 
   &--grey {
     color: $color-white-grey;
@@ -182,5 +191,6 @@ watchEffect(async () => {
 .subtitle {
   font-size: 14px;
   color: $color-white-grey;
+  transition: transform 0.2s ease 0.1s;
 }
 </style>
