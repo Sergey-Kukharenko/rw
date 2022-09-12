@@ -17,7 +17,12 @@
         />
 
         <div class="list">
-          <div class="list__item" v-for="(item, idx) in list" :key="idx" @click="handleClick(item)">
+          <div
+            class="list__item"
+            v-for="(item, idx) in list"
+            :key="idx"
+            @click="handleClick(item)"
+          >
             <div class="text">{{ item.display_name }}</div>
             <div class="text text--grey">{{ item.display_name }}</div>
           </div>
@@ -28,17 +33,20 @@
 </template>
 
 <script setup>
-
 const query = ref('')
 const list = ref([])
 
 const handleClick = (item) => {
-  console.log(item.display_name);
+  console.log(item.display_name)
 }
 
 watchEffect(async () => {
   if (query.value) {
-    const {data} = await useFetch('https://nominatim.openstreetmap.org/search/' + query.value + '?format=json')
+    const { data } = await useFetch(
+      'https://nominatim.openstreetmap.org/search/' +
+        query.value +
+        '?format=json'
+    )
     list.value = data.value
   }
 })
@@ -57,6 +65,10 @@ watchEffect(async () => {
   &__header {
     padding: 0 24px;
     border-bottom: 1px solid #dde0e6;
+  }
+
+  &__body {
+    margin-top: 24px;
   }
 }
 
@@ -81,9 +93,9 @@ watchEffect(async () => {
 }
 
 .list {
-  height: 256px;
+  height: 279px;
   overflow-y: auto;
-  margin: 20px 0;
+  margin: 20px 0 0;
   overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;
 

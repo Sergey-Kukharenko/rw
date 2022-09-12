@@ -14,13 +14,14 @@
     </div>
 
     <app-modal :visible="isVisible" @close="isVisible = false">
-      SOME
+      <app-address/>
     </app-modal>
   </div>
 </template>
 
 <script setup>
 import AppModal from '@/components/shared/AppModal.vue'
+import AppAddress from '@/components/header/AppAddress.vue';
 
 const location = ref({
   city: 'London',
