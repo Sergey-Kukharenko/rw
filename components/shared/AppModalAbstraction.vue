@@ -51,7 +51,6 @@ useEventListener(window, 'keyup', handleKeyup)
   &__content {
     position: relative;
     background-color: #fff;
-    padding: 1rem;
     border-radius: 0.3rem;
     z-index: 2;
 
@@ -68,19 +67,21 @@ useEventListener(window, 'keyup', handleKeyup)
 
 .button {
   position: absolute;
-  right: 0;
   top: 0;
+  right: -62px;
   color: #8b8b8b;
-  padding: 16px;
+  padding: 20px;
+  background: rgb(0 0 0 / 50%);
+  border-radius: 50%;
 
   &:hover {
     color: darken(#8b8b8b, 20%);
   }
 
   &__icon {
-    width: 18px;
-    height: 18px;
-    color: inherit;
+    height: 16px;
+    width: 16px;
+    color: #fff;
     fill: currentColor;
   }
 }

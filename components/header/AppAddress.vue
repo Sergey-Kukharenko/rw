@@ -16,15 +16,17 @@
           v-model="query"
         />
 
-        <div class="list">
-          <div
-            class="list__item"
-            v-for="(item, idx) in list"
-            :key="idx"
-            @click="handleClick(item)"
-          >
-            <div class="text">{{ item.display_name }}</div>
-            <div class="text text--grey">{{ item.display_name }}</div>
+        <div class="container__section">
+          <div class="list">
+            <div
+              class="list__item"
+              v-for="(item, idx) in list"
+              :key="idx"
+              @click="onChange(item)"
+            >
+              <div class="title">{{ item.admin_0 }}</div>
+              <div class="subtitle">{{ item.description }}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -36,26 +38,48 @@
 const query = ref('')
 const list = ref([])
 
-const handleClick = (item) => {
-  console.log(item.display_name)
+const emit = defineEmits(['setLocation'])
+const onChange = (item) => {
+  emit('setLocation', { city: item.admin_0, description: item.description })
 }
+
+function buildQueryString(params) {
+  const queryStringParts = []
+
+  for (let key in params) {
+    if (params.hasOwnProperty(key)) {
+      queryStringParts.push(
+        `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
+      )
+    }
+  }
+
+  return queryStringParts.join('&')
+}
+const url = 'https://api.woosmap.com/localities/autocomplete/'
+const args = {
+  key: 'woos-81a699ca-5082-3ffd-9f54-a684a4b82853',
+  types: 'postal_code',
+  components: 'country:gb|country:je|country:im|country:gg'
+}
+const params = buildQueryString(args)
+const fullUrl = `${url}?${params}`
 
 watchEffect(async () => {
   if (query.value) {
-    const { data } = await useFetch(
-      'https://nominatim.openstreetmap.org/search/' +
-        query.value +
-        '?format=json'
-    )
-    list.value = data.value
+    useDebounce(async () => {
+      const { data } = await useFetch(`${fullUrl}&input=${query.value}`)
+      list.value = data.value.localities
+    }, 300)()
+  } else {
+    list.value = []
   }
 })
 </script>
 
 <style lang="scss" scoped>
 .container {
-  width: 508px;
-  height: 400px;
+  padding-top: 18px;
   box-sizing: border-box;
 
   &__layout {
@@ -69,6 +93,25 @@ watchEffect(async () => {
 
   &__body {
     margin-top: 24px;
+  }
+
+  &__section {
+    position: relative;
+
+    &:after {
+      content: ' ';
+      height: 32px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(
+        180deg,
+        transparent,
+        rgb(255 255 255 / 95%) 50%
+      );
+      z-index: 1;
+    }
   }
 }
 
@@ -93,9 +136,9 @@ watchEffect(async () => {
 }
 
 .list {
-  height: 279px;
+  height: 233px;
   overflow-y: auto;
-  margin: 20px 0 0;
+  margin: 24px 0 0;
   overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;
 
@@ -104,17 +147,29 @@ watchEffect(async () => {
   }
 
   &__item {
-    padding: 10px 0;
+    margin: 10px 0;
+    cursor: pointer;
+
+    &:hover {
+      background: $bg-grey;
+    }
   }
 
   &__item {
     &:first-child {
-      padding-top: 0;
+      margin-top: 0;
+    }
+  }
+
+  &__item {
+    &:last-child {
+      margin-bottom: 10px;
     }
   }
 }
 
-.text {
+.title,
+.subtitle {
   font-family: $golos-regular;
   font-size: 16px;
   line-height: 22px;
@@ -122,5 +177,10 @@ watchEffect(async () => {
   &--grey {
     color: $color-white-grey;
   }
+}
+
+.subtitle {
+  font-size: 14px;
+  color: $color-white-grey;
 }
 </style>

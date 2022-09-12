@@ -5,7 +5,7 @@
         <SvgSprite symbol="location" class="icon__location" />
       </div>
       <div class="location__description description">
-        <div class="description__text">{{ location.text }}</div>
+        <div class="description__text">{{ location.description }}</div>
         <div class="description__title">{{ location.city }}</div>
       </div>
       <div class="location-button__icon icon">
@@ -14,7 +14,7 @@
     </div>
 
     <app-modal :visible="isVisible" @close="isVisible = false">
-      <app-address/>
+      <app-address @setLocation="onSetLocation"/>
     </app-modal>
   </div>
 </template>
@@ -25,9 +25,14 @@ import AppAddress from '@/components/header/AppAddress.vue';
 
 const location = ref({
   city: 'London',
-  text: 'Flower delivery to'
+  description: 'Flower delivery to'
 })
 const isVisible = ref(false)
+
+const onSetLocation = (payload) => {
+  location.value = payload
+  isVisible.value = false
+}
 </script>
 
 <style lang="scss" scoped>
