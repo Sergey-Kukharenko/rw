@@ -5,8 +5,11 @@
         <SvgSprite symbol="location" class="icon__location" />
       </div>
       <div class="location__description description">
-        <div class="description__text">{{ location.description }}</div>
-        <div class="description__title">{{ location.city }}</div>
+        <div class="description__text">Flower delivery to</div>
+        <div class="description__title">
+          <template v-if="location.address">{{ location.address }},</template>
+          {{ location.city }}
+        </div>
       </div>
       <div class="location-button__icon icon">
         <SvgSprite symbol="arrow" class="icon__arrow" />
@@ -25,7 +28,7 @@ import AppAddress from '@/components/header/AppAddress.vue';
 
 const location = ref({
   city: 'London',
-  description: 'Flower delivery to'
+  address: ''
 })
 const isVisible = ref(false)
 
