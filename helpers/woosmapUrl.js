@@ -16,6 +16,7 @@ export function woosmapUrl () {
   const args = {
     key: 'woos-81a699ca-5082-3ffd-9f54-a684a4b82853',
     types: 'postal_code',
+    language: 'en',
     components: 'country:gb|country:je|country:im|country:gg'
   }
   const params = buildQueryString(args)

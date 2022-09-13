@@ -5,31 +5,35 @@
         <SvgSprite symbol="location" class="icon__location" />
       </div>
       <div class="location__description description">
-        <div class="description__text">Flower delivery to</div>
+        <div class="description__text">
+          <template v-if="location.address">Flower delivery to</template>
+          <template v-else>Free London delivery</template>
+        </div>
         <div class="description__title">
-          <template v-if="location.address">{{ location.address }},</template>
-          {{ location.city }}
+          <template v-if="location.address">{{ location.address }}, {{ location.city }}</template>
+          <template v-else>Type your address</template>
         </div>
       </div>
       <div class="location-button__icon icon">
-        <SvgSprite symbol="arrow" class="icon__arrow" />
+        <SvgSprite symbol="pencil" class="icon__pencil" />
       </div>
     </div>
 
     <app-modal :visible="isVisible" @close="isVisible = false">
-      <app-address @setLocation="onSetLocation"/>
+      <app-address @setLocation="onSetLocation" />
     </app-modal>
   </div>
 </template>
 
 <script setup>
 import AppModal from '@/components/shared/AppModal.vue'
-import AppAddress from '@/components/header/AppAddress.vue';
+import AppAddress from '@/components/header/address/AppAddress.vue'
 
 const location = ref({
   city: 'London',
   address: ''
-})
+});
+
 const isVisible = ref(false)
 
 const onSetLocation = (payload) => {
@@ -50,6 +54,15 @@ const onSetLocation = (payload) => {
     border-radius: 12px;
     box-sizing: border-box;
     cursor: pointer;
+    transition: background 0.25s ease 0s;
+
+    &:hover {
+      background: #e4f8ea;
+
+      & .description__title {
+        color: $color-dark-green;
+      }
+    }
   }
 
   @include lt-md {
@@ -72,6 +85,7 @@ const onSetLocation = (payload) => {
     font-family: $golos-regular;
     font-size: 11px;
     line-height: 14px;
+    color: $color-white-grey;
   }
 
   &__title {
@@ -80,6 +94,7 @@ const onSetLocation = (payload) => {
     line-height: 20px;
     color: $color-dark-grey;
     margin: 0 0;
+    transition: color 0.25s ease 0s;
   }
 }
 
@@ -90,9 +105,9 @@ const onSetLocation = (payload) => {
     fill: $color-dark-green;
   }
 
-  &__arrow {
-    width: 11px;
-    height: 6px;
+  &__pencil {
+    width: 16px;
+    height: 16px;
     fill: $color-dark-grey;
   }
 }
