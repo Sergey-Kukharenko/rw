@@ -1,5 +1,6 @@
 <template>
   <input
+    autocomplete="off"
     type="text"
     name="name"
     placeholder="Start typing a post code, street or address"

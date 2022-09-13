@@ -6,12 +6,10 @@
       </div>
       <div class="location__description description">
         <div class="description__text">
-          <template v-if="location.address">Flower delivery to</template>
-          <template v-else>Free London delivery</template>
+          {{ getDescription }}
         </div>
         <div class="description__title">
-          <template v-if="location.address">{{ location.address }}, {{ location.city }}</template>
-          <template v-else>Type your address</template>
+          {{ getTitle }}
         </div>
       </div>
       <div class="location-button__icon icon">
@@ -32,10 +30,19 @@ import AppAddress from '@/components/header/address/AppAddress.vue'
 const location = ref({
   city: 'London',
   address: ''
-});
+})
+
+const getTitle = computed(() =>
+  location.value.address
+    ? `${location.value.address}, ${location.value.city}`
+    : 'Type your address'
+)
+
+const getDescription = computed(() =>
+  location.value.address ? 'Flower delivery to' : 'Free London delivery'
+)
 
 const isVisible = ref(false)
-
 const onSetLocation = (payload) => {
   location.value = payload
   isVisible.value = false
