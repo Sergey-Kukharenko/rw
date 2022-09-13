@@ -16,7 +16,7 @@
           v-model="query"
         />
 
-        <div class="container__section">
+        <div class="container__section" v-show="isList">
           <div class="list">
             <div
               class="list__item"
@@ -35,31 +35,29 @@
 </template>
 
 <script setup>
-import {woosmapUrl} from '../../helpers/woosmapUrl';
+import { woosmapUrl } from '@/helpers/woosmapUrl'
 
 const query = ref('')
 const list = ref([])
+const isList = computed(() => list.value.length > 0)
 
 const emit = defineEmits(['setLocation'])
 const onChange = (item) => {
   emit('setLocation', { city: item.admin_0, description: item.description })
 }
 
-
 const fullUrl = woosmapUrl()
-
 watchEffect(async () => {
   if (query.value) {
-    const {data} = await useFetch(`${fullUrl}&input=${query.value}`)
+    const { data } = await useFetch(`${fullUrl}&input=${query.value}`)
     list.value = data.value.localities
-  } else {
-    list.value = []
   }
 })
 </script>
 
 <style lang="scss" scoped>
 .container {
+  min-height: 400px;
   padding-top: 18px;
   box-sizing: border-box;
 
