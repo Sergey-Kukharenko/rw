@@ -35,46 +35,27 @@
 </template>
 
 <script setup>
-const query = ref('');
-const list = ref([]);
+import {woosmapUrl} from '../../helpers/woosmapUrl';
 
-const emit = defineEmits(['setLocation']);
+const query = ref('')
+const list = ref([])
+
+const emit = defineEmits(['setLocation'])
 const onChange = (item) => {
-  emit('setLocation', {city: item.admin_0, description: item.description});
-};
-
-function buildQueryString(params) {
-  const queryStringParts = [];
-
-  for (let key in params) {
-    if (params.hasOwnProperty(key)) {
-      queryStringParts.push(
-        `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
-      );
-    }
-  }
-
-  return queryStringParts.join('&');
+  emit('setLocation', { city: item.admin_0, description: item.description })
 }
-const url = 'https://api.woosmap.com/localities/autocomplete/';
-const args = {
-  key: 'woos-81a699ca-5082-3ffd-9f54-a684a4b82853',
-  types: 'postal_code',
-  components: 'country:gb|country:je|country:im|country:gg'
-};
-const params = buildQueryString(args);
-const fullUrl = `${url}?${params}`;
+
+
+const fullUrl = woosmapUrl()
 
 watchEffect(async () => {
   if (query.value) {
-    useDebounce(async () => {
-      const {data} = await useFetch(`${fullUrl}&input=${query.value}`);
-      list.value = data.value.localities;
-    }, 300)();
+    const {data} = await useFetch(`${fullUrl}&input=${query.value}`)
+    list.value = data.value.localities
   } else {
-    list.value = [];
+    list.value = []
   }
-});
+})
 </script>
 
 <style lang="scss" scoped>
@@ -106,9 +87,9 @@ watchEffect(async () => {
       left: 0;
       right: 0;
       background: linear-gradient(
-          180deg,
-          transparent,
-          rgb(255 255 255 / 95%) 50%
+        180deg,
+        transparent,
+        hsl(0deg 0% 100% / 85%) 50%
       );
       z-index: 1;
     }
@@ -156,7 +137,8 @@ watchEffect(async () => {
     &:hover {
       background: $bg-grey;
 
-      & .title, & .subtitle {
+      & .title,
+      & .subtitle {
         transform: translateX(16px);
       }
     }
@@ -181,7 +163,7 @@ watchEffect(async () => {
   font-size: 16px;
   line-height: 22px;
   transform: translateX(0);
-  transition: transform 0.2s ease 0.05s;
+  transition: transform 0.2s ease 0.025s;
 
   &--grey {
     color: $color-white-grey;
@@ -191,6 +173,6 @@ watchEffect(async () => {
 .subtitle {
   font-size: 14px;
   color: $color-white-grey;
-  transition: transform 0.2s ease 0.1s;
+  transition: transform 0.2s ease 0.05s;
 }
 </style>
