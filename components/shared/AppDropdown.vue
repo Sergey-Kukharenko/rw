@@ -25,7 +25,6 @@ const close = () => (isVisible.value = false)
     position: absolute;
     width: 100%;
     background: #fff;
-    padding: 0.5rem;
     margin-top: 10px;
     border-radius: 0.5rem;
     box-sizing: border-box;

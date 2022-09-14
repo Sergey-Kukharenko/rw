@@ -3,13 +3,10 @@
     <app-dropdown>
       <template #button>
         <div class="card">
-          <figure class="card__figure">
-            <SvgSprite
-              symbol="profile"
-              class="card__icon"
-            />
-          </figure>
-          <figcaption class="card__figcaption">Log in / Register</figcaption>
+          <div class="card__figure">
+            <SvgSprite symbol="profile" class="card__icon" />
+          </div>
+          <div class="card__figcaption">Log in / Register</div>
         </div>
       </template>
       <template #dropdown>
