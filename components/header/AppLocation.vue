@@ -18,7 +18,7 @@
     </div>
 
     <app-modal :visible="isVisible" @close="isVisible = false">
-      <app-address @setLocation="onSetLocation" />
+      <app-address />
     </app-modal>
   </div>
 </template>
@@ -43,10 +43,15 @@ const getDescription = computed(() =>
 )
 
 const isVisible = ref(false)
-const onSetLocation = (payload) => {
+
+const updateLocation = (payload) => {
   location.value = payload
   isVisible.value = false
 }
+
+provide('location', {
+  updateLocation
+})
 </script>
 
 <style lang="scss" scoped>
@@ -56,15 +61,15 @@ const onSetLocation = (payload) => {
     align-items: center;
     justify-content: space-between;
     width: 245px;
-    background: $bg-grey;
+    background-color: $bg-grey;
     padding: 7px 17px;
     border-radius: 12px;
     box-sizing: border-box;
     cursor: pointer;
-    transition: background 0.25s ease 0s;
+    transition: background-color 0.25s ease 0s;
 
     &:hover {
-      background: #e4f8ea;
+      background-color: #e4f8ea;
 
       & .description__title {
         color: $color-dark-green;

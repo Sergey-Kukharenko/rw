@@ -22,10 +22,10 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['setChange'])
+const { updateLocation } = inject('location')
 
 const onChange = (item) => {
-  emit('setChange', { city: 'London', address: item.name })
+  updateLocation({ city: 'London', address: item.name })
 }
 </script>
 
@@ -41,9 +41,9 @@ const onChange = (item) => {
     left: 0;
     right: 0;
     background: linear-gradient(
-        180deg,
-        transparent,
-        hsl(0deg 0% 100% / 85%) 50%
+      180deg,
+      transparent,
+      hsl(0deg 0% 100% / 85%) 50%
     );
     z-index: 1;
   }

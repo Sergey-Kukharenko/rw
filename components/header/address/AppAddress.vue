@@ -9,7 +9,7 @@
     <div class="container__body">
       <div class="container__layout">
         <app-input v-model:query="query" />
-        <app-list :list="list" @setChange="onChange" />
+        <app-list :list="list" />
       </div>
     </div>
   </div>
@@ -22,12 +22,6 @@ import { woosmapUrl } from '@/helpers/woosmapUrl'
 
 const query = ref('')
 const list = ref([])
-
-const emit = defineEmits(['setLocation'])
-const onChange = (item) => {
-  emit('setLocation', item)
-}
-
 const fullUrl = woosmapUrl()
 
 watchEffect(async () => {
