@@ -4,15 +4,30 @@
       <slot name="button"> </slot>
     </div>
 
-    <div v-show="isVisible" class="dropdown__container">
+    <div v-show="isVisible" v-bind="style" class="dropdown__container">
       <slot name="dropdown"> </slot>
     </div>
   </div>
 </template>
 
 <script setup>
+const props = defineProps({
+  right: {
+    type: String,
+    default: ''
+  }
+})
+
 const isVisible = ref(false)
 const close = () => (isVisible.value = false)
+
+const style = computed(() => {
+  return {
+    style: {
+      right: props.right ? props.right + 'px' : null
+    }
+  }
+})
 </script>
 
 <style lang="scss" scoped>
@@ -23,7 +38,6 @@ const close = () => (isVisible.value = false)
 
   &__container {
     position: absolute;
-    width: 100%;
     background: #fff;
     margin-top: 10px;
     border-radius: 0.5rem;

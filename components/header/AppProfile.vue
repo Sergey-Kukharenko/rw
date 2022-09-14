@@ -1,6 +1,6 @@
 <template>
   <div class="profile">
-    <app-dropdown>
+    <app-dropdown right="0">
       <template #button>
         <div class="card">
           <div class="card__figure">
@@ -10,14 +10,19 @@
         </div>
       </template>
       <template #dropdown>
-        <div>dropdown content</div>
+        <app-profile-preview />
       </template>
     </app-dropdown>
   </div>
 </template>
 
 <script setup>
+import dataUser from '@/data/user'
 import AppDropdown from '@/components/shared/AppDropdown.vue'
+import AppProfilePreview from '@/components/header/profile/AppProfilePreview.vue'
+
+const user = ref(dataUser)
+const char = computed(() => user.value.fullName.substring(0, 1))
 </script>
 
 <style lang="scss" scoped>
@@ -86,5 +91,10 @@ import AppDropdown from '@/components/shared/AppDropdown.vue'
   &:hover {
     opacity: 0.75;
   }
+}
+
+.profile__dropdown {
+  top: 0;
+  right: 0;
 }
 </style>

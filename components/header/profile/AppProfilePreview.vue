@@ -66,21 +66,8 @@ const settings = [
 .container {
   width: 320px;
   height: 290px;
-  background: #ccc;
+  background: #fff;
   border-radius: 10px;
-
-  background: -webkit-linear-gradient(
-    to right,
-    #f64f59,
-    #c471ed,
-    #12c2e9
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #f64f59,
-    #c471ed,
-    #12c2e9
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   &__header {
     padding: 18px 20px;
@@ -128,7 +115,6 @@ const settings = [
     cursor: pointer;
     border-radius: 10px;
     box-shadow: 0 0 0 #00000000;
-    transition: background-color 0.2s ease 0s, box-shadow 0.2s ease 0s;
 
     &:last-child {
       color: #db1838;
@@ -136,7 +122,7 @@ const settings = [
 
     &:hover {
       background-color: #ffffff6b;
-      box-shadow: 0px 1px 4px #00000029;
+      box-shadow: 0 1px 4px #00000029;
     }
   }
 }
