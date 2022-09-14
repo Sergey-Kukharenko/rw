@@ -6,7 +6,7 @@
         <slot/>
         <app-footer/>
 
-<!--    <app-profile />-->
+<!--    <app-profile-preview />-->
   </div>
 </template>
 
@@ -16,9 +16,9 @@ import AppHeaderMobile from '@/components/header/AppHeaderMobile.vue'
 import AppBreadcrumbs from '@/components/shared/AppBreadcrumbs.vue'
 import AppFooter from '@/components/footer/AppFooter.vue'
 
-import AppProfile from '@/components/header/profile/AppProfile.vue'
 
 import { useIsDevice } from '@/composables/states'
+import AppProfilePreview from '@/components/header/profile/AppProfilePreview';
 
 const isDevice = useIsDevice()
 </script>

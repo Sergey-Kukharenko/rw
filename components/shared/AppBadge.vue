@@ -92,6 +92,28 @@ const classNames = computed(() => useClassName(props, 'badge'))
       }
     }
   }
+
+  &--sm {
+    font-family: $golos-medium;
+    color: #FCBC00;
+    line-height: 16px;
+
+    @include gt-xs {
+      font-size: 12px;
+      padding: 4px 9px;
+
+      .icon {
+        width: 12px;
+        height: 12px;
+        margin-right: 5px;
+      }
+    }
+
+    @include xs {
+      font-size: 10px;
+      padding: 2px 7px;
+    }
+  }
 }
 
 .icon {

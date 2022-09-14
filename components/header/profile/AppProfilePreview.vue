@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <div class="container__header">
-      <div class="user">
-        <div class="user__figure">{{ char }}</div>
-        <div class="user__figcaption">{{ user.fullName }}</div>
+      <div class="avatar">
+        <div class="avatar__figure">{{ char }}</div>
+        <div class="avatar__figcaption">{{ user.fullName }}</div>
       </div>
     </div>
     <div class="container__body">
@@ -11,6 +11,15 @@
         <div v-for="item in settings" :key="item" class="list__item">
           <SvgSprite :symbol="item.icon" :class="item.name" class="icon" />
           <div class="text">{{ item.text }}</div>
+          <app-badge
+            v-if="item.name === 'bonuses'"
+            theme="yellow"
+            size="sm"
+            icon="cashback"
+            class="badge"
+          >
+            {{ user.bonuses }}
+          </app-badge>
         </div>
       </div>
     </div>
@@ -18,38 +27,37 @@
 </template>
 
 <script setup>
-const user = ref({
-  authorized: true,
-  fullName: 'Alfred Penniworth'
-})
+import AppBadge from '@/components/shared/AppBadge.vue'
+import dataUser from '@/data/user'
 
+const user = ref(dataUser)
 const char = computed(() => user.value.fullName.substring(0, 1))
 
 const settings = [
   {
     icon: 'bonuses-black',
     text: 'Your bonuses',
-    includeComponent: true
+    name: 'bonuses'
   },
   {
     icon: 'bag-md',
     text: 'Your orders',
-    includeComponent: false
+    name: 'orders'
   },
   {
     icon: 'user',
     text: 'Personal data',
-    includeComponent: false
+    name: 'data'
   },
   {
     icon: 'filter',
     text: 'Notification settings',
-    includeComponent: false
+    name: 'settings'
   },
   {
     icon: 'logout',
     text: 'Log out',
-    includeComponent: false
+    name: 'logout'
   }
 ]
 </script>
@@ -61,7 +69,6 @@ const settings = [
   background: #ccc;
   border-radius: 10px;
 
-  background: #12c2e9; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
     #f64f59,
@@ -81,11 +88,11 @@ const settings = [
   }
 
   &__body {
-    padding: 20px 40px;
+    padding: 8px 20px 16px;
   }
 }
 
-.user {
+.avatar {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -117,6 +124,20 @@ const settings = [
 .list {
   &__item {
     display: flex;
+    padding: 6px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 0 0 #00000000;
+    transition: background-color 0.2s ease 0s, box-shadow 0.2s ease 0s;
+
+    &:last-child {
+      color: #db1838;
+    }
+
+    &:hover {
+      background-color: #ffffff6b;
+      box-shadow: 0px 1px 4px #00000029;
+    }
   }
 }
 
@@ -131,5 +152,9 @@ const settings = [
   font-size: 16px;
   line-height: 24px;
   padding: 0 12px;
+}
+
+.badge {
+  border-radius: 24px;
 }
 </style>
