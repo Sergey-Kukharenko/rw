@@ -1,11 +1,16 @@
 <template>
   <div v-click-outside="close" class="dropdown">
-    <div class="dropdown__header" @click="isVisible = true">
+    <div class="dropdown__header" @click="open">
       <slot name="button"> </slot>
     </div>
 
-    <div v-show="isVisible" :style="options" class="dropdown__container">
-      <slot name="dropdown"> </slot>
+    <div
+      v-show="isVisible"
+      :style="options"
+      @click="close"
+      class="dropdown__container"
+    >
+      <slot name="dropdown" />
     </div>
   </div>
 </template>
@@ -19,6 +24,7 @@ const props = defineProps({
 })
 
 const isVisible = ref(false)
+const open = () => (isVisible.value = true)
 const close = () => (isVisible.value = false)
 </script>
 

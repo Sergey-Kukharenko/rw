@@ -12,11 +12,14 @@
       >
         {{ props.user.bonuses }}
       </app-badge>
+
+      <div v-if="item.hasBtn" @click="logOut" class="absolute-grow" />
     </div>
   </div>
 </template>
 
 <script setup>
+import { useUserStore } from '@/stores/useUserStore'
 import AppBadge from '@/components/shared/AppBadge.vue'
 
 const props = defineProps({
@@ -30,29 +33,37 @@ const settings = [
   {
     icon: 'bonuses-black',
     text: 'Your bonuses',
+    to: '',
     name: 'bonuses'
   },
   {
     icon: 'bag-md',
+    to: '',
     text: 'Your orders',
     name: 'orders'
   },
   {
     icon: 'user',
+    to: '',
     text: 'Personal data',
     name: 'data'
   },
   {
     icon: 'filter',
+    to: '',
     text: 'Notification settings',
     name: 'settings'
   },
   {
     icon: 'logout',
+    hasBtn: true,
     text: 'Log out',
     name: 'logout'
   }
 ]
+const store = useUserStore()
+
+const logOut = () => store.update(false)
 </script>
 
 <style lang="scss" scoped>
@@ -61,6 +72,7 @@ const settings = [
 
   &__item {
     display: flex;
+    position: relative;
     padding: 6px 20px;
     border-radius: 10px;
     box-shadow: 0 0 0 #00000000;
