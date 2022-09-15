@@ -4,7 +4,7 @@
       <slot name="button"> </slot>
     </div>
 
-    <div v-show="isVisible" v-bind="style" class="dropdown__container">
+    <div v-show="isVisible" :style="options" class="dropdown__container">
       <slot name="dropdown"> </slot>
     </div>
   </div>
@@ -12,22 +12,14 @@
 
 <script setup>
 const props = defineProps({
-  right: {
-    type: String,
-    default: ''
+  options: {
+    type: Object,
+    default: () => ({})
   }
 })
 
 const isVisible = ref(false)
 const close = () => (isVisible.value = false)
-
-const style = computed(() => {
-  return {
-    style: {
-      right: props.right ? props.right + 'px' : null
-    }
-  }
-})
 </script>
 
 <style lang="scss" scoped>

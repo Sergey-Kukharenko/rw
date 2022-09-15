@@ -1,6 +1,6 @@
 <template>
   <div class="profile">
-    <app-dropdown right="0">
+    <app-dropdown :options="options">
       <template #button>
         <div class="card">
           <div class="card__figure">
@@ -10,7 +10,7 @@
         </div>
       </template>
       <template #dropdown>
-        <app-profile-preview />
+        <app-profile-preview :user="user" />
       </template>
     </app-dropdown>
   </div>
@@ -23,6 +23,11 @@ import AppProfilePreview from '@/components/header/profile/AppProfilePreview.vue
 
 const user = ref(dataUser)
 const char = computed(() => user.value.fullName.substring(0, 1))
+
+const options = {
+  top: '-20px',
+  right: 0
+}
 </script>
 
 <style lang="scss" scoped>
