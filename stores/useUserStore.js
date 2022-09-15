@@ -7,9 +7,9 @@ export const useUserStore = defineStore('user', () => {
     bonuses: '1 280'
   });
 
-  const update = (payload) => {
-    user.value.authorized = payload
-  };
+  const logIn = () => user.value.authorized = true;
 
-  return {user, update};
+  const logOut = () => user.value.authorized = false
+
+  return {user, logIn, logOut};
 });

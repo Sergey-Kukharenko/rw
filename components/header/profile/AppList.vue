@@ -63,7 +63,7 @@ const settings = [
 ]
 const store = useUserStore()
 
-const logOut = () => store.update(false)
+const logOut = () => store.logOut()
 </script>
 
 <style lang="scss" scoped>

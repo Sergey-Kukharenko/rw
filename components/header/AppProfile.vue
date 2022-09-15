@@ -8,7 +8,7 @@
         <app-profile-preview v-if="user.authorized" :user="user" />
         <div v-else class="profile-form">
           <h1>Will be form ...</h1>
-          <button @click="store.update(true)" class="profile-form__button">
+          <button @click="store.logIn()" class="profile-form__button">
             log in
           </button>
         </div>
