@@ -27,6 +27,7 @@ const fullUrl = woosmapUrl()
 watchEffect(async () => {
   if (query.value) {
     const { data } = await useFetch(`${fullUrl}&input=${query.value}`)
+    console.log(data.value);
     list.value = data.value.localities
   } else {
     list.value = []

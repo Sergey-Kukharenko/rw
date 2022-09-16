@@ -143,5 +143,49 @@ const classNames = computed(() => useClassName(props, 'button'))
   &--full {
     width: 100%;
   }
+
+  &--lg {
+    @include gt-sm {
+      font-size: 16px;
+      padding: 14px 16px;
+      min-height: 50px;
+    }
+
+    @include lt-md {
+      display: flex;
+      min-width: 32px;
+      min-height: 32px;
+      padding: 2px;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    & ::v-slotted(svg) {
+      @include gt-sm {
+        display: none;
+      }
+
+      @include lt-md {
+        display: block;
+        margin: auto;
+      }
+    }
+
+    & ::v-slotted(svg + span) {
+      @include gt-sm {
+        display: block;
+      }
+
+      @include lt-md {
+        display: none;
+      }
+    }
+  }
+
+  &--search {
+    min-width: 160px;
+    border-radius: 12px;
+    box-sizing: border-box;
+  }
 }
 </style>

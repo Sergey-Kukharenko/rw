@@ -3,13 +3,13 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
   app: {
     head: {
-      title: 'Nuxt 3',
-      titleTemplate: '%s - Nuxt 3 description',
+      title: 'title',
+      titleTemplate: 'description',
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: 'Nuxt 3 Awesome Starter'
+          content: 'content'
         }
       ],
       link: [
