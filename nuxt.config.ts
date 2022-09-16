@@ -3,12 +3,12 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
   app: {
     head: {
-      title: 'title',
-      titleTemplate: 'description',
+      title: 'App',
+      titleTemplate: 'App',
       meta: [
         {
-          hid: 'description',
-          name: 'description',
+          hid: 'hid',
+          name: 'name',
           content: 'content'
         }
       ],

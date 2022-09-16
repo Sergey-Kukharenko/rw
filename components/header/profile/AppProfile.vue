@@ -30,5 +30,5 @@ const options = {
   right: 0
 }
 
-const getOptions = computed(() => !isDevice.value && options)
+const getOptions = computed(() => !isDevice.value ? options : null)
 </script>
