@@ -1,13 +1,13 @@
 <template>
   <div class="profile-preview">
-    <app-header :user="user" />
-    <app-list :user="user" />
+    <app-profile-header :user="user" />
+    <app-profile-list :user="user" />
   </div>
 </template>
 
 <script setup>
-import AppHeader from './AppHeader.vue'
-import AppList from './AppList.vue'
+import AppProfileHeader from './AppProfileHeader.vue'
+import AppProfileList from './AppProfileList.vue'
 
 const props = defineProps({
   user: {
@@ -19,7 +19,12 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .profile-preview {
-  width: 320px;
-  height: 290px;
+  @include gt-sm {
+    width: 320px;
+  }
+
+  @include lt-md {
+    width: 290px;
+  }
 }
 </style>

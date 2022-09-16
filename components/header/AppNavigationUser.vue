@@ -15,7 +15,7 @@
 <script setup>
 import AppFavorite from '@/components/header/AppFavorite'
 import AppCart from '@/components/header/AppCart.vue'
-import AppProfile from '@/components/header/AppProfile.vue'
+import AppProfile from '@/components/header/profile/AppProfile.vue'
 </script>
 
 <style lang="scss" scoped>
@@ -79,5 +79,4 @@ import AppProfile from '@/components/header/AppProfile.vue'
     opacity: 0.75;
   }
 }
-
 </style>

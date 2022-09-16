@@ -14,9 +14,18 @@ const user = computed(() => store.user)
 
 <style lang="scss" scoped>
 .profile-form {
-  height: 290px;
-  width: 320px;
   padding: 18px 20px;
+  box-sizing: border-box;
+
+  @include gt-sm {
+    width: 320px;
+  }
+
+  @include lt-md {
+    width: 290px;
+    padding: 18px 20px;
+    box-sizing: border-box;
+  }
 
   &__button {
     color: #fff;
