@@ -25,6 +25,8 @@ const props = defineProps({
 
   @include lt-md {
     width: 290px;
+    padding: 18px 0px;
+    box-sizing: border-box;
   }
 }
 </style>

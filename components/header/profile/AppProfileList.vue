@@ -78,6 +78,14 @@ const logOut = () => store.logOut()
     box-shadow: 0 0 0 #00000000;
     cursor: pointer;
 
+    @include gt-sm {
+      padding: 6px 20px;
+    }
+
+    @include lt-md {
+      padding: 6px 0;
+    }
+
     &:last-child {
       color: #db1838;
     }
