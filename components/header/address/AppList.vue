@@ -24,8 +24,8 @@ const props = defineProps({
 
 const { updateLocation } = inject('location')
 
-const onChange = (item) => {
-  updateLocation(item)
+const onChange = ({address, city}) => {
+  updateLocation({address, city})
 }
 </script>
 

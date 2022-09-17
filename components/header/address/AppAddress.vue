@@ -25,17 +25,17 @@ const list = ref([])
 const fullUrl = woosmapUrl()
 
 const transformArray = (arr) => {
-  return arr.map(x => {
-    const str = x.description
-    const newArr = str.split(',')
-    newArr.splice(-1,1)
+  return arr.map(item => {
+    const newArr = item.description.split(',');
+    const country = newArr.splice(-1, 1);
 
     return {
       city: newArr.splice(-2).join().trim(),
       address: newArr.join(),
-    }
-  })
-}
+      country: country.join().trim()
+    };
+  });
+};
 
 watchEffect(async () => {
   if (query.value) {
