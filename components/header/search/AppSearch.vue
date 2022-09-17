@@ -24,7 +24,6 @@
               @click="store.removeFromHistory(item)"
             >
               {{ item }}
-
             </div>
           </div>
         </div>
@@ -107,7 +106,7 @@ const searchHistory = computed(() => store.user.searchHistory)
     padding: 4px 8px;
     cursor: pointer;
 
-    &:hover{
+    &:hover {
       background: $bg-grey;
       border-radius: 10px;
     }

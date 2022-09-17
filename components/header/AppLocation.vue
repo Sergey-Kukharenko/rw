@@ -34,7 +34,7 @@ const location = ref({
 
 const getTitle = computed(() =>
   location.value.address
-    ? `${location.value.address}, ${location.value.city}`
+    ? `${location.value.city}`
     : 'Type your address'
 )
 

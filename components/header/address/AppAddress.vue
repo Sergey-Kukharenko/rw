@@ -24,11 +24,23 @@ const query = ref('')
 const list = ref([])
 const fullUrl = woosmapUrl()
 
+const transformArray = (arr) => {
+  return arr.map(x => {
+    const str = x.description
+    const newArr = str.split(',')
+    newArr.splice(-1,1)
+
+    return {
+      city: newArr.splice(-2).join().trim(),
+      address: newArr.join(),
+    }
+  })
+}
+
 watchEffect(async () => {
   if (query.value) {
     const { data } = await useFetch(`${fullUrl}&input=${query.value}`)
-    console.log(data.value);
-    list.value = data.value.localities
+    list.value = transformArray(data.value.localities)
   } else {
     list.value = []
   }

@@ -7,8 +7,8 @@
         :key="idx"
         @click="onChange(item)"
       >
-        <div class="title">{{ item.admin_0 }}</div>
-        <div class="subtitle">{{ item.description }}</div>
+        <div class="title">{{ item.address }}</div>
+        <div class="subtitle">{{ item.city }}</div>
       </div>
     </div>
   </div>
@@ -25,7 +25,7 @@ const props = defineProps({
 const { updateLocation } = inject('location')
 
 const onChange = (item) => {
-  updateLocation({ city: 'London', address: item.name })
+  updateLocation(item)
 }
 </script>
 

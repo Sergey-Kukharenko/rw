@@ -15,7 +15,7 @@ export function woosmapUrl () {
   const url = 'https://api.woosmap.com/localities/autocomplete/'
   const args = {
     key: 'woos-81a699ca-5082-3ffd-9f54-a684a4b82853',
-    types: 'postal_code',
+    types: 'address',
     // types: 'postal_code|address',
     language: 'en',
     components: 'country:gb|country:je|country:im|country:gg'
