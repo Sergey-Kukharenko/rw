@@ -18,32 +18,13 @@
 <script setup>
 import AppInput from './AppInput'
 import AppList from './AppList'
-import { woosmapUrl } from '@/helpers/woosmapUrl'
+import { woosMapService } from '@/helpers/woosMapService'
 
 const query = ref('')
 const list = ref([])
-const fullUrl = woosmapUrl()
-
-const transformArray = (arr) => {
-  return arr.map(item => {
-    const newArr = item.description.split(',');
-    const country = newArr.splice(-1, 1);
-
-    return {
-      city: newArr.splice(-2).join().trim(),
-      address: newArr.join(),
-      country: country.join().trim()
-    };
-  });
-};
 
 watchEffect(async () => {
-  if (query.value) {
-    const { data } = await useFetch(`${fullUrl}&input=${query.value}`)
-    list.value = transformArray(data.value.localities)
-  } else {
-    list.value = []
-  }
+  list.value = query.value ? await woosMapService(query.value) : []
 })
 </script>
 
