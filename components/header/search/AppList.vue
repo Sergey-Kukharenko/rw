@@ -1,7 +1,7 @@
 <template>
   <div class="list">
     <div class="list__item" v-for="(item, idx) in props.list" :key="idx">
-      <span @click="add(item)">{{ item }}</span>
+      <span @click="add(item)" class="text">{{ item }}</span>
       <SvgSprite
         v-if="hasRemoveBtn"
         symbol="close"
@@ -13,8 +13,6 @@
 </template>
 
 <script setup>
-import { useUserStore } from '@/stores/useUserStore'
-
 const props = defineProps({
   list: {
     type: Array,
@@ -27,16 +25,11 @@ const props = defineProps({
   }
 })
 
-const store = useUserStore()
 const emit = defineEmits(['addItem', 'removeItem'])
 
-const add = (item) => {
-  emit('addItem', item)
-}
+const add = (item) => emit('addItem', item)
 
-const remove = (item) => {
-  emit('removeItem', item)
-}
+const remove = (item) => emit('removeItem', item)
 </script>
 
 <style lang="scss" scoped>
@@ -73,5 +66,9 @@ const remove = (item) => {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+.text {
+  display: block;
 }
 </style>
