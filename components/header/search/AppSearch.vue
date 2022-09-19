@@ -17,7 +17,11 @@
       <div class="section" v-show="isSearchHistory">
         <div class="section__title">Search history</div>
         <div class="section__list">
-          <app-list :list="searchHistory" hasRemoveBtn @removeItem="onRemoveItem" />
+          <app-list
+            :list="searchHistory"
+            hasRemoveBtn
+            @removeItem="onRemoveItem"
+          />
         </div>
       </div>
 
@@ -46,22 +50,23 @@ const filteredList = computed(() =>
   )
 )
 
-const isSearchResult = computed(
-  () => filteredList.value.length > 0 && query.value
-)
+const isSearchResult = computed(() => {
+  return filteredList.value.length > 0 && query.value
+})
 
 const store = useUserStore()
 const searchHistory = computed(() => store.user.searchHistory)
 
 const showSearchHistory = ref(false)
-const isSearchHistory = computed(
-  () =>
+const isSearchHistory = computed(() => {
+  return (
     searchHistory.value.length > 0 && showSearchHistory.value && !query.value
-)
+  )
+})
 
 const onShowSearchHistory = () => (showSearchHistory.value = true)
 const onHideSearchHistory = () => (showSearchHistory.value = false)
-const clearQuery = () => query.value = ''
+const clearQuery = () => (query.value = '')
 
 const onSubmit = () => {
   store.addToHistory(query.value)
@@ -76,8 +81,6 @@ const onAddItem = (payload) => {
   store.addToHistory(payload)
   clearQuery()
 }
-
-
 </script>
 
 <style lang="scss" scoped>
