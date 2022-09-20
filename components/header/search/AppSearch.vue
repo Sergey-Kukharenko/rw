@@ -31,6 +31,8 @@
           <app-list :list="filteredList" @addItem="onAddItem" />
         </div>
       </div>
+
+      <app-not-found />
     </div>
   </div>
 </template>
@@ -40,6 +42,7 @@ import siteData from '@/data/site-data'
 import { useUserStore } from '@/stores/useUserStore'
 import AppButton from '@/components/shared/AppButton.vue'
 import AppList from './AppList.vue'
+import AppNotFound from './AppNotFound.vue'
 
 const data = ref(siteData)
 
