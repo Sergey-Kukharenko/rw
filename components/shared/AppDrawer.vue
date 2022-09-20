@@ -1,13 +1,13 @@
 <template>
   <div :class="classNames">
-    <div class="drawer__button" @click="isVisible = true">
+    <div class="drawer__button" @click="open">
       <div class="burger">
         <span></span>
         <span></span>
         <span></span>
       </div>
     </div>
-    <div class="drawer__overlay" @click="isVisible = false" />
+    <div class="drawer__overlay" @click="close" />
     <div class="drawer__container">
       <div class="drawer__inner">
         <slot></slot>
@@ -17,7 +17,19 @@
 </template>
 
 <script setup>
+import {disableBodyScroll, enableBodyScroll} from '../../helpers/bodyScrollLock';
+
 const isVisible = ref(false)
+
+const open = () => {
+  isVisible.value = true
+  disableBodyScroll()
+}
+
+const close = () => {
+  isVisible.value = false
+  enableBodyScroll()
+}
 const classNames = computed(() =>
   useToggleClassName(isVisible.value, 'drawer', 'active')
 )

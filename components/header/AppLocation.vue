@@ -1,6 +1,6 @@
 <template>
   <div class="location">
-    <div class="location-button" @click="isVisible = true">
+    <div class="location-button" @click="open">
       <div class="location-button__icon icon">
         <SvgSprite symbol="location" class="icon__location" />
       </div>
@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <app-modal :visible="isVisible" @close="isVisible = false">
+    <app-modal :visible="isVisible" @close="close">
       <app-address />
     </app-modal>
   </div>
@@ -26,6 +26,7 @@
 <script setup>
 import AppModal from '@/components/shared/AppModal.vue'
 import AppAddress from '@/components/header/address/AppAddress.vue'
+import {disableBodyScroll, enableBodyScroll} from '@/helpers/bodyScrollLock';
 
 const location = ref({
   city: 'London',
@@ -43,6 +44,16 @@ const getDescription = computed(() =>
 )
 
 const isVisible = ref(false)
+
+const open = () => {
+  isVisible.value = true
+  disableBodyScroll()
+}
+
+const close = () => {
+  isVisible.value = false
+  enableBodyScroll()
+}
 
 const updateLocation = (payload) => {
   location.value = payload
