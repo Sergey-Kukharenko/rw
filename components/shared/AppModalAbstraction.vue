@@ -1,18 +1,27 @@
 <template>
   <Teleport to="body">
-    <div class="modal">
-      <div class="modal__overlay" @click="close"></div>
+    <div :class="classNames">
+      <div class="modal__overlay" @click="close" />
       <div class="modal__content">
-        <slot />
-        <button type="button" class="button" @click="close">
-          <SvgSprite symbol="close" class="button__icon" />
-        </button>
+        <div class="modal__layout">
+          <slot />
+          <button type="button" class="button" @click="close">
+            <SvgSprite symbol="close" class="button__icon" />
+          </button>
+        </div>
       </div>
     </div>
   </Teleport>
 </template>
 
 <script setup>
+const props = defineProps({
+  theme: {
+    type: String,
+    default: ''
+  }
+})
+
 const emit = defineEmits(['close'])
 const close = () => emit('close')
 const handleKeyup = (event) => {
@@ -24,6 +33,8 @@ const handleKeyup = (event) => {
 }
 
 useEventListener(window, 'keyup', handleKeyup)
+
+const classNames = computed(() => useClassName(props, 'modal'))
 </script>
 
 <style lang="scss" scoped>
@@ -61,6 +72,39 @@ useEventListener(window, 'keyup', handleKeyup)
 
     @include xs {
       margin: 6px;
+    }
+  }
+
+  &--full {
+    & .modal__content {
+      width: auto;
+      margin: 0;
+      border-radius: 0 0 24px 24px;
+      box-shadow: 0 4px 8px rgb(0 0 0 / 4%);
+    }
+
+    .modal__layout{
+      max-width: 1080px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    & .button {
+      padding: 18px;
+      background: $bg-grey;
+      top: 24px;
+      right: 0;
+
+      &:hover {
+        background: darken($bg-grey, 10%);
+      }
+
+      &__icon {
+        width: 12px;
+        height: 12px;
+        color: $color-dark-grey;
+        fill: currentColor;
+      }
     }
   }
 }

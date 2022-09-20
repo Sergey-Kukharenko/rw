@@ -4,14 +4,24 @@
     <span class="button__text">Search in Florа</span>
   </button>
 
-  <app-modal :visible="isVisible" @close="isVisible = false">
-    <h1>Search</h1>
+  <app-modal :visible="isVisible" @close="isVisible = false" theme="full">
+    <app-search/>
   </app-modal>
 </template>
 
 <script setup>
 import AppModal from '@/components/shared/AppModal.vue'
+import AppSearch from '@/components/header/search/AppSearch.vue'
+
 const isVisible = ref(false)
+
+const options = {
+  width: '100%',
+  top: 0,
+  margin: 0,
+  border: 'none',
+  background: 'none'
+}
 </script>
 
 <style lang="scss" scoped>

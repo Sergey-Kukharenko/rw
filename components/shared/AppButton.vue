@@ -130,20 +130,6 @@ const classNames = computed(() => useClassName(props, 'button'))
     }
   }
 
-  &--fix {
-    @include gt-sm {
-      width: 244px;
-    }
-
-    @include lt-md {
-      width: 236px;
-    }
-  }
-
-  &--full {
-    width: 100%;
-  }
-
   &--pre-lg {
     @include gt-sm {
       font-size: 16px;
@@ -197,6 +183,20 @@ const classNames = computed(() => useClassName(props, 'button'))
         display: none;
       }
     }
+  }
+
+  &--fix {
+    @include gt-sm {
+      width: 244px;
+    }
+
+    @include lt-md {
+      width: 236px;
+    }
+  }
+
+  &--full {
+    width: 100%;
   }
 
   &--search {

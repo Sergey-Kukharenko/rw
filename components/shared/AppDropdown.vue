@@ -6,7 +6,7 @@
 
     <div
       v-show="isVisible"
-      :style="options"
+      :style="props.options"
       @click="close"
       class="dropdown__container"
     >

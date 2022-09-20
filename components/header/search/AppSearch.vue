@@ -32,7 +32,7 @@
         </div>
       </div>
 
-      <app-not-found />
+      <app-not-found v-show="isNotFound" />
     </div>
   </div>
 </template>
@@ -47,14 +47,18 @@ import AppNotFound from './AppNotFound.vue'
 const data = ref(siteData)
 
 const query = ref('')
-const filteredList = computed(() =>
-  data.value.filter((item) =>
-    item.toLowerCase().includes(query.value.toLowerCase())
-  )
-)
+const filteredList = computed(() => {
+  return data.value.filter((item) => {
+    return item.toLowerCase().includes(query.value.toLowerCase())
+  })
+})
 
 const isSearchResult = computed(() => {
   return filteredList.value.length > 0 && query.value
+})
+
+const isNotFound = computed(() => {
+  return filteredList.value.length === 0 && query.value !== ''
 })
 
 const store = useUserStore()
@@ -87,15 +91,9 @@ const onAddItem = (payload) => {
 </script>
 
 <style lang="scss" scoped>
-.layout {
-  outline: 1px solid;
-}
-
 .search {
   background: #fff;
   min-height: 376px;
-  border-radius: 0 0 24px 24px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
 }
 
 .search-form {

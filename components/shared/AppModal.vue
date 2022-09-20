@@ -1,5 +1,5 @@
 <template>
-  <AppModalAbstraction v-if="props.visible" @close="close">
+  <AppModalAbstraction v-if="props.visible" @close="close" :theme="props.theme">
     <slot />
   </AppModalAbstraction>
 </template>
@@ -11,6 +11,11 @@ const props = defineProps({
   visible: {
     type: Boolean,
     required: true
+  },
+
+  theme: {
+    type: String,
+    default: ''
   }
 })
 
