@@ -1,8 +1,8 @@
-export function disableBodyScroll() {
+export function disableScroll() {
   document.documentElement.style.overflow = 'hidden'
 }
 
-export function enableBodyScroll() {
+export function enableScroll() {
   document.documentElement.style.overflow = ''
 }
 

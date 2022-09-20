@@ -69,6 +69,6 @@ const remove = (item) => emit('removeItem', item)
 }
 
 .text {
-  display: block;
+  flex: 1;
 }
 </style>

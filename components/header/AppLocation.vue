@@ -26,7 +26,7 @@
 <script setup>
 import AppModal from '@/components/shared/AppModal.vue'
 import AppAddress from '@/components/header/address/AppAddress.vue'
-import {disableBodyScroll, enableBodyScroll} from '@/helpers/bodyScrollLock';
+import {disableScroll, enableScroll} from '@/helpers/scrollLock';
 
 const location = ref({
   city: 'London',
@@ -47,12 +47,12 @@ const isVisible = ref(false)
 
 const open = () => {
   isVisible.value = true
-  disableBodyScroll()
+  disableScroll()
 }
 
 const close = () => {
   isVisible.value = false
-  enableBodyScroll()
+  enableScroll()
 }
 
 const updateLocation = (payload) => {

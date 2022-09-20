@@ -19,3 +19,4 @@ import {useIsDevice} from '@/composables/states';
 
 const isDevice = useIsDevice();
 </script>
+

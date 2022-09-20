@@ -1,11 +1,11 @@
 <template>
   <AppModalAbstraction v-if="props.visible" @close="close" :theme="props.theme">
-    <slot />
+    <slot/>
   </AppModalAbstraction>
 </template>
 
 <script setup>
-import AppModalAbstraction from '@/components/shared/AppModalAbstraction.vue'
+import AppModalAbstraction from '@/components/shared/AppModalAbstraction.vue';
 
 const props = defineProps({
   visible: {
@@ -17,8 +17,8 @@ const props = defineProps({
     type: String,
     default: ''
   }
-})
+});
 
-const emit = defineEmits(['close'])
-const close = () => emit('close')
+const emit = defineEmits(['close']);
+const close = () => emit('close');
 </script>
