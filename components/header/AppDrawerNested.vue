@@ -1,7 +1,8 @@
 <template>
   <div :class="classNames">
     <div @click="close" class="header">
-      - <slot name="header"/>
+      -
+      <slot name="header"/>
     </div>
     <div class="container">
       <slot name="container"/>
@@ -31,23 +32,27 @@ const close = () => emit('close');
   height: 100vh;
   position: absolute;
   top: 0;
-  right: -100%;
-  background: #7C7C7C;
+  right: -135%;
+  background: #fff;
   overflow-y: auto;
-  transform: translateX(0%);
-  transition: transform .25s ease 0s;
+  transform: translateX(-35%);
+  opacity: 0;
+  transition: opacity .3s ease 0s, transform .3s ease 0s, right 0s ease .3s;
 
   &--active {
+    right: -100%;
+    opacity: 1;
     transform: translateX(-100%);
+    transition: opacity .3s ease 0s, transform .3s ease 0s, right 0s ease 0s;
   }
 }
 
-.header{
+.header {
   font-size: 18px;
   padding: 12px;
 }
 
-.container{
+.container {
   padding: 0 12px;
 }
 </style>

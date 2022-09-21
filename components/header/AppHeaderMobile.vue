@@ -6,17 +6,17 @@
             <app-nav-bar/>
 
 <!--      <div :class="classNames">-->
-<!--        <div class="link" @click="open">-->
-<!--          <SvgSprite :symbol="menu.icon" class="link__icon"/>-->
-<!--          <div class="link__text">{{ menu.title }}</div>-->
+<!--        <div class="link" @click="[selectItem(idx), open()]" v-for="(item, idx) in menu" :key="item">-->
+<!--          <SvgSprite :symbol="item.icon" class="link__icon"/>-->
+<!--          <div class="link__text">{{ item.title }}</div>-->
 <!--        </div>-->
 
 <!--        <app-drawer-nested :visible="isVisible" @close="close">-->
 <!--          <template #header>-->
-<!--            {{ menu.title }}-->
+<!--            {{ menu[selected].title }}-->
 <!--          </template>-->
 <!--          <template #container>-->
-<!--            <div v-for="item in menu.children" :key="item">{{ item }}</div>-->
+<!--            <div v-for="item in menu[selected].children" :key="item">{{ item }}</div>-->
 <!--          </template>-->
 <!--        </app-drawer-nested>-->
 <!--      </div>-->
@@ -60,52 +60,32 @@ const close = () => {
   isVisible.value = false;
 };
 
-const menu = ref({
-  title: 'Recipients',
-  icon: 'tile',
-  children: [
-    'For mom',
-    'For partner',
-    'For friends',
-    'For colleagues',
-    'For Relatives',
-    'For mom',
-    'For partner',
-    'For friends',
-    'For colleagues',
-    'For Relatives',
-    'For mom',
-    'For partner',
-    'For friends',
-    'For colleagues',
-    'For Relatives',
-    'For mom',
-    'For partner',
-    'For friends',
-    'For colleagues',
-    'For Relatives',
-    'For mom',
-    'For partner',
-    'For friends',
-    'For colleagues',
-    'For Relatives',
-    'For mom',
-    'For partner',
-    'For friends',
-    'For colleagues',
-    'For Relatives',
-    'For mom',
-    'For partner',
-    'For friends',
-    'For colleagues',
-    'For Relatives',
-    'For mom',
-    'For partner',
-    'For friends',
-    'For colleagues',
-    'For Relatives',
-  ]
-});
+const selected = ref(0)
+
+const selectItem = (idx) => {
+  selected.value = idx
+};
+
+const menu = ref([
+  {
+    title: 'Recipients',
+    icon: 'tile',
+    children: [
+      'For mom',
+      'For partner',
+      'For friends',
+    ]
+  },
+  {
+    title: 'Occassions',
+    icon: 'organizer',
+    children: [
+      'For mom 2',
+      'For partner 2',
+      'For friends 2',
+    ]
+  }
+]);
 
 </script>
 
@@ -134,7 +114,7 @@ header {
   &--active {
     .link {
       opacity: 0;
-      transform: translateX(-20%);
+      transform: translateX(-40%);
     }
   }
 }
@@ -143,7 +123,7 @@ header {
   display: flex;
   align-items: center;
   padding: 12px;
-  transition: opacity .25s ease 0s, transform .25s ease 0s;
+  transition: opacity .3s ease 0s, transform .3s ease 0s;
 
   &__icon {
     width: 16px;
