@@ -20,6 +20,7 @@ const props = defineProps({
   }
 });
 
+
 const emit = defineEmits(['selectItem']);
 const handleClick = (idx) => {
   emit('selectItem', idx);
@@ -48,12 +49,12 @@ const handleClick = (idx) => {
   margin-left: 10px;
 }
 
-.content {
-  &--active {
-    .list {
-      opacity: 0;
-      transform: translateX(-40%);
-    }
-  }
-}
+//.content {
+//  &--active {
+//    .list {
+//      opacity: 0;
+//      transform: translateX(-40%);
+//    }
+//  }
+//}
 </style>

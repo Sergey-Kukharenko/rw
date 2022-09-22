@@ -1,21 +1,24 @@
 <template>
   <header>
     <app-drawer>
-                  <app-navigation/>
-                  <app-menu/>
-                  <app-nav-bar/>
+                        <app-navigation/>
+                        <app-menu/>
+                        <app-nav-bar/>
 
 <!--      <div :class="classNames">-->
-<!--        <app-mobile-menu :list="menu" @selectItem="onSelectItem" />-->
+<!--        <div class="layer">-->
+<!--          <app-logo @click="[setComponent(markRaw(AppLogo)), open()]"/>-->
+<!--          <app-mobile-menu :list="menu" @selectItem="onSelectItem" @click="selectedComponent = null"/>-->
+<!--        </div>-->
 
-<!--        <app-drawer-nested :visible="isVisible" @close="close">-->
-<!--          <template #header>-->
-<!--            {{ menu[selected].title }}-->
-<!--          </template>-->
+<!--        <app-drawer-nested-->
+<!--          :visible="isVisible"-->
+<!--          :title="menu[selected].title"-->
+<!--          @close="close"-->
+<!--        >-->
 
-<!--          <template #container>-->
-<!--            <app-mobile-sub-menu :list="menu[selected].children" />-->
-<!--          </template>-->
+<!--          <component v-if="selectedComponent" :is="selectedComponent"/>-->
+<!--          <app-mobile-sub-menu v-else :list="menu[selected].children" />-->
 <!--        </app-drawer-nested>-->
 <!--      </div>-->
     </app-drawer>
@@ -44,7 +47,7 @@ import AppCart from '@/components/header/AppCart.vue'
 import AppDrawerNested from './AppDrawerNested'
 import AppMobileMenu from './mobile/AppMobileMenu.vue'
 import AppMobileSubMenu from './mobile/AppMobileSubMenu.vue'
-
+import { markRaw } from 'vue'
 const isVisible = ref(false)
 
 const classNames = computed(() =>
@@ -140,6 +143,12 @@ const menu = ref([
     ]
   }
 ])
+
+const selectedComponent = ref(null)
+
+const setComponent = (name) => {
+  selectedComponent.value = name
+}
 </script>
 
 <style lang="scss" scoped>
@@ -164,11 +173,25 @@ header {
   position: relative;
   width: calc(100% + 24px);
 
-  //&--active {
-  //  .link {
-  //    opacity: 0;
-  //    transform: translateX(-40%);
-  //  }
-  //}
+  &--active {
+    .layer {
+      opacity: 0;
+      transform: translateX(-40%);
+    }
+  }
+}
+
+.layer{
+  transition: opacity 0.3s ease 0s, transform 0.3s ease 0s;
+}
+
+button {
+  color: white;
+  background: #7C7C7C;
+}
+
+.address{
+  height: 400px;
+  background: #7C7C7C;
 }
 </style>

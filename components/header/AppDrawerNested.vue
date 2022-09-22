@@ -1,11 +1,10 @@
 <template>
   <div :class="classNames">
     <div @click="close" class="header">
-      -
-      <slot name="header"/>
+      back - {{props.title}}
     </div>
     <div class="container">
-      <slot name="container"/>
+      <slot/>
     </div>
   </div>
 </template>
@@ -16,6 +15,11 @@ const props = defineProps({
     type: Boolean,
     required: true
   },
+
+  title: {
+    type: String,
+    required: ''
+  },
 });
 
 const classNames = computed(() =>
@@ -23,7 +27,7 @@ const classNames = computed(() =>
 );
 
 const emit = defineEmits(['close']);
-const close = () => emit('close');
+const close = () => emit('close')
 </script>
 
 <style lang="scss" scoped>
