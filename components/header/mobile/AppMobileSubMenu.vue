@@ -3,9 +3,10 @@
     <div
       v-for="(item, idx) in props.list"
       :key="idx"
+      @click="handleClick(idx)"
       class="list__item"
     >
-      <SvgSprite :symbol="item.icon" class="icon"/>
+      <SvgSprite :symbol="item.icon" class="icon" />
       <div class="text">{{ item.text }}</div>
     </div>
   </div>
@@ -17,7 +18,7 @@ const props = defineProps({
     type: Array,
     default: () => []
   }
-});
+})
 </script>
 
 <style lang="scss" scoped>

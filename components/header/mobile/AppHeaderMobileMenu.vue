@@ -1,7 +1,14 @@
 <template>
-  <app-mobile-menu :list="menu" @selectItem="onSelectItem"/>
-
-  <app-drawer-nested :visible="isVisible" @close="close" :title="menu[selected].title">
+  <app-mobile-menu
+    :list="menu"
+    @selectItem="onSelectItem"
+    class="nested-group"
+  />
+  <app-drawer-nested
+    :visible="isVisible"
+    @close="close"
+    :title="menu[selected].title"
+  >
     <app-mobile-sub-menu :list="menu[selected].children" />
   </app-drawer-nested>
 </template>
@@ -10,6 +17,9 @@
 import AppDrawerNested from '@/components/header/AppDrawerNested'
 import AppMobileMenu from '@/components/header/mobile/AppMobileMenu.vue'
 import AppMobileSubMenu from '@/components/header/mobile/AppMobileSubMenu.vue'
+
+import dataMenu from '@/data/menu.js'
+const menu = ref(dataMenu)
 
 const isVisible = ref(false)
 
@@ -28,78 +38,10 @@ const onSelectItem = (idx) => {
   open()
 }
 
-const menu = ref([
-  {
-    title: 'Recipients',
-    icon: 'tile',
-    children: [
-      {
-        text: 'For mom',
-        icon: 'tile'
-      },
-      {
-        text: 'For partner',
-        icon: 'tile'
-      },
-      {
-        text: 'For friends',
-        icon: 'tile'
-      },
-      {
-        text: 'For colleagues',
-        icon: 'tile'
-      },
-      {
-        text: 'For Relatives',
-        icon: 'tile'
-      }
-    ]
-  },
-  {
-    title: 'Occassions',
-    icon: 'tile',
-    children: [
-      {
-        text: 'Birthday',
-        icon: 'tile'
-      },
-      {
-        text: 'Anniversary',
-        icon: 'tile'
-      },
-      {
-        text: 'Wedding anniversary',
-        icon: 'tile'
-      },
-      {
-        text: 'Date',
-        icon: 'tile'
-      },
-      {
-        text: 'Extract from the hospital',
-        icon: 'tile'
-      },
-      {
-        text: 'Housewarming',
-        icon: 'tile'
-      },
-      {
-        text: 'Graduation',
-        icon: 'tile'
-      },
-      {
-        text: 'An apology',
-        icon: 'tile'
-      },
-      {
-        text: 'Simply so',
-        icon: 'tile'
-      },
-      {
-        text: 'Wedding',
-        icon: 'tile'
-      }
-    ]
-  }
-])
+const { updateVisibility } = inject('visibility')
+
+watchEffect(() => {
+  updateVisibility(isVisible.value)
+})
 </script>
+

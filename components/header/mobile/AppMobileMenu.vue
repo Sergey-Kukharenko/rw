@@ -6,7 +6,7 @@
       @click="handleClick(idx)"
       class="list__item"
     >
-      <SvgSprite :symbol="item.icon" class="icon"/>
+      <SvgSprite :symbol="item.icon" class="icon" />
       <div class="text">{{ item.title }}</div>
     </div>
   </div>
@@ -18,13 +18,12 @@ const props = defineProps({
     type: Array,
     default: () => []
   }
-});
+})
 
-
-const emit = defineEmits(['selectItem']);
+const emit = defineEmits(['selectItem'])
 const handleClick = (idx) => {
-  emit('selectItem', idx);
-};
+  emit('selectItem', idx)
+}
 </script>
 
 <style lang="scss" scoped>
@@ -49,12 +48,12 @@ const handleClick = (idx) => {
   margin-left: 10px;
 }
 
-//.content {
-//  &--active {
-//    .list {
-//      opacity: 0;
-//      transform: translateX(-40%);
-//    }
-//  }
-//}
+.content {
+  &--active {
+    .list {
+      opacity: 0;
+      transform: translateX(-40%);
+    }
+  }
+}
 </style>

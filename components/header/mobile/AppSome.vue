@@ -1,7 +1,5 @@
 <template>
-  <button @click="open">
-    button
-  </button>
+  <button @click="open" class="nested-group">button</button>
 
   <app-drawer-nested :visible="isVisible" @close="close" title="SOME">
     HERE CONTENT
@@ -9,27 +7,21 @@
 </template>
 
 <script setup>
-import AppDrawerNested from '@/components/header/AppDrawerNested';
+import AppDrawerNested from '@/components/header/AppDrawerNested'
 
-const isVisible = ref(false);
+const isVisible = ref(false)
 
 const open = () => {
-  isVisible.value = true;
-};
+  isVisible.value = true
+}
 
 const close = () => {
-  isVisible.value = false;
-};
-</script>
-
-<style lang="scss" scoped>
-.section {
-  opacity: 1;
-  transition: opacity 0.3s ease 0s, transform 0.3s ease 0s;
-
-  &--active {
-    opacity: 0;
-    transform: translateX(-40%);
-  }
+  isVisible.value = false
 }
-</style>
+
+const { updateVisibility } = inject('visibility')
+
+watchEffect(() => {
+  updateVisibility(isVisible.value)
+})
+</script>

@@ -1,7 +1,7 @@
 <template>
   <div :class="classNames">
     <div @click="close" class="header">
-      back - {{props.title}}
+      back - {{ props.title }}
     </div>
     <div class="container">
       <slot/>
@@ -27,7 +27,7 @@ const classNames = computed(() =>
 );
 
 const emit = defineEmits(['close']);
-const close = () => emit('close')
+const close = () => emit('close');
 </script>
 
 <style lang="scss" scoped>
@@ -41,12 +41,14 @@ const close = () => emit('close')
   overflow-y: auto;
   transform: translateX(-35%);
   opacity: 0;
+  z-index: 1;
   transition: opacity .3s ease 0s, transform .3s ease 0s, right 0s ease .3s;
 
   &--active {
     right: -100%;
     opacity: 1;
     transform: translateX(-100%);
+    z-index: 2;
     transition: opacity .3s ease 0s, transform .3s ease 0s, right 0s ease 0s;
   }
 }
