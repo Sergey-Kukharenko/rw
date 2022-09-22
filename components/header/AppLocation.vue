@@ -58,6 +58,7 @@ const close = () => {
 const updateLocation = (payload) => {
   location.value = payload
   isVisible.value = false
+  enableScroll()
 }
 
 provide('location', {
