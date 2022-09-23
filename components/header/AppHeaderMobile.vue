@@ -6,10 +6,9 @@
       <app-nav-bar/>
 
 
-      <!--      <div :class="classNames">-->
-      <!--        <app-some />-->
-      <!--        <app-header-mobile-menu/>-->
-      <!--      </div>-->
+<!--            <div :class="classNames">-->
+<!--              <app-header-mobile-menu/>-->
+<!--            </div>-->
     </app-drawer>
 
     <app-logo/>

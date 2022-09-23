@@ -6,8 +6,10 @@
       @click="handleClick(idx)"
       class="list__item"
     >
-      <SvgSprite :symbol="item.icon" class="icon" />
-      <div class="text">{{ item.text }}</div>
+      <div class="figure">
+        <SvgSprite :symbol="item.icon" class="figure__icon" :class="item.icon" />
+      </div>
+      <div class="figcaption">{{ item.text }}</div>
     </div>
   </div>
 </template>
@@ -28,18 +30,33 @@ const props = defineProps({
   &__item {
     display: flex;
     align-items: center;
-    padding: 12px;
+    padding: 5px 0;
   }
 }
 
-.icon {
-  width: 16px;
-  height: 16px;
+.figure{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 24px;
+  height: 24px;
+  //outline: 1px solid;
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+
+    &.relatives {
+      width: 22px;
+      height: 22px;
+    }
+  }
 }
 
-.text {
+.figcaption {
+  font-family: $golos-regular;
   font-size: 12px;
   line-height: 16px;
-  margin-left: 10px;
+  margin-left: 6px;
 }
 </style>

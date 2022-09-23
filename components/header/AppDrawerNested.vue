@@ -1,7 +1,11 @@
 <template>
   <div :class="classNames">
     <div @click="close" class="header">
-      back - {{ props.title }}
+      <SvgSprite symbol="arrow-back" class="header__icon"/>
+
+      <div class="header__title">
+        {{ props.title }}
+      </div>
     </div>
     <div class="container">
       <slot/>
@@ -54,11 +58,26 @@ const close = () => emit('close');
 }
 
 .header {
-  font-size: 18px;
+  display: flex;
+  align-items: center;
   padding: 12px;
+
+  &__icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__title {
+    font-family: $golos-bold;
+    font-size: 16px;
+    line-height: 20px;
+    margin-left: 8px;
+  }
 }
 
 .container {
-  padding: 0 12px;
+  padding: 9px 12px;
 }
+
+
 </style>

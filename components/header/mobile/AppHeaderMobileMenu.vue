@@ -7,9 +7,9 @@
   <app-drawer-nested
     :visible="isVisible"
     @close="close"
-    :title="menu[selected].title"
+    :title="subTitle"
   >
-    <app-mobile-sub-menu :list="menu[selected].children" />
+    <app-mobile-sub-menu :list="subMenu" />
   </app-drawer-nested>
 </template>
 
@@ -33,9 +33,15 @@ const close = () => {
 
 const selected = ref(0)
 
+const subTitle = computed(() => menu.value[selected.value].title)
+const subMenu = computed(() => menu.value[selected.value].children)
+const hasSubMenu = computed(
+  () => menu.value[selected.value].children.length > 0
+)
+
 const onSelectItem = (idx) => {
   selected.value = idx
-  open()
+  hasSubMenu.value && open()
 }
 
 const { updateVisibility } = inject('visibility')

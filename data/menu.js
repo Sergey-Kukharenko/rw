@@ -1,33 +1,38 @@
 export default [
   {
-    title: 'Recipients',
+    title: 'Flowers',
     icon: 'tile',
+    children: []
+  },
+  {
+    title: 'Recipient',
+    icon: 'user-hart',
     children: [
       {
         text: 'For mom',
-        icon: 'tile'
+        icon: 'mom'
       },
       {
         text: 'For partner',
-        icon: 'tile'
+        icon: 'partner'
       },
       {
         text: 'For friends',
-        icon: 'tile'
+        icon: 'friends'
       },
       {
         text: 'For colleagues',
-        icon: 'tile'
+        icon: 'colleagues'
       },
       {
         text: 'For Relatives',
-        icon: 'tile'
+        icon: 'relatives'
       }
     ]
   },
   {
     title: 'Occassions',
-    icon: 'tile',
+    icon: 'organizer',
     children: [
       {
         text: 'Birthday',
