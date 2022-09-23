@@ -3,7 +3,6 @@
     <div
       v-for="(item, idx) in props.list"
       :key="idx"
-      @click="handleClick(idx)"
       class="list__item"
     >
       <div class="figure">
@@ -25,12 +24,13 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .list {
+  margin: 6px 0;
   transition: opacity 0.3s ease 0s, transform 0.3s ease 0s;
 
   &__item {
     display: flex;
     align-items: center;
-    padding: 5px 0;
+    padding: 6px 0 5px;
   }
 }
 
@@ -55,8 +55,9 @@ const props = defineProps({
 
 .figcaption {
   font-family: $golos-regular;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 16px;
-  margin-left: 6px;
+  letter-spacing: -0.01em;
+  margin-left: 4px;
 }
 </style>

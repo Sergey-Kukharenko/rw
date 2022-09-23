@@ -2,10 +2,7 @@
   <div :class="classNames">
     <div @click="close" class="header">
       <SvgSprite symbol="arrow-back" class="header__icon"/>
-
-      <div class="header__title">
-        {{ props.title }}
-      </div>
+      <div class="header__title">{{ props.title }}</div>
     </div>
     <div class="container">
       <slot/>
@@ -76,7 +73,7 @@ const close = () => emit('close');
 }
 
 .container {
-  padding: 9px 12px;
+  padding: 0 12px;
 }
 
 

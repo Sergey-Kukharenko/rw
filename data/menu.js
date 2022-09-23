@@ -1,12 +1,12 @@
 export default [
   {
     title: 'Flowers',
-    icon: 'tile',
+    icon: 'flowers',
     children: []
   },
   {
-    title: 'Recipient',
-    icon: 'user-hart',
+    title: 'Recipients',
+    icon: 'relatives',
     children: [
       {
         text: 'For mom',
@@ -36,44 +36,44 @@ export default [
     children: [
       {
         text: 'Birthday',
-        icon: 'tile'
+        icon: 'birthday'
       },
       {
         text: 'Anniversary',
-        icon: 'tile'
+        icon: 'anniversary'
       },
       {
-        text: 'Wedding anniversary',
-        icon: 'tile'
+        text: 'wedding-anniversary',
+        icon: 'wedding-anniversary'
       },
       {
         text: 'Date',
-        icon: 'tile'
+        icon: 'mom'
       },
       {
         text: 'Extract from the hospital',
-        icon: 'tile'
+        icon: 'extract-hospital'
       },
       {
         text: 'Housewarming',
-        icon: 'tile'
+        icon: 'housewarming'
       },
       {
         text: 'Graduation',
-        icon: 'tile'
+        icon: 'graduation'
       },
       {
         text: 'An apology',
-        icon: 'tile'
+        icon: 'apology'
       },
       {
         text: 'Simply so',
-        icon: 'tile'
+        icon: 'simply'
       },
       {
         text: 'Wedding',
-        icon: 'tile'
+        icon: 'wedding'
       }
     ]
   }
-]
+];
