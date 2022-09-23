@@ -2,12 +2,43 @@ export default [
   {
     title: 'Flowers',
     icon: 'flowers',
-    children: []
+    hasSubLevel: true,
+    list: [],
+    link: {
+      text: 'Show all bouquets MyFlowers'
+    },
+    deals: [
+      {
+        icon: 'percent-sale',
+        text: 'Sale',
+      },
+      {
+        icon: 'instagram',
+        text: 'Insta Bouquets',
+      },
+      {
+        icon: 'fire-outline',
+        text: 'Sales hits',
+      },
+      {
+        icon: 'bouquet',
+        text: 'Author"s bouquets',
+      },
+      {
+        icon: 'flowers-box',
+        text: 'Flowers in a box',
+      },
+      {
+        icon: 'bag-outline',
+        text: 'Flowers in the basket',
+      },
+    ]
   },
   {
     title: 'Recipients',
     icon: 'relatives',
-    children: [
+    hasSubLevel: true,
+    list: [
       {
         text: 'For mom',
         icon: 'mom'
@@ -33,7 +64,8 @@ export default [
   {
     title: 'Occassions',
     icon: 'organizer',
-    children: [
+    hasSubLevel: true,
+    list: [
       {
         text: 'Birthday',
         icon: 'birthday'

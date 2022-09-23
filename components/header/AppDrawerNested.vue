@@ -73,7 +73,7 @@ const close = () => emit('close');
 }
 
 .container {
-  padding: 0 12px;
+  padding: 0 8px;
 }
 
 

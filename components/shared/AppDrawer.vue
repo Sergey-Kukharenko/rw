@@ -19,7 +19,7 @@
 <script setup>
 import {disableScroll, enableScroll} from '@/helpers/scrollLock';
 
-const isVisible = ref(true)
+const isVisible = ref(false)
 
 const open = () => {
   isVisible.value = true
@@ -80,7 +80,7 @@ const classNames = computed(() =>
     @include lt-md {
       display: flex;
       flex-direction: column;
-      width: 223px;
+      width: 274px;
       height: 100vh;
       background: #fff;
       padding: 12px;

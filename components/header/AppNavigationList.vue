@@ -69,11 +69,11 @@ const classNames = computed(() => useClassName(props.options, 'navigation-list')
         position: relative;
 
         &:not(:hover) {
-          color: #009959;
+          color: $color-dark-green;
         }
 
         &:hover {
-          color: lighten(#009959, 5%);
+          color: lighten($color-dark-green, 5%);
         }
 
         @include gt-sm {
