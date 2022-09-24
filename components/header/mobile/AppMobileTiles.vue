@@ -1,5 +1,5 @@
 <template>
-  <div class="list">
+  <div :class="classNames">
     <div v-for="(item, idx) in props.list" :key="idx" class="list__item">
       <div class="figure">
         <SvgSprite
@@ -18,8 +18,15 @@ const props = defineProps({
   list: {
     type: Array,
     default: () => []
+  },
+
+  options: {
+    type: Object,
+    default: () => ({})
   }
 })
+
+const classNames = computed(() => useClassName(props.options, 'list'))
 </script>
 
 <style lang="scss" scoped>
@@ -42,6 +49,13 @@ const props = defineProps({
     border-radius: 10px;
     padding: 11px 5px;
     box-sizing: border-box;
+  }
+
+  &--outline {
+    & .list__item {
+      background: #ffffff;
+      border: 1px solid #e8e8e8;
+    }
   }
 }
 

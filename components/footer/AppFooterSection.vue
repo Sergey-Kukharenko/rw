@@ -56,6 +56,7 @@ const classNames = computed(() =>
         border-style: solid;
         border-width: 5px 4px 0 4px;
         border-color: $color-dark-grey transparent transparent transparent;
+        transition: transform 0.2s ease 0s;
       }
     }
   }
@@ -86,6 +87,14 @@ const classNames = computed(() =>
           &:nth-child(3n + 3) {
             text-align: right;
           }
+        }
+      }
+    }
+
+    .section__title {
+      @include xs {
+        &:after {
+          transform: rotate(180deg);
         }
       }
     }

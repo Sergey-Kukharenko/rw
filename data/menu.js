@@ -32,7 +32,20 @@ export default [
         icon: 'bag-outline',
         text: 'Flowers in the basket',
       },
-    ]
+    ],
+    by: {
+      price: {
+        title: 'Bouquets by price',
+        list: [
+          {name: 'Cheap flowers'},
+          {name: 'Bouquets up to £25'},
+          {name: 'Bouquets £25 – £50 '},
+          {name: 'Bouquets £50 – £100'},
+          {name: 'Premium bouquets'},
+          {name: 'Special offer'},
+        ]
+      },
+    }
   },
   {
     title: 'Recipients',

@@ -1,13 +1,15 @@
 <template>
   <app-mobile-link v-if="isLink" :link="link" />
-  <app-mobile-list v-if="isList" :list="list" />
-  <app-mobile-tiles v-if="isDeals" :list="deals" />
+  <app-mobile-list :list="list" />
+  <app-mobile-tiles :list="deals" />
+  <app-mobile-section v-if="isSectionByPrice" :section="sectionByPrice" />
 </template>
 
 <script setup>
 import AppMobileList from './AppMobileList'
 import AppMobileLink from './AppMobileLink'
 import AppMobileTiles from './AppMobileTiles'
+import AppMobileSection from './AppMobileSection'
 
 const props = defineProps({
   list: {
@@ -23,12 +25,17 @@ const props = defineProps({
   deals: {
     type: Array,
     default: () => []
+  },
+
+  sectionByPrice: {
+    type: Object,
+    default: () => ({})
   }
 })
 
 const isLink = computed(() => props.link.text)
-const isList = computed(() => props.list.length > 0)
-const isDeals = computed(() => props.deals.length > 0)
+const isSectionByPrice = computed(() => props.sectionByPrice)
+
 </script>
 
 <style lang="scss" scoped>
