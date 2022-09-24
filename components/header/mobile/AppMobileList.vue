@@ -1,12 +1,12 @@
 <template>
   <div class="list">
-    <div
-      v-for="(item, idx) in props.list"
-      :key="idx"
-      class="list__item"
-    >
+    <div v-for="(item, idx) in props.list" :key="idx" class="list__item">
       <div class="figure">
-        <SvgSprite :symbol="item.icon" class="figure__icon" :class="item.icon" />
+        <SvgSprite
+          :symbol="item.icon"
+          class="figure__icon"
+          :class="item.icon"
+        />
       </div>
       <div class="figcaption">{{ item.text }}</div>
     </div>
@@ -34,7 +34,7 @@ const props = defineProps({
   }
 }
 
-.figure{
+.figure {
   display: flex;
   align-items: center;
   justify-content: flex-start;

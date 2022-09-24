@@ -4,16 +4,8 @@
     @selectItem="onSelectItem"
     class="nested-group"
   />
-  <app-drawer-nested
-    :visible="isVisible"
-    @close="close"
-    :title="title"
-  >
-    <app-mobile-sub-menu
-      :list="list"
-      :link="link"
-      :deals="deals"
-    />
+  <app-drawer-nested :visible="isVisible" @close="close" :title="title">
+    <app-mobile-sub-menu v-bind="{ list, link, deals }" />
   </app-drawer-nested>
 </template>
 
@@ -37,13 +29,13 @@ const close = () => {
 
 const selected = ref(0)
 
-const isSubLevel = computed(() => menu.value[selected.value].hasSubLevel)
+const currentItem = computed(() => menu.value[selected.value])
+const isSubLevel = computed(() => currentItem.value.hasSubLevel)
 
-const title = computed(() => menu.value[selected.value].title)
-const list = computed(() => menu.value[selected.value].list)
-const link = computed(() => menu.value[selected.value].link)
-const deals = computed(() => menu.value[selected.value].deals)
-
+const title = computed(() => currentItem.value.title)
+const list = computed(() => currentItem.value.list)
+const link = computed(() => currentItem.value.link)
+const deals = computed(() => currentItem.value.deals)
 
 const onSelectItem = (idx) => {
   selected.value = idx

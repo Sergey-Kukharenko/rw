@@ -7,7 +7,12 @@
       class="list__item"
     >
       <div class="figure">
-        <SvgSprite :symbol="item.icon" class="figure__icon" :class="item.icon" />
+        <SvgSprite
+          v-if="item.icon"
+          :symbol="item.icon"
+          class="figure__icon"
+          :class="item.icon"
+        />
       </div>
       <div class="figcaption">{{ item.title }}</div>
     </div>
@@ -48,8 +53,7 @@ const handleClick = (idx) => {
   }
 }
 
-
-.figure{
+.figure {
   display: flex;
   align-items: center;
   justify-content: flex-start;

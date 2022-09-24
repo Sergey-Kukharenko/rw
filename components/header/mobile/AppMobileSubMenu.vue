@@ -5,9 +5,9 @@
 </template>
 
 <script setup>
-import AppMobileList from './AppMobileList';
-import AppMobileLink from './AppMobileLink';
-import AppMobileTiles from './AppMobileTiles';
+import AppMobileList from './AppMobileList'
+import AppMobileLink from './AppMobileLink'
+import AppMobileTiles from './AppMobileTiles'
 
 const props = defineProps({
   list: {
@@ -23,7 +23,7 @@ const props = defineProps({
   deals: {
     type: Array,
     default: () => []
-  },
+  }
 })
 
 const isLink = computed(() => props.link.text)
@@ -32,5 +32,4 @@ const isDeals = computed(() => props.deals.length > 0)
 </script>
 
 <style lang="scss" scoped>
-
 </style>
