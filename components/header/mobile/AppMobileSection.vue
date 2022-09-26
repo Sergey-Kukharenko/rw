@@ -20,12 +20,12 @@ const props = defineProps({
     type: Object,
     default: () => ({})
   }
-});
+})
 
-const isVisible = ref(false);
+const isVisible = ref(true)
 const classNames = computed(() =>
   useToggleClassName(isVisible.value, 'section', 'active')
-);
+)
 </script>
 
 <style lang="scss" scoped>
@@ -41,7 +41,7 @@ const classNames = computed(() =>
   }
 }
 
-.header{
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -1,5 +1,6 @@
 export default [
   {
+    type: 'all',
     title: 'Flowers',
     icon: 'flowers',
     hasSubLevel: true,
@@ -45,9 +46,42 @@ export default [
           {name: 'Special offer'},
         ]
       },
+    },
+    all: {
+      title: 'All flowers',
+      list: [
+        {
+          img: 'https://images.unsplash.com/photo-1615182787503-08365d1e7fae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cm9zZXMlMjBib3VxdWV0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=82&h=82',
+          title: 'Roses',
+          status: 'Best',
+        },
+        {
+          img: 'https://images.unsplash.com/photo-1591963944277-fe153988e471?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGVvbmllcyUyMGJvdXF1ZXR8ZW58MHx8MHx8&auto=format&fit=crop&w=82&h=82',
+          title: 'Peonies',
+          status: 'Best',
+        },
+        {
+          img: 'https://images.unsplash.com/photo-1522482999650-be954a7c0392?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dHVsaXBzJTIwYm91cXVldHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=82&h=82',
+          title: 'Tulips',
+        },
+        {
+          img: 'https://images.unsplash.com/photo-1610190441997-dac1fb499b8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8ZGFpc2llcyUyMGJvdXF1ZXR8ZW58MHx8MHx8&auto=format&fit=crop&w=82&h=82',
+          title: 'Daisies',
+        },
+        {
+          img: 'https://images.unsplash.com/photo-1487530811176-3780de880c2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Z3lwc29waGlsZXMlMjBib3VxdWV0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=82&h=82',
+          title: 'Gypsophiles',
+        },
+        {
+          img: 'https://images.unsplash.com/photo-1610190427750-03e9095f18e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2VyYmVyYXMlMjBib3VxdWV0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=82&h=82',
+          title: 'Gerberas',
+        },
+      ]
     }
+
   },
   {
+    type: 'relatives',
     title: 'Recipients',
     icon: 'relatives',
     hasSubLevel: true,
@@ -75,6 +109,7 @@ export default [
     ]
   },
   {
+    type: 'occassions',
     title: 'Occassions',
     icon: 'organizer',
     hasSubLevel: true,
@@ -121,4 +156,4 @@ export default [
       }
     ]
   }
-];
+]
