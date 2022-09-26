@@ -2,11 +2,17 @@
   <app-mobile-link v-if="isLink" :link="link" />
   <app-mobile-list :list="list" />
 
-
   <template v-if="isAll">
     <app-mobile-tiles :list="deals" />
-    <app-mobile-section :section="sectionByPrice" />
+    <app-mobile-section :section="byPrice" />
     <app-mobile-products :all="props.all" />
+  </template>
+
+  <template v-if="isRoses">
+    <app-mobile-section :section="byQuantity" />
+
+    title here
+    <app-mobile-tiles :list="deals" :options="{ theme: 'outline' }" />
   </template>
 </template>
 
@@ -33,7 +39,12 @@ const props = defineProps({
     default: () => []
   },
 
-  sectionByPrice: {
+  byPrice: {
+    type: Object,
+    default: () => ({})
+  },
+
+  byQuantity: {
     type: Object,
     default: () => ({})
   },

@@ -59,7 +59,6 @@ const handleClick = (idx) => {
   justify-content: flex-start;
   width: 18px;
   height: 18px;
-  outline: 1px solid;
 
   &__icon {
     width: 16px;

@@ -9,6 +9,7 @@
     <div class="section__list list">
       <a v-for="item in props.section.list" :key="item" class="list__item">
         {{ item.name }}
+        <span v-if="item.from" class="text-grey">{{ item.from }}</span>
       </a>
     </div>
   </div>
@@ -72,5 +73,9 @@ const classNames = computed(() =>
     color: $color-dark-grey;
     padding: 6px 0;
   }
+}
+
+.text-grey {
+  color: $color-white-grey;
 }
 </style>
