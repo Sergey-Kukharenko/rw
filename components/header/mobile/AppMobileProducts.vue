@@ -79,8 +79,7 @@ const isAdditionally = computed(() => props?.section?.additionally?.title)
       width: calc(66.6666% - 6px);
 
       & .figure {
-        border: 1px dashed #767676;
-        box-sizing: border-box;
+
       }
 
       & .figcaption {

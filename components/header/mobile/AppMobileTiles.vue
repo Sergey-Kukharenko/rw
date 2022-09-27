@@ -49,7 +49,7 @@ const classNames = computed(() => useClassName(props.options, 'list'));
   flex-wrap: wrap;
   align-items: center;
   gap: 9px;
-  margin: 9px 0;
+  margin: 14px 0 16px;
 
   &__item {
     display: flex;

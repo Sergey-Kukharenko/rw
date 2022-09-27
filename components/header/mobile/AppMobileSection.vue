@@ -37,11 +37,13 @@ const isLink = computed(() => props.section?.link?.text)
   margin: 16px 0;
 
   &__link {
+    display: block;
     font-family: $golos-regular;
     font-size: 14px;
     line-height: 20px;
     letter-spacing: -0.01em;
     color: $color-dark-green;
+    margin-bottom: 15px;
   }
 
   &--active {

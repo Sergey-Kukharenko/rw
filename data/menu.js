@@ -306,4 +306,29 @@ export default [
       }
     ]
   },
+  {
+    type: 'bestsales',
+    title: 'Best sales',
+    icon: 'fire-outline',
+    hasSubLevel: false,
+  },
+  {
+    type: 'favorite',
+    title: 'Favorite',
+    icon: 'mom',
+    hasSubLevel: false,
+  },
+  {
+    type: 'gifts',
+    title: 'Gifts',
+    count: 12,
+    icon: 'gift',
+    hasSubLevel: false,
+  },
+  {
+    type: 'sales',
+    title: 'Sales',
+    icon: 'percent-sale',
+    hasSubLevel: false,
+  },
 ];

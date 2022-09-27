@@ -8,14 +8,13 @@
     <app-mobile-products :section="props.products" />
   </template>
 
-  <template v-if="isRoses">
+  <div v-if="isRoses" class="group-sections">
     <app-mobile-section :section="props.by.quantity" />
-
     <app-mobile-tiles :section="props.categories" :options="{ theme: 'outline' }" />
     <app-mobile-products :section="props.products" :options="{ size: 'md' }" />
     <app-mobile-section :section="props.by.look" />
     <app-mobile-section :section="props.by.height" />
-  </template>
+  </div>
 </template>
 
 <script setup>
@@ -66,5 +65,10 @@ const isRoses = computed(() => props.type === 'roses')
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.group-sections{
+  & .section:not(:last-child) {
+    border-bottom: 1px solid #DDE0E6;
+  }
+}
 </style>
