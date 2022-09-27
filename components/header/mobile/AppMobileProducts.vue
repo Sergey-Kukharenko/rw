@@ -1,26 +1,56 @@
 <template>
   <div class="section">
     <div class="header">
-      {{ props.all.title }}
+      {{ props.section.title }}
     </div>
-    <div class="list">
-      <div v-for="(item, idx) in props.all.list" :key="idx" class="list__item">
+
+    <div :class="classNames">
+      <div
+        v-for="(item, idx) in props.section.list"
+        :key="idx"
+        class="list__item"
+      >
         <div class="figure">
-          <img :src="item.img" class="figure__img"/>
+          <img :src="item.img" class="figure__img" :alt="item.title" />
+
+          <app-badge v-if="item.status" class="figure__badge" theme="white" size="xs">
+            {{ item.status }}
+          </app-badge>
         </div>
         <div class="figcaption">{{ item.title }}</div>
+      </div>
+
+      <div v-if="isAdditionally" class="list__item list__item--additionally">
+        <div class="figure">
+          <img
+            :src="props.section.additionally.img"
+            class="figure__img"
+            :alt="props.section.additionally.title"
+          />
+        </div>
+        <div class="figcaption">{{ props.section.additionally.title }}</div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import AppBadge from '@/components/shared/AppBadge.vue'
+
 const props = defineProps({
-  all: {
+  section: {
+    type: Object,
+    default: () => ({})
+  },
+
+  options: {
     type: Object,
     default: () => ({})
   }
-});
+})
+
+const classNames = computed(() => useClassName(props.options, 'list'))
+const isAdditionally = computed(() => props?.section?.additionally?.title)
 </script>
 
 <style lang="scss" scoped>
@@ -38,11 +68,38 @@ const props = defineProps({
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 15px 6px;
-  margin: 12px 0;
+  margin: 12px -3px;
 
   &__item {
+    width: calc(33.3333% - 6px);
     text-align: center;
+    margin: 7px 3px;
+
+    &--additionally {
+      width: calc(66.6666% - 6px);
+
+      & .figure {
+        border: 1px dashed #767676;
+        box-sizing: border-box;
+      }
+
+      & .figcaption {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &--md {
+    & .figure {
+      height: 64px;
+      border-radius: 12px;
+    }
+
+    & .figcaption {
+      font-size: 11px;
+      line-height: 16px;
+      margin-top: 3px;
+    }
   }
 }
 
@@ -50,7 +107,8 @@ const props = defineProps({
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 82px;
+  position: relative;
+  width: 100%;
   height: 82px;
   border-radius: 10px;
   overflow: hidden;
@@ -60,6 +118,12 @@ const props = defineProps({
     height: 100%;
     object-fit: cover;
   }
+
+  &__badge{
+    position: absolute;
+    top: 4px;
+    left: 1px;
+  }
 }
 
 .figcaption {
@@ -67,6 +131,6 @@ const props = defineProps({
   font-size: 12px;
   line-height: 12px;
   padding: 0 4px;
-  margin: 10px auto 0;
+  margin-top: 10px;
 }
 </style>

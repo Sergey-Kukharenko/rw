@@ -1,35 +1,49 @@
 <template>
-  <div :class="classNames">
-    <div v-for="(item, idx) in props.list" :key="idx" class="list__item">
-      <div class="figure">
-        <SvgSprite
-          :symbol="item.icon"
-          class="figure__icon"
-          :class="item.icon"
-        />
+  <div class="section">
+    <div class="section__title" v-if="props.section.title">
+      {{ props.section.title }}
+    </div>
+    <div :class="classNames">
+      <div v-for="(item, idx) in props.section.list" :key="idx" class="list__item">
+        <div class="figure">
+          <SvgSprite
+            :symbol="item.icon"
+            class="figure__icon"
+            :class="item.icon"
+          />
+        </div>
+        <div class="figcaption">{{ item.text }}</div>
       </div>
-      <div class="figcaption">{{ item.text }}</div>
     </div>
   </div>
 </template>
 
 <script setup>
 const props = defineProps({
-  list: {
-    type: Array,
-    default: () => []
+  section: {
+    type: Object,
+    default: () => ({})
   },
 
   options: {
     type: Object,
     default: () => ({})
   }
-})
+});
 
-const classNames = computed(() => useClassName(props.options, 'list'))
+const classNames = computed(() => useClassName(props.options, 'list'));
 </script>
 
 <style lang="scss" scoped>
+.section {
+  &__title {
+    font-family: $golos-bold;
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 10px;
+  }
+}
+
 .list {
   display: flex;
   flex-wrap: wrap;
@@ -47,7 +61,7 @@ const classNames = computed(() => useClassName(props.options, 'list'))
     text-align: center;
     background: #f7f7f7;
     border-radius: 10px;
-    padding: 11px 5px;
+    padding: 11px 2px;
     box-sizing: border-box;
   }
 
@@ -75,12 +89,11 @@ const classNames = computed(() => useClassName(props.options, 'list'))
 .figcaption {
   display: flex;
   align-items: center;
-  max-width: 58px;
   min-height: 26px;
-  margin: 2px auto 0;
   font-family: $golos-regular;
   font-size: 11px;
   line-height: 13px;
   letter-spacing: 0.066px;
+  margin-top: 7px
 }
 </style>

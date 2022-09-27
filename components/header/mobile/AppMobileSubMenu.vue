@@ -1,18 +1,20 @@
 <template>
-  <app-mobile-link v-if="isLink" :link="link" />
-  <app-mobile-list :list="list" />
+  <app-mobile-link v-if="isLink" :link="props.link" />
+  <app-mobile-list v-if="isList" :list="props.list" />
 
   <template v-if="isAll">
-    <app-mobile-tiles :list="deals" />
-    <app-mobile-section :section="byPrice" />
-    <app-mobile-products :all="props.all" />
+    <app-mobile-tiles :section="props.categories" />
+    <app-mobile-section :section="props.by.price" />
+    <app-mobile-products :section="props.products" />
   </template>
 
   <template v-if="isRoses">
-    <app-mobile-section :section="byQuantity" />
+    <app-mobile-section :section="props.by.quantity" />
 
-    title here
-    <app-mobile-tiles :list="deals" :options="{ theme: 'outline' }" />
+    <app-mobile-tiles :section="props.categories" :options="{ theme: 'outline' }" />
+    <app-mobile-products :section="props.products" :options="{ size: 'md' }" />
+    <app-mobile-section :section="props.by.look" />
+    <app-mobile-section :section="props.by.height" />
   </template>
 </template>
 
@@ -34,22 +36,17 @@ const props = defineProps({
     default: () => ({})
   },
 
-  deals: {
-    type: Array,
-    default: () => []
-  },
-
-  byPrice: {
+  categories: {
     type: Object,
     default: () => ({})
   },
 
-  byQuantity: {
+  by: {
     type: Object,
     default: () => ({})
   },
 
-  all: {
+  products: {
     type: Object,
     default: () => ({})
   },
@@ -61,6 +58,7 @@ const props = defineProps({
 })
 
 const isLink = computed(() => props.link.text)
+const isList = computed(() => props.list?.length > 0)
 // const isSectionByPrice = computed(() => props.sectionByPrice)
 // const isProducts = computed(() => props.all?.products?.length > 0)
 const isAll = computed(() => props.type === 'all')

@@ -5,7 +5,6 @@
     <app-breadcrumbs/>
     <slot/>
     <app-footer/>
-
   </div>
 </template>
 

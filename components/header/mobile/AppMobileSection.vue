@@ -4,14 +4,15 @@
       <div class="header__title">
         {{ props.section.title }}
       </div>
-      <SvgSprite symbol="arrow-down" class="header__icon" />
+      <SvgSprite symbol="arrow-down" class="header__icon"/>
     </div>
     <div class="section__list list">
       <a v-for="item in props.section.list" :key="item" class="list__item">
-        {{ item.name }}
+        {{ item.text }}
         <span v-if="item.from" class="text-grey">{{ item.from }}</span>
       </a>
     </div>
+    <a v-if="isLink" class="section__link">{{props.section.link.text}}</a>
   </div>
 </template>
 
@@ -21,16 +22,28 @@ const props = defineProps({
     type: Object,
     default: () => ({})
   }
-})
+});
 
-const isVisible = ref(true)
+const isVisible = ref(true);
 const classNames = computed(() =>
   useToggleClassName(isVisible.value, 'section', 'active')
-)
+);
+
+const isLink = computed(() => props.section?.link?.text)
 </script>
 
 <style lang="scss" scoped>
 .section {
+  margin: 16px 0;
+
+  &__link {
+    font-family: $golos-regular;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.01em;
+    color: $color-dark-green;
+  }
+
   &--active {
     & .header__icon {
       transform: rotate(180deg);

@@ -5,7 +5,9 @@
     class="nested-group"
   />
   <app-drawer-nested :visible="isVisible" @close="close" :title="title">
-    <app-mobile-sub-menu v-bind="{ list, link, deals, byPrice, byQuantity, all, type }" />
+    <app-mobile-sub-menu
+      v-bind="{ list, link, categories, by, products, type }"
+    />
   </app-drawer-nested>
 </template>
 
@@ -35,10 +37,9 @@ const isSubLevel = computed(() => currentItem.value.hasSubLevel)
 const title = computed(() => currentItem.value.title)
 const list = computed(() => currentItem.value.list)
 const link = computed(() => currentItem.value.link)
-const deals = computed(() => currentItem.value.deals)
-const byPrice = computed(() => currentItem.value.by?.price)
-const byQuantity = computed(() => currentItem.value.by?.quantity)
-const all = computed(() => currentItem.value?.all)
+const categories = computed(() => currentItem.value?.categories)
+const by = computed(() => currentItem.value?.by)
+const products = computed(() => currentItem.value?.products)
 const type = computed(() => currentItem.value?.type)
 
 const onSelectItem = (idx) => {

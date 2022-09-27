@@ -46,6 +46,17 @@ const classNames = computed(() => useClassName(props, 'badge'))
     padding: 2px 4.4555px;
   }
 
+  &--white {
+    //font-size: 11px;
+    //line-height: 16px;
+    //letter-spacing: -0.01em;
+    //padding: 2px 6px;
+
+    color: #F63866;
+    background: #fff;
+    border-radius: 8px;
+  }
+
   &--red {
     background: #db1838;
   }
@@ -95,7 +106,6 @@ const classNames = computed(() => useClassName(props, 'badge'))
 
   &--sm {
     font-family: $golos-medium;
-    color: #FCBC00;
     line-height: 16px;
 
     @include gt-xs {
@@ -113,6 +123,12 @@ const classNames = computed(() => useClassName(props, 'badge'))
       font-size: 10px;
       padding: 2px 7px;
     }
+  }
+
+  &--xs {
+    font-size: 11px;
+    line-height: 16px;
+    padding: 2px 6px;
   }
 }
 
