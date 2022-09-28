@@ -1,5 +1,5 @@
 <template>
-  <div class="list">
+  <div class="list nested-group">
     <a class="list__item" v-for="item in navigation.main" :key="item.title">
       {{item.title}}
       <span v-if="item.count" class="count">
