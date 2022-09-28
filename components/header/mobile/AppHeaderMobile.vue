@@ -1,9 +1,9 @@
 <template>
   <header>
     <app-drawer>
-            <app-navigation/>
-            <app-menu/>
-            <app-nav-bar/>
+      <app-navigation/>
+      <app-menu/>
+      <app-nav-bar/>
 
 <!--      <div :class="classNames">-->
 <!--        <div class="content__layout content__layout&#45;&#45;md">-->

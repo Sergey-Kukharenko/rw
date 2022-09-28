@@ -30,20 +30,36 @@ watchEffect(async () => {
 
 <style lang="scss" scoped>
 .container {
-  padding-top: 18px;
-  box-sizing: border-box;
+  @include gt-sm {
+    padding-top: 18px;
+    box-sizing: border-box;
+  }
 
   &__layout {
-    padding: 0 24px;
+    @include gt-sm {
+      padding: 0 24px;
+    }
   }
 
   &__header {
-    padding: 0 24px;
-    border-bottom: 1px solid #dde0e6;
+    @include gt-sm {
+      padding: 0 24px;
+      border-bottom: 1px solid #dde0e6;
+    }
+
+    @include lt-md {
+      display: none;
+    }
   }
 
   &__body {
-    margin-top: 24px;
+    @include gt-sm {
+      margin-top: 24px;
+    }
+
+    @include lt-md {
+      margin: 0;
+    }
   }
 }
 </style>
