@@ -7,7 +7,6 @@ export const useLocationStore = defineStore('location', () => {
   });
 
   const change = (payload) => {
-    console.log(payload);
     location.value = payload
   };
 

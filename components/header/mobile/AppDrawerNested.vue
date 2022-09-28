@@ -1,11 +1,11 @@
 <template>
   <div :class="classNames">
     <div @click="close" class="header">
-      <SvgSprite symbol="arrow-back" class="header__icon"/>
+      <SvgSprite symbol="arrow-back" class="header__icon" />
       <div class="header__title">{{ props.title }}</div>
     </div>
     <div class="container">
-      <slot/>
+      <slot />
     </div>
   </div>
 </template>
@@ -20,15 +20,15 @@ const props = defineProps({
   title: {
     type: String,
     required: ''
-  },
-});
+  }
+})
 
 const classNames = computed(() =>
   useToggleClassName(props.visible, 'nested', 'active')
-);
+)
 
-const emit = defineEmits(['close']);
-const close = () => emit('close');
+const emit = defineEmits(['close'])
+const close = () => emit('close')
 </script>
 
 <style lang="scss" scoped>
@@ -37,20 +37,19 @@ const close = () => emit('close');
   height: 100vh;
   position: absolute;
   top: 0;
-  right: -135%;
+  right: 0%;
   background: #fff;
   overflow-y: auto;
-  transform: translateX(-35%);
+  transform: translateX(100%);
   opacity: 0;
   z-index: 1;
-  transition: opacity .3s ease 0s, transform .3s ease 0s, right 0s ease .3s;
+  transition: opacity 0.3s ease 0s, transform 0.3s ease 0s, right 0s ease 0.3s;
 
   &--active {
-    right: -100%;
     opacity: 1;
-    transform: translateX(-100%);
+    transform: translateX(0);
     z-index: 2;
-    transition: opacity .3s ease 0s, transform .3s ease 0s, right 0s ease 0s;
+    transition: opacity 0.3s ease 0s, transform 0.3s ease 0s, right 0s ease 0s;
   }
 }
 
@@ -75,6 +74,4 @@ const close = () => emit('close');
 .container {
   padding: 0 8px;
 }
-
-
 </style>

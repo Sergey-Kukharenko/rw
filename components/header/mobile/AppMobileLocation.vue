@@ -1,18 +1,23 @@
 <template>
   <div class="location">
-    <app-location-button :location="location" @click="open"/>
+    <div class="nested-group">
+      <app-location-button :location="location" @click="open" />
+    </div>
 
-    <app-modal :visible="isVisible" @close="close">
+    <app-drawer-nested
+      :visible="isVisible"
+      @close="close"
+      title="Delivery city"
+    >
       <app-address />
-    </app-modal>
+    </app-drawer-nested>
   </div>
 </template>
 
 <script setup>
-import AppModal from '@/components/shared/AppModal.vue'
+import AppDrawerNested from '@/components/header/mobile/AppDrawerNested'
 import AppAddress from '@/components/header/address/AppAddress.vue'
 import AppLocationButton from '@/components/header/AppLocationButton.vue'
-import {disableScroll, enableScroll} from '@/helpers/scrollLock';
 
 const location = ref({
   city: '',
@@ -23,25 +28,29 @@ const isVisible = ref(false)
 
 const open = () => {
   isVisible.value = true
-  disableScroll()
 }
 
 const close = () => {
   isVisible.value = false
-  enableScroll()
 }
 
 const updateLocation = (payload) => {
   location.value = payload
   isVisible.value = false
-  enableScroll()
 }
 
 provide('location', {
   updateLocation
 })
+
+const { updateVisibility } = inject('visibility')
+
+watchEffect(() => {
+  updateVisibility(isVisible.value)
+})
 </script>
 
 <style lang="scss" scoped>
-
+.location {
+}
 </style>

@@ -2,9 +2,9 @@
   <div :class="classNames">
     <div class="drawer__button" @click="open">
       <div class="burger">
-        <span/>
-        <span/>
-        <span/>
+        <span />
+        <span />
+        <span />
       </div>
     </div>
     <div class="drawer__overlay" @click="close" />
@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import {disableScroll, enableScroll} from '@/helpers/scrollLock';
+import { disableScroll, enableScroll } from '@/helpers/scrollLock'
 
 const isVisible = ref(false)
 
@@ -83,8 +83,6 @@ const classNames = computed(() =>
       width: 274px;
       height: 100vh;
       background: #fff;
-      padding: 12px;
-      box-sizing: border-box;
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="list nested-group">
     <a class="list__item" v-for="item in navigation.main" :key="item.title">
-      {{item.title}}
+      {{ item.title }}
       <span v-if="item.count" class="count">
         {{ item.count }}
       </span>
@@ -10,15 +10,13 @@
 </template>
 
 <script setup>
-import dataNavigation from '@/data/navigation';
-const navigation = ref(dataNavigation);
+import dataNavigation from '@/data/navigation'
+const navigation = ref(dataNavigation)
 </script>
 
 <style lang="scss" scoped>
 .list {
-  padding-top: 20px;
-  margin-top: 16px;
-  border-top: 1px solid #dde0e6;
+  margin-top: 20px;
 
   &__item {
     display: flex;
@@ -27,11 +25,11 @@ const navigation = ref(dataNavigation);
     line-height: 16px;
     letter-spacing: -0.02em;
     color: $color-dark-grey;
-    padding: 6px 12px 6px;
+    padding: 6px 0;
   }
 }
 
-.count{
+.count {
   display: flex;
   align-items: center;
   justify-content: center;
