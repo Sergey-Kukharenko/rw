@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import AppDrawerNested from '@/components/header/AppDrawerNested'
+import AppDrawerNested from '@/components/header/mobile/AppDrawerNested'
 import AppMobileMenu from '@/components/header/mobile/AppMobileMenu.vue'
 import AppMobileSubMenu from '@/components/header/mobile/AppMobileSubMenu.vue'
 

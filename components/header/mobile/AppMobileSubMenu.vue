@@ -10,7 +10,10 @@
 
   <div v-if="isRoses" class="group-sections">
     <app-mobile-section :section="props.by.quantity" />
-    <app-mobile-tiles :section="props.categories" :options="{ theme: 'outline' }" />
+    <app-mobile-tiles
+      :section="props.categories"
+      :options="{ theme: 'outline' }"
+    />
     <app-mobile-products :section="props.products" :options="{ size: 'md' }" />
     <app-mobile-section :section="props.by.look" />
     <app-mobile-section :section="props.by.height" />
@@ -22,7 +25,7 @@ import AppMobileList from './AppMobileList'
 import AppMobileLink from './AppMobileLink'
 import AppMobileTiles from './AppMobileTiles'
 import AppMobileSection from './AppMobileSection'
-import AppMobileProducts from './AppMobileProducts';
+import AppMobileProducts from './AppMobileProducts'
 
 const props = defineProps({
   list: {
@@ -53,22 +56,19 @@ const props = defineProps({
   type: {
     type: String,
     required: ''
-  },
+  }
 })
 
 const isLink = computed(() => props.link.text)
 const isList = computed(() => props.list?.length > 0)
-// const isSectionByPrice = computed(() => props.sectionByPrice)
-// const isProducts = computed(() => props.all?.products?.length > 0)
 const isAll = computed(() => props.type === 'all')
 const isRoses = computed(() => props.type === 'roses')
-
 </script>
 
 <style lang="scss">
-.group-sections{
+.group-sections {
   & .section:not(:last-child) {
-    border-bottom: 1px solid #DDE0E6;
+    border-bottom: 1px solid #dde0e6;
   }
 }
 </style>

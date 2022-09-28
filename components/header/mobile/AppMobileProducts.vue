@@ -11,7 +11,7 @@
         class="list__item"
       >
         <div class="figure">
-          <img :src="item.img" class="figure__img" :alt="item.title" />
+          <img :src="item.img" class="figure__img" :alt="item.title"/>
 
           <app-badge v-if="item.status" class="figure__badge" theme="white" size="xs">
             {{ item.status }}
@@ -35,7 +35,7 @@
 </template>
 
 <script setup>
-import AppBadge from '@/components/shared/AppBadge.vue'
+import AppBadge from '@/components/shared/AppBadge.vue';
 
 const props = defineProps({
   section: {
@@ -47,10 +47,10 @@ const props = defineProps({
     type: Object,
     default: () => ({})
   }
-})
+});
 
-const classNames = computed(() => useClassName(props.options, 'list'))
-const isAdditionally = computed(() => props?.section?.additionally?.title)
+const classNames = computed(() => useClassName(props.options, 'list'));
+const isAdditionally = computed(() => props?.section?.additionally?.title);
 </script>
 
 <style lang="scss" scoped>
@@ -79,7 +79,8 @@ const isAdditionally = computed(() => props?.section?.additionally?.title)
       width: calc(66.6666% - 6px);
 
       & .figure {
-
+        border: 1px dashed #767676;
+        box-sizing: border-box;
       }
 
       & .figcaption {
@@ -116,9 +117,11 @@ const isAdditionally = computed(() => props?.section?.additionally?.title)
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: relative;
+    z-index: 3;
   }
 
-  &__badge{
+  &__badge {
     position: absolute;
     top: 4px;
     left: 1px;

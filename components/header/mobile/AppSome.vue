@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import AppDrawerNested from '@/components/header/AppDrawerNested'
+import AppDrawerNested from '@/components/header/mobile/AppDrawerNested'
 
 const isVisible = ref(false)
 

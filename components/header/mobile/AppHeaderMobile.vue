@@ -1,61 +1,61 @@
 <template>
   <header>
     <app-drawer>
-      <app-navigation/>
-      <app-menu/>
-      <app-nav-bar/>
-
+            <app-navigation/>
+            <app-menu/>
+            <app-nav-bar/>
 
 <!--      <div :class="classNames">-->
-<!--        <app-header-mobile-menu/>-->
+<!--        <app-header-mobile-menu />-->
+<!--        <app-header-mobile-nav />-->
 <!--      </div>-->
     </app-drawer>
 
-    <app-logo/>
-    <app-search/>
-    <app-call/>
-    <app-cart/>
+    <app-logo />
+    <app-search />
+    <app-call />
+    <app-cart />
   </header>
 
-  <app-notification/>
+  <app-notification />
 </template>
 
 <script setup>
-import AppNotification from '@/components/header/AppNotification.vue';
-import AppNavigation from '@/components/header/AppNavigation.vue';
-import AppMenu from '@/components/header/AppMenu.vue';
-import AppNavBar from '@/components/header/AppNavBar.vue';
-import AppDrawer from '@/components/shared/AppDrawer.vue';
+import AppNotification from '@/components/header/AppNotification.vue'
+import AppNavigation from '@/components/header/AppNavigation.vue'
+import AppMenu from '@/components/header/AppMenu.vue'
+import AppNavBar from '@/components/header/AppNavBar.vue'
+import AppDrawer from '@/components/shared/AppDrawer.vue'
 
-import AppCall from '@/components/header/AppCall.vue';
-import AppLogo from '@/components/header/AppLogo.vue';
-import AppSearch from '@/components/header/AppSearch.vue';
-import AppCart from '@/components/header/AppCart.vue';
+import AppCall from '@/components/header/AppCall.vue'
+import AppLogo from '@/components/header/AppLogo.vue'
+import AppSearch from '@/components/header/AppSearch.vue'
+import AppCart from '@/components/header/AppCart.vue'
 
-import AppHeaderMobileMenu from './mobile/AppHeaderMobileMenu.vue';
-import AppSome from './mobile/AppSome.vue';
+import AppHeaderMobileMenu from './AppHeaderMobileMenu.vue'
+import AppHeaderMobileNav from './AppHeaderMobileNav.vue'
+import AppSome from './AppSome.vue'
 
-const isVisible = ref(false);
-
+const isVisible = ref(false)
 const classNames = computed(() =>
   useToggleClassName(isVisible.value, 'content', 'active')
-);
+)
 
 const open = () => {
-  isVisible.value = true;
-};
+  isVisible.value = true
+}
 
 const close = () => {
-  isVisible.value = false;
-};
+  isVisible.value = false
+}
 
 const updateVisibility = (payload) => {
-  isVisible.value = payload;
-};
+  isVisible.value = payload
+}
 
 provide('visibility', {
   updateVisibility
-});
+})
 </script>
 
 <style lang="scss" scoped>
@@ -89,7 +89,6 @@ header {
 }
 
 .layer {
-
 }
 </style>
 
