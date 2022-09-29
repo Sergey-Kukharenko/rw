@@ -9,19 +9,28 @@
     <div class="container__body">
       <div class="container__layout">
         <app-input v-model:query="query" />
-        <app-list :list="list" />
+        <app-list v-show="isList" :list="list" @clearQuery="onClearQuery" />
+        <app-cities-by-default v-if="isCitiesByDefault" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import {useIsDevice} from '@/composables/states';
+const isDevice = useIsDevice()
+
 import AppInput from './AppInput'
 import AppList from './AppList'
+import AppCitiesByDefault from './AppCitiesByDefault'
 import { woosMapService } from '@/helpers/woosMapService'
 
 const query = ref('')
 const list = ref([])
+
+const onClearQuery = () => (query.value = '')
+const isList = computed(() => list.value.length > 0)
+const isCitiesByDefault = computed(() => (isDevice.value && !isList.value))
 
 watchEffect(async () => {
   list.value = query.value ? await woosMapService(query.value) : []

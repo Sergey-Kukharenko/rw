@@ -5,7 +5,7 @@
     name="name"
     placeholder="Start typing a post code, street or address"
     class="input"
-    v-model="query"
+    v-model="localQuery"
   />
 </template>
 
@@ -18,9 +18,14 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['update:query'])
-const query = ref(props.query)
-watchEffect(() => {
-  emit('update:query', query.value)
+
+const localQuery = computed({
+  get() {
+    return props.query
+  },
+  set(newValue) {
+    emit('update:query', newValue)
+  }
 })
 </script>
 

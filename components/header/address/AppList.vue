@@ -22,10 +22,12 @@ const props = defineProps({
   }
 })
 
+const emit = defineEmits(['clearQuery'])
 const { updateLocation } = inject('location')
 
-const onChange = ({address, city}) => {
-  updateLocation({address, city})
+const onChange = ({ address, city }) => {
+  emit('clearQuery')
+  updateLocation({ address, city })
 }
 </script>
 
@@ -65,7 +67,7 @@ const onChange = ({address, city}) => {
     cursor: pointer;
     background: #fff;
     border-radius: 10px;
-    transition: background 0.2s ease 0s;
+    transition: background-color 0.2s ease 0s;
 
     &:hover {
       background: $bg-grey;
