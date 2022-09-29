@@ -2,9 +2,9 @@
   <div>
     <app-header-mobile v-if="isDevice"/>
     <app-header v-else/>
-<!--    <app-breadcrumbs/>-->
-<!--    <slot/>-->
-<!--    <app-footer/>-->
+    <app-breadcrumbs/>
+    <slot/>
+    <app-footer/>
   </div>
 </template>
 

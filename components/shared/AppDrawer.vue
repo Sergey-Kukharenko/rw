@@ -19,7 +19,7 @@
 <script setup>
 import { disableScroll, enableScroll } from '@/helpers/scrollLock'
 
-const isVisible = ref(true)
+const isVisible = ref(false)
 
 const open = () => {
   isVisible.value = true

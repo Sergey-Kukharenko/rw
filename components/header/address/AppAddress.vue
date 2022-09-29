@@ -17,20 +17,22 @@
 </template>
 
 <script setup>
-import {useIsDevice} from '@/composables/states';
-const isDevice = useIsDevice()
+import { useIsDevice } from '@/composables/states'
 
 import AppInput from './AppInput'
 import AppList from './AppList'
 import AppCitiesByDefault from './AppCitiesByDefault'
 import { woosMapService } from '@/helpers/woosMapService'
 
+const isDevice = useIsDevice()
+
 const query = ref('')
 const list = ref([])
 
-const onClearQuery = () => (query.value = '')
 const isList = computed(() => list.value.length > 0)
-const isCitiesByDefault = computed(() => (isDevice.value && !isList.value))
+const isCitiesByDefault = computed(() => isDevice.value && !isList.value)
+
+const onClearQuery = () => (query.value = '')
 
 watchEffect(async () => {
   list.value = query.value ? await woosMapService(query.value) : []
@@ -64,6 +66,7 @@ watchEffect(async () => {
   &__body {
     @include gt-sm {
       margin-top: 24px;
+      height: 305px;
     }
 
     @include lt-md {

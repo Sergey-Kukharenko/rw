@@ -1,24 +1,24 @@
 <template>
   <header>
     <app-drawer>
-      <!--      <app-navigation/>-->
-      <!--      <app-menu/>-->
-      <!--      <app-nav-bar/>-->
+            <app-navigation/>
+            <app-menu/>
+            <app-nav-bar/>
 
-      <div :class="classNames">
-        <div class="content__layout content__layout--md">
-          <app-mobile-location />
-        </div>
-        <div class="content__layout">
-          <app-header-mobile-menu />
-        </div>
-        <div class="content__group">
-          <div class="content__separator" />
-          <div class="content__layout">
-            <app-header-mobile-nav />
-          </div>
-        </div>
-      </div>
+<!--      <div :class="classNames">-->
+<!--        <div class="content__layout content__layout&#45;&#45;md">-->
+<!--          <app-mobile-location />-->
+<!--        </div>-->
+<!--        <div class="content__layout">-->
+<!--          <app-header-mobile-menu />-->
+<!--        </div>-->
+<!--        <div class="content__group">-->
+<!--          <div class="content__separator" />-->
+<!--          <div class="content__layout">-->
+<!--            <app-header-mobile-nav />-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
     </app-drawer>
 
