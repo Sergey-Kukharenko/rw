@@ -4,12 +4,8 @@
       <div class="navigation__group">
         <app-navigation-list :list="navigation.main"/>
         <div class="navigation__section">
-          <app-navigation-list
-            :list="navigation.other"
-            :options="{ theme: 'mixed' }"
-          >
-            <app-call/>
-          </app-navigation-list>
+          <app-navigation-list :list="navigation.other" />
+          <app-call class="navigation-link"/>
         </div>
       </div>
     </div>
@@ -48,6 +44,11 @@ const navigation = ref(dataNavigation);
       display: flex;
       align-items: center;
     }
+  }
+
+  &-link {
+    display: block;
+    padding: 10px 0 10px 24px;
   }
 }
 </style>
