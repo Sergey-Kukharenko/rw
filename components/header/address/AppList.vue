@@ -35,31 +35,39 @@ const onChange = ({ address, city }) => {
 .list-wrapper {
   position: relative;
 
-  &:after {
-    content: ' ';
-    height: 32px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(
-      180deg,
-      transparent,
-      hsl(0deg 0% 100% / 85%) 50%
-    );
-    z-index: 1;
+  @include gt-sm {
+    &:after {
+      content: ' ';
+      height: 32px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(
+          180deg,
+          transparent,
+          hsl(0deg 0% 100% / 85%) 50%
+      );
+      z-index: 1;
+    }
+  }
+
+  @include lt-md {
+
   }
 }
 
 .list {
-  height: 233px;
-  overflow-y: auto;
   margin: 24px 0 0;
-  overflow: -moz-scrollbars-none;
-  -ms-overflow-style: none;
 
-  &::-webkit-scrollbar {
-    display: none;
+  @include gt-sm {
+    height: 233px;
+    overflow-y: auto;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   &__item {

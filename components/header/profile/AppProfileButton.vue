@@ -4,7 +4,7 @@
       <template v-if="isAuth">
         {{ char }}
       </template>
-      <SvgSprite v-else symbol="profile" class="profile-button__icon" />
+      <SvgSprite v-else symbol="profile" class="profile-button__icon"/>
     </div>
     <div class="profile-button__figcaption">{{ getInfo }}</div>
   </div>
@@ -16,17 +16,17 @@ const props = defineProps({
     type: Object,
     default: () => ({})
   }
-})
+});
 
-const isAuth = computed(() => props.user.authorized)
-const char = computed(() => props.user.fullName.substring(0, 1))
+const isAuth = computed(() => props.user.authorized);
+const char = computed(() => props.user.fullName.substring(0, 1));
 const getInfo = computed(() =>
   isAuth.value ? props.user.fullName : 'Log in / Register'
-)
+);
 
 const classNames = computed(() => [
   useToggleClassName(isAuth.value, 'profile-button', 'active')
-])
+]);
 </script>
 
 <style lang="scss" scoped>
@@ -98,14 +98,21 @@ const classNames = computed(() => [
 
   &--active {
     & .profile-button__figure {
-      width: 24px;
-      height: 24px;
       font-family: $golos-bold;
       font-size: 16px;
       line-height: 16px;
       color: #fff;
       background: #e8929d;
-      border-radius: 8px;
+
+      @include gt-sm {
+        width: 24px;
+        height: 24px;
+        border-radius: 8px;
+      }
+
+      @include lt-md {
+        border-radius: 12px;
+      }
     }
 
     & .profile-button__figcaption {

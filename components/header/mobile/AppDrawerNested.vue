@@ -37,19 +37,18 @@ const close = () => emit('close')
   height: 100vh;
   position: absolute;
   top: 0;
-  right: 0%;
+  right: -100%;
   background: #fff;
   overflow-y: auto;
-  transform: translateX(100%);
   opacity: 0;
   z-index: 1;
-  transition: opacity 0.3s ease 0s, transform 0.3s ease 0s, right 0s ease 0.3s;
+  transition: opacity 0.3s ease 0s, transform 0.3s ease 0s;
 
   &--active {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(-100%);
     z-index: 2;
-    transition: opacity 0.3s ease 0s, transform 0.3s ease 0s, right 0s ease 0s;
+    transition: opacity 0.3s ease 0s, transform 0.3s ease 0s;
   }
 }
 
