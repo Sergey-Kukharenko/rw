@@ -54,9 +54,11 @@ export default [
           },
           {
             text: 'Roses',
+            status: 'Best',
           },
           {
             text: 'Daisies',
+            status: 'Best',
           },
           {
             text: 'Peonies',
@@ -90,6 +92,7 @@ export default [
           },
           {
             text: 'Tulips',
+            status: 'Best',
           },
           {
             text: 'Freesias',
@@ -125,26 +128,50 @@ export default [
           {
             text: 'Sale',
             icon: 'percent-sale',
+            style: {
+              width: 17,
+              height: 17
+            },
           },
           {
             text: 'Flowers in the basket',
-            icon: 'bag-outline',
+            icon: 'basket-flowers',
+            style: {
+              width: 21,
+              height: 21
+            },
           },
           {
             text: 'Flowers in a box',
             icon: 'flowers-box',
+            style: {
+              width: 21,
+              height: 21
+            },
           },
           {
             text: 'Insta bouquets',
             icon: 'instagram',
+            style: {
+              width: 20,
+              height: 20
+            },
           },
           {
             text: 'Sales hits',
             icon: 'fire-outline',
+            style: {
+              width: 20,
+              height: 20
+            },
           },
           {
             text: 'Author\'s bouquets',
             icon: 'bouquet',
+            style: {
+              width: 20,
+              height: 20
+            },
           },
         ]
       }

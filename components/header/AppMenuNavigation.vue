@@ -72,12 +72,12 @@ const props = defineProps({
     }
 
     &:first-child {
-      box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
-      z-index: 3;
-
-      & .dropdown {
-        display: block;
-      }
+      //box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
+      //z-index: 3;
+      //
+      //& .dropdown {
+      //  display: block;
+      //}
 
       & .content {
         z-index: 2;
@@ -102,7 +102,7 @@ const props = defineProps({
   justify-content: flex-start;
   position: relative;
   background: #ffffff;
-  padding: 8px 16px 12px;
+  padding: 8px 16px 13px;
   border-radius: 12px 12px 0 0;
   z-index: 2;
 
