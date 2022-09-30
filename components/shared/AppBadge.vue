@@ -9,16 +9,16 @@
 const props = defineProps({
   theme: {
     type: String,
-    default: '',
+    default: ''
   },
   size: {
     type: String,
-    default: '',
+    default: ''
   },
   icon: {
     type: String,
-    default: '',
-  },
+    default: ''
+  }
 })
 
 const classNames = computed(() => useClassName(props, 'badge'))
@@ -52,7 +52,7 @@ const classNames = computed(() => useClassName(props, 'badge'))
     //letter-spacing: -0.01em;
     //padding: 2px 6px;
 
-    color: #F63866;
+    color: #f63866;
     background: #fff;
     border-radius: 8px;
   }
@@ -69,6 +69,11 @@ const classNames = computed(() => useClassName(props, 'badge'))
       width: 14px;
       height: 12px;
     }
+  }
+
+  &--orange {
+    color: #dda100;
+    background: #fff8df;
   }
 
   &--md {

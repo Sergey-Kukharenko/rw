@@ -4,7 +4,7 @@
       v-for="item in props.list"
       :key="item.title"
       class="menu-navigation-list__item"
-      :class="{'has-sub-level': item.hasSubLevel}"
+      :class="{ 'has-sub-level': item.hasSubLevel }"
     >
       <div class="content">
         <div class="content__figure">
@@ -19,20 +19,26 @@
         </div>
       </div>
 
-      <div v-if="item.hasSubLevel" class="dropdown">
-
-      </div>
+      <app-menu-dropdown v-if="item.hasSubLevel">
+        <app-menu-sections :section="item.by" v-slot="slotProps">
+          <app-menu-section :section="{ ...slotProps }" />
+        </app-menu-sections>
+      </app-menu-dropdown>
     </div>
   </div>
 </template>
 
 <script setup>
+import AppMenuDropdown from './AppMenuDropdown'
+import AppMenuSections from './AppMenuSections'
+import AppMenuSection from './AppMenuSection'
+
 const props = defineProps({
   list: {
     type: Array,
     default: () => []
   }
-});
+})
 </script>
 
 <style lang="scss" scoped>
@@ -45,7 +51,7 @@ const props = defineProps({
 
   &__item {
     cursor: default;
-    background: #FFFFFF;
+    background: #ffffff;
     padding: 0;
     border-radius: 12px 12px 0 0;
 
@@ -53,7 +59,7 @@ const props = defineProps({
       color: lighten($color-dark-green, 5%);
     }
 
-    &.has-sub-level{
+    &.has-sub-level {
       &:hover {
         color: $color-dark-green;
         box-shadow: 0 4px 16px #0000001f;
@@ -66,12 +72,12 @@ const props = defineProps({
     }
 
     &:first-child {
-      //box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
-      //z-index: 3;
-      //
-      //& .dropdown {
-      //  display: block;
-      //}
+      box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
+      z-index: 3;
+
+      & .dropdown {
+        display: block;
+      }
 
       & .content {
         z-index: 2;
@@ -84,7 +90,7 @@ const props = defineProps({
 
     &:last-of-type {
       &:not(:hover) {
-        color: #F63866;
+        color: #f63866;
       }
     }
   }
@@ -95,7 +101,7 @@ const props = defineProps({
   align-items: center;
   justify-content: flex-start;
   position: relative;
-  background: #FFFFFF;
+  background: #ffffff;
   padding: 8px 16px 12px;
   border-radius: 12px 12px 0 0;
   z-index: 2;
@@ -115,22 +121,10 @@ const props = defineProps({
     margin-right: 8px;
   }
 
-  &__text{
+  &__text {
     font-family: $golos-medium;
     font-size: 14px;
     line-height: 20px;
   }
-}
-
-.dropdown {
-  display: none;
-  width: 100%;
-  position: absolute;
-  left: 0;
-  height: 312px;
-  background: #FFFFFF;
-  box-shadow: 0 4px 16px #0000001f;
-  border-radius: 16px;
-  z-index: 1;
 }
 </style>

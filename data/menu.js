@@ -92,8 +92,56 @@ export default [
           title: 'Gerberas',
         },
         {
-          img: 'https://images.unsplash.com/photo-1610190427750-03e9095f18e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2VyYmVyYXMlMjBib3VxdWV0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=82&h=82',
-          title: 'Gerberas',
+          img: 'https://images.unsplash.com/photo-1627386849179-64cef440c32e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y2hyeXNhbnRoZW11bXMlMjBib3VxdWV0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=82&h=82',
+          title: 'Chrysanthe-mums',
+        },
+        {
+          img: 'https://images.unsplash.com/photo-1539273251151-8fa6774835e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVvbnklMjBib3VxdWV0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=82&h=82',
+          title: 'Peony - shaped roses',
+        },
+        {
+          img: 'https://images.unsplash.com/photo-1610190441997-dac1fb499b8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YnVzaCUyMCUyMHJvc2VzJTIwYm91cXVldHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=82&h=82',
+          title: 'Bush roses',
+        },
+        {
+          img: 'https://images.unsplash.com/photo-1497276236755-0f85ba99a126?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hdHRpb2xpJTIwYm91cXVldHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=82&h=82',
+          title: 'Mattioli',
+        },
+        {
+          img: 'https://images.unsplash.com/photo-1534274265498-790499219879?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZXVzdG9tYXMlMjBib3VxdWV0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=82&h=82',
+          title: 'Eustomas',
+        },
+        {
+          img: 'https://images.unsplash.com/photo-1647188468717-b0ff88f584ea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGxpbGllcyUyMGJvdXF1ZXR8ZW58MHx8MHx8&auto=format&fit=crop&w=82&h=82',
+          title: 'Lilies',
+        },
+        {
+          img: 'https://images.unsplash.com/photo-1523694576729-dc99e9c0f9b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym91cXVldHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=82&h=82',
+          title: 'Alstrometry',
+        },
+        {
+          img: 'https://images.unsplash.com/photo-1593106388186-34642739d308?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGJvdXF1ZXQlMjBjYXJuYXRpb25zfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=82&h=82',
+          title: 'carnations',
+        },
+        {
+          img: 'https://images.unsplash.com/photo-1531120364508-a6b656c3e78d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Ym91cXVldCUyMGRyaWVkJTIwZmxvd2Vyc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=82&h=82',
+          title: 'Dried flowers',
+        },
+        {
+          img: 'https://images.unsplash.com/photo-1587052799510-68a2d2b28d12?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Ym91cXVldCUyMGZyZWVzaWFzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=100&q=60',
+          title: 'Freesias',
+        },
+        {
+          img: 'https://images.unsplash.com/photo-1561618375-3f70005077e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Ym91cXVldCUyMHN0YXRpY3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=82&h=82',
+          title: 'static',
+        },
+        {
+          img: 'https://images.unsplash.com/photo-1565320094903-6eae6e143bec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym91cXVldCUyMHN1Y2N1bGVudHN8ZW58MHx8MHx8&auto=format&fit=crop&w=82&h=82',
+          title: 'Freesias',
+        },
+        {
+          img: 'https://images.unsplash.com/photo-1497276236755-0f85ba99a126?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjN8fGJvdXF1ZXQlMjBkZWxwaGluaXVtc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=82&h=82',
+          title: 'delphiniums',
         },
       ],
       additionally: {
