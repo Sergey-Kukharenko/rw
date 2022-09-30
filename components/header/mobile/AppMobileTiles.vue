@@ -47,7 +47,6 @@ const classNames = computed(() => useClassName(props.options, 'list'));
 .list {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   gap: 9px;
   margin: 14px 0 16px;
 

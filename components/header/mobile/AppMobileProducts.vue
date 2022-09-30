@@ -132,7 +132,7 @@ const isAdditionally = computed(() => props?.section?.additionally?.title);
   font-family: $golos-regular;
   font-size: 12px;
   line-height: 12px;
-  padding: 0 4px;
+  padding: 0 2px;
   margin-top: 10px;
 }
 </style>
