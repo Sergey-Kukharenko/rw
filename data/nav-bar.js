@@ -196,7 +196,69 @@ export default [
       height: 16.67
     },
 
-    hasSubLevel: false,
+    hasSubLevel: true,
+    by: [
+      {
+        list: [
+          {
+            text: 'For mom',
+            icon: 'mom',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'For partner',
+            icon: 'partner',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'For friends',
+            icon: 'friends',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'For colleagues',
+            icon: 'colleagues',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'For Relatives',
+            icon: 'relatives',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'Grandparents',
+            icon: 'relatives',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'Dad',
+            icon: 'crown',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+        ]
+      },
+    ]
   },
   {
     title: 'Occasions',

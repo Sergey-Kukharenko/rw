@@ -21,7 +21,7 @@
 
       <app-menu-dropdown v-if="item.hasSubLevel">
         <app-menu-sections :section="item.by" v-slot="slotProps">
-          <app-menu-section :section="{ ...slotProps }" />
+          <app-menu-section :theme="isFull(item.title)" :section="{ ...slotProps }" />
         </app-menu-sections>
       </app-menu-dropdown>
     </div>
@@ -39,6 +39,8 @@ const props = defineProps({
     default: () => []
   }
 })
+
+const isFull = (value) => (value === 'Flowers') && 'full'
 </script>
 
 <style lang="scss" scoped>
@@ -72,17 +74,6 @@ const props = defineProps({
     }
 
     &:first-child {
-      //box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
-      //z-index: 3;
-      //
-      //& .dropdown {
-      //  display: block;
-      //}
-
-      & .content {
-        z-index: 2;
-      }
-
       &:not(:hover) {
         color: $color-dark-green;
       }
@@ -93,6 +84,19 @@ const props = defineProps({
         color: #f63866;
       }
     }
+
+    //&:nth-child(3) {
+    //  box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
+    //  z-index: 3;
+    //
+    //  & .dropdown {
+    //    display: block;
+    //  }
+    //
+    //  & .content {
+    //    z-index: 2;
+    //  }
+    //}
   }
 }
 

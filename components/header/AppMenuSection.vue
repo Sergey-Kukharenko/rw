@@ -1,8 +1,8 @@
 <template>
   <div class="section">
-    <div class="section__title">{{ props.section.title }}</div>
+    <div class="section__title" v-if="isTitle">{{ props.section.title }}</div>
 
-    <div class="section__list list">
+    <div :class="classNames">
       <div
         v-for="(item, idx) in props.section.list"
         :key="idx"
@@ -31,14 +31,23 @@
 </template>
 
 <script setup>
-import AppBadge from '@/components/shared/AppBadge.vue'
+import AppBadge from '@/components/shared/AppBadge.vue';
+import {useClassNameProp} from '../../composables/useClassNameProp';
 
 const props = defineProps({
   section: {
     type: Object,
     default: () => ({})
-  }
-})
+  },
+
+  theme: {
+    type: String,
+    default: ''
+  },
+});
+
+const isTitle = computed(() => props.section.title);
+const classNames = computed(() => useClassNameProp(props.theme, 'list'))
 </script>
 
 <style lang="scss" scoped>
@@ -58,11 +67,19 @@ const props = defineProps({
   display: grid;
   // gap: 0 40px;
   grid-auto-flow: column;
-  grid-template-rows: repeat(7, 32px);
+
   margin: 12px 0;
   padding: 0 16px;
   // border-left: 1px solid #eaeaea;
   position: relative;
+
+  &:not(&--full){
+    grid-template-rows: repeat(5, 32px);
+  }
+
+  &--full{
+    grid-template-rows: repeat(7, 32px);
+  }
 
   &__item {
     display: flex;
@@ -74,7 +91,7 @@ const props = defineProps({
   display: flex;
   align-items: center;
 
-  &__figure{
+  &__figure {
     width: 21px;
     height: 21px;
     flex-shrink: 0;
