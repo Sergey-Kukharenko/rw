@@ -268,7 +268,157 @@ export default [
       height: 16
     },
 
-    hasSubLevel: false,
+    hasSubLevel: true,
+    by: [
+      {
+        list: [
+          {
+            text: 'Anniversary flowers',
+            icon: 'anniversary',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'Apology flowers',
+            icon: 'apology',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'Baby flowers',
+            icon: 'baby',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'Birthday flowers',
+            icon: 'birthday',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'Congratulations flowers',
+            icon: 'friends',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'Friendship flowers',
+            icon: 'relatives',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'Get well flowers',
+            icon: 'face-mask',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'Good luck flowers',
+            icon: 'trophy',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'New home flowers',
+            icon: 'home',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'Retirement flowers',
+            icon: 'partner',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'Romantic flowers',
+            icon: 'mom',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'Surprise flowers',
+            icon: 'gift-card',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'Thank you flowers',
+            icon: 'colleagues',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'Thinking of you flowers',
+            icon: 'cloud',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'Sympathy flowers',
+            icon: 'partner',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'Valentine flowers',
+            icon: 'love',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'Funeral flowers',
+            icon: 'candle',
+            style: {
+              width: 20,
+              height: 20
+            },
+          },
+          {
+            text: 'Wedding',
+            icon: 'wedding',
+            style: {
+              width: 20,
+              height: 20
+            },
+          }
+        ]
+      },
+    ]
   },
   {
     title: 'Roses',

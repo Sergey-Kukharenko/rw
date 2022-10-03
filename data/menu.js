@@ -308,7 +308,7 @@ export default [
   },
   {
     type: 'occassions',
-    title: 'Occassions',
+    title: 'Occasions',
     icon: 'organizer',
     hasSubLevel: true,
     list: [

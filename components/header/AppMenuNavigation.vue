@@ -40,7 +40,7 @@ const props = defineProps({
   }
 })
 
-const isFull = (value) => (value === 'Flowers') && 'full'
+const isFull = (value) => (value === 'Flowers') ? 'full' : ''
 </script>
 
 <style lang="scss" scoped>
@@ -85,7 +85,7 @@ const isFull = (value) => (value === 'Flowers') && 'full'
       }
     }
 
-    //&:nth-child(3) {
+    //&:nth-child(4) {
     //  box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
     //  z-index: 3;
     //
