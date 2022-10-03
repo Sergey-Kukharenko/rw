@@ -1,10 +1,6 @@
 <template>
   <header>
     <app-drawer>
-<!--      <app-navigation/>-->
-<!--      <app-menu/>-->
-<!--      <app-nav-bar/>-->
-
       <div :class="classNames">
         <div class="content__layout content__layout--md">
           <div class="content__row nested-group">
@@ -38,9 +34,6 @@
 
 <script setup>
 import AppNotification from '@/components/header/AppNotification.vue';
-import AppNavigation from '@/components/header/AppNavigation.vue';
-import AppMenu from '@/components/header/AppMenu.vue';
-import AppNavBar from '@/components/header/AppNavBar.vue';
 import AppDrawer from '@/components/shared/AppDrawer.vue';
 
 import AppCall from '@/components/header/AppCall.vue';
