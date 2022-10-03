@@ -21,7 +21,7 @@
 
       <app-menu-dropdown v-if="item.hasSubLevel">
         <app-menu-sections :section="item.by" v-slot="slotProps">
-          <app-menu-section :theme="isFull(item.title)" :section="{ ...slotProps }" />
+          <app-menu-section :theme="setColumnSize(item.title)" :section="{ ...slotProps }"/>
         </app-menu-sections>
       </app-menu-dropdown>
     </div>
@@ -29,18 +29,27 @@
 </template>
 
 <script setup>
-import AppMenuDropdown from './AppMenuDropdown'
-import AppMenuSections from './AppMenuSections'
-import AppMenuSection from './AppMenuSection'
+import AppMenuDropdown from './AppMenuDropdown';
+import AppMenuSections from './AppMenuSections';
+import AppMenuSection from './AppMenuSection';
 
 const props = defineProps({
   list: {
     type: Array,
     default: () => []
   }
-})
+});
 
-const isFull = (value) => (value === 'Flowers') ? 'full' : ''
+const setColumnSize = (value) => {
+  switch (value) {
+    case 'Flowers':
+      return 'md';
+    case 'Roses':
+      return 'lg';
+    default:
+      return '';
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -84,19 +93,6 @@ const isFull = (value) => (value === 'Flowers') ? 'full' : ''
         color: #f63866;
       }
     }
-
-    //&:nth-child(4) {
-    //  box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
-    //  z-index: 3;
-    //
-    //  & .dropdown {
-    //    display: block;
-    //  }
-    //
-    //  & .content {
-    //    z-index: 2;
-    //  }
-    //}
   }
 }
 
@@ -109,6 +105,7 @@ const isFull = (value) => (value === 'Flowers') ? 'full' : ''
   padding: 8px 16px 13px;
   border-radius: 12px 12px 0 0;
   z-index: 2;
+  cursor: pointer;
 
   &__icon {
     display: block;

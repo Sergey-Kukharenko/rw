@@ -15,7 +15,10 @@
               v-bind:="item.style"
             />
           </div>
-          <div class="container__text">{{ item.text }}</div>
+          <div class="container__text">
+            {{ item.text }}
+            <span v-if="item.from" class="text-grey">- from £15</span>
+          </div>
           <app-badge
             v-if="item.status"
             class="container__badge"
@@ -47,7 +50,7 @@ const props = defineProps({
 });
 
 const isTitle = computed(() => props.section.title);
-const classNames = computed(() => useClassNameProp(props.theme, 'list'))
+const classNames = computed(() => useClassNameProp(props.theme, 'list'));
 </script>
 
 <style lang="scss" scoped>
@@ -65,31 +68,40 @@ const classNames = computed(() => useClassNameProp(props.theme, 'list'))
 
 .list {
   display: grid;
-  // gap: 0 40px;
   grid-auto-flow: column;
-
+  grid-template-rows: repeat(5, 32px);
   margin: 12px 0;
-  padding: 0 16px;
-  // border-left: 1px solid #eaeaea;
   position: relative;
 
-  &:not(&--full){
-    grid-template-rows: repeat(5, 32px);
+  &--md {
+    grid-template-rows: repeat(7, 32px);
   }
 
-  &--full{
-    grid-template-rows: repeat(7, 32px);
+  &--lg {
+    grid-template-rows: repeat(10, 32px);
   }
 
   &__item {
     display: flex;
-    padding-right: 40px;
+    padding: 0 40px 0 16px;
+    cursor: pointer;
+
+    &:hover {
+      .container {
+        transform: translateX(6px);
+      }
+    }
   }
+}
+
+.text-grey {
+  color: $color-white-grey;
 }
 
 .container {
   display: flex;
   align-items: center;
+  transition: transform .15s ease 0s;
 
   &__figure {
     width: 21px;
@@ -110,6 +122,14 @@ const classNames = computed(() => useClassNameProp(props.theme, 'list'))
 
   &__badge {
     margin-left: 6px;
+  }
+}
+
+.sections__item {
+  &:not(:first-child){
+    .list__item {
+      border-left: 1px solid #EAEAEA;
+    }
   }
 }
 </style>

@@ -428,7 +428,114 @@ export default [
       height: 16
     },
 
-    hasSubLevel: false,
+    hasSubLevel: true,
+    by: [
+      {
+        title: 'By quantity',
+        list: [
+          {
+            text: '15 roses',
+            from: '- from £15',
+          },
+          {
+            text: '21 roses',
+            from: '- from £25',
+          },
+          {
+            text: '25 roses',
+            from: '- from £30',
+          },
+          {
+            text: '35 roses',
+            from: '- from £35',
+          },
+          {
+            text: '41 roses',
+            from: '- from £40',
+          },
+          {
+            text: '51 roses',
+            from: '- from £45',
+          },
+          {
+            text: '71 roses',
+            from: '- from £55',
+          },
+          {
+            text: '101 roses',
+            from: '- from £70',
+          },
+          {
+            text: '151 roses',
+            from: '- from £90',
+          },
+          {
+            text: '201 roses',
+            from: '- from £110',
+          },
+        ]
+      },
+      {
+        title: 'By color',
+        list: [
+          {
+            text: 'Poor roses',
+          },
+          {
+            text: 'Red roses',
+          },
+          {
+            text: 'Cream roses',
+          },
+          {
+            text: 'Crimson roses',
+          },
+          {
+            text: 'Pink roses',
+          },
+          {
+            text: 'Multi-colored rose mix',
+          },
+        ]
+      },
+      {
+        title: 'By the look of roses',
+        list: [
+          {
+            text: 'Roses 40 cm',
+          },
+          {
+            text: 'Roses 50 cm',
+          },
+          {
+            text: 'Roses 60 cm',
+          },
+          {
+            text: 'Roses 70 cm',
+          },
+        ]
+      },
+      {
+        title: 'Categories',
+        list: [
+          {
+            text: 'Roses for my beloved',
+          },
+          {
+            text: 'Roses in the basket',
+          },
+          {
+            text: 'Roses in the form of a heart',
+          },
+          {
+            text: 'Roses for Mom',
+          },
+          {
+            text: 'Roses in a hatbox',
+          },
+        ]
+      },
+    ]
   },
   {
     title: 'Sales',

@@ -19,24 +19,5 @@ const props = defineProps({
 .sections {
   display: flex;
   margin: 0 -16px;
-
-  &__item {
-    position: relative;
-
-    &:not(:first-child) {
-      &::before {
-        content: '';
-        display: block;
-        width: 1px;
-        height: calc(100% - 86px);
-        background: #eaeaea;
-        position: absolute;
-        top: 40px;
-        left: 0;
-        bottom: 0;
-        margin: auto;
-      }
-    }
-  }
 }
 </style>
