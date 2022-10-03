@@ -22,7 +22,7 @@ import { useIsDevice } from '@/composables/states'
 import AppInput from './AppInput'
 import AppList from './AppList'
 import AppCitiesByDefault from './AppCitiesByDefault'
-import { woosMapService } from '@/helpers/woosMapService'
+import { woosMapService } from '@/services/woosMapService'
 
 const isDevice = useIsDevice()
 

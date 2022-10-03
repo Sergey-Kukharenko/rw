@@ -21,7 +21,10 @@
 
       <app-menu-dropdown v-if="item.hasSubLevel">
         <app-menu-sections :section="item.by" v-slot="slotProps">
-          <app-menu-section :theme="setColumnSize(item.title)" :section="{ ...slotProps }"/>
+          <app-menu-section
+            :theme="setColumnSize(item.title)"
+            :section="{ ...slotProps }"
+          />
         </app-menu-sections>
       </app-menu-dropdown>
     </div>
@@ -29,27 +32,27 @@
 </template>
 
 <script setup>
-import AppMenuDropdown from './AppMenuDropdown';
-import AppMenuSections from './AppMenuSections';
-import AppMenuSection from './AppMenuSection';
+import AppMenuDropdown from './AppMenuDropdown'
+import AppMenuSections from './AppMenuSections'
+import AppMenuSection from './AppMenuSection'
 
 const props = defineProps({
   list: {
     type: Array,
     default: () => []
   }
-});
+})
 
 const setColumnSize = (value) => {
   switch (value) {
     case 'Flowers':
-      return 'md';
+      return 'md'
     case 'Roses':
-      return 'lg';
+      return 'lg'
     default:
-      return '';
+      return ''
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
