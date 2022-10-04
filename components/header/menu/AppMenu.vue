@@ -1,9 +1,9 @@
 <template>
-  <div class="menu-navigation-list">
+  <div class="menu">
     <div
       v-for="item in props.list"
       :key="item.title"
-      class="menu-navigation-list__item"
+      class="menu__item"
       :class="{ 'has-sub-level': item.hasSubLevel }"
     >
       <div class="content">
@@ -56,7 +56,7 @@ const setColumnSize = (value) => {
 </script>
 
 <style lang="scss" scoped>
-.menu-navigation-list {
+.menu {
   display: flex;
   align-items: center;
   justify-content: center;

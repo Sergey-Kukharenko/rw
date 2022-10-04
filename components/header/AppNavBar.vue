@@ -3,7 +3,7 @@
     <div class="layout layout--horizontal-dt">
       <div class="navbar-list">
         <div class="navbar-list__item">
-          <app-menu-navigation :list="navBar" />
+          <app-menu :list="navBar" />
         </div>
         <div class="navbar-list__item content">
           <div class="content__static">
@@ -25,8 +25,8 @@
 
 <script setup>
 import dataNavBar from '@/data/nav-bar'
-import AppMenuNavigation from '@/components/header/AppMenuNavigation.vue'
-import AppSearch from '@/components/header/AppSearch.vue'
+import AppMenu from '~~/components/header/menu/AppMenu.vue'
+import AppSearch from '~~/components/header/search/AppSearch.vue'
 import AppCart from '@/components/header/AppCart.vue'
 import AppCall from '@/components/header/AppCall.vue'
 

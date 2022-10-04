@@ -21,7 +21,7 @@ const props = defineProps({
     type: Array,
     default: () => []
   }
-});
+})
 </script>
 
 <style lang="scss" scoped>

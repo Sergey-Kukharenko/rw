@@ -17,7 +17,7 @@
 <script setup>
 import AppDrawerNested from '@/components/header/mobile/AppDrawerNested'
 import AppAddress from '@/components/header/address/AppAddress.vue'
-import AppLocationButton from '@/components/header/AppLocationButton.vue'
+import AppLocationButton from '@/components/header/location/AppLocationButton.vue'
 
 const location = ref({
   city: '',

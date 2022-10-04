@@ -1,138 +1,81 @@
 <template>
-  <div class="search" v-click-outside="onHideSearchHistory">
-    <div class="layout">
-      <form class="search-form" @submit.prevent="onSubmit">
-        <input
-          autocomplete="off"
-          type="text"
-          name="name"
-          placeholder="Search for the best bouquet"
-          class="input"
-          v-model="query"
-          @focus="onShowSearchHistory"
-        />
-        <app-button theme="search" size="lg">Search</app-button>
-      </form>
+  <button class="button search" @click="open">
+    <SvgSprite symbol="search" class="button__icon" />
+    <span class="button__text">Search in Florа</span>
+  </button>
 
-      <div class="section" v-show="isSearchHistory">
-        <div class="section__title">Search history</div>
-        <div class="section__list">
-          <app-list
-            :list="searchHistory"
-            hasRemoveBtn
-            @removeItem="onRemoveItem"
-          />
-        </div>
-      </div>
-
-      <div class="section" v-show="isSearchResult">
-        <div class="section__title">Categories</div>
-        <div class="section__list">
-          <app-list :list="filteredList" @addItem="onAddItem" />
-        </div>
-      </div>
-
-      <app-not-found v-show="isNotFound" />
-    </div>
-  </div>
+  <app-modal
+    v-if="!isDevice"
+    :visible="isVisible"
+    @close="close"
+    theme="full"
+  >
+    <app-search-box />
+  </app-modal>
 </template>
 
 <script setup>
-import siteData from '@/data/site-data'
-import { useUserStore } from '@/stores/useUserStore'
-import AppButton from '@/components/shared/AppButton.vue'
-import AppList from './AppList.vue'
-import AppNotFound from './AppNotFound.vue'
+import { useIsDevice } from '@/composables/states'
+import AppModal from '@/components/shared/AppModal.vue'
+import AppSearchBox from '~~/components/header/search/AppSearchBox.vue'
+import {disableScroll, enableScroll} from '@/helpers/scrollLock';
 
-const data = ref(siteData)
+const isDevice = useIsDevice()
+const isVisible = ref(false)
 
-const query = ref('')
-const filteredList = computed(() => {
-  return data.value.filter((item) => {
-    return item.toLowerCase().includes(query.value.toLowerCase())
-  })
-})
-
-const isSearchResult = computed(() => {
-  return filteredList.value.length > 0 && query.value
-})
-
-const isNotFound = computed(() => {
-  return filteredList.value.length === 0 && query.value !== ''
-})
-
-const store = useUserStore()
-const searchHistory = computed(() => store.user.searchHistory)
-
-const showSearchHistory = ref(false)
-const isSearchHistory = computed(() => {
-  return (
-    searchHistory.value.length > 0 && showSearchHistory.value && !query.value
-  )
-})
-
-const onShowSearchHistory = () => (showSearchHistory.value = true)
-const onHideSearchHistory = () => (showSearchHistory.value = false)
-const clearQuery = () => (query.value = '')
-
-const onSubmit = () => {
-  store.addToHistory(query.value)
-  clearQuery()
+const open = () => {
+  isVisible.value = true
+  disableScroll()
 }
 
-const onRemoveItem = (payload) => {
-  store.removeFromHistory(payload)
-}
-
-const onAddItem = (payload) => {
-  store.addToHistory(payload)
-  clearQuery()
+const close = () => {
+  isVisible.value = false
+  enableScroll()
 }
 </script>
 
 <style lang="scss" scoped>
-.search {
-  background: #fff;
-  min-height: 376px;
-}
-
-.search-form {
+.button {
   display: flex;
-}
+  color: $color-dark-grey;
 
-.input {
-  width: 620px;
-  font-family: $golos-regular;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: -0.01em;
-  background: $bg-grey;
-  padding: 16px;
-  margin-right: 24px;
-  outline: none;
-  border: none;
-  border-radius: 10px;
-  box-sizing: border-box;
+  @include gt-sm {
+    padding: 10px 0;
+  }
 
-  &:focus {
-    &::placeholder {
-      opacity: 0;
+  @include lt-md {
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+  }
+
+  &:hover {
+    color: lighten($color-dark-grey, 20%);
+  }
+
+  &__icon {
+    @include gt-sm {
+      width: 18px;
+      height: 18px;
+      color: inherit;
+      fill: currentColor;
+    }
+
+    @include lt-md {
+      width: 20px;
+      height: 20px;
+      fill: $color-dark-grey;
     }
   }
-}
 
-.section {
-  display: flex;
-  margin: 16px 0;
-
-  &__title {
-    width: 164px;
-    padding-right: 10px;
-    font-family: $golos-regular;
+  &__text {
+    font-family: $golos-medium;
     font-size: 14px;
-    line-height: 24px;
-    color: $color-white-grey;
-    letter-spacing: -0.01em;
+    margin-left: 4px;
+
+    @include lt-md {
+      display: none;
+    }
   }
 }
 </style>

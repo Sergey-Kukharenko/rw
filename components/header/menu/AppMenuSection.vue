@@ -10,14 +10,11 @@
       >
         <div class="container">
           <div v-if="item.icon" class="container__figure">
-            <SvgSprite
-              :symbol="item.icon"
-              v-bind:="item.style"
-            />
+            <SvgSprite :symbol="item.icon" v-bind:="item.style" />
           </div>
           <div class="container__text">
             {{ item.text }}
-            <span v-if="item.from" class="text-grey">- from £15</span>
+            <span v-if="item.from" class="text-grey">{{ item.from }}</span>
           </div>
           <app-badge
             v-if="item.status"
@@ -34,8 +31,8 @@
 </template>
 
 <script setup>
-import AppBadge from '@/components/shared/AppBadge.vue';
-import {useClassNameProp} from '../../composables/useClassNameProp';
+import AppBadge from '@/components/shared/AppBadge.vue'
+import { useClassNameProp } from '../../../composables/useClassNameProp'
 
 const props = defineProps({
   section: {
@@ -46,11 +43,11 @@ const props = defineProps({
   theme: {
     type: String,
     default: ''
-  },
-});
+  }
+})
 
-const isTitle = computed(() => props.section.title);
-const classNames = computed(() => useClassNameProp(props.theme, 'list'));
+const isTitle = computed(() => props.section.title)
+const classNames = computed(() => useClassNameProp(props.theme, 'list'))
 </script>
 
 <style lang="scss" scoped>
@@ -101,7 +98,7 @@ const classNames = computed(() => useClassNameProp(props.theme, 'list'));
 .container {
   display: flex;
   align-items: center;
-  transition: transform .15s ease 0s;
+  transition: transform 0.15s ease 0s;
 
   &__figure {
     width: 21px;
@@ -126,9 +123,9 @@ const classNames = computed(() => useClassNameProp(props.theme, 'list'));
 }
 
 .sections__item {
-  &:not(:first-child){
+  &:not(:first-child) {
     .list__item {
-      border-left: 1px solid #EAEAEA;
+      border-left: 1px solid #eaeaea;
     }
   }
 }

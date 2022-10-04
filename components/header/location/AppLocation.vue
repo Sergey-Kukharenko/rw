@@ -1,6 +1,6 @@
 <template>
   <div class="location">
-    <app-location-button :location="location" @click="open"/>
+    <app-location-button :location="location" @click="open" />
 
     <app-modal :visible="isVisible" @close="close">
       <app-address />
@@ -11,8 +11,8 @@
 <script setup>
 import AppModal from '@/components/shared/AppModal.vue'
 import AppAddress from '@/components/header/address/AppAddress.vue'
-import AppLocationButton from '@/components/header/AppLocationButton.vue'
-import {disableScroll, enableScroll} from '@/helpers/scrollLock';
+import AppLocationButton from '@/components/header/location/AppLocationButton.vue'
+import { disableScroll, enableScroll } from '@/helpers/scrollLock'
 
 const location = ref({
   city: '',
@@ -43,5 +43,4 @@ provide('location', {
 </script>
 
 <style lang="scss" scoped>
-
 </style>

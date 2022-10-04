@@ -1,17 +1,17 @@
 <template>
-  <div class="menu">
+  <div class="multiply-navigation">
     <div class="layout layout--horizontal-dt">
-      <div class="menu-list">
-        <div class="menu-list__item">
+      <div class="multiply-navigation-list">
+        <div class="multiply-navigation-list__item">
           <app-logo />
         </div>
-        <div class="menu-list__item">
+        <div class="multiply-navigation-list__item">
           <app-location />
         </div>
-        <div class="menu-list__item">
+        <div class="multiply-navigation-list__item">
           <app-informer />
         </div>
-        <div class="menu-list__item">
+        <div class="multiply-navigation-list__item">
           <app-navigation-user />
         </div>
       </div>
@@ -21,13 +21,13 @@
 
 <script setup>
 import AppLogo from '@/components/header/AppLogo.vue'
-import AppLocation from '@/components/header/AppLocation.vue'
+import AppLocation from '~~/components/header/location/AppLocation.vue'
 import AppInformer from '@/components/header/AppInformer.vue'
 import AppNavigationUser from '@/components/header/AppNavigationUser'
 </script>
 
 <style lang="scss" scoped>
-.menu {
+.multiply-navigation {
   @include gt-sm {
     position: relative;
     z-index: 5;
@@ -36,7 +36,7 @@ import AppNavigationUser from '@/components/header/AppNavigationUser'
   }
 }
 
-.menu-list {
+.multiply-navigation-list {
   @include md {
     margin: 0 -8px;
   }
