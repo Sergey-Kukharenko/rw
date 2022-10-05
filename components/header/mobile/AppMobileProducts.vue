@@ -43,21 +43,17 @@ const props = defineProps({
     default: () => ({})
   },
 
-  options: {
-    type: Object,
-    default: () => ({})
+  size: {
+    type: String,
+    default: ''
   }
 });
 
-const classNames = computed(() => useClassName(props.options, 'list'));
+const classNames = computed(() => useClassNameProp(props.size, 'list'))
 const isAdditionally = computed(() => props?.section?.additionally?.title);
 </script>
 
 <style lang="scss" scoped>
-.section {
-  margin: 20px 0 0;
-}
-
 .header {
   font-family: $golos-bold;
   font-size: 14px;

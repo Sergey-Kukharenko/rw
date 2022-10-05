@@ -34,16 +34,17 @@ const isLink = computed(() => props.section?.link?.text)
 
 <style lang="scss" scoped>
 .section {
-  margin: 16px 0;
+  margin: 17px 0;
+  padding: 0 0 18px;
 
   &__link {
-    display: block;
+    display: none;
     font-family: $golos-regular;
     font-size: 14px;
     line-height: 20px;
     letter-spacing: -0.01em;
     color: $color-dark-green;
-    margin-bottom: 15px;
+    margin: 12px 0 -2px;
   }
 
   &--active {
@@ -51,7 +52,8 @@ const isLink = computed(() => props.section?.link?.text)
       transform: rotate(180deg);
     }
 
-    & .list {
+    & .list,
+    & .section__link {
       display: block;
     }
   }
@@ -78,7 +80,7 @@ const isLink = computed(() => props.section?.link?.text)
 
 .list {
   display: none;
-  margin: 5px 0;
+  margin: 5px 0 -6px;
 
   &__item {
     display: block;

@@ -14,7 +14,7 @@
       :section="props.categories"
       theme="outline"
     />
-    <app-mobile-products :section="props.products" :options="{ size: 'md' }" />
+    <app-mobile-products :section="props.products" size="md" />
     <app-mobile-section :section="props.by.look" />
     <app-mobile-section :section="props.by.height" />
   </div>
@@ -55,7 +55,7 @@ const props = defineProps({
 
   type: {
     type: String,
-    required: ''
+    default: ''
   }
 })
 
