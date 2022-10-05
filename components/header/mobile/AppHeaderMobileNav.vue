@@ -1,6 +1,6 @@
 <template>
   <div class="list nested-group">
-    <a class="list__item" v-for="item in navigation.main" :key="item.title">
+    <a class="list__item" v-for="item in navigation" :key="item.title">
       {{ item.title }}
       <span v-if="item.count" class="count">
         {{ item.count }}
@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import dataNavigation from '@/data/navigation'
+import dataNavigation from '@/data/navigationMobile'
 const navigation = ref(dataNavigation)
 </script>
 
