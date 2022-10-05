@@ -54,11 +54,10 @@ const classNames = computed(() =>
       height: 100vh;
       position: absolute;
       top: 0;
-      left: 0;
+      left: -100%;
       background: rgba(0, 0, 0, 0.7);
       z-index: 3;
       opacity: 0;
-      transform: translateX(-101%);
       transition: opacity 0.25s ease 0s, transform 0s ease 0.25s;
     }
   }
@@ -146,7 +145,7 @@ const classNames = computed(() =>
 .drawer--active .drawer__overlay {
   @include lt-md {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(100%);
     transition: opacity 0.25s ease 0s, transform 0s ease 0s;
   }
 }
