@@ -12,7 +12,7 @@
     <app-mobile-section :section="props.by.quantity" />
     <app-mobile-tiles
       :section="props.categories"
-      :options="{ theme: 'outline' }"
+      theme="outline"
     />
     <app-mobile-products :section="props.products" :options="{ size: 'md' }" />
     <app-mobile-section :section="props.by.look" />
@@ -21,8 +21,8 @@
 </template>
 
 <script setup>
-import AppMobileList from './AppMobileList'
 import AppMobileLink from './AppMobileLink'
+import AppMobileList from './AppMobileList'
 import AppMobileTiles from './AppMobileTiles'
 import AppMobileSection from './AppMobileSection'
 import AppMobileProducts from './AppMobileProducts'

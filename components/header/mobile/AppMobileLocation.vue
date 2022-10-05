@@ -49,8 +49,3 @@ watchEffect(() => {
   updateVisibility(isVisible.value)
 })
 </script>
-
-<style lang="scss" scoped>
-.location {
-}
-</style>

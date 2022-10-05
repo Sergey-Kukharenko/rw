@@ -25,13 +25,13 @@ const props = defineProps({
     default: () => ({})
   },
 
-  options: {
-    type: Object,
-    default: () => ({})
+  theme: {
+    type: String,
+    default: ''
   }
 });
 
-const classNames = computed(() => useClassName(props.options, 'list'));
+const classNames = computed(() => useClassNameProp(props.theme, 'list'));
 </script>
 
 <style lang="scss" scoped>
