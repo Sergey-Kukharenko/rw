@@ -11,6 +11,7 @@
 
 <script setup>
 import dataNavigation from '@/data/navigationMobile'
+
 const navigation = ref(dataNavigation)
 </script>
 
