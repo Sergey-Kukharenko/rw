@@ -71,4 +71,9 @@ const isRoses = computed(() => props.type === 'roses')
     border-bottom: 1px solid #dde0e6;
   }
 }
+
+//.section {
+//  padding: 18px 0;
+//  margin-bottom: 18px;
+//}
 </style>

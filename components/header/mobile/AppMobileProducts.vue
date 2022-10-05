@@ -54,6 +54,10 @@ const isAdditionally = computed(() => props?.section?.additionally?.title);
 </script>
 
 <style lang="scss" scoped>
+.section {
+  margin: 17px 0 0;
+}
+
 .header {
   font-family: $golos-bold;
   font-size: 14px;
