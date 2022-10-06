@@ -12,11 +12,11 @@
             v-model="query"
             @focus="onFocusIn"
           />
-          <app-button theme="search" size="lg" class="search__button"
-            >Search</app-button
-          >
+          <app-button v-if="!isDevice" theme="search" size="lg" class="search__button">
+            Search
+          </app-button>
         </form>
-        <button class="search__cancel cancel" @click="clearQuery">
+        <button v-if="isDevice" class="search__cancel cancel" @click="clearQuery">
           Cancel
         </button>
       </div>
@@ -128,26 +128,6 @@ const onAddItem = (payload) => {
 
   @include lt-md {
     margin-top: 12px;
-  }
-
-  &__button {
-    @include gt-sm {
-      display: block;
-    }
-
-    @include lt-md {
-      display: none;
-    }
-  }
-
-  &__cancel {
-    @include gt-sm {
-      display: none;
-    }
-
-    @include lt-md {
-      display: block;
-    }
   }
 }
 
