@@ -23,10 +23,17 @@ import AppButton from '@/components/shared/AppButton.vue'
 
 <style lang="scss" scoped>
 .not-found {
-  max-width: 464px;
   text-align: center;
-  padding: 60px 0 38px;
   margin: 0 auto;
+
+  @include gt-sm {
+    max-width: 464px;
+    padding: 60px 0 38px;
+  }
+
+  @include lt-md {
+    padding: 34px 0 38px;
+  }
 
   &__figure {
     max-width: 182px;
@@ -45,15 +52,32 @@ import AppButton from '@/components/shared/AppButton.vue'
 
   &__title {
     font-family: $golos-bold;
-    font-size: 24px;
-    line-height: 28px;
+
+    @include gt-sm {
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    @include lt-md {
+      font-size: 20px;
+      line-height: 24px;
+    }
   }
 
   &__desc {
     font-family: $golos-regular;
-    font-size: 16px;
-    line-height: 24px;
-    margin-top: 14px;
+
+    @include gt-sm {
+      font-size: 16px;
+      line-height: 24px;
+      margin-top: 14px;
+    }
+
+    @include lt-md {
+      font-size: 14px;
+      line-height: 20px;
+      margin-top: 12px;
+    }
   }
 
   &__text {

@@ -1,18 +1,25 @@
 <template>
-  <div class="search" v-click-outside="onHideSearchHistory">
-    <div class="layout">
-      <form class="search-form" @submit.prevent="onSubmit">
-        <input
-          autocomplete="off"
-          type="text"
-          name="name"
-          placeholder="Search for the best bouquet"
-          class="input"
-          v-model="query"
-          @focus="onShowSearchHistory"
-        />
-        <app-button theme="search" size="lg">Search</app-button>
-      </form>
+  <div class="search" v-click-outside="onFocusOut">
+    <div class="layout layout--md">
+      <div :class="classNames">
+        <form class="search-form" @submit.prevent="onSubmit">
+          <input
+            autocomplete="off"
+            type="text"
+            name="name"
+            placeholder="Search for the best bouquet"
+            class="input"
+            v-model="query"
+            @focus="onFocusIn"
+          />
+          <app-button theme="search" size="lg" class="search__button"
+            >Search</app-button
+          >
+        </form>
+        <button class="search__cancel cancel" @click="clearQuery">
+          Cancel
+        </button>
+      </div>
 
       <div class="section" v-show="isSearchHistory">
         <div class="section__title">Search history</div>
@@ -39,14 +46,21 @@
 
 <script setup>
 import siteData from '@/data/site-data'
+import { useIsDevice } from '@/composables/states'
 import { useUserStore } from '@/stores/useUserStore'
+
 import AppButton from '@/components/shared/AppButton.vue'
 import AppList from './AppList.vue'
 import AppNotFound from './AppNotFound.vue'
 
 const data = ref(siteData)
 
+const isDevice = useIsDevice()
+
+const isVisible = ref(false)
 const query = ref('')
+const showSearchHistory = ref(false)
+
 const filteredList = computed(() => {
   return data.value.filter((item) => {
     return item.toLowerCase().includes(query.value.toLowerCase())
@@ -64,15 +78,29 @@ const isNotFound = computed(() => {
 const store = useUserStore()
 const searchHistory = computed(() => store.user.searchHistory)
 
-const showSearchHistory = ref(false)
 const isSearchHistory = computed(() => {
   return (
     searchHistory.value.length > 0 && showSearchHistory.value && !query.value
   )
 })
 
-const onShowSearchHistory = () => (showSearchHistory.value = true)
-const onHideSearchHistory = () => (showSearchHistory.value = false)
+// const onShowSearchHistory = () => (showSearchHistory.value = true);
+// const onHideSearchHistory = () => (showSearchHistory.value = false);
+
+const classNames = computed(() =>
+  useToggleClassName(isVisible.value, 'search-group', 'active')
+)
+
+const onFocusIn = () => {
+  isVisible.value = true
+  showSearchHistory.value = true
+}
+
+const onFocusOut = () => {
+  isVisible.value = false
+  showSearchHistory.value = false
+}
+
 const clearQuery = () => (query.value = '')
 
 const onSubmit = () => {
@@ -93,46 +121,123 @@ const onAddItem = (payload) => {
 <style lang="scss" scoped>
 .search {
   background: #fff;
-  min-height: 376px;
+
+  @include gt-sm {
+    min-height: 376px;
+  }
+
+  @include lt-md {
+    margin-top: 12px;
+  }
+
+  &__button {
+    @include gt-sm {
+      display: block;
+    }
+
+    @include lt-md {
+      display: none;
+    }
+  }
+
+  &__cancel {
+    @include gt-sm {
+      display: none;
+    }
+
+    @include lt-md {
+      display: block;
+    }
+  }
+}
+
+.search-group {
+  display: flex;
+  width: 100%;
+
+  @include lt-md {
+    &--active {
+      & .cancel {
+        display: block;
+      }
+    }
+  }
 }
 
 .search-form {
   display: flex;
+
+  @include lt-md {
+    flex: 1;
+  }
 }
 
 .input {
-  width: 620px;
   font-family: $golos-regular;
   font-size: 14px;
   line-height: 20px;
   letter-spacing: -0.01em;
   background: $bg-grey;
-  padding: 16px;
-  margin-right: 24px;
   outline: none;
   border: none;
   border-radius: 10px;
   box-sizing: border-box;
+
+  @include gt-sm {
+    padding: 16px;
+  }
+
+  @include lt-md {
+    padding: 12px 16px;
+  }
 
   &:focus {
     &::placeholder {
       opacity: 0;
     }
   }
+
+  @include gt-sm {
+    width: 620px;
+    margin-right: 24px;
+  }
+
+  @include lt-md {
+    width: 100%;
+  }
 }
 
 .section {
-  display: flex;
-  margin: 16px 0;
+  @include gt-sm {
+    display: flex;
+    margin: 16px 0;
+  }
+
+  @include lt-md {
+    margin: 24px 0;
+  }
 
   &__title {
-    width: 164px;
-    padding-right: 10px;
     font-family: $golos-regular;
     font-size: 14px;
-    line-height: 24px;
     color: $color-white-grey;
     letter-spacing: -0.01em;
+
+    @include gt-sm {
+      width: 164px;
+      line-height: 24px;
+      padding-right: 10px;
+    }
   }
+}
+
+.cancel {
+  display: none;
+  font-family: $golos-regular;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.01em;
+  color: $color-white-grey;
+  margin-left: 8px;
 }
 </style>

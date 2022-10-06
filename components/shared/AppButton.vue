@@ -136,15 +136,6 @@ const classNames = computed(() => useClassName(props, 'button'))
       padding: 12px 16px;
       min-height: 48px;
     }
-
-    @include lt-md {
-      display: flex;
-      min-width: 32px;
-      min-height: 32px;
-      padding: 2px;
-      border-radius: 8px;
-      box-sizing: border-box;
-    }
   }
 
   &--lg {

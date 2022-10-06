@@ -4,68 +4,71 @@
       <div :class="classNames">
         <div class="content__layout content__layout--md">
           <div class="content__row nested-group">
-            <app-mobile-profile />
-            <app-search />
+            <app-mobile-profile/>
+            <nuxt-link to="/search" class="search">
+              <SvgSprite symbol="search" class="search__icon"/>
+            </nuxt-link>
           </div>
         </div>
         <div class="content__layout content__layout--md">
-          <app-mobile-location />
+          <app-mobile-location/>
         </div>
         <div class="content__layout">
-          <app-header-mobile-menu />
+          <app-header-mobile-menu/>
         </div>
         <div class="content__group">
-          <div class="content__separator" />
+          <div class="content__separator"/>
           <div class="content__layout">
-            <app-header-mobile-nav />
+            <app-header-mobile-nav/>
           </div>
         </div>
       </div>
     </app-drawer>
 
-    <app-logo />
-    <app-search />
-    <app-call />
-    <app-cart />
+    <app-logo/>
+    <nuxt-link to="/search" class="search">
+      <SvgSprite symbol="search" class="search__icon"/>
+    </nuxt-link>
+    <app-call/>
+    <app-cart/>
   </header>
 
-  <app-notification />
+  <app-notification/>
 </template>
 
 <script setup>
-import AppNotification from '@/components/header/AppNotification.vue'
-import AppDrawer from '@/components/shared/AppDrawer.vue'
+import AppNotification from '@/components/header/AppNotification.vue';
+import AppDrawer from '@/components/shared/AppDrawer.vue';
 
-import AppCall from '@/components/header/AppCall.vue'
-import AppLogo from '@/components/header/AppLogo.vue'
-import AppSearch from '~~/components/header/search/AppSearch.vue'
-import AppCart from '@/components/header/AppCart.vue'
+import AppCall from '@/components/header/AppCall.vue';
+import AppLogo from '@/components/header/AppLogo.vue';
+import AppCart from '@/components/header/AppCart.vue';
 
-import AppMobileLocation from './AppMobileLocation.vue'
-import AppHeaderMobileMenu from './AppHeaderMobileMenu.vue'
-import AppHeaderMobileNav from './AppHeaderMobileNav.vue'
-import AppMobileProfile from './AppMobileProfile'
+import AppMobileLocation from './AppMobileLocation.vue';
+import AppHeaderMobileMenu from './AppHeaderMobileMenu.vue';
+import AppHeaderMobileNav from './AppHeaderMobileNav.vue';
+import AppMobileProfile from './AppMobileProfile';
 
-const isVisible = ref(false)
+const isVisible = ref(false);
 const classNames = computed(() =>
   useToggleClassName(isVisible.value, 'content', 'active')
-)
+);
 
 const open = () => {
-  isVisible.value = true
-}
+  isVisible.value = true;
+};
 
 const close = () => {
-  isVisible.value = false
-}
+  isVisible.value = false;
+};
 
 const updateVisibility = (payload) => {
-  isVisible.value = payload
-}
+  isVisible.value = payload;
+};
 
 provide('visibility', {
   updateVisibility
-})
+});
 </script>
 
 <style lang="scss" scoped>
@@ -128,6 +131,14 @@ header {
       opacity: 0;
       transition: opacity 0.15s ease 0s;
     }
+  }
+}
+
+.search {
+  &__icon {
+    width: 20px;
+    height: 20px;
+    fill: $color-dark-grey;
   }
 }
 </style>
