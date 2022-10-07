@@ -45,8 +45,8 @@ const close = () => {
   }
 
   &__icon {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     color: inherit;
     fill: currentColor;
   }
@@ -54,7 +54,7 @@ const close = () => {
   &__text {
     font-family: $golos-medium;
     font-size: 14px;
-    margin-left: 4px;
+    margin-left: 3px;
 
     @include lt-md {
       display: none;

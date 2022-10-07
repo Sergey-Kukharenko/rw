@@ -57,9 +57,9 @@ const data = ref(siteData)
 
 const isDevice = useIsDevice()
 
-const isVisible = ref(false)
 const query = ref('')
 const showSearchHistory = ref(false)
+const isVisible = ref(false)
 
 const filteredList = computed(() => {
   return data.value.filter((item) => {
@@ -84,9 +84,6 @@ const isSearchHistory = computed(() => {
   )
 })
 
-// const onShowSearchHistory = () => (showSearchHistory.value = true);
-// const onHideSearchHistory = () => (showSearchHistory.value = false);
-
 const classNames = computed(() =>
   useToggleClassName(isVisible.value, 'search-group', 'active')
 )
@@ -104,6 +101,7 @@ const onFocusOut = () => {
 const clearQuery = () => (query.value = '')
 
 const onSubmit = () => {
+  if(!query.value) return
   store.addToHistory(query.value)
   clearQuery()
 }

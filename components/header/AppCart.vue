@@ -48,9 +48,9 @@ const classNames = computed(() => [
     align-items: center;
     justify-content: center;
     order: 4;
-    padding: 8px;
+    padding: 6px;
     color: black;
-    margin-right: -8px;
+    margin-right: -6px;
   }
 
   &:hover {

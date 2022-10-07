@@ -135,6 +135,12 @@ header {
 }
 
 .search {
+  padding: 6px;
+
+  &:last-child {
+    margin-right: -6px;
+  }
+
   &__icon {
     width: 20px;
     height: 20px;

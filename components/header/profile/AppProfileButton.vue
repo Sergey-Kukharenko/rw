@@ -82,6 +82,10 @@ const classNames = computed(() => [
       line-height: 16px;
       text-align: center;
       margin-top: 7px;
+
+      &:hover {
+        opacity: 0.75;
+      }
     }
 
     @include lt-md {
@@ -90,10 +94,6 @@ const classNames = computed(() => [
       line-height: 16px;
       margin-left: 8px;
     }
-  }
-
-  &:hover {
-    opacity: 0.75;
   }
 
   &--active {

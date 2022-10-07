@@ -83,14 +83,14 @@ const classNames = computed(() => useClassName(props, 'modal'))
       box-shadow: 0 4px 8px rgb(0 0 0 / 4%);
     }
 
-    .modal__layout{
+    .modal__layout {
       max-width: 1080px;
       margin: 0 auto;
       position: relative;
     }
 
     & .button {
-      padding: 18px;
+      padding: 12px;
       background: $bg-grey;
       top: 24px;
       right: 0;
@@ -100,8 +100,8 @@ const classNames = computed(() => useClassName(props, 'modal'))
       }
 
       &__icon {
-        width: 12px;
-        height: 12px;
+        width: 24px;
+        height: 24px;
         color: $color-dark-grey;
         fill: currentColor;
       }
@@ -114,7 +114,7 @@ const classNames = computed(() => useClassName(props, 'modal'))
   top: 0;
   right: -62px;
   color: #8b8b8b;
-  padding: 20px;
+  padding: 14px;
   background: rgb(0 0 0 / 50%);
   border-radius: 50%;
 
@@ -123,8 +123,8 @@ const classNames = computed(() => useClassName(props, 'modal'))
   }
 
   &__icon {
-    height: 16px;
-    width: 16px;
+    height: 28px;
+    width: 28px;
     color: #fff;
     fill: currentColor;
   }

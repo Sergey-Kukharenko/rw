@@ -65,13 +65,12 @@ const remove = (item) => emit('removeItem', item)
 }
 
 .button {
-  width: 10px;
-  height: 10px;
+  width: 16px;
+  height: 16px;
   margin-left: 10px;
 
   @include gt-sm {
     opacity: 0;
-    padding: 4px;
     transform: scale(0.8);
     transition: opacity 0.2s ease-out 0s, transform 0.2s ease-out 0s;
 

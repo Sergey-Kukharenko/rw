@@ -52,7 +52,7 @@ const getDescription = computed(() =>
 
   @include lt-md {
     padding: 12px;
-    margin: 16px 0;
+    margin: 16px 0 8px;
   }
 
   &:hover {

@@ -30,6 +30,7 @@ const isDevice = useIsDevice();
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 6px;
   }
 
   &__icon {
@@ -37,7 +38,6 @@ const isDevice = useIsDevice();
       width: 20px;
       height: 20px;
       fill: $color-dark-grey;
-      padding: 8px;
     }
   }
 }
