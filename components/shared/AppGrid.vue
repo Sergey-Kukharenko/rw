@@ -22,7 +22,7 @@ const props = defineProps({
   @include gt-sm {
     grid-template-columns: repeat(auto-fill, minmax(22%, 1fr));
     grid-gap: 16px;
-    row-gap: 32px;
+    row-gap: 40px;
   }
 
   @include sm {
@@ -33,8 +33,8 @@ const props = defineProps({
 
   @include xs {
     grid-template-columns: repeat(auto-fill, minmax(48%, 1fr));
-    grid-gap: 10px;
-    row-gap: 12px;
+    grid-gap: 8px;
+    row-gap: 8px;
   }
 }
 </style>
