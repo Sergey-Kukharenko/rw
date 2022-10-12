@@ -52,7 +52,7 @@ const classNames = computed(() =>
   &__overlay {
     width: 100vw;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: -100%;
     background: rgba(0, 0, 0, 0.7);
@@ -87,7 +87,7 @@ const classNames = computed(() =>
     @include lt-md {
       width: 100%;
       height: 0;
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       z-index: 4;

@@ -4,8 +4,15 @@ body {
 }
 
 .layout {
-  max-width: 1080px;
   margin: 0 auto;
+
+  @include gt-md {
+    max-width: 1080px;
+  }
+
+  //@include lt-md {
+  //  max-width: 414px;
+  //}
 
   @include gt-xs {
     padding: $gap-ds;
