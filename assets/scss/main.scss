@@ -10,10 +10,6 @@ body {
     max-width: 1080px;
   }
 
-  //@include lt-md {
-  //  max-width: 414px;
-  //}
-
   @include gt-xs {
     padding: $gap-ds;
   }
