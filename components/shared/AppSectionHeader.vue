@@ -1,7 +1,7 @@
 <template>
   <h2 class="title">
     <span class="title__text">{{ props.headerProps.title }}</span>
-    <span class="title__number">{{ props.headerProps.count }}</span>
+    <span v-if="props.headerProps.count" class="title__number">{{ props.headerProps.count }}</span>
   </h2>
 </template>
 
