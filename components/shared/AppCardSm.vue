@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card__figure">
-      <img :src="props.slide.img" :alt="props.slide.img" class="card__img" />
+      <img :src="props.slide.img" :alt="props.slide.img" class="card__img"/>
     </div>
 
     <div class="card__title">{{ props.slide.title }}</div>
@@ -14,7 +14,7 @@ const props = defineProps({
     type: Object,
     default: () => ({})
   }
-})
+});
 </script>
 
 <style lang="scss" scoped>

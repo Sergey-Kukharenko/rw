@@ -45,6 +45,7 @@ const popular = computed(() => useSwap(isMobile.value, dataPopularCategories, 1,
 
   @include xs {
     display: block;
+    margin-top: 0;
   }
 }
 

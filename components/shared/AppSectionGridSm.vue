@@ -7,8 +7,6 @@
 </template>
 
 <script setup>
-import { useClassNameProp } from '../../composables/useClassNameProp'
-
 const props = defineProps({
   slides: {
     type: Array,
@@ -19,9 +17,9 @@ const props = defineProps({
     type: String,
     default: ''
   }
-})
+});
 
-const classNames = computed(() => useClassNameProp(props.theme, 'grid'))
+const classNames = computed(() => useClassNameProp(props.theme, 'grid'));
 </script>
 
 <style lang="scss" scoped>
@@ -52,6 +50,29 @@ const classNames = computed(() => useClassNameProp(props.theme, 'grid'))
       @include lt-md {
         flex: 1 1 48%;
       }
+    }
+  }
+
+  &--custom {
+    .grid__item {
+      @include gt-sm {
+        flex: 1 1 13%;
+      }
+
+      @include lt-md {
+        flex: 1 1 30%;
+      }
+
+      &:nth-child(1),
+      &:nth-child(2) {
+        @include lt-md {
+          flex: 1 1 30%;
+        }
+      }
+    }
+
+    .card__title{
+      margin-top: 8px;
     }
   }
 }
