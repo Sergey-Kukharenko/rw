@@ -1,6 +1,6 @@
 <template>
   <section class="layout shop-by-price">
-    <h2 class="title shop-by-price__title">
+    <h2 class="shop-by-price__title">
       {{ shopByPrice.title }}
     </h2>
 
@@ -13,12 +13,12 @@
         <div class="card">
           <div class="card__figure">{{ item.type }}</div>
           <div class="card__group">
-            <div class="title card__title">
+            <h2 class="card__title">
               {{ item.title }}
-              <span v-if="item.currency" class="currency">{{
-                item.currency
-              }}</span>
-            </div>
+              <span v-if="item.currency" class="currency">
+                {{ item.currency }}
+              </span>
+            </h2>
             <a class="card__link">{{ item.link }}</a>
           </div>
         </div>
@@ -28,27 +28,14 @@
 </template>
 
 <script setup>
-import dataShopByPrice from '@/data/shop-by-price'
+import dataShopByPrice from '@/data/shop-by-price';
 
-const shopByPrice = ref(dataShopByPrice)
+const shopByPrice = ref(dataShopByPrice);
 </script>
 
 <style lang="scss" scoped>
-.title {
-  font-family: $Literata;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 28px;
-  line-height: 32px;
-  margin: 0;
-}
-
 .shop-by-price {
   &__title {
-    @include gt-sm {
-      margin-bottom: 24px;
-    }
-
     @include lt-md {
       display: none;
     }
@@ -118,9 +105,6 @@ const shopByPrice = ref(dataShopByPrice)
     }
   }
 
-  &__group {
-  }
-
   &__title {
     @include gt-sm {
       margin: 4px 0;
@@ -135,7 +119,6 @@ const shopByPrice = ref(dataShopByPrice)
 
   &__link {
     font-family: $golos-medium;
-
     color: $color-dark-green;
 
     @include gt-sm {
