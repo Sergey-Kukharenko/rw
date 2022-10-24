@@ -8,6 +8,8 @@
     <app-section :section="underPounds" theme="custom" />
     <app-shop-by-price />
     <app-section-sm :section="pickBouquet" theme="custom" />
+
+<!--    <app-reviews/>-->
   </main>
 </template>
 
